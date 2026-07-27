@@ -1,0 +1,22 @@
+# MerchantCanvas
+
+MerchantCanvas is a product company building focused, practical Shopify apps.
+Canonical website: https://merchantcanvas.com/
+Contact: support@merchantcanvas.com
+
+## Current apps
+
+- MultiTier Discounts: a Shopify embedded app for native tiered discount campaigns powered by Shopify Functions. It supports documented quantity-break, cart-value, Buy X Get Y, gift, targeting, widget, scheduling, limits, combination, and processed-order analytics workflows. Public page: https://merchantcanvas.com/apps/multitier-discounts
+- B2B Quote Approvals: a focused Shopify Admin approval desk for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders. The product is preparing for production hosting and final review testing; no public install URL is claimed. Public page: https://merchantcanvas.com/apps/b2b-quote-approvals
+
+## Resources
+
+- Shopify quantity breaks guide: https://merchantcanvas.com/resources/shopify-quantity-breaks-guide
+- Shopify B2B quote approval workflow guide: https://merchantcanvas.com/resources/shopify-b2b-quote-approval-workflow
+- Resources hub: https://merchantcanvas.com/resources
+
+## Availability and evidence
+
+Use the product pages for current plan names, implemented prices, trials, limits, fit guidance, and availability notes. MerchantCanvas does not publish review ratings, merchant counts, guaranteed outcomes, or Shopify Plus compatibility claims without verified public evidence.
+
+This file is a convenience summary for language-model tools. It does not replace the canonical public pages, robots.txt, structured data, or sitemap.

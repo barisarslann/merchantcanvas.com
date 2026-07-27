@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">MerchantCanvas logo direction 3 — Joinery</title>
+  <desc id="desc">Fitted rails construct an abstract structural letter M.</desc>
+  <rect width="640" height="420" fill="#F2EEE6"/>
+  <path d="M64 58H278V59H64ZM64 361H576V362H64Z" fill="#D8D2C8"/>
+  <g transform="translate(69 97) scale(2.55)">
+    <path d="M6 8H18V56H6Z" fill="#18252F"/>
+    <path d="M46 8H58V56H46Z" fill="#18252F"/>
+    <path d="M18 8H27L38 24L31 34L18 19Z" fill="#18252F"/>
+    <path d="M46 8H37L26 24L33 34L46 19Z" fill="#4B7C75"/>
+  </g>
+  <text x="310" y="138" fill="#69757A" font-family="Arial, sans-serif" font-size="12" letter-spacing="2">DIRECTION 03</text>
+  <text x="310" y="183" fill="#18252F" font-family="Arial, sans-serif" font-size="42" font-weight="600">Joinery</text>
+  <text x="310" y="223" fill="#31414A" font-family="Arial, sans-serif" font-size="17">An M assembled through fitted</text>
+  <text x="310" y="248" fill="#31414A" font-family="Arial, sans-serif" font-size="17">parts rather than drawn literally.</text>
+  <text x="64" y="390" fill="#69757A" font-family="monospace" font-size="11" letter-spacing="1.5">CRAFT-LED / STRONG MONOCHROME</text>
+</svg>

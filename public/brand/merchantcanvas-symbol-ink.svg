@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">MerchantCanvas compact symbol in ink</title>
+  <desc id="desc">One-color dark MerchantCanvas register symbol.</desc>
+  <path fill="#18252F" d="M6 6H28V16H16V28H6Z M36 6H58V28H48V16H36Z M6 36H16V48H28V58H6Z M48 36H58V58H36V48H48Z"/>
+</svg>
