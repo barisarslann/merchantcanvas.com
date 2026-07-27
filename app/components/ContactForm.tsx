@@ -1,11 +1,22 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { siteConfig } from "../content/site";
 import { trackEvent } from "./Analytics";
 
 export function ContactForm() {
   const [status, setStatus] = useState("");
+  const topicRef = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    const product = new URLSearchParams(window.location.search).get("product");
+    if (product === "b2b-quote-approvals" && topicRef.current) {
+      topicRef.current.value = "B2B Quote Approvals launch update";
+    }
+    if (product === "multitier-discounts" && topicRef.current) {
+      topicRef.current.value = "MultiTier Discounts availability";
+    }
+  }, []);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -57,7 +68,11 @@ export function ContactForm() {
       </label>
       <label>
         What are you exploring?
-        <select name="topic" defaultValue="MultiTier Discounts availability">
+        <select
+          ref={topicRef}
+          name="topic"
+          defaultValue="MultiTier Discounts availability"
+        >
           <option>MultiTier Discounts availability</option>
           <option>B2B Quote Approvals launch update</option>
           <option>Agency or multi-store evaluation</option>

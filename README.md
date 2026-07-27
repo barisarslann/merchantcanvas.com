@@ -1,27 +1,47 @@
 # MerchantCanvas
 
-The website and production brand system for MerchantCanvas, an independent
-product studio building focused Shopify apps.
+The portfolio website and production brand system for MerchantCanvas, an
+independent product studio building focused Shopify apps.
 
-Brand assets and usage guidance live in [`docs/brand`](docs/brand/README.md).
-Production-ready SVG and PNG files live in [`public/brand`](public/brand).
+The site runs on vinext and is published through Sites. It can also be exported
+as a static Next.js application for Cloudflare Pages. Brand assets and usage
+guidance live in [`docs/brand`](docs/brand/README.md); production SVG and PNG
+files live in [`public/brand`](public/brand).
 
 > **Pre-launch:** The owner must perform a professional trademark/conflict check
 > before the MerchantCanvas name or logo is used commercially. The visual review
 > completed in this repository is not a legal clearance.
 
-## Development
+## Local development
 
-This site runs on vinext and requires Node.js `>=22.13.0`.
+Use Node.js `>=22.13.0`.
 
 ```bash
 npm install
 npm run dev
-npm run build
+npm run typecheck
+npm run lint
 npm test
 ```
 
-## Optional public configuration
+The local development server defaults to `http://localhost:3000`.
+
+## Deployment
+
+The primary deployment uses the Sites project recorded in
+`.openai/hosting.json`. A Cloudflare Pages static export remains available as an
+alternative:
+
+- Build command: `npm run build:pages`
+- Output directory: `out`
+- Recommended Node version: `22.13.0` or newer
+
+Copy the required public values from `.env.example` into Cloudflare Pages
+environment variables before the production build. Values prefixed with
+`NEXT_PUBLIC_` are intentionally shipped to the browser and must never contain
+secrets.
+
+## Public configuration
 
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_CONTACT_EMAIL`
@@ -33,12 +53,78 @@ npm test
 - `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL`
 - `NEXT_PUBLIC_META_PIXEL_ID`
 
-Analytics integrations remain consent-gated. Product install calls to action
-fall back to the contact flow when an install URL is not configured.
+Install calls to action fall back to the contact flow when an official public
+install URL is not configured. That fallback is deliberate: the repository
+does not invent Shopify App Store links.
+
+## Analytics and attribution
+
+Google Tag Manager, GA4, Google Ads, and Meta Pixel are optional. No analytics
+or advertising script is loaded until a visitor accepts analytics cookies.
+The implementation preserves common attribution parameters such as `utm_*`,
+`gclid`, and `fbclid` across internal conversion links.
+
+Supported intent events include:
+
+- `view_product`
+- `select_app`
+- `contact_intent`
+- `lead_submit`
+
+The contact form is a static, accessible mail-client handoff. It does not claim
+that a message was stored or transmitted by a server.
+
+## Crawler policy
+
+`public/robots.txt` allows ordinary search crawlers and explicitly lists
+Googlebot, Bingbot, OAI-SearchBot, and GPTBot. OAI-SearchBot is used for OpenAI
+search discovery; GPTBot is listed separately because model-training controls
+are a different policy choice. Review this policy before launch if the
+business's preferences change.
+
+The site also ships:
+
+- `public/sitemap.xml`
+- `public/llms.txt`
+- canonical URLs and social metadata
+- Organization, SoftwareApplication, and Article structured data
+
+`llms.txt` is a concise convenience summary for systems that choose to read it;
+it is not treated as an access-control mechanism.
+
+## Product evidence
+
+Public claims were checked against the two sibling product repositories:
+
+- `F:\Shopify\multi-tier-discounts`
+- `F:\Shopify\b2b-quote-approvals`
+
+The public site includes only verified capabilities and prices. MultiTier
+Discounts uses approved product screenshots from its user-guide assets. B2B
+Quote Approvals uses workflow diagrams and written UI descriptions because no
+approved public screenshots were available. No fabricated ratings, reviews,
+customer logos, install counts, or performance claims are included.
+
+## Pre-launch owner checklist
+
+- Connect the final custom domain and DNS records to the chosen production host.
+- Confirm that the public contact address forwards to the right inbox.
+- Add the official Shopify App Store or install URLs when they are live.
+- Reconfirm every public price, trial period, limit, and package name.
+- Replace or expand visuals only with approved real product screenshots or demos.
+- Add customer proof only after permission and source verification.
+- Complete legal review of the privacy notice, terms, consent wording, and
+  trademark/conflict position.
+- Add the production GTM, GA4, Google Ads, and Meta Pixel identifiers and confirm
+  ownership of the associated analytics and advertising accounts.
+- Run final production-domain checks for forms, consent, analytics events,
+  canonical URLs, social previews, sitemap, and robots rules.
 
 ## Repository structure
 
-- `app/` — website routes, shared components, metadata, and content
+- `app/` — routes, shared components, metadata, analytics, and content
 - `public/brand/` — active MerchantCanvas production identity
-- `docs/brand/` — rationale, explorations, guidance, and visual proofs
-- `.openai/hosting.json` — Sites deployment configuration
+- `public/images/` — verified product imagery
+- `docs/brand/` — brand rationale, explorations, guidance, and visual proofs
+- `tests/` — rendered-route, metadata, discovery-file, and asset checks
+- `.openai/hosting.json` — Sites project and deployment metadata
