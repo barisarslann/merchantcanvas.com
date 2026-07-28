@@ -5,7 +5,7 @@ import { siteConfig } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "Contact MerchantCanvas",
+  "Contact MerchantCanvas about a Shopify workflow",
   "Ask about MultiTier Discounts, B2B Quote Approvals, agency evaluation, app availability, or a specific Shopify workflow.",
   "/contact",
 );
@@ -16,7 +16,7 @@ export default function ContactPage() {
       <section className="page-hero page-hero-contact">
         <div className="container narrow">
           <p className="eyebrow">Contact MerchantCanvas</p>
-          <h1>Start with the workflow you need to improve.</h1>
+          <h1>Talk through the Shopify workflow you need to improve.</h1>
           <p className="page-lead">
             Tell us what the store or client is trying to run, where the current
             process breaks, and which product you are considering. You will get

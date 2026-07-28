@@ -10,7 +10,7 @@
     "build": "vinext build",
     "build:pages": "next build",
     "start": "vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/routes-and-discovery.test.mjs",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/routes-and-discovery.test.mjs tests/seo-aeo.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .agents",
     "db:generate": "drizzle-kit generate"

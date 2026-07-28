@@ -52,6 +52,7 @@ export type Product = {
   resource: {
     title: string;
     href: string;
+    linkLabel: string;
     description: string;
   };
   screenshots?: {
@@ -70,10 +71,11 @@ export const products: Record<Product["slug"], Product> = {
     shortName: "MultiTier",
     category: "Promotions",
     accent: "coral",
-    eyebrow: "Shopify promotion operations",
-    headline: "Run tiered Shopify promotions without setup sprawl.",
+    eyebrow: "Shopify tiered promotions",
+    headline:
+      "Create Shopify tiered discounts and quantity-break campaigns without setup sprawl.",
     definition:
-      "MultiTier Discounts is a Shopify embedded app for native tiered discount campaigns powered by Shopify Functions.",
+      "MultiTier Discounts is a Shopify embedded app for tiered, quantity-break, cart-value, Buy X Get Y, and gift promotions with Shopify Functions-based checkout logic.",
     summary:
       "Build buy-more-save-more, quantity-break, cart-value, Buy X Get Y, and gift campaigns with precise targeting, storefront guidance, and checkout logic that stays in Shopify.",
     primaryAction: "Ask about availability",
@@ -222,6 +224,7 @@ export const products: Record<Product["slug"], Product> = {
     resource: {
       title: "Shopify quantity breaks: a practical planning guide",
       href: "/resources/shopify-quantity-breaks-guide",
+      linkLabel: "Plan Shopify quantity breaks",
       description:
         "Choose a tier structure, protect margin, decide when Shopify Functions are useful, and test the full storefront path.",
     },
@@ -254,9 +257,9 @@ export const products: Record<Product["slug"], Product> = {
     accent: "blue",
     eyebrow: "Shopify B2B sales operations",
     headline:
-      "Move wholesale quotes through approvals and into Shopify draft orders.",
+      "Approve Shopify B2B quotes and turn agreed terms into draft orders.",
     definition:
-      "B2B Quote Approvals is a focused Shopify Admin approval desk for creating, reviewing, approving, sharing, and converting wholesale quotes.",
+      "B2B Quote Approvals is a Shopify Admin app for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders.",
     summary:
       "Keep buyer context, proposed pricing, PO details, approval decisions, revisions, and the draft-order handoff in one operational trail instead of an inbox-and-spreadsheet chain.",
     primaryAction: "Request a launch update",
@@ -404,6 +407,7 @@ export const products: Record<Product["slug"], Product> = {
     resource: {
       title: "A practical Shopify B2B quote approval workflow",
       href: "/resources/shopify-b2b-quote-approval-workflow",
+      linkLabel: "Plan a Shopify B2B quote approval workflow",
       description:
         "Map the handoffs from request to approval, revision, draft order, and buyer decision without building a second commerce system.",
     },
@@ -424,6 +428,7 @@ export const resources = [
     readingTime: "9 min read",
     reviewed: "27 July 2026",
     href: "/resources/shopify-quantity-breaks-guide",
+    linkLabel: "Read the quantity-break planning guide",
     accent: "coral",
   },
   {
@@ -437,6 +442,7 @@ export const resources = [
     readingTime: "10 min read",
     reviewed: "27 July 2026",
     href: "/resources/shopify-b2b-quote-approval-workflow",
+    linkLabel: "Read the B2B quote workflow guide",
     accent: "blue",
   },
 ] as const;

@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArticleLayout } from "../../components/ArticleLayout";
+import { TrackedLink } from "../../components/TrackedLink";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "A practical Shopify B2B quote approval workflow";
@@ -30,7 +30,7 @@ export default function B2BQuoteWorkflowGuidePage() {
       ]}
     >
       <p className="answer-first">
-        A useful Shopify B2B quote approval workflow moves a request through
+        A Shopify B2B quote approval workflow moves a wholesale request through
         defined states—intake, review, approval, buyer decision, and draft-order
         conversion—while keeping buyer, company, pricing, PO, expiry, and
         revision context attached to the same record. The workflow should make
@@ -241,9 +241,17 @@ export default function B2BQuoteWorkflowGuidePage() {
             Shopify draft-order conversion.
           </p>
         </div>
-        <Link className="button button-primary" href="/apps/b2b-quote-approvals">
+        <TrackedLink
+          className="button button-primary"
+          href="/apps/b2b-quote-approvals"
+          eventName="select_app"
+          eventData={{
+            product: "b2b-quote-approvals",
+            placement: "resource_guide_cta",
+          }}
+        >
           Explore B2B Quote Approvals
-        </Link>
+        </TrackedLink>
       </div>
     </ArticleLayout>
   );

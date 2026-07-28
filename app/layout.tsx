@@ -5,6 +5,11 @@ import { SiteFooter } from "./components/SiteFooter";
 import { SiteHeader } from "./components/SiteHeader";
 import { StructuredData } from "./components/StructuredData";
 import { siteConfig } from "./content/site";
+import {
+  absoluteUrl,
+  organizationId,
+  websiteId,
+} from "./lib/metadata";
 import "./globals.css";
 import "./brand-system.css";
 
@@ -58,13 +63,27 @@ export const viewport: Viewport = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  legalName: siteConfig.legalName,
-  url: siteConfig.url,
-  email: siteConfig.email,
-  description: siteConfig.description,
-  logo: `${siteConfig.url}/brand/merchantcanvas-app-icon-512.png`,
+  "@graph": [
+    {
+      "@id": organizationId,
+      "@type": "Organization",
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      url: absoluteUrl("/"),
+      email: siteConfig.email,
+      description: siteConfig.description,
+      logo: absoluteUrl("/brand/merchantcanvas-app-icon-512.png"),
+    },
+    {
+      "@id": websiteId,
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: absoluteUrl("/"),
+      description: siteConfig.description,
+      inLanguage: "en",
+      publisher: { "@id": organizationId },
+    },
+  ],
 };
 
 export default function RootLayout({

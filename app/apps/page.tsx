@@ -5,8 +5,8 @@ import { productList } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "Shopify app portfolio",
-  "Explore MerchantCanvas apps for tiered discount campaigns and structured B2B quote approval workflows.",
+  "Shopify promotion and B2B quote apps",
+  "Compare MerchantCanvas apps for Shopify tiered promotions and structured B2B quote approval workflows.",
   "/apps",
 );
 
@@ -16,7 +16,7 @@ export default function AppsPage() {
       <section className="page-hero page-hero-apps">
         <div className="container narrow">
           <p className="eyebrow">MerchantCanvas app portfolio</p>
-          <h1>Focused tools for Shopify work that deserves a better system.</h1>
+          <h1>Shopify apps for tiered promotions and B2B quote approvals.</h1>
           <p className="page-lead">
             The portfolio starts with promotion operations and B2B quote
             approvals. Every app remains a standalone product with its own fit,
@@ -43,7 +43,11 @@ export default function AppsPage() {
           </div>
           <div className="app-grid app-grid-index">
             {productList.map((product) => (
-              <AppCard key={product.slug} product={product} />
+              <AppCard
+                key={product.slug}
+                product={product}
+                headingLevel={2}
+              />
             ))}
           </div>
         </div>

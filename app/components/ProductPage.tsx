@@ -1,14 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "../content/site";
-import { siteConfig } from "../content/site";
+import {
+  absoluteUrl,
+  organizationId,
+  websiteId,
+} from "../lib/metadata";
 import { PricingGrid } from "./PricingGrid";
 import { ProductView } from "./ProductView";
 import { StructuredData } from "./StructuredData";
 import { TrackedLink } from "./TrackedLink";
 
 export function ProductPage({ product }: { product: Product }) {
-  const productUrl = `${siteConfig.url}/apps/${product.slug}`;
+  const productUrl = absoluteUrl(`/apps/${product.slug}`);
+  const pageId = `${productUrl}#webpage`;
+  const applicationId = `${productUrl}#softwareapplication`;
+  const breadcrumbId = `${productUrl}#breadcrumb`;
+  const faqId = `${productUrl}#faq`;
   const installUrl =
     product.slug === "multitier-discounts"
       ? process.env.NEXT_PUBLIC_MULTITIER_INSTALL_URL
@@ -18,45 +26,82 @@ export function ProductPage({ product }: { product: Product }) {
     ? "Install from Shopify"
     : product.primaryAction;
 
-  const softwareApplication = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: product.name,
-    applicationCategory: "BusinessApplication",
-    operatingSystem: "Shopify",
-    url: productUrl,
-    description: product.definition,
-    offers: product.plans.map((plan) => ({
-      "@type": "Offer",
-      name: `${product.name} ${plan.name}`,
-      price: plan.price.replace(/[^0-9.]/g, "") || "0",
-      priceCurrency: "USD",
-      description: `${plan.limit}. ${plan.bestFor}.`,
-    })),
-    provider: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
-  };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: product.faq.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
+    "@graph": [
+      {
+        "@id": pageId,
+        "@type": "WebPage",
+        url: productUrl,
+        name: product.name,
+        description: product.definition,
+        inLanguage: "en",
+        isPartOf: { "@id": websiteId },
+        mainEntity: { "@id": applicationId },
+        breadcrumb: { "@id": breadcrumbId },
       },
-    })),
+      {
+        "@id": applicationId,
+        "@type": "SoftwareApplication",
+        name: product.name,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Shopify",
+        url: productUrl,
+        description: product.definition,
+        mainEntityOfPage: { "@id": pageId },
+        offers: product.plans.map((plan) => ({
+          "@id": `${productUrl}#offer-${plan.name.toLowerCase()}`,
+          "@type": "Offer",
+          name: `${product.name} ${plan.name}`,
+          url: `${productUrl}#packages`,
+          price: plan.price.replace(/[^0-9.]/g, "") || "0",
+          priceCurrency: "USD",
+          availability: "https://schema.org/LimitedAvailability",
+          description:
+            `${plan.limit}. ${plan.bestFor}. ${product.availability}`,
+          offeredBy: { "@id": organizationId },
+        })),
+        provider: { "@id": organizationId },
+      },
+      {
+        "@id": faqId,
+        "@type": "FAQPage",
+        url: productUrl,
+        isPartOf: { "@id": pageId },
+        mainEntity: product.faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
+      {
+        "@id": breadcrumbId,
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Apps",
+            item: absoluteUrl("/apps"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: product.name,
+            item: productUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
       <ProductView product={product.slug} />
-      <StructuredData data={softwareApplication} />
-      <StructuredData data={faqSchema} />
+      <StructuredData data={structuredData} />
       <main>
         <section className={`product-hero accent-${product.accent}`}>
           <div className="container">
@@ -150,7 +195,7 @@ export function ProductPage({ product }: { product: Product }) {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Capabilities in merchant language</p>
-                <h2>What the app helps you do</h2>
+                <h2>What {product.name} helps you do</h2>
               </div>
               <p>
                 Technical foundations matter after the operational outcome is
@@ -205,7 +250,7 @@ export function ProductPage({ product }: { product: Product }) {
           <div className="container">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Packages</p>
+                <p className="eyebrow">Plans, pricing, and availability</p>
                 <h2>Choose by workflow depth, not feature count</h2>
               </div>
               <p>
@@ -246,7 +291,7 @@ export function ProductPage({ product }: { product: Product }) {
               className="button button-secondary"
               href={product.resource.href}
             >
-              Read the guide
+              {product.resource.linkLabel}
             </Link>
           </div>
         </section>

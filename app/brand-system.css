@@ -530,10 +530,11 @@ html[data-theme="dark"] .brand-lockup-dark {
   background: var(--interactive-accent);
 }
 
-.app-card h3 {
+.app-card-title {
   max-width: 16ch;
   margin-bottom: var(--space-3);
   font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
 }
 
 .app-card p {

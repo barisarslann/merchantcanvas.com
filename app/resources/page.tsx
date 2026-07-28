@@ -3,7 +3,7 @@ import { resources } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "Shopify operations resources",
+  "Shopify quantity-break and B2B quote workflow guides",
   "Practical MerchantCanvas guides for Shopify quantity breaks, tiered promotions, B2B quote approvals, and draft-order workflows.",
   "/resources",
 );
@@ -14,7 +14,7 @@ export default function ResourcesPage() {
       <section className="page-hero page-hero-resources">
         <div className="container narrow">
           <p className="eyebrow">MerchantCanvas resources</p>
-          <h1>Useful guidance for operating the workflow—not just buying the app.</h1>
+          <h1>Shopify workflow guides for quantity breaks and B2B quote approvals.</h1>
           <p className="page-lead">
             Original, implementation-aware notes on Shopify promotion planning
             and B2B quote operations. Clear enough to use, specific enough to
@@ -42,7 +42,7 @@ export default function ResourcesPage() {
                   <strong>{resource.question}</strong>
                 </div>
                 <Link className="text-link" href={resource.href}>
-                  Read the guide <span aria-hidden="true">→</span>
+                  {resource.linkLabel} <span aria-hidden="true">→</span>
                 </Link>
               </article>
             ))}

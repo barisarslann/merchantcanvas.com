@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { siteConfig } from "../content/site";
 
+export function absoluteUrl(path = "/") {
+  return new URL(path, `${siteConfig.url}/`).toString();
+}
+
+export const organizationId = absoluteUrl("/#organization");
+export const websiteId = absoluteUrl("/#website");
+
 export function pageMetadata(
   title: string,
   description: string,
   path: string,
 ): Metadata {
-  const canonical = `${siteConfig.url}${path === "/" ? "" : path}`;
+  const canonical = absoluteUrl(path);
 
   return {
     title,
@@ -20,7 +27,7 @@ export function pageMetadata(
       type: "website",
       images: [
         {
-          url: `${siteConfig.url}/og.png`,
+          url: absoluteUrl("/og.png"),
           width: 1200,
           height: 630,
           alt: "MerchantCanvas — focused tools for clearer commerce operations",
@@ -31,7 +38,7 @@ export function pageMetadata(
       card: "summary_large_image",
       title,
       description,
-      images: [`${siteConfig.url}/og.png`],
+      images: [absoluteUrl("/og.png")],
     },
   };
 }

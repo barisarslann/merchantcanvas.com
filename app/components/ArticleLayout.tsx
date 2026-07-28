@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { siteConfig } from "../content/site";
+import {
+  absoluteUrl,
+  organizationId,
+  websiteId,
+} from "../lib/metadata";
 import { StructuredData } from "./StructuredData";
 
 type ArticleLayoutProps = {
@@ -26,24 +30,64 @@ export function ArticleLayout({
   takeaways,
   children,
 }: ArticleLayoutProps) {
+  const articleUrl = absoluteUrl(path);
+  const pageId = `${articleUrl}#webpage`;
+  const articleId = `${articleUrl}#article`;
+  const breadcrumbId = `${articleUrl}#breadcrumb`;
+  const productTeamId = absoluteUrl("/about#product-team");
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    datePublished: reviewedIso,
-    dateModified: reviewedIso,
-    mainEntityOfPage: `${siteConfig.url}${path}`,
-    author: {
-      "@type": "Organization",
-      name: "MerchantCanvas product team",
-      url: `${siteConfig.url}/about`,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: siteConfig.name,
-      url: siteConfig.url,
-    },
+    "@graph": [
+      {
+        "@id": pageId,
+        "@type": "WebPage",
+        url: articleUrl,
+        name: title,
+        description,
+        inLanguage: "en",
+        isPartOf: { "@id": websiteId },
+        mainEntity: { "@id": articleId },
+        breadcrumb: { "@id": breadcrumbId },
+      },
+      {
+        "@id": articleId,
+        "@type": "Article",
+        url: articleUrl,
+        headline: title,
+        description,
+        inLanguage: "en",
+        datePublished: reviewedIso,
+        dateModified: reviewedIso,
+        mainEntityOfPage: { "@id": pageId },
+        author: { "@id": productTeamId },
+        publisher: { "@id": organizationId },
+      },
+      {
+        "@id": productTeamId,
+        "@type": "Organization",
+        name: "MerchantCanvas product team",
+        url: absoluteUrl("/about"),
+        parentOrganization: { "@id": organizationId },
+      },
+      {
+        "@id": breadcrumbId,
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Resources",
+            item: absoluteUrl("/resources"),
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: category,
+            item: articleUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (

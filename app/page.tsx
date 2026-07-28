@@ -25,7 +25,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <TrackedLink href="/apps" className="button button-primary">
-                Compare the apps
+                Compare Shopify workflows
               </TrackedLink>
               <TrackedLink
                 href="/contact"
@@ -228,7 +228,7 @@ export default function Home() {
                 <h3>{resource.title}</h3>
                 <p>{resource.description}</p>
                 <Link className="text-link" href={resource.href}>
-                  Read the guide <span aria-hidden="true">→</span>
+                  {resource.linkLabel} <span aria-hidden="true">→</span>
                 </Link>
               </article>
             ))}

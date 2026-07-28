@@ -4,10 +4,14 @@ import { TrackedLink } from "./TrackedLink";
 export function AppCard({
   product,
   compact = false,
+  headingLevel = 3,
 }: {
   product: Product;
   compact?: boolean;
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
+
   return (
     <article
       className={`app-card accent-${product.accent}${
@@ -19,7 +23,7 @@ export function AppCard({
         <span className="status-dot">Focused app</span>
       </div>
       <div>
-        <h3>{product.name}</h3>
+        <Heading className="app-card-title">{product.name}</Heading>
         <p>{product.definition}</p>
       </div>
       {!compact && (
@@ -35,7 +39,7 @@ export function AppCard({
         eventName="select_app"
         eventData={{ product: product.slug, placement: "app_card" }}
       >
-        Explore {product.shortName} <span aria-hidden="true">→</span>
+        See {product.name} <span aria-hidden="true">→</span>
       </TrackedLink>
     </article>
   );

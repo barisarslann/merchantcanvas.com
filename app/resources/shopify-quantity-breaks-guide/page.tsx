@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArticleLayout } from "../../components/ArticleLayout";
+import { TrackedLink } from "../../components/TrackedLink";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "Shopify quantity breaks: a practical planning guide";
@@ -30,11 +30,13 @@ export default function QuantityBreaksGuidePage() {
       ]}
     >
       <p className="answer-first">
-        Shopify quantity breaks work best when a shopper can understand the
-        next useful quantity at a glance, the merchant can explain exactly
-        which items qualify, and checkout applies the same rule the storefront
-        promised. The campaign design therefore has three linked parts:
-        economics, eligibility, and communication.
+        A Shopify quantity break is a tiered promotion that rewards shoppers
+        for buying more eligible units or reaching a defined cart threshold.
+        It works best when a shopper can understand the next useful quantity at
+        a glance, the merchant can explain exactly which items qualify, and
+        checkout applies the same rule the storefront promised. The campaign
+        design therefore has three linked parts: economics, eligibility, and
+        communication.
       </p>
 
       <h2>Begin with the buying behaviour, not the discount percentage</h2>
@@ -207,9 +209,17 @@ export default function QuantityBreaksGuidePage() {
             guidance and Shopify Functions-based checkout logic.
           </p>
         </div>
-        <Link className="button button-primary" href="/apps/multitier-discounts">
-          Explore MultiTier
-        </Link>
+        <TrackedLink
+          className="button button-primary"
+          href="/apps/multitier-discounts"
+          eventName="select_app"
+          eventData={{
+            product: "multitier-discounts",
+            placement: "resource_guide_cta",
+          }}
+        >
+          Explore MultiTier Discounts
+        </TrackedLink>
       </div>
     </ArticleLayout>
   );

@@ -3,7 +3,7 @@ import { TrackedLink } from "../components/TrackedLink";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "About MerchantCanvas",
+  "About MerchantCanvas, a Shopify app studio",
   "MerchantCanvas is a product company building focused, practical Shopify apps around real merchant workflows.",
   "/about",
 );
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <section className="page-hero page-hero-about">
         <div className="container narrow">
           <p className="eyebrow">About MerchantCanvas</p>
-          <h1>A careful product studio for real Shopify operations.</h1>
+          <h1>MerchantCanvas is a Shopify app studio for defined merchant workflows.</h1>
           <p className="page-lead">
             MerchantCanvas builds focused apps that turn a difficult merchant
             workflow into a clear, operable system. The ambition is a

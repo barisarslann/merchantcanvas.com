@@ -650,7 +650,7 @@ p {
   content: "";
 }
 
-.app-card h3 {
+.app-card-title {
   max-width: 540px;
   margin-bottom: 18px;
   font-family: var(--display);
