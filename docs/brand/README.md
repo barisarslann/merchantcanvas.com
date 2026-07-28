@@ -50,20 +50,29 @@ tied to a particular product, status, or Shopify convention.
 
 | Asset | Intended use |
 | --- | --- |
-| `merchantcanvas-lockup-color.svg` | Primary horizontal lockup on light backgrounds |
-| `merchantcanvas-lockup-ink.svg` | One-color dark lockup |
-| `merchantcanvas-lockup-reverse.svg` | Reversed lockup on dark backgrounds |
+| `merchantcanvas-lockup-light.svg` | Primary ink + cobalt lockup on light backgrounds |
+| `merchantcanvas-lockup-dark.svg` | Ice + coral lockup on dark backgrounds |
+| `merchantcanvas-lockup-color.svg` | Compatibility alias for the light lockup |
+| `merchantcanvas-lockup-reverse.svg` | Compatibility alias for the dark lockup |
+| `merchantcanvas-lockup-ink.svg` | One-color midnight-ink lockup |
 | `merchantcanvas-lockup-white.svg` | Strict one-color white lockup |
-| `merchantcanvas-symbol-color.svg` | Compact symbol on light backgrounds |
+| `merchantcanvas-symbol-light.svg` | Compact ink + cobalt symbol |
+| `merchantcanvas-symbol-dark.svg` | Compact ice + coral symbol |
+| `merchantcanvas-symbol-color.svg` | Compatibility alias for the light symbol |
 | `merchantcanvas-symbol-ink.svg` | One-color compact symbol |
 | `merchantcanvas-symbol-white.svg` | White compact symbol |
-| `merchantcanvas-app-icon.svg` | Framed app-family/social icon |
-| `merchantcanvas-app-icon-512.png` | 512px raster export |
-| `merchantcanvas-symbol-16/24/32/48.png` | Small-size QA and raster placements |
-| `favicon.svg`, `favicon-32.png` | Browser icon |
+| `merchantcanvas-app-icon-light.svg` | Cobalt + sun app-family icon |
+| `merchantcanvas-app-icon-dark.svg` | Deep-sea + coral app-family icon |
+| `merchantcanvas-app-icon.svg` | Default app-family/social icon |
+| `merchantcanvas-app-icon-512.png` | Default 512px raster export |
+| `merchantcanvas-symbol-16/24/32/48.png` | Light small-size QA and raster placements |
+| `merchantcanvas-symbol-dark-16/24/32/48.png` | Dark small-size QA and raster placements |
+| `favicon.svg` | OS-theme-aware browser icon |
+| `favicon-light.svg`, `favicon-dark.svg` | Explicit site-theme browser icons |
+| `favicon-32.png` | Light-theme PNG fallback |
 | `apple-touch-icon.png` | 180px touch icon |
 | `og.png` | 1200×630 social preview |
-| `production-proof.png` | Light, dark, and 16–48px visual proof sheet |
+| `production-proof.svg`, `production-proof.png` | Light, dark, and 16–48px visual proof sheet |
 
 SVG artwork uses outlined wordmark paths, so it does not depend on a font being
 installed at the point of use.
@@ -72,27 +81,30 @@ installed at the point of use.
 
 | Token | Hex | Use |
 | --- | --- | --- |
-| Ink | `#18252F` | Primary mark, text, dark fields |
-| Canvas | `#F2EEE6` | Warm brand ground and reverse mark |
-| Paper | `#FBFAF7` | Light UI and document ground |
-| Register teal | `#4B7C75` | Single restrained accent |
-| Slate | `#69757A` | Secondary type and technical notation |
-| Rule | `#D8D2C8` | Dividers and structural grid lines |
+| Midnight Ink | `#07142E` | Light-theme wordmark and core symbol modules |
+| Cloud Canvas | `#F7F9FF` | Primary light background |
+| White Paper | `#FFFFFF` | Light contained surfaces and monochrome reverse use |
+| Signal Cobalt | `#164BFF` | Light-theme register and app-icon field |
+| Daylight Sun | `#FFD51E` | Light app-icon register |
+| Deep-Sea Canvas | `#06131F` | Primary dark background and dark icon field |
+| Ice Ink | `#F5FBFF` | Dark-theme wordmark and core symbol modules |
+| Night Azure | `#3E9BFF` | Dark-theme primary UI signal |
+| Signal Coral | `#FF725B` | Dark-theme register |
 
-Use Ink and Canvas as the dominant pair. Register teal should occupy no more
-than roughly 10% of a composition and must never be changed to Shopify green.
-The identity does not use gradients.
+The identity follows the site's two-sky rule: light mode uses ink + cobalt,
+while dark mode uses ice + coral. The app icon adds sun in light mode. Keep one
+register accent per mark, never substitute Shopify green, and do not use
+gradients.
 
 ## Typography
 
-The wordmark is a custom outlined setting derived from **Geist Sans SemiBold**.
-Use **Geist Sans** for interface text, product pages, documents, and
-presentations; it is already used by the MerchantCanvas site. Use **Geist Mono**
-sparingly for labels, product numbers, metadata, and technical notation.
+The wordmark is a custom outlined setting derived from **Manrope 720**, with
+logo-specific tracking and optical alignment. The artwork is converted to
+paths; do not reset it as live text.
 
-For selective editorial emphasis, an available old-style serif such as Iowan
-Old Style or Baskerville may be used in short phrases. It should never replace
-Geist as the primary brand typeface.
+Use **Manrope** across the site, product pages, documents, and presentations:
+400–500 for body copy, 700 for actions, and 760–780 for compact headlines. Use
+the available sans-serif fallbacks only when Manrope cannot be embedded.
 
 ## Clear space
 
@@ -116,13 +128,13 @@ cap height.
 
 ## Background use
 
-Use the color or Ink mark on Paper, Canvas, white, and other very light neutral
-backgrounds. Use the reverse mark on Ink, near-black, or photography with a
-quiet, consistently dark area. If background contrast is uncertain, place the
-mark on a solid Ink or Canvas field.
+Use `merchantcanvas-lockup-light.svg` on Cloud Canvas, White Paper, and other
+very light backgrounds. Use `merchantcanvas-lockup-dark.svg` on Deep-Sea
+Canvas, dark panels, or photography with a quiet, consistently dark area. If
+background contrast is uncertain, place the mark on one of those solid fields.
 
-All-white and all-Ink versions are intentional production variants. The mark
-must remain understandable without Register teal.
+The all-white and all-Ink versions remain intentional monochrome variants. The
+mark must remain understandable with the register accent removed.
 
 ## Incorrect use
 

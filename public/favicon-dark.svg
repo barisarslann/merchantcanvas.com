@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">MerchantCanvas app-family icon</title>
+  <desc id="desc">Deep-sea app-family icon with a coral register accent.</desc>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#06131F"/>
+  <g transform="translate(11.2 11.2) scale(.65)">
+    <path fill="#F5FBFF" d="M6 6H28V16H16V28H6Z M36 6H58V28H48V16H36Z M6 36H16V48H28V58H6Z"/>
+    <path fill="#FF725B" d="M48 36H58V58H36V48H48Z"/>
+  </g>
+</svg>

@@ -58,7 +58,11 @@ export default function B2BQuoteWorkflowGuidePage() {
         A status should answer what can happen next. Avoid labels that merely
         describe how a person feels about the quote. A practical flow might be:
       </p>
-      <div className="status-flow" aria-label="Quote status flow">
+      <div
+        className="status-flow"
+        role="img"
+        aria-label="Quote status flow"
+      >
         <span>Draft</span>
         <i aria-hidden="true">→</i>
         <span>Submitted</span>

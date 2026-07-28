@@ -42,5 +42,8 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+/.runtime/
 .codex-dev.out.log
 .codex-dev.err.log
+/.codex-tmp/
+/.impeccable/review/

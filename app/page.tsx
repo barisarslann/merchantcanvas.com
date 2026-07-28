@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { AppCard } from "./components/AppCard";
 import { TrackedLink } from "./components/TrackedLink";
@@ -17,127 +16,70 @@ export default function Home() {
       <section className="home-hero">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="eyebrow">A focused Shopify product studio</p>
-            <h1>
-              Shopify apps for sharper promotions and cleaner B2B sales.
-            </h1>
+            <p className="eyebrow">Shopify app studio</p>
+            <h1>Shopify apps for promotions and B2B sales.</h1>
             <p>
-              MerchantCanvas builds practical tools around real merchant
-              workflows—precise discount campaigns on one side, structured
-              wholesale quote approvals on the other.
+              MerchantCanvas builds focused tools for two clear jobs: running
+              tiered promotion campaigns and moving wholesale quotes through a
+              structured approval process.
             </p>
             <div className="hero-actions">
               <TrackedLink href="/apps" className="button button-primary">
-                Explore the apps
+                Compare the apps
               </TrackedLink>
               <TrackedLink
                 href="/contact"
-                className="text-link"
+                className="button button-secondary"
                 eventName="contact_intent"
                 eventData={{ placement: "home_hero" }}
               >
-                Talk through a workflow <span aria-hidden="true">→</span>
+                Talk through a workflow
               </TrackedLink>
             </div>
           </div>
-          <div
-            className="hero-workflow-board"
-            aria-label="MerchantCanvas product workflow overview"
-          >
-            <div className="board-header">
-              <span>Merchant workflows</span>
-              <span>02 products</span>
-            </div>
-            <div className="board-track board-track-coral">
-              <div>
-                <span>Promotion</span>
-                <strong>Campaign</strong>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div>
-                <span>Qualify</span>
-                <strong>Target</strong>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div>
-                <span>Apply</span>
-                <strong>Checkout</strong>
-              </div>
-            </div>
-            <div className="board-track board-track-blue">
-              <div>
-                <span>Wholesale</span>
-                <strong>Quote</strong>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div>
-                <span>Decide</span>
-                <strong>Approve</strong>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div>
-                <span>Convert</span>
-                <strong>Draft order</strong>
-              </div>
-            </div>
-            <div className="board-note">
-              <span>Practical scope</span>
-              <p>One defined problem → one clear Shopify outcome.</p>
-            </div>
+
+          <div className="hero-app-selector" aria-label="Choose a MerchantCanvas app">
+            {productList.map((product) => (
+              <TrackedLink
+                key={product.slug}
+                href={`/apps/${product.slug}`}
+                className={`hero-app-route accent-${product.accent}`}
+                eventName="select_app"
+                eventData={{
+                  product: product.slug,
+                  placement: "home_hero_selector",
+                }}
+              >
+                <span className="hero-app-route-label">{product.category}</span>
+                <strong>{product.name}</strong>
+                <p>{product.definition}</p>
+                <span className="hero-app-route-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </TrackedLink>
+            ))}
           </div>
         </div>
-        <div className="container hero-proof-strip">
-          <span>Shopify-native foundations</span>
-          <span>Truthful plan data</span>
-          <span>Useful before impressive</span>
+
+        <div className="container hero-proof-strip" aria-label="Portfolio facts">
+          <span>2 focused apps</span>
+          <span>Shopify-native workflows</span>
+          <span>Verified product details</span>
           <span>Built for merchants and agencies</span>
         </div>
       </section>
 
-      <section
-        className="endorsement-band"
-        aria-labelledby="endorsement-title"
-      >
-        <div className="container">
-          <div className="endorsement-heading">
-            <p className="eyebrow">Endorsement system</p>
-            <h2 id="endorsement-title">Distinct products. One studio.</h2>
-          </div>
-          <div className="endorsement-grid">
-            <div className="endorsement-signature">
-              <strong>MultiTier Discounts</strong>
-              <span>— by</span>
-              <Image
-                src="/brand/merchantcanvas-lockup-color.svg"
-                alt="MerchantCanvas"
-                width="330"
-                height="48"
-              />
-            </div>
-            <div className="endorsement-signature">
-              <strong>B2B Quote Approvals</strong>
-              <span>— by</span>
-              <Image
-                src="/brand/merchantcanvas-lockup-color.svg"
-                alt="MerchantCanvas"
-                width="330"
-                height="48"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="section" aria-labelledby="portfolio-title">
         <div className="container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">The current portfolio</p>
-              <h2>Two apps. Two distinct operational problems.</h2>
+              <p className="eyebrow">Current portfolio</p>
+              <h2 id="portfolio-title">Choose the job you need to improve.</h2>
             </div>
             <p>
-              Choose by the workflow you need today. The portfolio structure is
-              ready to grow without blending every use case into one product.
+              Each app stays intentionally focused. You can understand the fit,
+              scope, packages, and current availability without decoding a
+              bundled suite.
             </p>
           </div>
           <div className="app-grid">
@@ -153,7 +95,7 @@ export default function Home() {
           <div className="section-heading light">
             <div>
               <p className="eyebrow">Choose your workflow</p>
-              <h2>Start with the bottleneck, not the feature list.</h2>
+              <h2>Start with the operational bottleneck.</h2>
             </div>
             <p>
               A fast route for paid traffic, organic research, and agency
@@ -162,9 +104,8 @@ export default function Home() {
           </div>
           <div className="decision-grid">
             <article>
-              <span className="decision-number">01</span>
-              <p className="eyebrow">Promotion problem</p>
-              <h3>“I want shoppers to buy more, with clear tiered incentives.”</h3>
+              <p className="eyebrow">Promotion campaigns</p>
+              <h3>Help shoppers see and unlock tiered incentives.</h3>
               <p>
                 Plan quantity breaks, cart-value rewards, Buy X Get Y, or gift
                 flows with targeting and storefront guidance.
@@ -182,12 +123,11 @@ export default function Home() {
               </TrackedLink>
             </article>
             <article>
-              <span className="decision-number">02</span>
-              <p className="eyebrow">B2B operations problem</p>
-              <h3>“Our quote approvals live in email and get re-keyed into Shopify.”</h3>
+              <p className="eyebrow">B2B quote operations</p>
+              <h3>Move wholesale quotes out of inbox-and-sheet chains.</h3>
               <p>
-                Create one record for buyer context, pricing, decisions,
-                revisions, and the Shopify draft-order handoff.
+                Keep buyer context, pricing, approvals, revisions, and the
+                Shopify draft-order handoff in one operational trail.
               </p>
               <TrackedLink
                 href="/apps/b2b-quote-approvals"
@@ -202,12 +142,11 @@ export default function Home() {
               </TrackedLink>
             </article>
             <article className="decision-contact">
-              <span className="decision-number">03</span>
-              <p className="eyebrow">Still evaluating</p>
-              <h3>“I need to know if either app fits our store or client.”</h3>
+              <p className="eyebrow">Not sure yet?</p>
+              <h3>Get a direct fit check for your store or client.</h3>
               <p>
-                Share the real workflow. We will answer with a direct fit check,
-                including where the product is not appropriate.
+                Share the real workflow. We will include where a product is not
+                appropriate, not just where it might fit.
               </p>
               <TrackedLink
                 href="/contact"
@@ -226,7 +165,7 @@ export default function Home() {
         <div className="container principle-layout">
           <div className="principle-intro">
             <p className="eyebrow">Why MerchantCanvas</p>
-            <h2>A product studio should earn trust in the details.</h2>
+            <h2>Trust comes from product detail, not marketing theatre.</h2>
             <p>
               No fake logos, invented adoption numbers, or guaranteed growth
               claims. Product scope, current availability, and pricing are
@@ -235,7 +174,6 @@ export default function Home() {
           </div>
           <div className="principle-list">
             <article>
-              <span>01</span>
               <div>
                 <h3>Workflow before surface area</h3>
                 <p>
@@ -245,18 +183,15 @@ export default function Home() {
               </div>
             </article>
             <article>
-              <span>02</span>
               <div>
                 <h3>Native foundations where they matter</h3>
                 <p>
                   Shopify Functions, Admin workflows, billing, product and
-                  company context, and draft orders are used for the jobs they
-                  are suited to.
+                  company context, and draft orders serve defined jobs.
                 </p>
               </div>
             </article>
             <article>
-              <span>03</span>
               <div>
                 <h3>Evidence without theatre</h3>
                 <p>
@@ -273,8 +208,8 @@ export default function Home() {
         <div className="container">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">MerchantCanvas resources</p>
-              <h2>Practical guidance, even before you choose an app.</h2>
+              <p className="eyebrow">Practical resources</p>
+              <h2>Useful guidance before you choose an app.</h2>
             </div>
             <Link className="text-link" href="/resources">
               Browse all resources <span aria-hidden="true">→</span>
@@ -304,11 +239,11 @@ export default function Home() {
       <section className="closing-cta accent-green">
         <div className="container closing-cta-inner">
           <div>
-            <p className="eyebrow">A clear next step</p>
+            <p className="eyebrow">Next step</p>
             <h2>Find the app built for the workflow in front of you.</h2>
             <p>
-              Explore the portfolio, compare verified packages, or contact
-              MerchantCanvas for an honest fit check.
+              Compare verified packages or contact MerchantCanvas for an honest
+              fit check.
             </p>
           </div>
           <TrackedLink href="/apps" className="button button-primary">

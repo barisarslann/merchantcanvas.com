@@ -1,9 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">MerchantCanvas app-family icon</title>
-  <desc id="desc">The MerchantCanvas register symbol on a deep ink field.</desc>
-  <rect x="2" y="2" width="60" height="60" rx="12" fill="#18252F"/>
+  <desc id="desc">Theme-aware MerchantCanvas register icon.</desc>
+  <style>
+    .field { fill: #164BFF; }
+    .module { fill: #FFFFFF; }
+    .register { fill: #FFD51E; }
+    @media (prefers-color-scheme: dark) {
+      .field { fill: #06131F; }
+      .module { fill: #F5FBFF; }
+      .register { fill: #FF725B; }
+    }
+  </style>
+  <rect class="field" x="2" y="2" width="60" height="60" rx="14"/>
   <g transform="translate(11.2 11.2) scale(.65)">
-    <path fill="#F2EEE6" d="M6 6H28V16H16V28H6Z M36 6H58V28H48V16H36Z M6 36H16V48H28V58H6Z"/>
-    <path fill="#4B7C75" d="M48 36H58V58H36V48H48Z"/>
+    <path class="module" d="M6 6H28V16H16V28H6Z M36 6H58V28H48V16H36Z M6 36H16V48H28V58H6Z"/>
+    <path class="register" d="M48 36H58V58H36V48H48Z"/>
   </g>
 </svg>
