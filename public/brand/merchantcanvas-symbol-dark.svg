@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">MerchantCanvas compact symbol</title>
+  <desc id="desc">Four modules compose a structured workspace; coral marks the active register.</desc>
+  <path fill="#F5FBFF" d="M6 6H28V16H16V28H6Z M36 6H58V28H48V16H36Z M6 36H16V48H28V58H6Z"/>
+  <path fill="#FF725B" d="M48 36H58V58H36V48H48Z"/>
+</svg>

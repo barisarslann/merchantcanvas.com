@@ -39,11 +39,24 @@ export function ProductPage({ product }: { product: Product }) {
       url: siteConfig.url,
     },
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: product.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
     <>
       <ProductView product={product.slug} />
       <StructuredData data={softwareApplication} />
+      <StructuredData data={faqSchema} />
       <main>
         <section className={`product-hero accent-${product.accent}`}>
           <div className="container">
@@ -177,6 +190,7 @@ export function ProductPage({ product }: { product: Product }) {
                       alt={screenshot.alt}
                       width={screenshot.width}
                       height={screenshot.height}
+                      unoptimized
                       sizes="(max-width: 760px) 100vw, 50vw"
                     />
                     <figcaption>{screenshot.caption}</figcaption>
@@ -272,7 +286,11 @@ function ProductWorkflowVisual({ product }: { product: Product }) {
       : ["Quote", "Review", "Approval", "Draft order"];
 
   return (
-    <div className="product-visual" aria-label={`${product.name} workflow`}>
+    <div
+      className="product-visual"
+      role="img"
+      aria-label={`${product.name} workflow`}
+    >
       <div className="visual-header">
         <span>{product.category}</span>
         <span>01—04</span>

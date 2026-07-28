@@ -10,8 +10,8 @@ export function SiteFooter() {
         <div className="footer-brand">
           <Link href="/" className="wordmark" aria-label="MerchantCanvas home">
             <Image
-              className="brand-lockup brand-lockup-reverse"
-              src="/brand/merchantcanvas-lockup-reverse.svg"
+              className="brand-lockup brand-lockup-footer"
+              src="/brand/merchantcanvas-lockup-dark.svg"
               alt="MerchantCanvas"
               width="330"
               height="48"

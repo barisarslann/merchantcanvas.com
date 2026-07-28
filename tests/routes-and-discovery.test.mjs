@@ -74,3 +74,27 @@ test("ships crawler, AI summary, sitemap, evidence, and Pages assets", async () 
   assert.match(sitemap, /shopify-quantity-breaks-guide/);
   assert.match(sitemap, /shopify-b2b-quote-approval-workflow/);
 });
+
+test("ships accessible form defaults and product answer markup", async () => {
+  const [contactResponse, productResponse] = await Promise.all([
+    render("/contact"),
+    render("/apps/multitier-discounts"),
+  ]);
+  const [contactHtml, productHtml] = await Promise.all([
+    contactResponse.text(),
+    productResponse.text(),
+  ]);
+
+  assert.match(contactHtml, /Required fields are marked below\./);
+  assert.match(
+    contactHtml,
+    /<option[^>]*selected[^>]*>General question<\/option>/,
+  );
+  assert.match(productHtml, /"@type":"FAQPage"/);
+  assert.match(
+    productHtml,
+    /role="img" aria-label="MultiTier Discounts workflow"/,
+  );
+  assert.match(productHtml, /src="\/images\/multitier-campaign-rules\.jpg"/);
+  assert.doesNotMatch(productHtml, /\/_vinext\/image/);
+});

@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-28T00:00:00.0000000Z",
+  "title": "Design System: MerchantCanvas",
+  "extensions": {
+    "colorMeta": {
+      "light-canvas": {
+        "role": "neutral",
+        "displayName": "Cloud Canvas",
+        "canonical": "#f7f9ff",
+        "tonalRamp": ["oklch(15% 0.018 260)", "oklch(26% 0.018 260)", "oklch(38% 0.018 260)", "oklch(51% 0.018 260)", "oklch(64% 0.018 260)", "oklch(76% 0.018 260)", "oklch(87% 0.018 260)", "oklch(95% 0.018 260)"]
+      },
+      "light-paper": {
+        "role": "neutral",
+        "displayName": "White Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(26% 0 0)", "oklch(38% 0 0)", "oklch(51% 0 0)", "oklch(64% 0 0)", "oklch(76% 0 0)", "oklch(87% 0 0)", "oklch(95% 0 0)"]
+      },
+      "light-paper-soft": {
+        "role": "neutral",
+        "displayName": "Blue Mist",
+        "canonical": "#edf2ff",
+        "tonalRamp": ["oklch(15% 0.025 260)", "oklch(26% 0.025 260)", "oklch(38% 0.025 260)", "oklch(51% 0.025 260)", "oklch(64% 0.025 260)", "oklch(76% 0.025 260)", "oklch(87% 0.025 260)", "oklch(95% 0.025 260)"]
+      },
+      "light-ink": {
+        "role": "neutral",
+        "displayName": "Midnight Ink",
+        "canonical": "#07142e",
+        "tonalRamp": ["oklch(15% 0.045 260)", "oklch(26% 0.045 260)", "oklch(38% 0.045 260)", "oklch(51% 0.045 260)", "oklch(64% 0.045 260)", "oklch(76% 0.045 260)", "oklch(87% 0.045 260)", "oklch(95% 0.045 260)"]
+      },
+      "light-ink-soft": {
+        "role": "neutral",
+        "displayName": "Slate Copy",
+        "canonical": "#2c3953",
+        "tonalRamp": ["oklch(15% 0.035 260)", "oklch(26% 0.035 260)", "oklch(38% 0.035 260)", "oklch(51% 0.035 260)", "oklch(64% 0.035 260)", "oklch(76% 0.035 260)", "oklch(87% 0.035 260)", "oklch(95% 0.035 260)"]
+      },
+      "light-muted": {
+        "role": "neutral",
+        "displayName": "Quiet Slate",
+        "canonical": "#526079",
+        "tonalRamp": ["oklch(15% 0.028 260)", "oklch(26% 0.028 260)", "oklch(38% 0.028 260)", "oklch(51% 0.028 260)", "oklch(64% 0.028 260)", "oklch(76% 0.028 260)", "oklch(87% 0.028 260)", "oklch(95% 0.028 260)"]
+      },
+      "light-line": {
+        "role": "neutral",
+        "displayName": "Cool Rule",
+        "canonical": "#cfd8ef",
+        "tonalRamp": ["oklch(15% 0.025 260)", "oklch(26% 0.025 260)", "oklch(38% 0.025 260)", "oklch(51% 0.025 260)", "oklch(64% 0.025 260)", "oklch(76% 0.025 260)", "oklch(87% 0.025 260)", "oklch(95% 0.025 260)"]
+      },
+      "light-cobalt": {
+        "role": "primary",
+        "displayName": "Signal Cobalt",
+        "canonical": "#164bff",
+        "tonalRamp": ["oklch(15% 0.21 264)", "oklch(26% 0.21 264)", "oklch(38% 0.21 264)", "oklch(51% 0.21 264)", "oklch(64% 0.21 264)", "oklch(76% 0.18 264)", "oklch(87% 0.11 264)", "oklch(95% 0.05 264)"]
+      },
+      "light-cobalt-hover": {
+        "role": "primary",
+        "displayName": "Pressed Cobalt",
+        "canonical": "#0d3fe3",
+        "tonalRamp": ["oklch(15% 0.2 264)", "oklch(26% 0.2 264)", "oklch(38% 0.2 264)", "oklch(51% 0.2 264)", "oklch(64% 0.2 264)", "oklch(76% 0.17 264)", "oklch(87% 0.1 264)", "oklch(95% 0.05 264)"]
+      },
+      "light-sun": {
+        "role": "secondary",
+        "displayName": "Daylight Sun",
+        "canonical": "#ffd51e",
+        "tonalRamp": ["oklch(15% 0.14 95)", "oklch(26% 0.14 95)", "oklch(38% 0.14 95)", "oklch(51% 0.14 95)", "oklch(64% 0.14 95)", "oklch(76% 0.14 95)", "oklch(87% 0.11 95)", "oklch(95% 0.05 95)"]
+      },
+      "light-promo-surface": {
+        "role": "primary",
+        "displayName": "Cobalt Wash",
+        "canonical": "#e4ebff",
+        "tonalRamp": ["oklch(15% 0.045 264)", "oklch(26% 0.045 264)", "oklch(38% 0.045 264)", "oklch(51% 0.045 264)", "oklch(64% 0.045 264)", "oklch(76% 0.045 264)", "oklch(87% 0.04 264)", "oklch(95% 0.025 264)"]
+      },
+      "light-b2b-ink": {
+        "role": "tertiary",
+        "displayName": "Wholesale Ochre",
+        "canonical": "#8b6f00",
+        "tonalRamp": ["oklch(15% 0.105 95)", "oklch(26% 0.105 95)", "oklch(38% 0.105 95)", "oklch(51% 0.105 95)", "oklch(64% 0.105 95)", "oklch(76% 0.095 95)", "oklch(87% 0.07 95)", "oklch(95% 0.035 95)"]
+      },
+      "light-b2b-surface": {
+        "role": "tertiary",
+        "displayName": "Sun Wash",
+        "canonical": "#fff0a8",
+        "tonalRamp": ["oklch(15% 0.07 95)", "oklch(26% 0.07 95)", "oklch(38% 0.07 95)", "oklch(51% 0.07 95)", "oklch(64% 0.07 95)", "oklch(76% 0.07 95)", "oklch(87% 0.065 95)", "oklch(95% 0.03 95)"]
+      },
+      "dark-canvas": {
+        "role": "neutral",
+        "displayName": "Deep-Sea Canvas",
+        "canonical": "#06131f",
+        "tonalRamp": ["oklch(15% 0.035 235)", "oklch(26% 0.035 235)", "oklch(38% 0.035 235)", "oklch(51% 0.035 235)", "oklch(64% 0.035 235)", "oklch(76% 0.035 235)", "oklch(87% 0.03 235)", "oklch(95% 0.018 235)"]
+      },
+      "dark-paper": {
+        "role": "neutral",
+        "displayName": "Harbor Paper",
+        "canonical": "#0c2131",
+        "tonalRamp": ["oklch(15% 0.04 235)", "oklch(26% 0.04 235)", "oklch(38% 0.04 235)", "oklch(51% 0.04 235)", "oklch(64% 0.04 235)", "oklch(76% 0.04 235)", "oklch(87% 0.03 235)", "oklch(95% 0.018 235)"]
+      },
+      "dark-paper-soft": {
+        "role": "neutral",
+        "displayName": "Deep-Sea Soft",
+        "canonical": "#0a1a28",
+        "tonalRamp": ["oklch(15% 0.036 235)", "oklch(26% 0.036 235)", "oklch(38% 0.036 235)", "oklch(51% 0.036 235)", "oklch(64% 0.036 235)", "oklch(76% 0.036 235)", "oklch(87% 0.028 235)", "oklch(95% 0.016 235)"]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Ice Ink",
+        "canonical": "#f5fbff",
+        "tonalRamp": ["oklch(15% 0.012 235)", "oklch(26% 0.012 235)", "oklch(38% 0.012 235)", "oklch(51% 0.012 235)", "oklch(64% 0.012 235)", "oklch(76% 0.012 235)", "oklch(87% 0.012 235)", "oklch(95% 0.012 235)"]
+      },
+      "dark-ink-soft": {
+        "role": "neutral",
+        "displayName": "Mist Copy",
+        "canonical": "#d3e1eb",
+        "tonalRamp": ["oklch(15% 0.02 235)", "oklch(26% 0.02 235)", "oklch(38% 0.02 235)", "oklch(51% 0.02 235)", "oklch(64% 0.02 235)", "oklch(76% 0.02 235)", "oklch(87% 0.02 235)", "oklch(95% 0.015 235)"]
+      },
+      "dark-muted": {
+        "role": "neutral",
+        "displayName": "Harbor Muted",
+        "canonical": "#a8bdcc",
+        "tonalRamp": ["oklch(15% 0.028 235)", "oklch(26% 0.028 235)", "oklch(38% 0.028 235)", "oklch(51% 0.028 235)", "oklch(64% 0.028 235)", "oklch(76% 0.028 235)", "oklch(87% 0.024 235)", "oklch(95% 0.014 235)"]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Harbor Rule",
+        "canonical": "#284154",
+        "tonalRamp": ["oklch(15% 0.038 235)", "oklch(26% 0.038 235)", "oklch(38% 0.038 235)", "oklch(51% 0.038 235)", "oklch(64% 0.038 235)", "oklch(76% 0.034 235)", "oklch(87% 0.026 235)", "oklch(95% 0.014 235)"]
+      },
+      "dark-azure": {
+        "role": "primary",
+        "displayName": "Night Azure",
+        "canonical": "#3e9bff",
+        "tonalRamp": ["oklch(15% 0.16 250)", "oklch(26% 0.16 250)", "oklch(38% 0.16 250)", "oklch(51% 0.16 250)", "oklch(64% 0.16 250)", "oklch(76% 0.15 250)", "oklch(87% 0.09 250)", "oklch(95% 0.04 250)"]
+      },
+      "dark-azure-hover": {
+        "role": "primary",
+        "displayName": "Bright Azure",
+        "canonical": "#69b0ff",
+        "tonalRamp": ["oklch(15% 0.135 250)", "oklch(26% 0.135 250)", "oklch(38% 0.135 250)", "oklch(51% 0.135 250)", "oklch(64% 0.135 250)", "oklch(76% 0.13 250)", "oklch(87% 0.085 250)", "oklch(95% 0.04 250)"]
+      },
+      "dark-coral": {
+        "role": "secondary",
+        "displayName": "Signal Coral",
+        "canonical": "#ff725b",
+        "tonalRamp": ["oklch(15% 0.17 28)", "oklch(26% 0.17 28)", "oklch(38% 0.17 28)", "oklch(51% 0.17 28)", "oklch(64% 0.17 28)", "oklch(76% 0.155 28)", "oklch(87% 0.095 28)", "oklch(95% 0.045 28)"]
+      },
+      "dark-promo-surface": {
+        "role": "primary",
+        "displayName": "Azure Depth",
+        "canonical": "#0e3155",
+        "tonalRamp": ["oklch(15% 0.065 250)", "oklch(26% 0.065 250)", "oklch(38% 0.065 250)", "oklch(51% 0.065 250)", "oklch(64% 0.065 250)", "oklch(76% 0.055 250)", "oklch(87% 0.035 250)", "oklch(95% 0.018 250)"]
+      },
+      "dark-b2b-accent": {
+        "role": "tertiary",
+        "displayName": "Wholesale Coral",
+        "canonical": "#ff8b77",
+        "tonalRamp": ["oklch(15% 0.145 28)", "oklch(26% 0.145 28)", "oklch(38% 0.145 28)", "oklch(51% 0.145 28)", "oklch(64% 0.145 28)", "oklch(76% 0.135 28)", "oklch(87% 0.085 28)", "oklch(95% 0.04 28)"]
+      },
+      "dark-b2b-surface": {
+        "role": "tertiary",
+        "displayName": "Coral Depth",
+        "canonical": "#4b211c",
+        "tonalRamp": ["oklch(15% 0.06 28)", "oklch(26% 0.06 28)", "oklch(38% 0.06 28)", "oklch(51% 0.06 28)", "oklch(64% 0.06 28)", "oklch(76% 0.052 28)", "oklch(87% 0.032 28)", "oklch(95% 0.016 28)"]
+      },
+      "dark-footer": {
+        "role": "neutral",
+        "displayName": "Abyss Footer",
+        "canonical": "#040c14",
+        "tonalRamp": ["oklch(15% 0.025 235)", "oklch(26% 0.025 235)", "oklch(38% 0.025 235)", "oklch(51% 0.025 235)", "oklch(64% 0.025 235)", "oklch(76% 0.025 235)", "oklch(87% 0.02 235)", "oklch(95% 0.012 235)"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Compact Display",
+        "purpose": "Homepage and major page offers that share the viewport with product routes."
+      },
+      "headline": {
+        "displayName": "Section Headline",
+        "purpose": "Section-level decisions and explanatory headings."
+      },
+      "title": {
+        "displayName": "Product Title",
+        "purpose": "Named product routes, app cards, and compact workflow decisions."
+      },
+      "body": {
+        "displayName": "Operational Body",
+        "purpose": "Product explanations, fit guidance, and evidence."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Buttons and navigation actions."
+      },
+      "label": {
+        "displayName": "Route Label",
+        "purpose": "Eyebrows, categories, status, and proof-strip facts."
+      }
+    },
+    "shadows": [
+      {
+        "name": "light-ambient",
+        "value": "0 18px 48px rgba(19, 43, 101, 0.12)",
+        "purpose": "Floating hero selector, consent, and open navigation on light surfaces."
+      },
+      {
+        "name": "light-evidence",
+        "value": "0 10px 28px rgba(19, 43, 101, 0.1)",
+        "purpose": "Real screenshots and compact framed evidence on light surfaces."
+      },
+      {
+        "name": "dark-ambient",
+        "value": "0 20px 54px rgba(0, 0, 0, 0.26)",
+        "purpose": "Floating hero selector, consent, and open navigation on dark surfaces."
+      },
+      {
+        "name": "dark-evidence",
+        "value": "0 12px 30px rgba(0, 0, 0, 0.22)",
+        "purpose": "Real screenshots and compact framed evidence on dark surfaces."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms ease-out",
+        "purpose": "Default color and border response."
+      },
+      {
+        "name": "move-confident",
+        "value": "220ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Small directional shifts on product routes."
+      },
+      {
+        "name": "selector-enter",
+        "value": "620ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Single entrance for the homepage product selector; removed under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "460px"
+      },
+      {
+        "name": "mobile",
+        "value": "760px"
+      },
+      {
+        "name": "navigation",
+        "value": "980px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary-light",
+      "description": "The single filled action in a decision area; semantic variables adapt it to both themes.",
+      "html": "<button class=\"ds-btn-primary\">Compare the apps</button>",
+      "css": ".ds-btn-primary { display:inline-flex; min-height:48px; padding:0 20px; border:1px solid transparent; border-radius:999px; align-items:center; justify-content:center; background:var(--primary, #164bff); color:var(--primary-ink, #ffffff); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; font-size:.9rem; font-weight:700; line-height:1; cursor:pointer; transition:transform 160ms cubic-bezier(.22,1,.36,1), background-color 160ms ease-out; } .ds-btn-primary:hover { background:var(--primary-hover, #0d3fe3); transform:translateY(-1px); } .ds-btn-primary:active { transform:translateY(0); } .ds-btn-primary:focus-visible { outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary-light",
+      "description": "A bordered alternative for a secondary route beside one filled primary action.",
+      "html": "<button class=\"ds-btn-secondary\">Talk through a workflow</button>",
+      "css": ".ds-btn-secondary { display:inline-flex; min-height:48px; padding:0 20px; border:1px solid var(--line, #cfd8ef); border-radius:999px; align-items:center; justify-content:center; background:var(--paper, #ffffff); color:var(--ink, #07142e); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; font-size:.9rem; font-weight:700; line-height:1; cursor:pointer; transition:transform 160ms cubic-bezier(.22,1,.36,1), background-color 160ms ease-out, border-color 160ms ease-out; } .ds-btn-secondary:hover { border-color:var(--primary, #164bff); background:var(--promo-surface, #e4ebff); transform:translateY(-1px); } .ds-btn-secondary:active { transform:translateY(0); } .ds-btn-secondary:focus-visible { outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Eyebrow Chip",
+      "kind": "chip",
+      "refersTo": "eyebrow-light",
+      "description": "A compact category label using the theme accent as an orientation signal.",
+      "html": "<span class=\"ds-eyebrow\">Shopify app studio</span>",
+      "css": ".ds-eyebrow { display:inline-flex; width:max-content; padding:5px 9px; border-radius:999px; background:var(--accent, #ffd51e); color:var(--accent-ink, #07142e); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; font-size:.72rem; font-weight:760; line-height:1.25; }"
+    },
+    {
+      "name": "Product Route",
+      "kind": "card",
+      "refersTo": "app-card-light",
+      "description": "The signature workflow router: category, named app, operational definition, and directional cue in one color zone.",
+      "html": "<a class=\"ds-product-route\" href=\"#\"><span class=\"ds-product-route__label\">Promotion campaigns</span><strong>MultiTier Discounts</strong><p>Plan precise offers with customer targeting and storefront guidance.</p><span class=\"ds-product-route__arrow\" aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-product-route { position:relative; display:grid; min-height:220px; padding:28px; border:1px solid var(--line, #cfd8ef); border-radius:16px; align-content:center; background:var(--promo-surface, #e4ebff); color:var(--ink, #07142e); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; text-decoration:none; transition:background-color 160ms ease-out, padding-left 220ms cubic-bezier(.22,1,.36,1); } .ds-product-route__label { margin-bottom:10px; color:var(--muted, #526079); font-size:.7rem; font-weight:760; text-transform:uppercase; } .ds-product-route strong { max-width:15ch; font-size:2rem; font-weight:780; letter-spacing:-.03em; line-height:1.04; } .ds-product-route p { max-width:48ch; margin:12px 38px 0 0; color:var(--ink-soft, #2c3953); font-size:.86rem; line-height:1.48; } .ds-product-route__arrow { position:absolute; top:26px; right:28px; font-size:1.35rem; transition:transform 180ms cubic-bezier(.22,1,.36,1); } .ds-product-route:hover { padding-left:36px; } .ds-product-route:hover .ds-product-route__arrow { transform:translate(3px,-3px); } .ds-product-route:focus-visible { outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-light",
+      "description": "A canvas-colored, clearly bordered field for practical workflow details.",
+      "html": "<label class=\"ds-field\"><span>Shopify store URL <small>Optional</small></span><input type=\"url\" placeholder=\"https://example.myshopify.com\"></label>",
+      "css": ".ds-field { display:grid; gap:8px; color:var(--ink, #07142e); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; font-size:.84rem; font-weight:680; } .ds-field > span { display:flex; justify-content:space-between; gap:16px; } .ds-field small { color:var(--muted, #526079); font-size:inherit; font-weight:450; } .ds-field input { width:100%; padding:13px 14px; border:1px solid var(--line, #cfd8ef); border-radius:10px; background:var(--canvas, #f7f9ff); color:var(--ink, #07142e); font:inherit; font-weight:400; } .ds-field input:hover { border-color:var(--muted, #526079); } .ds-field input:focus-visible { border-color:var(--primary, #164bff); outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Navigation Links",
+      "kind": "nav",
+      "refersTo": "navigation-link-light",
+      "description": "Compact portfolio navigation with quiet default color and primary hover emphasis.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#\">Apps</a><a href=\"#\">Resources</a><a href=\"#\">About</a><a href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display:flex; gap:8px; align-items:center; font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; } .ds-nav a { display:inline-flex; min-height:40px; padding:0 12px; border-radius:9px; align-items:center; color:var(--ink-soft, #2c3953); font-size:.88rem; font-weight:620; text-decoration:none; transition:background-color 160ms ease-out, color 160ms ease-out; } .ds-nav a:hover { background:var(--paper, #ffffff); color:var(--primary, #164bff); } .ds-nav a:focus-visible { outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "button",
+      "refersTo": "button-secondary-light",
+      "description": "A compact circular control that exposes the equally authored light and dark themes.",
+      "html": "<button class=\"ds-theme-toggle\" aria-label=\"Toggle color theme\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"M12 4a8 8 0 0 0 0 16Z\"></path></svg></button>",
+      "css": ".ds-theme-toggle { display:inline-grid; width:42px; height:42px; padding:0; border:1px solid var(--line, #cfd8ef); border-radius:50%; background:var(--paper, #ffffff); color:var(--ink, #07142e); cursor:pointer; place-items:center; transition:border-color 160ms ease-out, color 160ms ease-out; } .ds-theme-toggle svg { width:19px; height:19px; fill:none; stroke:currentColor; stroke-width:1.8; } .ds-theme-toggle svg path { fill:currentColor; stroke:none; } .ds-theme-toggle:hover { border-color:var(--primary, #164bff); color:var(--primary, #164bff); } .ds-theme-toggle:focus-visible { outline:3px solid var(--focus, #164bff); outline-offset:4px; }"
+    },
+    {
+      "name": "Proof Strip",
+      "kind": "custom",
+      "refersTo": "proof-strip",
+      "description": "A low, divided row of verifiable portfolio facts without inflated metric styling.",
+      "html": "<div class=\"ds-proof-strip\"><span>2 focused apps</span><span>Shopify-native workflows</span><span>Verified product details</span><span>Built for merchants and agencies</span></div>",
+      "css": ".ds-proof-strip { display:grid; border-top:1px solid var(--line, #cfd8ef); grid-template-columns:repeat(4,1fr); font-family:\"Plus Jakarta Sans\",\"Helvetica Neue\",Arial,sans-serif; } .ds-proof-strip span { display:grid; min-height:58px; padding:0 22px; border-right:1px solid var(--line, #cfd8ef); align-content:center; color:var(--muted, #526079); font-size:.72rem; font-weight:650; text-align:center; } .ds-proof-strip span:first-child { border-left:1px solid var(--line, #cfd8ef); color:var(--primary, #164bff); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Product Swatch Book",
+    "overview": "MerchantCanvas behaves like a compact product index: vivid swatches orient the visitor, precise lines separate choices, and every surface helps someone choose a real Shopify workflow. The system is direct, bright, and operational rather than theatrical. Its personality comes from confident color fields and dense sans-serif hierarchy, not oversized editorial type or decorative diagrams.\n\nThe light and dark themes are related but intentionally authored as different skies. Light mode combines clean cloud fields with cobalt and sun; dark mode combines deep-sea fields with azure and coral. Both retain the same information hierarchy, restrained geometry, and evidence-first tone.",
+    "keyCharacteristics": [
+      "Compact, high-weight sans-serif headlines that leave room for product meaning.",
+      "Hard color zones that distinguish actions, products, and workflow routes.",
+      "Precise one-pixel borders and restrained corners instead of soft, inflated cards.",
+      "A two-theme palette with equal clarity and contrast rather than a mechanical inversion.",
+      "Product evidence and named routes before decorative brand expression."
+    ],
+    "rules": [
+      {
+        "name": "The Two-Sky Rule",
+        "body": "Light mode stays cobalt-and-sun; dark mode stays azure-and-coral. Never invert one palette mechanically into the other.",
+        "section": "colors"
+      },
+      {
+        "name": "The Route-First Rule",
+        "body": "Use vivid color to identify a workflow, action, or state; do not scatter it as decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Compact Voice Rule",
+        "body": "A headline must explain the offer before it dominates the viewport; never scale type merely to create spectacle.",
+        "section": "typography"
+      },
+      {
+        "name": "The First-Viewport Rule",
+        "body": "The first screen must identify MerchantCanvas, name both product routes, and expose a next action without requiring interpretation.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Cards rest on color and borders; add shadow only when a surface floats, opens, or frames real product evidence.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Precision-over-Plush Rule",
+        "body": "Use one restrained outer radius and hard internal divisions; do not turn every nested element into a rounded card.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Action Hierarchy Rule",
+        "body": "Give each decision area one filled primary action; secondary choices use bordered buttons or directional text links.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do route visitors with named apps, workflow categories, and implementation-backed evidence.",
+      "Do use Cobalt + Sun in light mode and Azure + Coral in dark mode.",
+      "Do keep headings compact enough that product meaning and the next action share the first viewport.",
+      "Do use one-pixel lines, restrained outer corners, and square internal divisions to make choices scannable.",
+      "Do preserve visible focus, reduced-motion behavior, and 40–48px interactive targets."
+    ],
+    "donts": [
+      "Don't return to warm cream-heavy surfaces or oversized editorial serif headlines.",
+      "Don't use ornamental workflow diagrams, generic SaaS dashboards, or fabricated product evidence.",
+      "Don't decorate unrelated elements with both accent colors; color must carry route, action, or state meaning.",
+      "Don't wrap every sentence, statistic, or nested element in its own rounded card.",
+      "Don't make dark mode a simple inversion of the light palette."
+    ]
+  }
+}

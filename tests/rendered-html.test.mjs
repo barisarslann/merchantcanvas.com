@@ -30,31 +30,45 @@ test("server-renders the MerchantCanvas portfolio and endorsement system", async
 
   const html = await response.text();
   assert.match(html, /Focused Shopify apps for promotions and B2B workflows/i);
-  assert.match(html, /Distinct products\. One studio\./i);
+  assert.match(html, /Shopify apps for promotions and B2B sales\./i);
   assert.match(html, /MultiTier Discounts/);
   assert.match(html, /B2B Quote Approvals/);
-  assert.match(html, /merchantcanvas-lockup-color\.svg/);
-  assert.match(html, /merchantcanvas-lockup-reverse\.svg/);
+  assert.match(html, /merchantcanvas-lockup-light\.svg/);
+  assert.match(html, /merchantcanvas-lockup-dark\.svg/);
   assert.match(html, /\/og\.png/);
+  assert.match(html, /aria-controls="mobile-navigation"/);
+  assert.match(html, /aria-expanded="false"/);
+  assert.match(html, /aria-label="Toggle color theme"/);
+  assert.match(html, /id="main-content" tabindex="-1"/);
+  assert.match(html, /aria-label="Choose a MerchantCanvas app"/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
 
 test("ships the complete production brand system", async () => {
   const requiredAssets = [
     "public/brand/merchantcanvas-lockup-color.svg",
+    "public/brand/merchantcanvas-lockup-light.svg",
+    "public/brand/merchantcanvas-lockup-dark.svg",
     "public/brand/merchantcanvas-lockup-ink.svg",
     "public/brand/merchantcanvas-lockup-reverse.svg",
     "public/brand/merchantcanvas-lockup-white.svg",
     "public/brand/merchantcanvas-symbol-color.svg",
+    "public/brand/merchantcanvas-symbol-light.svg",
+    "public/brand/merchantcanvas-symbol-dark.svg",
     "public/brand/merchantcanvas-symbol-ink.svg",
     "public/brand/merchantcanvas-symbol-white.svg",
     "public/brand/merchantcanvas-app-icon.svg",
+    "public/brand/merchantcanvas-app-icon-light.svg",
+    "public/brand/merchantcanvas-app-icon-dark.svg",
     "public/brand/merchantcanvas-app-icon-512.png",
     "public/favicon.svg",
+    "public/favicon-light.svg",
+    "public/favicon-dark.svg",
     "public/favicon-32.png",
     "public/apple-touch-icon.png",
     "public/og.png",
     "docs/brand/README.md",
+    "docs/brand/production-proof.svg",
     "docs/brand/production-proof.png",
     "docs/brand/explorations/direction-01-register.svg",
     "docs/brand/explorations/direction-02-offset-planes.svg",
@@ -75,8 +89,8 @@ test("ships the complete production brand system", async () => {
   ]);
 
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
-  assert.match(layout, /width: 1730/);
-  assert.match(layout, /height: 909/);
+  assert.match(layout, /width: 1200/);
+  assert.match(layout, /height: 630/);
   assert.match(guide, /trademark\/conflict check/i);
   assert.match(rootReadme, /Pre-launch/i);
 });

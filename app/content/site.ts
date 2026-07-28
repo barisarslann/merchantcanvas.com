@@ -71,8 +71,7 @@ export const products: Record<Product["slug"], Product> = {
     category: "Promotions",
     accent: "coral",
     eyebrow: "Shopify promotion operations",
-    headline:
-      "Run tiered Shopify promotions without turning campaign setup into a project.",
+    headline: "Run tiered Shopify promotions without setup sprawl.",
     definition:
       "MultiTier Discounts is a Shopify embedded app for native tiered discount campaigns powered by Shopify Functions.",
     summary:
@@ -255,7 +254,7 @@ export const products: Record<Product["slug"], Product> = {
     accent: "blue",
     eyebrow: "Shopify B2B sales operations",
     headline:
-      "Turn wholesale quote requests into an approval workflow, then a Shopify draft order.",
+      "Move wholesale quotes through approvals and into Shopify draft orders.",
     definition:
       "B2B Quote Approvals is a focused Shopify Admin approval desk for creating, reviewing, approving, sharing, and converting wholesale quotes.",
     summary:

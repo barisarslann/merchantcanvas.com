@@ -46,19 +46,32 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={submit}>
+    <form
+      className="contact-form"
+      aria-describedby="contact-form-requirements"
+      onSubmit={submit}
+    >
+      <p id="contact-form-requirements" className="contact-form-intro">
+        Required fields are marked below.
+      </p>
       <div className="form-row">
         <label>
-          Your name
+          <span className="field-label">
+            Your name <span className="field-note">Required</span>
+          </span>
           <input name="name" autoComplete="name" required />
         </label>
         <label>
-          Work email
+          <span className="field-label">
+            Work email <span className="field-note">Required</span>
+          </span>
           <input name="email" type="email" autoComplete="email" required />
         </label>
       </div>
       <label>
-        Shopify store URL <span>(optional)</span>
+        <span className="field-label">
+          Shopify store URL <span className="field-note">Optional</span>
+        </span>
         <input
           name="store"
           type="url"
@@ -67,20 +80,23 @@ export function ContactForm() {
         />
       </label>
       <label>
-        What are you exploring?
+        <span className="field-label">What are you exploring?</span>
         <select
           ref={topicRef}
           name="topic"
-          defaultValue="MultiTier Discounts availability"
+          defaultValue="General question"
         >
+          <option>General question</option>
           <option>MultiTier Discounts availability</option>
           <option>B2B Quote Approvals launch update</option>
           <option>Agency or multi-store evaluation</option>
-          <option>General question</option>
         </select>
       </label>
       <label>
-        Tell us about the workflow
+        <span className="field-label">
+          Tell us about the workflow{" "}
+          <span className="field-note">Required</span>
+        </span>
         <textarea
           name="message"
           rows={7}

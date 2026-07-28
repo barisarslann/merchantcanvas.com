@@ -1,48 +1,48 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="300" viewBox="0 0 960 300" role="img" aria-labelledby="title desc">
   <title id="title">MerchantCanvas incorrect-use examples</title>
   <desc id="desc">Examples showing not to stretch, add effects, recolor, or use the mark on low contrast.</desc>
-  <rect width="960" height="300" fill="#FBFAF7"/>
-  <g font-family="Arial, sans-serif" font-size="13" fill="#31414A">
+  <rect width="960" height="300" fill="#FFFFFF"/>
+  <g font-family="Manrope, Arial, sans-serif" font-size="13" fill="#2C3953">
     <g transform="translate(52 42)">
-      <rect width="180" height="180" fill="#F2EEE6" stroke="#D8D2C8"/>
+      <rect width="180" height="180" fill="#F7F9FF" stroke="#CFD8EF"/>
       <g transform="translate(38 42) scale(1.7 1.15)">
-        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6ZM48 36H58V58H36V48H48Z" fill="#18252F"/>
+        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6ZM48 36H58V58H36V48H48Z" fill="#07142E"/>
       </g>
-      <path d="M18 18 162 162" stroke="#B84C43" stroke-width="4"/>
+      <path d="M18 18 162 162" stroke="#B33C31" stroke-width="4"/>
       <text x="0" y="205">Do not stretch</text>
     </g>
     <g transform="translate(278 42)">
-      <rect width="180" height="180" fill="#F2EEE6" stroke="#D8D2C8"/>
+      <rect width="180" height="180" fill="#F7F9FF" stroke="#CFD8EF"/>
       <g transform="translate(38 38) scale(1.7)" filter="url(#shadow)">
-        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6ZM48 36H58V58H36V48H48Z" fill="#18252F"/>
+        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6ZM48 36H58V58H36V48H48Z" fill="#07142E"/>
       </g>
-      <path d="M18 18 162 162" stroke="#B84C43" stroke-width="4"/>
+      <path d="M18 18 162 162" stroke="#B33C31" stroke-width="4"/>
       <text x="0" y="205">Do not add effects</text>
     </g>
     <g transform="translate(504 42)">
-      <rect width="180" height="180" fill="#F2EEE6" stroke="#D8D2C8"/>
+      <rect width="180" height="180" fill="#F7F9FF" stroke="#CFD8EF"/>
       <g transform="translate(38 38) scale(1.7)">
         <path d="M6 6H28V16H16V28H6Z" fill="#6D4AFF"/>
         <path d="M36 6H58V28H48V16H36Z" fill="#FF4FA7"/>
         <path d="M6 36H16V48H28V58H6Z" fill="#FF9E2C"/>
         <path d="M48 36H58V58H36V48H48Z" fill="#5AC8FA"/>
       </g>
-      <path d="M18 18 162 162" stroke="#B84C43" stroke-width="4"/>
+      <path d="M18 18 162 162" stroke="#B33C31" stroke-width="4"/>
       <text x="0" y="205">Do not recolor modules</text>
     </g>
     <g transform="translate(730 42)">
-      <rect width="180" height="180" fill="#5E837C" stroke="#D8D2C8"/>
+      <rect width="180" height="180" fill="#E4EBFF" stroke="#CFD8EF"/>
       <g transform="translate(38 38) scale(1.7)">
-        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6Z" fill="#4B7C75"/>
-        <path d="M48 36H58V58H36V48H48Z" fill="#6D9890"/>
+        <path d="M6 6H28V16H16V28H6ZM36 6H58V28H48V16H36ZM6 36H16V48H28V58H6Z" fill="#CFD8EF"/>
+        <path d="M48 36H58V58H36V48H48Z" fill="#D8E0F5"/>
       </g>
-      <path d="M18 18 162 162" stroke="#B84C43" stroke-width="4"/>
+      <path d="M18 18 162 162" stroke="#B33C31" stroke-width="4"/>
       <text x="0" y="205">Do not use low contrast</text>
     </g>
   </g>
   <defs>
     <filter id="shadow" x="-30%" y="-30%" width="180%" height="180%">
-      <feDropShadow dx="5" dy="7" stdDeviation="5" flood-color="#18252F" flood-opacity=".45"/>
+      <feDropShadow dx="5" dy="7" stdDeviation="5" flood-color="#07142E" flood-opacity=".45"/>
     </filter>
   </defs>
 </svg>
