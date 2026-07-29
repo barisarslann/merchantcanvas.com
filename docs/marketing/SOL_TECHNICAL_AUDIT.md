@@ -12,10 +12,12 @@ internal links, parseable JSON-LD, and a useful noindex 404. MultiTier Discounts
 is now represented as the live primary product; B2B Quote Approvals remains an
 indexable coming-soon product.
 
-No local P0 indexation blocker remains. Cloudflare crawler-policy cleanup,
-Google Search Console verification, and both Google/Bing sitemap submissions
-are complete. External readiness still depends on production measurement IDs,
-legal approval, post-deploy URL inspection, and live vendor-helper QA.
+No local P0 indexation blocker remains. Production commit `23cf9d3` deployed
+successfully through Cloudflare Pages. Cloudflare crawler-policy cleanup,
+Google Search Console verification, sitemap submissions, live URL inspection,
+and Lighthouse validation are complete. External readiness still depends on
+production measurement IDs, legal approval, post-index visibility follow-up,
+and live vendor-helper QA.
 
 ## Implemented P1 fixes
 
@@ -73,6 +75,18 @@ rechecked after the production deployment.
 - Bing Webmaster Tools: imported from Search Console.
 - Bing sitemap: submitted successfully and processing.
 - Cloudflare Managed `robots.txt`: disabled.
+- Cloudflare Pages deployment: production commit `23cf9d3` published
+  successfully.
+- Live delivery: all 11 public sitemap routes and discovery files return HTTPS
+  200 responses.
+- Live crawler policy: `robots.txt` begins with the source-controlled
+  `Content-Signal` directive; no Cloudflare prepend remains.
+- Search Console URL Inspection: homepage is indexed and HTTPS-valid; MTD, B2B,
+  and both guide URLs are not yet indexed at T0.
+- Mobile Lighthouse: Performance 97, Accessibility 96, Best Practices 100, SEO
+  100, CLS 0.0103, LCP 2.4 seconds.
+- Visibility baseline: Google 20/20 and Perplexity 20/20 complete; ChatGPT
+  Search 2/20 sampled, with the remaining queries scheduled after indexing.
 - Cloudflare Pages measurement variables: only `NODE_VERSION` is currently
   configured; no production GA4, Google Ads, conversion-label, or Meta Pixel
   IDs were present during this audit.
@@ -83,13 +97,11 @@ rechecked after the production deployment.
    approval before paid activation.
 2. Production GA4, Google Ads, install conversion label, and Meta Pixel IDs are
    required before real vendor-helper QA.
-3. Representative Search Console URL inspections must be completed against the
-   new live deployment.
-4. The 20-query Google/ChatGPT Search/Perplexity baseline must be recorded
-   against the live deployment.
-5. Consent combinations and single-event behaviour need browser/network and
+3. The remaining 18 ChatGPT Search baseline queries should be completed after
+   the new product and guide URLs enter Google's index.
+4. Consent combinations and single-event behaviour need browser/network and
    vendor-helper validation with real IDs.
-6. The MTD Plus plan-selection, optional-scope, and managed-billing flow needs a
+5. The MTD Plus plan-selection, optional-scope, and managed-billing flow needs a
    second verified Shopify Plus test store.
 
 ## QA contract

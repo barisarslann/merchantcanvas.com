@@ -58,11 +58,40 @@ MerchantCanvas visibility with the App Store listing in reporting.
 
 ## T0 results
 
-| Engine | Queries checked | MerchantCanvas citations | App Store citations | Status |
+| Engine | Queries checked | MerchantCanvas citations/results | App Store citations/results | Status |
 | --- | ---: | ---: | ---: | --- |
-| Google Search | 0 / 20 | — | — | Run after production deploy |
-| ChatGPT Search | 0 / 20 | — | — | Run after production deploy |
-| Perplexity | 0 / 20 | — | — | Run after production deploy |
+| Google Search | 20 / 20 | 0 | 2 organic results | Complete |
+| ChatGPT Search | 2 / 20 | 0 | 1 cited query | Partial; continue after indexing |
+| Perplexity | 20 / 20 | 0 | 0 | Complete |
+
+### Google Search observations
+
+- Run signed in with the account's Turkish Google locale immediately after
+  production deployment.
+- MerchantCanvas was not present in the first result set for any query.
+- The official App Store listing appeared for Q17 at position 1 and Q18 at
+  position 2.
+- No AI Overview was presented for this query run; the two App Store
+  observations are organic results, not AI citations.
+
+### Perplexity observations
+
+- Run in the public signed-out Search experience.
+- All 20 answers completed.
+- No answer cited MerchantCanvas or the official MultiTier Discounts App Store
+  listing.
+- The branded Q17 answer recognized the app category but cited other sources,
+  demonstrating the current entity-source gap.
+
+### ChatGPT Search observations
+
+- Run in temporary Web Search chats to avoid cross-query context.
+- Q02 did not cite MerchantCanvas or the official listing.
+- Q17 cited the official Shopify App Store listing and identified
+  MerchantCanvas as the app publisher, but did not cite merchantcanvas.com.
+- The remaining 18 queries are intentionally left open for the post-index
+  observation. Consumer Search generation time made a complete same-session run
+  unsuitable for a reproducible launch gate.
 
 ## Follow-up cadence
 
