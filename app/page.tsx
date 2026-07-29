@@ -1,39 +1,53 @@
 import Link from "next/link";
 import { AppCard } from "./components/AppCard";
 import { TrackedLink } from "./components/TrackedLink";
-import { productList, resources } from "./content/site";
+import { productList, products, resources } from "./content/site";
 import { pageMetadata } from "./lib/metadata";
 
 export const metadata = pageMetadata(
-  "Focused Shopify apps for promotions and B2B workflows",
-  "MerchantCanvas builds practical Shopify apps for tiered promotions and structured B2B quote approvals.",
+  "MultiTier Discounts for Shopify promotions",
+  "Install MultiTier Discounts for Shopify tiered discounts, quantity breaks, Buy X Get Y, cart-value rewards, and supported gift campaigns.",
   "/",
 );
 
 export default function Home() {
+  const multiTier = products["multitier-discounts"];
+
   return (
     <main>
       <section className="home-hero">
         <div className="container home-hero-grid">
           <div className="home-hero-copy">
-            <p className="eyebrow">Shopify app studio</p>
-            <h1>Shopify apps for promotions and B2B sales.</h1>
+            <p className="eyebrow">Live Shopify discount app</p>
+            <h1>Shopify tiered discounts, clearly controlled.</h1>
             <p>
-              MerchantCanvas builds focused tools for two clear jobs: running
-              tiered promotion campaigns and moving wholesale quotes through a
-              structured approval process.
+              MultiTier Discounts is live for quantity breaks, Buy X Get Y,
+              cart-value rewards, and supported gift campaigns. B2B Quote
+              Approvals is the next focused MerchantCanvas app.
             </p>
             <div className="hero-actions">
-              <TrackedLink href="/apps" className="button button-primary">
-                Compare Shopify workflows
+              <TrackedLink
+                href={multiTier.installUrl!}
+                className="button button-primary"
+                eventName="install_intent"
+                eventData={{
+                  product: "multitier-discounts",
+                  placement: "home_hero",
+                  destination: "shopify_app_store",
+                }}
+              >
+                Install from Shopify
               </TrackedLink>
               <TrackedLink
-                href="/contact"
+                href="/contact?product=multitier-discounts&intent=fit-check"
                 className="button button-secondary"
                 eventName="contact_intent"
-                eventData={{ placement: "home_hero" }}
+                eventData={{
+                  product: "multitier-discounts",
+                  placement: "home_hero_secondary",
+                }}
               >
-                Talk through a workflow
+                Ask a fit question
               </TrackedLink>
             </div>
           </div>
@@ -43,7 +57,11 @@ export default function Home() {
               <TrackedLink
                 key={product.slug}
                 href={`/apps/${product.slug}`}
-                className={`hero-app-route accent-${product.accent}`}
+                className={`hero-app-route accent-${product.accent}${
+                  product.availabilityStatus === "live"
+                    ? " hero-app-route-primary"
+                    : " hero-app-route-coming-soon"
+                }`}
                 eventName="select_app"
                 eventData={{
                   product: product.slug,
@@ -52,6 +70,11 @@ export default function Home() {
               >
                 <span className="hero-app-route-label">{product.category}</span>
                 <strong>{product.name}</strong>
+                <span className="hero-app-status">
+                  {product.availabilityStatus === "live"
+                    ? "Live on Shopify"
+                    : "Coming soon"}
+                </span>
                 <p>{product.definition}</p>
                 <span className="hero-app-route-arrow" aria-hidden="true">
                   ↗
@@ -62,10 +85,10 @@ export default function Home() {
         </div>
 
         <div className="container hero-proof-strip" aria-label="Portfolio facts">
-          <span>2 focused apps</span>
+          <span>1 live app</span>
+          <span>1 coming soon</span>
           <span>Shopify-native workflows</span>
           <span>Verified product details</span>
-          <span>Built for merchants and agencies</span>
         </div>
       </section>
 
@@ -74,12 +97,12 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Current portfolio</p>
-              <h2 id="portfolio-title">Choose the job you need to improve.</h2>
+              <h2 id="portfolio-title">Start with the live promotion app.</h2>
             </div>
             <p>
-              Each app stays intentionally focused. You can understand the fit,
-              scope, packages, and current availability without decoding a
-              bundled suite.
+              MultiTier Discounts is ready to install. B2B Quote Approvals is
+              clearly separated as an upcoming product, so availability never
+              gets confused with capability.
             </p>
           </div>
           <div className="app-grid">
@@ -122,8 +145,8 @@ export default function Home() {
                 See MultiTier Discounts <span aria-hidden="true">→</span>
               </TrackedLink>
             </article>
-            <article>
-              <p className="eyebrow">B2B quote operations</p>
+            <article className="decision-coming-soon">
+              <p className="eyebrow">B2B quote operations · Coming soon</p>
               <h3>Move wholesale quotes out of inbox-and-sheet chains.</h3>
               <p>
                 Keep buyer context, pricing, approvals, revisions, and the
@@ -240,14 +263,23 @@ export default function Home() {
         <div className="container closing-cta-inner">
           <div>
             <p className="eyebrow">Next step</p>
-            <h2>Find the app built for the workflow in front of you.</h2>
+            <h2>Run your next promotion with MultiTier Discounts.</h2>
             <p>
-              Compare verified packages or contact MerchantCanvas for an honest
-              fit check.
+              Review the verified packages on this site, then install from the
+              official Shopify App Store listing.
             </p>
           </div>
-          <TrackedLink href="/apps" className="button button-primary">
-            Explore products
+          <TrackedLink
+            href={multiTier.installUrl!}
+            className="button button-primary"
+            eventName="install_intent"
+            eventData={{
+              product: "multitier-discounts",
+              placement: "home_close",
+              destination: "shopify_app_store",
+            }}
+          >
+            Install from Shopify
           </TrackedLink>
         </div>
       </section>

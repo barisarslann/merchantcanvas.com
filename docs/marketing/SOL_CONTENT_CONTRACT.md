@@ -1,6 +1,6 @@
 # SOL → TERRA Content Contract
 
-**Reviewed:** 2026-07-28  
+**Reviewed:** 2026-07-29
 **Purpose:** Keep visible product language and technical metadata/schema in one
 evidence-backed contract.
 
@@ -16,9 +16,9 @@ already expose the answer surfaces requested by the SOL plan:
 | When it is useful | Present | Present |
 | When it is not appropriate | Present | Present |
 | Workflow | Four visible steps | Four visible steps |
-| Plans, prices, trials, limits | Present | Present |
+| Plans, prices, trials, limits | Three standard cards + conditional Plus band | Present |
 | Availability boundary | Present beside CTA and in FAQ | Present beside CTA and in FAQ |
-| Visible FAQs | Five | Five |
+| Visible FAQs | Six | Five |
 | Related guide | Quantity-break guide | Quote-approval guide |
 
 The two guides also start with an `answer-first` paragraph and link back to the
@@ -32,8 +32,9 @@ relevant product as an implementation option, not as a guaranteed requirement.
   `B2B Quote Approvals`.
 - MerchantCanvas is the product company/provider. Shopify is the commerce
   platform, not the owner or endorser.
-- Do not add a public install/App Store URL until the owner provides and verifies
-  it against the live product.
+- Use the verified MTD App Store URL exactly:
+  `https://apps.shopify.com/multitier-discounts`.
+- Do not add a B2B install URL until its public release is verified.
 - Do not add customer counts, ratings, reviews, testimonials, Shopify Plus
   compatibility, or outcome guarantees without explicit evidence.
 
@@ -43,7 +44,7 @@ Any future pricing or release update must change these surfaces in one reviewed
 change:
 
 1. `app/content/site.ts` visible plan/availability data.
-2. Product CTA behavior and any approved install environment variable.
+2. Product CTA behavior and the source-controlled verified install URL.
 3. Product SoftwareApplication/Offer rendered JSON-LD.
 4. `public/llms.txt`.
 5. SEO/AEO regression expectations.
@@ -85,7 +86,7 @@ Pure accessibility or formatting changes do not require a content-modified date.
 1. Whether the draft Privacy and Terms pages should remain indexable before
    owner/legal approval.
 2. The final monitored contact email and legal business entity.
-3. Verified public App Store/install URLs and launch states.
+3. B2B public App Store/install URL and launch state.
 4. Permissioned proof such as reviews, customers, screenshots, or outcomes.
 5. A real author/person attribution if MerchantCanvas later wants individual
    expertise rather than the truthful current `MerchantCanvas product team`.

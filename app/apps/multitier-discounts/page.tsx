@@ -5,8 +5,8 @@ import { pageMetadata } from "../../lib/metadata";
 const product = products["multitier-discounts"];
 
 export const metadata = pageMetadata(
-  "Shopify tiered discounts and quantity breaks",
-  "Plan targeted Shopify tiered discounts, quantity breaks, cart-value, Buy X Get Y, and supported gift campaigns with Functions-based checkout logic.",
+  "MultiTier Discounts — Shopify tiered discounts",
+  "Install MultiTier Discounts for Shopify quantity breaks, cart-value, Buy X Get Y, and supported gift campaigns with Functions-based checkout logic.",
   "/apps/multitier-discounts",
 );
 

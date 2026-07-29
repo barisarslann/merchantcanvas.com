@@ -20,7 +20,7 @@ export default function TermsPage() {
               reviewed against the final business entity, product agreements,
               jurisdiction, and public availability before publication.
             </p>
-            <span>Draft reviewed 27 July 2026</span>
+            <span>Draft reviewed 29 July 2026</span>
           </div>
         </header>
         <div className="container legal-body">
@@ -47,10 +47,9 @@ export default function TermsPage() {
           <section>
             <h2>3. Product availability</h2>
             <p>
-              The website does not claim that an app is publicly installable
-              unless a verified official install or Shopify App Store URL is
-              configured. Where a product is preparing for release, the site
-              provides a contact or launch-update path instead.
+              MultiTier Discounts is publicly installable through its verified
+              official Shopify App Store listing. B2B Quote Approvals is coming
+              soon and provides a launch-update path instead of an install link.
             </p>
             <p>
               Product functionality, compatibility, plans, limits, and
@@ -65,8 +64,10 @@ export default function TermsPage() {
               Prices, plan names, billing intervals, trial terms, and feature
               limits shown on product pages are intended to match the verified
               implemented billing configuration at the time of review. The
-              Shopify billing confirmation or official listing will control the
-              actual purchase if a product becomes available.
+              Shopify billing confirmation controls the actual purchase. The
+              MultiTier Discounts Plus plan is shown separately because it is
+              available only to stores Shopify verifies as Shopify Plus and may
+              not appear in the general public listing.
             </p>
             <p>
               Taxes, currency conversion, Shopify charges, and changes approved

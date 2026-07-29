@@ -1,8 +1,10 @@
 # MerchantCanvas Organic and AI Discovery Measurement Plan
 
 **Created:** 2026-07-28  
-**Boundary:** This is an implementation and manual-platform checklist. No Search
-Console, Bing, analytics, advertising, DNS, or submission action was performed.
+**Updated:** 2026-07-29
+**Primary product:** MultiTier Discounts (MTD)
+**Boundary:** Campaigns must remain paused until account IDs, legal approval,
+consent/network QA, and live conversion validation are complete.
 
 ## Measurement principles
 
@@ -12,8 +14,9 @@ Console, Bing, analytics, advertising, DNS, or submission action was performed.
   reduced by apps, browsers, and privacy controls.
 - Do not send names, email addresses, store URLs, free-text workflow
   descriptions, or other PII to analytics.
-- Keep every analytics and advertising script behind the existing explicit
-  consent choice.
+- Keep GA4 behind analytics consent. Keep Google Ads and Meta Pixel behind the
+  separate advertising grant. Essential-only operation loads none of them.
+- Keep App Store `install_intent` separate from completed Shopify installation.
 - Use field data for user-performance claims. Lab results are diagnostic only.
 
 ## Google Search Console setup
@@ -82,8 +85,8 @@ set unless future product evidence changes its scope.
 | Group | Routes | Decision measured |
 | --- | --- | --- |
 | Portfolio | `/`, `/apps`, `/about` | Can visitors identify the right workflow? |
-| Promotion product | `/apps/multitier-discounts` | Does verified product detail create availability intent? |
-| B2B product | `/apps/b2b-quote-approvals` | Does the beta scope create qualified launch/pilot intent? |
+| Promotion product | `/apps/multitier-discounts` | Does verified product detail create App Store install intent? |
+| B2B product | `/apps/b2b-quote-approvals` | Does the coming-soon scope create qualified launch-update intent? |
 | Promotion education | quantity-break guide | Does neutral planning create product evaluation? |
 | B2B education | quote-approval guide | Does workflow planning create product evaluation? |
 | Conversion | `/contact` | Which route/topic prepares an email? |
@@ -91,7 +94,14 @@ set unless future product evidence changes its scope.
 
 ## Consent-aware event plan
 
-Existing implementation:
+Implemented v2 consent levels:
+
+1. Essential only — no GA4, Google Ads, or Meta request.
+2. Analytics only — GA4 only.
+3. Analytics + advertising — GA4, Google Ads, and Meta.
+
+The previous single-value `analytics` preference migrates to Analytics only;
+advertising remains denied.
 
 | Event | Trigger | Required properties | Decision |
 | --- | --- | --- | --- |
@@ -99,25 +109,28 @@ Existing implementation:
 | `select_app` | Product selection link | `product`, `placement` | Which surface sends product interest |
 | `contact_intent` | Contact/availability CTA | `product` when known, `placement` | Which page creates conversation intent |
 | `lead_submit` | Static mailto handoff prepared | `topic` only | Which topic reaches the handoff |
+| `install_intent` | Unmodified click to the official MTD App Store URL | `product=multitier-discounts`, `placement`, `destination=shopify_app_store`, available UTM/gclid/fbclid | Which consented surface creates an App Store handoff |
 
 Implemented placement values include `product_hero`, `product_close`,
-`home_hero_selector`, `workflow_decision`, `app_card`, and
-`resource_guide_cta`.
+`home_hero`, `home_close`, `apps_index_close`, and `resource_guide_cta`.
+App Store navigation waits for a measurement callback or at most 500 ms.
 
 Validation checklist in a consented test session:
 
-1. With no consent stored, confirm no GTM, gtag, Google Ads, or Meta script
-   request occurs.
-2. Choose Essential only and confirm no measurement event is sent.
-3. Choose Analytics on a product page and confirm one `view_product` event with
-   the correct product.
-4. Click each guide CTA and confirm `select_app` includes product and
-   `resource_guide_cta`.
-5. Prepare a contact email and confirm `lead_submit` includes only `topic`.
-6. Confirm no duplicate GA4 events when GTM and direct GA4 IDs are both
-   configured. Prefer one ownership path if duplicates appear.
-7. Confirm no PII is present in GA4 DebugView, GTM Preview, Ads diagnostics, or
-   Meta Pixel Helper.
+1. With no consent stored, confirm no gtag, Google Ads, or Meta network request.
+2. Choose Essential only and confirm the same zero-request behaviour.
+3. Choose Analytics only and confirm GA4 loads while Google Ads and Meta do not.
+4. Choose Analytics + advertising and confirm all configured direct
+   integrations load once. GTM must remain unset.
+5. On the MTD product page, confirm one `view_product`.
+6. Click every MTD App Store CTA and confirm one `install_intent` with the
+   required product, placement, destination, and available attribution.
+7. Confirm the Google Ads MTD install-intent conversion label receives one
+   conversion and Meta receives one `InstallIntent` custom event.
+8. Confirm the redirect always continues within 500 ms even when a callback is
+   blocked.
+9. Confirm no name, email, store URL, free text, or other PII is present in GA4
+   DebugView, Tag Assistant, Ads diagnostics, or Meta Pixel Helper.
 
 ## AI referral classification
 
@@ -134,8 +147,8 @@ Start with these host patterns and review monthly:
 Keep three measures separate:
 
 1. **AI referred sessions:** sessions with a recognized referring host.
-2. **AI assisted intent:** AI referred sessions with `select_app` or
-   `contact_intent`.
+2. **AI assisted intent:** AI referred sessions with `install_intent`,
+   `select_app`, or `contact_intent`.
 3. **AI handoff:** AI referred sessions with `lead_submit`.
 
 Do not equate a missing referrer with no AI influence, and do not combine manual
@@ -152,6 +165,8 @@ prompt-monitoring citation counts with web sessions.
 | Organic product sessions | Search sessions landing on either product route | Segment brand vs non-brand |
 | Organic guide sessions | Search sessions landing on either guide | Segment by guide |
 | Product selection rate | Sessions with `select_app` / eligible landing sessions | Consent means measured sessions are a subset |
+| MTD install-intent rate | Sessions with `install_intent` / eligible MTD landing sessions | A click is not an installation |
+| Completed MTD installs | New installations in Shopify Partner Dashboard | Reconcile directionally; do not substitute click data |
 | Contact-intent rate | Sessions with `contact_intent` / eligible product or portfolio sessions | Do not treat click as lead |
 | Email-handoff rate | Sessions with `lead_submit` / contact sessions | Mail client opening is not confirmed delivery |
 | AI referred sessions | Sessions from recognized AI referrers | Directional; referrer loss applies |
@@ -168,6 +183,9 @@ prompt-monitoring citation counts with web sessions.
   Perplexity, recording citation URL and framing without claiming exhaustive
   coverage.
 - Qualified topic mix from `lead_submit`.
+- MTD install-intent by placement, market, campaign, and device.
+- Completed MTD installations and activated paid plans from Shopify reporting,
+  reported separately from web clicks.
 
 ## Targets
 

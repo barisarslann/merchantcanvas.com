@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { siteConfig } from "../content/site";
+import { products, siteConfig } from "../content/site";
 import { TrackedLink } from "./TrackedLink";
 
 function setThemeFavicon(theme: "light" | "dark") {
@@ -23,6 +23,7 @@ function setThemeFavicon(theme: "light" | "dark") {
 }
 
 export function SiteHeader() {
+  const multiTier = products["multitier-discounts"];
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
@@ -95,10 +96,16 @@ export function SiteHeader() {
           ))}
         </nav>
         <TrackedLink
-          href="/apps"
+          href={multiTier.installUrl!}
           className="button button-small button-primary header-cta"
+          eventName="install_intent"
+          eventData={{
+            product: "multitier-discounts",
+            placement: "site_header",
+            destination: "shopify_app_store",
+          }}
         >
-          Explore apps
+          Install MTD
         </TrackedLink>
         <button
           type="button"
@@ -134,8 +141,11 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/apps" onClick={() => setMobileMenuOpen(false)}>
-              Explore apps
+            <Link
+              href="/apps/multitier-discounts"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              MultiTier Discounts — live
             </Link>
           </nav>
         </div>

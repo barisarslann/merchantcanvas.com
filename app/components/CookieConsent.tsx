@@ -1,9 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { CONSENT_EVENT, CONSENT_KEY } from "./Analytics";
+import {
+  CONSENT_EVENT,
+  CONSENT_KEY,
+  CONSENT_LEVELS,
+} from "./Analytics";
+import {
+  createConsent,
+  parseConsent,
+  serializeConsent,
+} from "../lib/consent.js";
 
-type Consent = "analytics" | "essential";
+type ConsentLevel = "essential" | "analytics" | "analytics-advertising";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -12,7 +21,9 @@ export function CookieConsent() {
 
   useEffect(() => {
     const initialCheck = window.setTimeout(() => {
-      setVisible(!window.localStorage.getItem(CONSENT_KEY));
+      setVisible(
+        !parseConsent(window.localStorage.getItem(CONSENT_KEY)),
+      );
     }, 0);
     const open = (event: Event) => {
       const detail =
@@ -30,10 +41,20 @@ export function CookieConsent() {
     };
   }, []);
 
-  function choose(value: Consent) {
-    window.localStorage.setItem(CONSENT_KEY, value);
+  function choose(level: ConsentLevel) {
+    const previous = parseConsent(window.localStorage.getItem(CONSENT_KEY));
+    const next = createConsent(level);
+    const needsReload =
+      Boolean(previous?.analytics && !next.analytics) ||
+      Boolean(previous?.advertising && !next.advertising);
+
+    window.localStorage.setItem(CONSENT_KEY, serializeConsent(next));
     window.dispatchEvent(new Event(CONSENT_EVENT));
     setVisible(false);
+    if (needsReload) {
+      window.location.reload();
+      return;
+    }
     const returnFocusId = returnFocusIdRef.current;
     returnFocusIdRef.current = null;
     if (returnFocusId) {
@@ -54,10 +75,11 @@ export function CookieConsent() {
       aria-label="Cookie and analytics preferences"
     >
       <div>
-        <strong>Your analytics choice</strong>
+        <strong>Your privacy choice</strong>
         <p>
-          MerchantCanvas uses no advertising or analytics scripts until you
-          choose analytics. Essential storage only remembers this preference.
+          Analytics helps improve the site. Advertising measurement is separate
+          and only runs when you accept it. Essential storage remembers your
+          choice.
         </p>
       </div>
       <div className="cookie-actions">
@@ -65,14 +87,21 @@ export function CookieConsent() {
           ref={firstActionRef}
           type="button"
           className="button button-primary"
-          onClick={() => choose("analytics")}
+          onClick={() => choose(CONSENT_LEVELS.advertising)}
         >
-          Accept analytics
+          Analytics + advertising
+        </button>
+        <button
+          type="button"
+          className="button button-secondary"
+          onClick={() => choose(CONSENT_LEVELS.analytics)}
+        >
+          Analytics only
         </button>
         <button
           type="button"
           className="button button-quiet"
-          onClick={() => choose("essential")}
+          onClick={() => choose(CONSENT_LEVELS.essential)}
         >
           Essential only
         </button>

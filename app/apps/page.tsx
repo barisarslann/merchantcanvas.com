@@ -1,26 +1,28 @@
 import Link from "next/link";
 import { AppCard } from "../components/AppCard";
 import { TrackedLink } from "../components/TrackedLink";
-import { productList } from "../content/site";
+import { productList, products } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "Shopify promotion and B2B quote apps",
-  "Compare MerchantCanvas apps for Shopify tiered promotions and structured B2B quote approval workflows.",
+  "MultiTier Discounts and upcoming Shopify apps",
+  "Install live Shopify promotion app MultiTier Discounts and preview the coming-soon B2B Quote Approvals workflow.",
   "/apps",
 );
 
 export default function AppsPage() {
+  const multiTier = products["multitier-discounts"];
+
   return (
     <main>
       <section className="page-hero page-hero-apps">
         <div className="container narrow">
           <p className="eyebrow">MerchantCanvas app portfolio</p>
-          <h1>Shopify apps for tiered promotions and B2B quote approvals.</h1>
+          <h1>One live Shopify promotion app. One B2B app coming soon.</h1>
           <p className="page-lead">
-            The portfolio starts with promotion operations and B2B quote
-            approvals. Every app remains a standalone product with its own fit,
-            packages, and path forward.
+            MultiTier Discounts is the primary MerchantCanvas product and is
+            available on the Shopify App Store. B2B Quote Approvals remains
+            indexable for evaluation while its production release is prepared.
           </p>
         </div>
       </section>
@@ -29,12 +31,12 @@ export default function AppsPage() {
         <div className="container">
           <div className="portfolio-index">
             <div>
-              <span>01—02</span>
-              <p>Current products</p>
+              <span>01</span>
+              <p>Live on Shopify</p>
             </div>
             <div>
-              <span>03—05</span>
-              <p>Future focused workflows</p>
+              <span>02</span>
+              <p>Coming soon</p>
             </div>
             <div>
               <span>One brand</span>
@@ -81,6 +83,11 @@ export default function AppsPage() {
               <span role="cell">Approved Shopify draft order</span>
             </div>
             <div role="row">
+              <span role="cell">Availability</span>
+              <span role="cell">Live on the Shopify App Store</span>
+              <span role="cell">Coming soon; no public install yet</span>
+            </div>
+            <div role="row">
               <span role="cell">Not designed as</span>
               <span role="cell">A loyalty or marketing suite</span>
               <span role="cell">A generic RFQ or wholesale suite</span>
@@ -109,20 +116,24 @@ export default function AppsPage() {
       <section className="closing-cta accent-green">
         <div className="container closing-cta-inner">
           <div>
-            <p className="eyebrow">Need a fit check?</p>
-            <h2>Bring the workflow, not a prepared feature list.</h2>
+            <p className="eyebrow">Live product</p>
+            <h2>Install MultiTier Discounts from Shopify.</h2>
             <p>
-              MerchantCanvas can help determine whether either product fits the
-              real store or agency requirement.
+              Use the product page to verify fit and package details, or move
+              directly to the official Shopify App Store listing.
             </p>
           </div>
           <TrackedLink
-            href="/contact"
+            href={multiTier.installUrl!}
             className="button button-primary"
-            eventName="contact_intent"
-            eventData={{ placement: "apps_index_close" }}
+            eventName="install_intent"
+            eventData={{
+              product: "multitier-discounts",
+              placement: "apps_index_close",
+              destination: "shopify_app_store",
+            }}
           >
-            Contact MerchantCanvas
+            Install from Shopify
           </TrackedLink>
         </div>
       </section>

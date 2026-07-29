@@ -402,6 +402,25 @@ html[data-theme="dark"] .brand-lockup-dark {
     padding-left 220ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+html[data-theme="dark"] .button-primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+html[data-theme="dark"] .button-primary:hover {
+  background: #ff8b77;
+  color: var(--accent-ink);
+}
+
+.hero-app-route-primary {
+  min-height: 290px;
+}
+
+.hero-app-route-coming-soon {
+  min-height: 205px;
+  background: var(--paper-soft) !important;
+}
+
 .hero-app-route:last-child {
   border-bottom: 0;
 }
@@ -424,6 +443,17 @@ html[data-theme="dark"] .brand-lockup-dark {
   font-size: 0.7rem;
   font-weight: 760;
   text-transform: uppercase;
+}
+
+.hero-app-status {
+  width: max-content;
+  margin-top: 10px;
+  padding: 4px 8px;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.68rem;
+  font-weight: 760;
 }
 
 .hero-app-route strong {
@@ -490,6 +520,7 @@ html[data-theme="dark"] .brand-lockup-dark {
 /* Product and resource collections */
 
 .app-grid {
+  grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
   gap: 16px;
 }
 
@@ -514,6 +545,15 @@ html[data-theme="dark"] .brand-lockup-dark {
 
 .app-card.accent-blue {
   background: var(--b2b-surface);
+}
+
+.app-card-coming-soon {
+  min-height: 430px;
+  background: var(--paper-soft) !important;
+}
+
+.app-card-coming-soon .status-dot::before {
+  background: var(--b2b);
 }
 
 .app-card-topline {
@@ -984,6 +1024,11 @@ html[data-theme="dark"] .brand-lockup-dark {
   gap: 14px;
 }
 
+.pricing-layout {
+  display: grid;
+  gap: 16px;
+}
+
 .price-card {
   border-color: var(--line);
   border-radius: 16px;
@@ -1006,6 +1051,59 @@ html[data-theme="dark"] .brand-lockup-dark {
 .annual-price,
 .pricing-note {
   color: var(--muted);
+}
+
+.plan-eligibility {
+  margin: 0 0 var(--space-2);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.conditional-plan {
+  display: grid;
+  padding: clamp(26px, 4vw, 40px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-soft);
+  grid-template-columns: minmax(0, 1.2fr) minmax(210px, 0.7fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.conditional-plan-intro {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.conditional-plan-label {
+  width: max-content;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-size: 0.68rem;
+  font-weight: 780;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.conditional-plan h3 {
+  margin-bottom: var(--space-2);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.conditional-plan-intro p,
+.conditional-plan .plan-limit {
+  margin-bottom: 0;
+}
+
+.conditional-plan-price .price {
+  margin-top: 0;
+}
+
+.conditional-plan .check-list {
+  margin-bottom: 0;
 }
 
 .trial {
@@ -1054,6 +1152,13 @@ html[data-theme="dark"] .brand-lockup-dark {
   border-color: var(--line);
   border-radius: 16px;
   background: var(--paper);
+}
+
+.closing-cta-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  flex-direction: column;
 }
 
 /* Resources and articles */
@@ -1314,6 +1419,7 @@ html[data-theme="dark"] .footer-button:hover {
 }
 
 .cookie-banner {
+  width: min(1040px, calc(100% - 40px));
   border-color: var(--line);
   border-radius: 16px;
   background: var(--paper);
@@ -1328,6 +1434,12 @@ html[data-theme="dark"] .footer-button:hover {
 .cookie-banner .button-primary {
   background: var(--primary);
   color: var(--primary-ink);
+}
+
+.cookie-banner .button-secondary {
+  border-color: var(--line);
+  background: var(--paper-soft);
+  color: var(--ink);
 }
 
 .cookie-banner .button-quiet {
@@ -1456,6 +1568,17 @@ html[data-theme="dark"] .footer-button:hover {
   }
 }
 
+@media (max-width: 860px) {
+  .pricing-grid,
+  .conditional-plan {
+    grid-template-columns: 1fr;
+  }
+
+  .conditional-plan {
+    gap: var(--space-4);
+  }
+}
+
 @media (max-width: 760px) {
   .container,
   .container.narrow {
@@ -1521,6 +1644,11 @@ html[data-theme="dark"] .footer-button:hover {
   .value-grid,
   .contact-paths {
     grid-template-columns: 1fr;
+  }
+
+  .conditional-plan {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .app-card,

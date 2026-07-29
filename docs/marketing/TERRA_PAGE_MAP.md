@@ -1,28 +1,28 @@
 # MerchantCanvas Query-to-Page Map
 
-**Last reviewed:** 2026-07-28  
+**Last reviewed:** 2026-07-29
 **Rule:** one dominant search job per route. Supporting terms may be present when they clarify the same job; they must not turn a route into a second guide or a generic comparison page.
 
 ## /
 
-- **Primary intent:** Understand what MerchantCanvas is and choose the relevant Shopify workflow.
-- **Supporting intents:** Compare the two apps; identify current availability; find a guide or contact path.
-- **Primary entity and user question:** MerchantCanvas — "What is MerchantCanvas, and which of its Shopify apps matches my workflow?"
-- **Title / description / H1:** Focused Shopify apps for promotions and B2B workflows | MerchantCanvas / MerchantCanvas builds practical Shopify apps for tiered promotions and structured B2B quote approvals. / Shopify apps for promotions and B2B sales.
-- **Answer-first opening:** MerchantCanvas builds focused tools for tiered promotion campaigns and wholesale quote approvals; visitors can route directly to the matching app.
-- **Required sections:** Two named app routes, workflow comparison, evidence/availability standard, related resources, direct fit-check CTA.
-- **Internal links and CTA:** Link to /apps, both product pages, both guides, and /contact. Primary CTA: Compare Shopify workflows.
+- **Primary intent:** Evaluate the live MultiTier Discounts offer and reach its official Shopify App Store listing.
+- **Supporting intents:** Understand MerchantCanvas, preview the coming-soon B2B app, find a guide, or ask a fit question.
+- **Primary entity and user question:** MultiTier Discounts — "Can I use this Shopify app for the tiered promotion workflow I need?"
+- **Title / description / H1:** MultiTier Discounts for Shopify promotions | MerchantCanvas / Install MultiTier Discounts for Shopify tiered discounts, quantity breaks, Buy X Get Y, cart-value rewards, and supported gift campaigns. / Shopify tiered discounts, clearly controlled.
+- **Answer-first opening:** MultiTier Discounts is live for quantity breaks, Buy X Get Y, cart-value rewards, and supported gift campaigns; B2B Quote Approvals is coming next.
+- **Required sections:** Direct install and fit-check actions, dominant MTD route, lower-priority coming-soon B2B route, evidence, resources.
+- **Internal links and CTA:** Primary CTA: Install from Shopify. Secondary CTA: Ask a fit question.
 - **Cannibalization control:** Do not turn the homepage into a long quantity-break tutorial or B2B approval guide.
 
 ## /apps
 
-- **Primary intent:** Compare MerchantCanvas's two focused Shopify apps.
-- **Supporting intents:** Agency evaluation; understand scope boundaries; select an app.
-- **Primary entity and user question:** MerchantCanvas app portfolio — "Do I need a tiered-promotion tool or a B2B quote approval desk?"
-- **Title / description / H1:** Shopify promotion and B2B quote apps | MerchantCanvas / Compare MerchantCanvas apps for Shopify tiered promotions and structured B2B quote approval workflows. / Shopify apps for tiered promotions and B2B quote approvals.
-- **Answer-first opening:** MerchantCanvas has one promotion app and one B2B quote-approval app, each with a separate Shopify outcome.
+- **Primary intent:** Evaluate live MTD while distinguishing it from the coming-soon B2B app.
+- **Supporting intents:** Agency evaluation, availability comparison, and product selection.
+- **Primary entity and user question:** MerchantCanvas app portfolio — "Which product is live now, and what is coming next?"
+- **Title / description / H1:** MultiTier Discounts and upcoming Shopify apps | MerchantCanvas / Install live Shopify promotion app MultiTier Discounts and preview the coming-soon B2B Quote Approvals workflow. / One live Shopify promotion app. One B2B app coming soon.
+- **Answer-first opening:** MultiTier Discounts is live on the Shopify App Store; B2B Quote Approvals remains indexable for evaluation while production release is prepared.
 - **Required sections:** Product cards, concise comparison table, scope boundaries, fit-check CTA.
-- **Internal links and CTA:** Link to each product page, /about for operating principles, and /contact for evaluation. Primary CTA: Contact MerchantCanvas.
+- **Internal links and CTA:** Link to each product page and /about. Primary CTA: Install from Shopify.
 - **Cannibalization control:** Compare MerchantCanvas products only; do not target a broad "best Shopify apps" query or publish competitor feature claims here.
 
 ## /apps/multitier-discounts
@@ -30,20 +30,20 @@
 - **Primary intent:** Evaluate a focused Shopify tiered-discount and quantity-break app.
 - **Supporting intents:** Buy more save more, cart-value rewards, Buy X Get Y, gift campaigns, plan/pricing/availability, and agency fit.
 - **Primary entity and user question:** MultiTier Discounts — "Can this app run my Shopify promotion with the eligibility, storefront guidance, and checkout logic I need?"
-- **Title / description / H1:** Shopify tiered discounts and quantity breaks | MerchantCanvas / Plan targeted Shopify tiered discounts, quantity breaks, cart-value, Buy X Get Y, and supported gift campaigns with Functions-based checkout logic. / Create Shopify tiered discounts and quantity-break campaigns without setup sprawl.
+- **Title / description / H1:** MultiTier Discounts — Shopify tiered discounts | MerchantCanvas / Install MultiTier Discounts for Shopify quantity breaks, cart-value, Buy X Get Y, and supported gift campaigns with Functions-based checkout logic. / Create Shopify tiered discounts and quantity-break campaigns without setup sprawl.
 - **Answer-first opening:** MultiTier Discounts is a Shopify embedded app for supported tiered, quantity-break, cart-value, Buy X Get Y, and gift promotions with Shopify Functions-based checkout logic.
-- **Required sections:** Fit/not-fit, supported workflow, capabilities, approved screenshots, current plans/prices/availability, visible FAQs, related quantity-break guide, fit-check CTA.
-- **Internal links and CTA:** Link to the quantity-break guide and /contact?product=multitier-discounts&intent=availability. Primary CTA: Ask about availability.
+- **Required sections:** Fit/not-fit, workflow, capabilities, approved screenshots, three standard plans, separate conditional Plus plan, visible FAQs, related guide, install and fit-check CTAs.
+- **Internal links and CTA:** Link to the quantity-break guide and official App Store listing. Primary CTA: Install from Shopify. Secondary CTA: Ask a fit question.
 - **Cannibalization control:** Explain the product and fit; send neutral campaign planning, margin, and test-process questions to the guide.
 
 ## /apps/b2b-quote-approvals
 
-- **Primary intent:** Evaluate a focused Shopify B2B quote-approval workflow app.
+- **Primary intent:** Evaluate a coming-soon Shopify B2B quote-approval workflow app.
 - **Supporting intents:** Wholesale quote approval, internal approval thresholds, revision history, draft-order conversion, pricing/availability, agency and pilot fit.
 - **Primary entity and user question:** B2B Quote Approvals — "Can this app keep our quote approval decisions and Shopify draft-order handoff in one operational trail?"
-- **Title / description / H1:** Shopify B2B quote approvals and draft orders | MerchantCanvas / Create, review, approve, share, and convert wholesale quotes into Shopify draft orders from a focused Shopify Admin approval desk. / Approve Shopify B2B quotes and turn agreed terms into draft orders.
+- **Title / description / H1:** B2B Quote Approvals for Shopify — coming soon | MerchantCanvas / Preview the coming-soon Shopify Admin workflow for creating, approving, sharing, and converting wholesale quotes into Shopify draft orders. / Approve Shopify B2B quotes and turn agreed terms into draft orders.
 - **Answer-first opening:** B2B Quote Approvals is a Shopify Admin app for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders.
-- **Required sections:** Fit/not-fit, operational workflow, plan gates, visible availability note, visible FAQs, related workflow guide, launch-update CTA.
+- **Required sections:** Coming-soon status, fit/not-fit, operational workflow, planned package gates, visible FAQs, related guide, launch-update CTA; never an install CTA.
 - **Internal links and CTA:** Link to the B2B quote workflow guide and /contact?product=b2b-quote-approvals&intent=launch-update. Primary CTA: Request a launch update.
 - **Cannibalization control:** Do not compete for generic hide-price or public RFQ terms that describe a different product category.
 
@@ -66,7 +66,7 @@
 - **Title / description / H1:** Shopify quantity breaks: a practical planning guide | MerchantCanvas / A useful Shopify quantity-break campaign starts with one legible buying decision, protects contribution margin at every tier, and is tested from product page through checkout before launch. / Shopify quantity breaks: a practical planning guide.
 - **Answer-first opening:** A Shopify quantity break is a tiered promotion that rewards eligible quantity or a defined cart threshold; its design joins economics, eligibility, and communication.
 - **Required sections:** Tier shapes, margin model, eligibility specification, when Functions help, storefront guidance, test path, operational measurement.
-- **Internal links and CTA:** One contextual link to MultiTier Discounts as an implementation option. Primary CTA: Explore MultiTier Discounts.
+- **Internal links and CTA:** Direct official App Store link to MultiTier Discounts as an implementation option. Primary CTA: Install from Shopify.
 - **Cannibalization control:** Avoid price/plan/install language except a direct product link; do not claim that an app is required for every promotion.
 
 ## /resources/shopify-b2b-quote-approval-workflow

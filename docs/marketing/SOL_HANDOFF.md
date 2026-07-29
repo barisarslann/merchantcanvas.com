@@ -1,89 +1,74 @@
 # MerchantCanvas SOL Handoff
 
-**Date:** 2026-07-28  
-**Branch:** `codex/digital-marketing-sol`  
-**Deployment/submission:** Not performed.
+**Updated:** 2026-07-29
+**Branch:** `main`
+**Primary product:** MultiTier Discounts
+**External activation:** Blocked until legal approval and measurement IDs/QA
+are complete.
 
-## What changed
+## Implemented
 
-- Added one absolute URL helper and made root/non-root canonical output exactly
-  match the sitemap.
-- Rebuilt structured data as linked graphs with stable Organization, WebSite,
-  WebPage, SoftwareApplication, Article, FAQPage, BreadcrumbList, author, and
-  Offer identities.
-- Kept offers limited to verified plan prices and attached the visible
-  availability boundary; no public install URL or general availability is
-  implied.
-- Added a custom, recoverable 404 body while preserving real 404 status,
-  `noindex`, and no canonical.
-- Corrected the `/apps` heading hierarchy without changing card styling.
-- Made post-consent product views measurable and added consent-gated guide CTA
-  selection context.
-- Added full rendered SEO/AEO regression coverage and wired it into `npm test`.
-- Added the audit, content contract, measurement plan, SOL↔TERRA coordination
-  note, and this handoff.
+- Made the verified MTD App Store URL the source-controlled install
+  destination.
+- Added live/coming-soon product status and card/conditional plan presentation
+  to the shared product model.
+- Preserved Free, Starter, and Pro as the three standard cards and added the
+  $24.99/month or $249.90/year Plus plan as a separate eligibility band.
+- Marked standard MTD schema offers `InStock`, the Shopify Plus-only offer
+  `LimitedAvailability`, and all coming-soon B2B offers
+  `LimitedAvailability`.
+- Added the official MTD `downloadUrl` to `SoftwareApplication`.
+- Updated visible FAQs, discovery copy, `llms.txt`, and crawler policy to the
+  same product truth.
+- Added consent v2 with Essential only, Analytics only, and Analytics +
+  advertising. Legacy analytics consent migrates without advertising.
+- Removed GTM from the first-release implementation. GA4 is analytics-gated;
+  Google Ads and Meta are advertising-gated.
+- Added one PII-free `install_intent` contract with attribution, a dedicated
+  Google Ads conversion label, Meta `InstallIntent`, and a 500 ms fail-open
+  App Store handoff.
+- Added regression coverage for product status, install destinations, Plus
+  pricing/schema parity, crawler policy, and consent migration.
 
-## Why it changed
+## Product-side dependency
 
-The site already had strong visible content, SSR output, discovery files, and
-basic metadata. The missing layer was a testable machine identity contract:
-canonical URLs, graph relationships, visible/schema parity, and crawler behavior
-needed to agree exactly and remain protected from future regressions.
+The MTD repository no longer uses a per-shop checkout-mystery release allowlist.
+The global production release flag, fresh managed Plus subscription, fresh
+Shopify Plus capability, optional scopes, and campaign opt-in remain independent
+gates. A second verified Shopify Plus test store is still required for the
+pre-release plan-selection and optional-scope acceptance check.
 
-## Deliberately not implemented
+## Deliberately not claimed
 
-- No deploy, push, PR, search-engine submission, URL inspection request, DNS
-  change, or analytics-account change.
-- No unverified App Store/install URL.
-- No review, rating, customer, testimonial, install count, or performance claim.
-- No fake sitemap `lastmod`.
-- No `hreflang` for the single-language site.
-- No new `/pricing.md`, OKF bundle, or other speculative AI file.
-- `llms.txt` was retained as a convenience only; it is not a ranking standard.
-- GPTBot remains allowed because the existing training policy is a business
-  choice. OAI-SearchBot remains allowed for ChatGPT search discovery.
-- Draft Privacy/Terms indexation was not changed without owner/legal direction.
-- No visual redesign.
+- `install_intent` is not a completed installation.
+- No rating, review count, merchant count, AOV/revenue lift, “best app,” or
+  universal compatibility claim was added.
+- B2B Quote Approvals is not advertised or linked to an install destination.
+- Privacy and Terms remain drafts pending owner/legal approval.
+- `llms.txt` and `Content-Signal` are discovery/control aids, not ranking
+  guarantees.
 
-## TERRA expectations
+## Platform work
 
-No blocking TERRA rewrite is required. Preserve the contracts in
-`SOL_CONTENT_CONTRACT.md`, especially:
+- Submit the verified sitemap and inspect `/`, MTD, B2B, and both guides in
+  Google Search Console and Bing Webmaster Tools.
+- Disable Cloudflare’s Managed `robots.txt` prepend so the origin policy is the
+  only delivered policy.
+- Configure GA4, Google Ads, the dedicated MTD install conversion label, and
+  Meta Pixel only after account IDs are available.
+- Keep all paid campaigns paused until every gate in
+  `MTD_PAID_MEDIA_PLAN.md` passes.
 
-- visible FAQ/schema parity;
-- pricing + availability + schema updates in one change;
-- real separate publication/modification dates after substantive guide updates;
-- breadcrumb label/path parity;
-- no unsupported public availability or proof.
+## Verification contract
 
-SOL touched the two guide route files only to add tracking wrappers and touched
-the apps route only to select the correct semantic card heading. Visible copy
-was not changed by those SOL edits.
+Run with Node 22:
 
-## Manual owner/platform actions
+```powershell
+npm run typecheck
+npm run lint
+npm test
+npm run build:pages
+```
 
-1. Decide whether draft Privacy and Terms pages may remain indexable before
-   legal approval.
-2. Verify the contact email forwarding and final legal entity.
-3. When real, provide official install/App Store URLs and re-run the complete
-   content/schema contract.
-4. Verify the production domain in Google Search Console and Bing Webmaster
-   Tools; submit the existing sitemap.
-5. Run live URL Inspection, Rich Results Test, and Schema.org validation after
-   deployment.
-6. Configure analytics IDs only in the approved production environment and run
-   the consent/PII/duplicate-event checklist in `SOL_MEASUREMENT_PLAN.md`.
-7. Review the explicit GPTBot allow rule as a separate training-policy choice.
-8. Collect field Core Web Vitals and query/citation baselines before setting
-   growth targets.
-
-## Test results
-
-Latest completed verification before final handoff:
-
-- `npm run typecheck` — passed
-- `npm run lint` — passed
-- `npm test` — passed, 10 tests
-- Vinext production build inside `npm test` — passed, 12 prerendered routes
-- `npm run build:pages` — passed, 13 generated static pages including
-  `/_not-found`
+Also validate consent/network behaviour in a real browser and verify the live
+Cloudflare deployment after the final commit reaches `main`.

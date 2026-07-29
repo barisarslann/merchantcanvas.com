@@ -18,8 +18,8 @@ export function SiteFooter() {
             />
           </Link>
           <p>
-            Focused Shopify apps for practical promotion and B2B sales
-            workflows.
+            MultiTier Discounts is live for Shopify promotion workflows. B2B
+            Quote Approvals is coming soon.
           </p>
         </div>
         <div>

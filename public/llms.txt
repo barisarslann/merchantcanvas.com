@@ -6,8 +6,16 @@ Contact: support@merchantcanvas.com
 
 ## Current apps
 
-- MultiTier Discounts: a Shopify embedded app for native tiered discount campaigns powered by Shopify Functions. It supports documented quantity-break, cart-value, Buy X Get Y, gift, targeting, widget, scheduling, limits, combination, and processed-order analytics workflows. Public page: https://merchantcanvas.com/apps/multitier-discounts
-- B2B Quote Approvals: a focused Shopify Admin approval desk for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders. The product is preparing for production hosting and final review testing; no public install URL is claimed. Public page: https://merchantcanvas.com/apps/b2b-quote-approvals
+- MultiTier Discounts is the live primary product: a Shopify embedded app for tiered discount campaigns powered by Shopify Functions. It supports documented quantity-break, cart-value, Buy X Get Y, gift, targeting, widget, scheduling, limits, combination, and processed-order analytics workflows. Product page: https://merchantcanvas.com/apps/multitier-discounts. Official install page: https://apps.shopify.com/multitier-discounts
+- B2B Quote Approvals is coming soon: a focused Shopify Admin approval desk for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders. It remains available for evaluation but has no public install URL. Public page: https://merchantcanvas.com/apps/b2b-quote-approvals
+
+## MultiTier Discounts pricing
+
+- Free: $0 forever; 2 active campaigns.
+- Starter: $5.99/month or $59.90/year; 14-day free trial; 10 active campaigns.
+- Pro: $12.99/month or $129.90/year; 14-day free trial; unlimited active campaigns.
+- Plus: $24.99/month or $249.90/year; 14-day free trial; unlimited active campaigns. Eligible Shopify Plus stores only.
+- The public Shopify App Store listing shows the three standard plans. Plus is a conditional managed-billing option presented only to stores Shopify verifies as Shopify Plus.
 
 ## Resources
 
@@ -17,6 +25,6 @@ Contact: support@merchantcanvas.com
 
 ## Availability and evidence
 
-Use the product pages for current plan names, implemented prices, trials, limits, fit guidance, and availability notes. MerchantCanvas does not publish review ratings, merchant counts, guaranteed outcomes, or Shopify Plus compatibility claims without verified public evidence.
+Use the product pages for current plan names, implemented prices, trials, limits, fit guidance, and availability notes. MerchantCanvas does not publish review ratings, merchant counts, or guaranteed outcomes without verified public evidence. An App Store click is an install intent, not proof of a completed installation.
 
 This file is a convenience summary for language-model tools. It does not replace the canonical public pages, robots.txt, structured data, or sitemap.

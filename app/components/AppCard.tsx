@@ -16,11 +16,19 @@ export function AppCard({
     <article
       className={`app-card accent-${product.accent}${
         compact ? " app-card-compact" : ""
+      }${
+        product.availabilityStatus === "coming-soon"
+          ? " app-card-coming-soon"
+          : " app-card-live"
       }`}
     >
       <div className="app-card-topline">
         <span>{product.category}</span>
-        <span className="status-dot">Focused app</span>
+        <span className="status-dot">
+          {product.availabilityStatus === "live"
+            ? "Live on Shopify"
+            : "Coming soon"}
+        </span>
       </div>
       <div>
         <Heading className="app-card-title">{product.name}</Heading>
@@ -39,7 +47,10 @@ export function AppCard({
         eventName="select_app"
         eventData={{ product: product.slug, placement: "app_card" }}
       >
-        See {product.name} <span aria-hidden="true">→</span>
+        {product.availabilityStatus === "live"
+          ? `See ${product.name}`
+          : "View the upcoming app"}{" "}
+        <span aria-hidden="true">→</span>
       </TrackedLink>
     </article>
   );

@@ -1,6 +1,6 @@
 # MerchantCanvas Content Backlog
 
-**Last reviewed:** 2026-07-28  
+**Last reviewed:** 2026-07-29
 **Prioritization method:** Search intent, product fit, implementation evidence, and cannibalization risk. No volume or traffic scores are used because no validated keyword export or Search Console data is available.
 
 | Priority | Working title | Intent and persona | Primary entity / product relevance | Evidence required before drafting | Outline and internal links | Cannibalization risk |
@@ -16,9 +16,11 @@
 
 ## First-wave sequencing
 
-1. Publish the Shopify B2B draft-order handoff guide after Shopify documentation and product-hand-off review.
-2. Publish the tiered-discount versus quantity-break decision guide after scope review.
-3. Publish the request-a-quote versus internal approval comparison only after it is checked against the confirmed B2B product boundary.
-4. Add the Function explainer after a technical reviewer confirms every surface-specific statement.
+1. Publish the tiered-discount versus quantity-break decision guide after scope review.
+2. Add the Function explainer after a technical reviewer confirms every surface-specific statement.
+3. Expand the quantity-break launch test plan from verified product QA cases.
+4. Prepare the agency evaluation checklist for the four initial English-speaking markets.
 
-The other four items depend on reusable artifacts or policy review and should not be rushed into generic blog content.
+B2B pieces remain in the backlog for organic prelaunch discovery, but they must
+not displace MTD acquisition work or become paid landing pages before the B2B
+app has a verified public install path.

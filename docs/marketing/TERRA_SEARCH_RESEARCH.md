@@ -84,5 +84,7 @@ The repeated question patterns are nevertheless clear from official results, app
 
 - Search Console impressions, query data, indexed-page count, and canonical coverage.
 - Country/device-specific AI Overview and People Also Ask behaviour.
-- Public Shopify App Store listings, app-install URLs, owner-approved contact forwarding, and release dates.
+- B2B Quote Approvals App Store/install URL and release date. MultiTier
+  Discounts is verified live at
+  `https://apps.shopify.com/multitier-discounts`.
 - Real customer language, support conversations, outcome metrics, reviews, testimonials, and agency implementation evidence.

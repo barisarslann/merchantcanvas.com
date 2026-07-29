@@ -29,10 +29,12 @@ test("server-renders the MerchantCanvas portfolio and endorsement system", async
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /Focused Shopify apps for promotions and B2B workflows/i);
-  assert.match(html, /Shopify apps for promotions and B2B sales\./i);
+  assert.match(html, /MultiTier Discounts for Shopify promotions/i);
+  assert.match(html, /Shopify tiered discounts, clearly controlled\./i);
   assert.match(html, /MultiTier Discounts/);
   assert.match(html, /B2B Quote Approvals/);
+  assert.match(html, /Install from Shopify/);
+  assert.match(html, /Coming soon/);
   assert.match(html, /merchantcanvas-lockup-light\.svg/);
   assert.match(html, /merchantcanvas-lockup-dark\.svg/);
   assert.match(html, /\/og\.png/);

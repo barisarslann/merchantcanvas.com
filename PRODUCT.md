@@ -2,14 +2,17 @@
 
 <!-- impeccable:product-schema 1 -->
 
+**Document version:** v1
+**Last updated:** 2026-07-29
+
 ## Platform
 
 web
 
 ## Users
 
-- Shopify merchants and ecommerce teams evaluating focused tools for promotion workflows.
-- Wholesale, sales, operations, and finance teams evaluating structured B2B quote approvals.
+- Shopify merchants and ecommerce teams evaluating a live, focused tool for promotion workflows.
+- Wholesale, sales, operations, and finance teams tracking the upcoming B2B quote-approval product.
 - Shopify agencies comparing products for client stores and needing clear scope, pricing, and implementation evidence.
 
 Visitors are usually deciding which MerchantCanvas app fits an existing operational problem. They should understand the portfolio, distinguish the apps, verify suitability, and reach the appropriate product or contact path quickly.
@@ -33,11 +36,13 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 
 ## Capabilities and Constraints
 
-- The public portfolio currently contains MultiTier Discounts and B2B Quote Approvals and must be able to accommodate additional apps later.
+- The public portfolio currently contains live primary product MultiTier Discounts and upcoming secondary product B2B Quote Approvals, and must be able to accommodate additional apps later.
 - Product capabilities, limits, prices, and availability must remain aligned with their source repositories.
 - MultiTier Discounts has approved real screenshots.
 - B2B Quote Approvals currently has no approved public screenshots; the site must not fabricate them.
-- Official public Shopify App Store or install URLs are not yet confirmed.
+- MultiTier Discounts is live at `https://apps.shopify.com/multitier-discounts`.
+- B2B Quote Approvals is coming soon and has no public install URL.
+- MultiTier Discounts exposes Free, Starter, and Pro as standard plans. Its $24.99/month or $249.90/year Plus plan is available only to verified Shopify Plus stores and includes a 14-day free trial.
 - The website is a statically exported, multi-route web experience prepared for Cloudflare Pages.
 - Analytics and advertising integrations remain consent-gated.
 - The approved hybrid color system uses Cobalt + Sun for light mode and Azure + Coral for dark mode.
@@ -67,8 +72,21 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 4. Keep the system extensible for future apps without turning the homepage into a directory.
 5. Use color and interaction to improve orientation, not to compete with the content.
 
+## Go-to-market status
+
+- MultiTier Discounts is the primary product and the only product eligible for paid acquisition.
+- The primary conversion is an `install_intent` click to the official Shopify App Store listing. It is not the same as a completed installation.
+- Completed installations are measured separately in Shopify Partner Dashboard.
+- B2B Quote Approvals remains indexable for discovery but must be labelled “Coming soon,” must not expose an install CTA, and must not be used as an advertising landing page.
+- Initial paid-market preparation is English-first for the United States, United Kingdom, Canada, and Australia.
+- Google Ads and Meta campaigns remain paused until consent behaviour, conversion measurement, live-site QA, and the owner’s legal approval are complete.
+
 ## Accessibility & Inclusion
 
 - Target WCAG 2.2 AA contrast and interaction requirements.
 - Preserve semantic headings, keyboard operation, visible focus, reduced-motion behavior, and touch-friendly controls.
 - Light and dark themes must both meet the same readability and interaction standards.
+
+## Changelog
+
+- v1 (2026-07-29) — Established MTD as the live primary product, verified its App Store URL and conditional Plus plan, and classified B2B Quote Approvals as coming soon.

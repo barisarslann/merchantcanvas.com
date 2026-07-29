@@ -1,3 +1,5 @@
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
+
 User-agent: Googlebot
 Allow: /
 
@@ -7,8 +9,26 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: GPTBot
+User-agent: ChatGPT-User
 Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
 
 User-agent: *
 Allow: /

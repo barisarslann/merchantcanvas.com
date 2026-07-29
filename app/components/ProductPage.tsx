@@ -17,14 +17,10 @@ export function ProductPage({ product }: { product: Product }) {
   const applicationId = `${productUrl}#softwareapplication`;
   const breadcrumbId = `${productUrl}#breadcrumb`;
   const faqId = `${productUrl}#faq`;
-  const installUrl =
-    product.slug === "multitier-discounts"
-      ? process.env.NEXT_PUBLIC_MULTITIER_INSTALL_URL
-      : process.env.NEXT_PUBLIC_B2B_QUOTE_INSTALL_URL;
-  const actionHref = installUrl || product.primaryHref;
-  const actionLabel = installUrl
-    ? "Install from Shopify"
-    : product.primaryAction;
+  const installUrl = product.installUrl;
+  const actionHref = installUrl ?? product.primaryHref;
+  const isInstallAction =
+    product.availabilityStatus === "live" && Boolean(installUrl);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -47,20 +43,29 @@ export function ProductPage({ product }: { product: Product }) {
         applicationCategory: "BusinessApplication",
         operatingSystem: "Shopify",
         url: productUrl,
+        ...(installUrl ? { downloadUrl: installUrl } : {}),
         description: product.definition,
         mainEntityOfPage: { "@id": pageId },
-        offers: product.plans.map((plan) => ({
-          "@id": `${productUrl}#offer-${plan.name.toLowerCase()}`,
-          "@type": "Offer",
-          name: `${product.name} ${plan.name}`,
-          url: `${productUrl}#packages`,
-          price: plan.price.replace(/[^0-9.]/g, "") || "0",
-          priceCurrency: "USD",
-          availability: "https://schema.org/LimitedAvailability",
-          description:
-            `${plan.limit}. ${plan.bestFor}. ${product.availability}`,
-          offeredBy: { "@id": organizationId },
-        })),
+        offers: product.plans.map((plan) => {
+          const offerAvailability =
+            product.availabilityStatus === "live" &&
+            plan.presentation === "card"
+              ? "https://schema.org/InStock"
+              : "https://schema.org/LimitedAvailability";
+
+          return {
+            "@id": `${productUrl}#offer-${plan.name.toLowerCase()}`,
+            "@type": "Offer",
+            name: `${product.name} ${plan.name}`,
+            url: installUrl ?? `${productUrl}#packages`,
+            price: plan.price.replace(/[^0-9.]/g, "") || "0",
+            priceCurrency: "USD",
+            availability: offerAvailability,
+            description:
+              `${plan.limit}. ${plan.bestFor}. ${plan.eligibility}. ${product.availability}`,
+            offeredBy: { "@id": organizationId },
+          };
+        }),
         provider: { "@id": organizationId },
       },
       {
@@ -116,17 +121,37 @@ export function ProductPage({ product }: { product: Product }) {
                 <h1>{product.headline}</h1>
                 <p className="definition">{product.definition}</p>
                 <p className="hero-copy">{product.summary}</p>
-                <TrackedLink
-                  href={actionHref}
-                  className="button button-primary"
-                  eventName={installUrl ? "select_app" : "contact_intent"}
-                  eventData={{
-                    product: product.slug,
-                    placement: "product_hero",
-                  }}
-                >
-                  {actionLabel}
-                </TrackedLink>
+                <div className="hero-actions">
+                  <TrackedLink
+                    href={actionHref}
+                    className="button button-primary"
+                    eventName={
+                      isInstallAction ? "install_intent" : "contact_intent"
+                    }
+                    eventData={{
+                      product: product.slug,
+                      placement: "product_hero",
+                      ...(isInstallAction
+                        ? { destination: "shopify_app_store" }
+                        : {}),
+                    }}
+                  >
+                    {product.primaryAction}
+                  </TrackedLink>
+                  {isInstallAction && (
+                    <TrackedLink
+                      href={`/contact?product=${product.slug}&intent=fit-check`}
+                      className="button button-secondary"
+                      eventName="contact_intent"
+                      eventData={{
+                        product: product.slug,
+                        placement: "product_hero_secondary",
+                      }}
+                    >
+                      Ask a fit question
+                    </TrackedLink>
+                  )}
+                </div>
                 <p className="availability-note">{product.availability}</p>
               </div>
               <ProductWorkflowVisual product={product} />
@@ -300,23 +325,48 @@ export function ProductPage({ product }: { product: Product }) {
           <div className="container closing-cta-inner">
             <div>
               <p className="eyebrow">Next step</p>
-              <h2>See whether {product.name} fits your workflow.</h2>
+              <h2>
+                {isInstallAction
+                  ? `Install ${product.name} from Shopify.`
+                  : `Get a ${product.name} launch update.`}
+              </h2>
               <p>
-                Share the store context and the process you are trying to
-                improve. MerchantCanvas will respond with an honest fit check.
+                {isInstallAction
+                  ? "Use the official App Store listing to install. If the fit is unclear, share the store context for an honest answer first."
+                  : "Share the workflow you are trying to improve and MerchantCanvas will follow up as the release path becomes available."}
               </p>
             </div>
-            <TrackedLink
-              href={actionHref}
-              className="button button-primary"
-              eventName={installUrl ? "select_app" : "contact_intent"}
-              eventData={{
-                product: product.slug,
-                placement: "product_close",
-              }}
-            >
-              {actionLabel}
-            </TrackedLink>
+            <div className="closing-cta-actions">
+              <TrackedLink
+                href={actionHref}
+                className="button button-primary"
+                eventName={
+                  isInstallAction ? "install_intent" : "contact_intent"
+                }
+                eventData={{
+                  product: product.slug,
+                  placement: "product_close",
+                  ...(isInstallAction
+                    ? { destination: "shopify_app_store" }
+                    : {}),
+                }}
+              >
+                {product.primaryAction}
+              </TrackedLink>
+              {isInstallAction && (
+                <TrackedLink
+                  href={`/contact?product=${product.slug}&intent=fit-check`}
+                  className="text-link"
+                  eventName="contact_intent"
+                  eventData={{
+                    product: product.slug,
+                    placement: "product_close_secondary",
+                  }}
+                >
+                  Ask a fit question <span aria-hidden="true">→</span>
+                </TrackedLink>
+              )}
+            </div>
           </div>
         </section>
       </main>

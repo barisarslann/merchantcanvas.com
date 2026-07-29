@@ -3,8 +3,8 @@
 The portfolio website and production brand system for MerchantCanvas, an
 independent product studio building focused Shopify apps.
 
-The site runs on vinext and is published through Sites. It can also be exported
-as a static Next.js application for Cloudflare Pages. Brand assets and usage
+The site runs on vinext and is published through Cloudflare Pages. A static
+Next.js export is used for the production deployment. Brand assets and usage
 guidance live in [`docs/brand`](docs/brand/README.md); production SVG and PNG
 files live in [`public/brand`](public/brand).
 
@@ -28,9 +28,7 @@ The local development server defaults to `http://localhost:3000`.
 
 ## Deployment
 
-The primary deployment uses the Sites project recorded in
-`.openai/hosting.json`. A Cloudflare Pages static export remains available as an
-alternative:
+The primary deployment uses the GitHub-connected Cloudflare Pages project:
 
 - Build command: `npm run build:pages`
 - Output directory: `out`
@@ -45,24 +43,21 @@ secrets.
 
 - `NEXT_PUBLIC_SITE_URL`
 - `NEXT_PUBLIC_CONTACT_EMAIL`
-- `NEXT_PUBLIC_MULTITIER_INSTALL_URL`
-- `NEXT_PUBLIC_B2B_QUOTE_INSTALL_URL`
-- `NEXT_PUBLIC_GTM_ID`
 - `NEXT_PUBLIC_GA4_ID`
 - `NEXT_PUBLIC_GOOGLE_ADS_ID`
 - `NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL`
+- `NEXT_PUBLIC_GOOGLE_ADS_INSTALL_CONVERSION_LABEL`
 - `NEXT_PUBLIC_META_PIXEL_ID`
 
-Install calls to action fall back to the contact flow when an official public
-install URL is not configured. That fallback is deliberate: the repository
-does not invent Shopify App Store links.
+The verified MultiTier Discounts App Store URL is source-controlled in the
+product model. B2B Quote Approvals is coming soon and has no install URL.
 
 ## Analytics and attribution
 
-Google Tag Manager, GA4, Google Ads, and Meta Pixel are optional. No analytics
-or advertising script is loaded until a visitor accepts analytics cookies.
-The implementation preserves common attribution parameters such as `utm_*`,
-`gclid`, and `fbclid` across internal conversion links.
+GA4, Google Ads, and Meta Pixel are optional direct integrations. GTM is
+intentionally unused in the first release. GA4 requires analytics consent;
+Google Ads and Meta require advertising consent. The implementation preserves
+common attribution parameters such as `utm_*`, `gclid`, and `fbclid`.
 
 Supported intent events include:
 
@@ -70,17 +65,18 @@ Supported intent events include:
 - `select_app`
 - `contact_intent`
 - `lead_submit`
+- `install_intent`
 
 The contact form is a static, accessible mail-client handoff. It does not claim
 that a message was stored or transmitted by a server.
 
 ## Crawler policy
 
-`public/robots.txt` allows ordinary search crawlers and explicitly lists
-Googlebot, Bingbot, OAI-SearchBot, and GPTBot. OAI-SearchBot is used for OpenAI
-search discovery; GPTBot is listed separately because model-training controls
-are a different policy choice. Review this policy before launch if the
-business's preferences change.
+`public/robots.txt` allows Googlebot, Bingbot, OAI-SearchBot, ChatGPT-User,
+PerplexityBot, and ClaudeBot. It blocks GPTBot, CCBot, Bytespider, and
+Google-Extended under the approved search/reference-without-training policy.
+Cloudflare Managed robots prepend must remain disabled so this origin file is
+the only delivered policy.
 
 The site also ships:
 

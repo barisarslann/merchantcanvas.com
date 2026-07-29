@@ -5,8 +5,8 @@ import { pageMetadata } from "../../lib/metadata";
 const product = products["b2b-quote-approvals"];
 
 export const metadata = pageMetadata(
-  "Shopify B2B quote approvals and draft orders",
-  "Create, review, approve, share, and convert wholesale quotes into Shopify draft orders from a focused Shopify Admin approval desk.",
+  "B2B Quote Approvals for Shopify — coming soon",
+  "Preview the coming-soon Shopify Admin workflow for creating, approving, sharing, and converting wholesale quotes into Shopify draft orders.",
   "/apps/b2b-quote-approvals",
 );
 

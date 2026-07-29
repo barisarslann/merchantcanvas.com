@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "MerchantCanvas",
   legalName: "MerchantCanvas",
   description:
-    "Focused Shopify apps for practical promotion and B2B sales workflows.",
+    "MerchantCanvas publishes MultiTier Discounts for Shopify promotion workflows and is preparing B2B Quote Approvals.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://merchantcanvas.com",
@@ -22,6 +22,8 @@ export type Plan = {
   cadence: string;
   annualPrice?: string;
   trial?: string;
+  eligibility: string;
+  presentation: "card" | "conditional";
   bestFor: string;
   limit: string;
   features: string[];
@@ -38,6 +40,8 @@ export type Product = {
   headline: string;
   definition: string;
   summary: string;
+  availabilityStatus: "live" | "coming-soon";
+  installUrl?: string;
   primaryAction: string;
   primaryHref: string;
   availability: string;
@@ -78,11 +82,12 @@ export const products: Record<Product["slug"], Product> = {
       "MultiTier Discounts is a Shopify embedded app for tiered, quantity-break, cart-value, Buy X Get Y, and gift promotions with Shopify Functions-based checkout logic.",
     summary:
       "Build buy-more-save-more, quantity-break, cart-value, Buy X Get Y, and gift campaigns with precise targeting, storefront guidance, and checkout logic that stays in Shopify.",
-    primaryAction: "Ask about availability",
-    primaryHref:
-      "/contact?product=multitier-discounts&intent=availability",
+    availabilityStatus: "live",
+    installUrl: "https://apps.shopify.com/multitier-discounts",
+    primaryAction: "Install from Shopify",
+    primaryHref: "https://apps.shopify.com/multitier-discounts",
     availability:
-      "The plan structure is implemented and verified. The official public install URL is still awaiting owner confirmation.",
+      "Live on the Shopify App Store. Free, Starter, and Pro are generally available; Plus is available only to eligible Shopify Plus stores.",
     for: [
       "Shopify merchants planning repeatable quantity or cart-value promotions",
       "Teams that need more targeting control than a basic quantity-break table",
@@ -151,6 +156,8 @@ export const products: Record<Product["slug"], Product> = {
         name: "Free",
         price: "$0",
         cadence: "forever",
+        eligibility: "Available to Shopify stores",
+        presentation: "card",
         bestFor: "Testing the core tiered-discount workflow",
         limit: "2 active campaigns",
         features: [
@@ -166,6 +173,8 @@ export const products: Record<Product["slug"], Product> = {
         cadence: "per month",
         annualPrice: "$59.90 per year",
         trial: "14-day free trial",
+        eligibility: "Available to Shopify stores",
+        presentation: "card",
         bestFor: "Stores running a focused promotion calendar",
         limit: "10 active campaigns",
         recommended: true,
@@ -182,6 +191,8 @@ export const products: Record<Product["slug"], Product> = {
         cadence: "per month",
         annualPrice: "$129.90 per year",
         trial: "14-day free trial",
+        eligibility: "Available to Shopify stores",
+        presentation: "card",
         bestFor: "Teams managing a larger promotion program",
         limit: "Unlimited active campaigns",
         features: [
@@ -191,9 +202,26 @@ export const products: Record<Product["slug"], Product> = {
           "All Starter campaign and analytics features",
         ],
       },
+      {
+        name: "Plus",
+        price: "$24.99",
+        cadence: "per month",
+        annualPrice: "$249.90 per year",
+        trial: "14-day free trial",
+        eligibility: "Eligible Shopify Plus stores only",
+        presentation: "conditional",
+        bestFor:
+          "Shopify Plus teams using the checkout mystery-gift presentation",
+        limit: "Unlimited active campaigns",
+        features: [
+          "Everything in Pro",
+          "Checkout mystery-gift presentation",
+          "Shopify-managed billing",
+        ],
+      },
     ],
     pricingNote:
-      "Prices, annual options, trials, and plan limits reflect the current implemented billing configuration. A conditional Plus package is intentionally not marketed here until public availability is confirmed.",
+      "The public Shopify App Store listing shows Free, Starter, and Pro. The separate Plus plan is a conditional managed-billing option shown only to stores Shopify verifies as Shopify Plus.",
     faq: [
       {
         question: "Does MultiTier Discounts replace Shopify discounts?",
@@ -218,7 +246,12 @@ export const products: Record<Product["slug"], Product> = {
       {
         question: "Is there a public install link?",
         answer:
-          "A public App Store URL is not yet verified for this website. Contact MerchantCanvas for the current availability path rather than relying on an unconfirmed install link.",
+          "Yes. MultiTier Discounts is live at https://apps.shopify.com/multitier-discounts. Shopify handles installation and plan confirmation.",
+      },
+      {
+        question: "Who can choose the Plus plan?",
+        answer:
+          "The Plus plan is available only to stores Shopify verifies as Shopify Plus. It costs $24.99 per month or $249.90 per year, includes a 14-day free trial, and is presented separately from the three standard plans.",
       },
     ],
     resource: {
@@ -262,11 +295,12 @@ export const products: Record<Product["slug"], Product> = {
       "B2B Quote Approvals is a Shopify Admin app for creating, reviewing, approving, sharing, and converting wholesale quotes into Shopify draft orders.",
     summary:
       "Keep buyer context, proposed pricing, PO details, approval decisions, revisions, and the draft-order handoff in one operational trail instead of an inbox-and-spreadsheet chain.",
+    availabilityStatus: "coming-soon",
     primaryAction: "Request a launch update",
     primaryHref:
       "/contact?product=b2b-quote-approvals&intent=launch-update",
     availability:
-      "The app is a feature-complete local beta preparing for production hosting and final Shopify review testing. No public install URL is claimed yet.",
+      "Coming soon. The app is a feature-complete local beta preparing for production hosting and final Shopify review testing; it is not publicly installable yet.",
     for: [
       "Wholesale teams that manage quotes and approvals inside Shopify operations",
       "Sales, finance, or operations teams that review value or discount thresholds",
@@ -336,6 +370,8 @@ export const products: Record<Product["slug"], Product> = {
         price: "$19",
         cadence: "per month",
         trial: "14-day free trial",
+        eligibility: "Coming soon — public installation unavailable",
+        presentation: "card",
         bestFor: "Smaller wholesale teams formalising quote handoff",
         limit: "25 active quotes",
         features: [
@@ -350,6 +386,8 @@ export const products: Record<Product["slug"], Product> = {
         price: "$39",
         cadence: "per month",
         trial: "14-day free trial",
+        eligibility: "Coming soon — public installation unavailable",
+        presentation: "card",
         bestFor: "Teams that need repeatable approval control",
         limit: "250 active quotes",
         recommended: true,
@@ -365,6 +403,8 @@ export const products: Record<Product["slug"], Product> = {
         price: "$79",
         cadence: "per month",
         trial: "14-day free trial",
+        eligibility: "Coming soon — public installation unavailable",
+        presentation: "card",
         bestFor: "Higher-volume or multi-stakeholder quote desks",
         limit: "Unlimited active quotes",
         features: [

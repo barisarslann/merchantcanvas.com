@@ -21,13 +21,40 @@ const PUBLIC_ROUTES = [
 
 const PRODUCT_EXPECTATIONS = {
   "/apps/multitier-discounts": {
-    prices: ["0", "5.99", "12.99"],
-    plans: ["Free", "Starter", "Pro"],
-    faqCount: 5,
+    prices: ["0", "5.99", "12.99", "24.99"],
+    plans: ["Free", "Starter", "Pro", "Plus"],
+    availability: [
+      "https://schema.org/InStock",
+      "https://schema.org/InStock",
+      "https://schema.org/InStock",
+      "https://schema.org/LimitedAvailability",
+    ],
+    eligibility: [
+      "Available to Shopify stores",
+      "Available to Shopify stores",
+      "Available to Shopify stores",
+      "Eligible Shopify Plus stores only",
+    ],
+    offerUrl: "https://apps.shopify.com/multitier-discounts",
+    downloadUrl: "https://apps.shopify.com/multitier-discounts",
+    faqCount: 6,
   },
   "/apps/b2b-quote-approvals": {
     prices: ["19", "39", "79"],
     plans: ["Starter", "Growth", "Pro"],
+    availability: [
+      "https://schema.org/LimitedAvailability",
+      "https://schema.org/LimitedAvailability",
+      "https://schema.org/LimitedAvailability",
+    ],
+    eligibility: [
+      "Coming soon — public installation unavailable",
+      "Coming soon — public installation unavailable",
+      "Coming soon — public installation unavailable",
+    ],
+    offerUrl:
+      "https://merchantcanvas.com/apps/b2b-quote-approvals#packages",
+    downloadUrl: undefined,
     faqCount: 5,
   },
 };
@@ -278,9 +305,21 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
     PUBLIC_ROUTES.map(expectedCanonical),
   );
   assert.match(robots, /^Sitemap: https:\/\/merchantcanvas\.com\/sitemap\.xml$/m);
+  assert.match(
+    robots,
+    /^Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference$/m,
+  );
   assert.match(robots, /^User-agent: OAI-SearchBot$/m);
+  assert.match(robots, /^User-agent: ChatGPT-User$/m);
+  assert.match(robots, /^User-agent: PerplexityBot$/m);
+  assert.match(robots, /^User-agent: ClaudeBot$/m);
   assert.match(robots, /^User-agent: GPTBot$/m);
-  assert.doesNotMatch(robots, /^Disallow:\s*\/\s*$/m);
+  for (const agent of ["GPTBot", "CCBot", "Bytespider", "Google-Extended"]) {
+    assert.match(
+      robots,
+      new RegExp(`User-agent: ${agent}\\s+Disallow: /`),
+    );
+  }
 
   const inbound = new Map(PUBLIC_ROUTES.map((route) => [route, new Set()]));
 
@@ -316,7 +355,7 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
   }
 });
 
-test("product JSON-LD links verified entities, visible FAQs, and limited offers", async () => {
+test("product JSON-LD matches visible pricing, eligibility, and availability", async () => {
   const worker = await loadWorker();
 
   for (const [route, expectation] of Object.entries(PRODUCT_EXPECTATIONS)) {
@@ -346,6 +385,7 @@ test("product JSON-LD links verified entities, visible FAQs, and limited offers"
     assert.deepEqual(application?.mainEntityOfPage, {
       "@id": `${productUrl}#webpage`,
     });
+    assert.equal(application?.downloadUrl, expectation.downloadUrl);
 
     assert.deepEqual(
       application?.offers.map((offer) => offer.price),
@@ -357,20 +397,25 @@ test("product JSON-LD links verified entities, visible FAQs, and limited offers"
       ),
       expectation.plans,
     );
-    for (const offer of application?.offers ?? []) {
+    for (const [index, offer] of (application?.offers ?? []).entries()) {
       assert.ok(offer["@id"]?.startsWith(`${productUrl}#offer-`));
-      assert.equal(offer.url, `${productUrl}#packages`);
+      assert.equal(offer.url, expectation.offerUrl);
       assert.equal(offer.priceCurrency, "USD");
-      assert.equal(
-        offer.availability,
-        "https://schema.org/LimitedAvailability",
-      );
+      assert.equal(offer.availability, expectation.availability[index]);
       assert.ok(availabilityNote, `${route} visible availability`);
       assert.match(
         offer.description,
         new RegExp(`${escapeRegExp(availabilityNote)}$`),
       );
       assert.deepEqual(offer.offeredBy, { "@id": ORGANIZATION_ID });
+      assert.match(
+        offer.description,
+        new RegExp(escapeRegExp(expectation.eligibility[index])),
+      );
+      assert.match(
+        visiblePageText(html),
+        new RegExp(escapeRegExp(expectation.eligibility[index])),
+      );
       assert.match(html, new RegExp(`>\\$?${offer.price}(?:<|\\s)`));
     }
 
@@ -404,7 +449,6 @@ test("product JSON-LD links verified entities, visible FAQs, and limited offers"
     const forbiddenKeys = new Set([
       "aggregateRating",
       "review",
-      "downloadUrl",
       "installUrl",
     ]);
     for (const key of collectKeys(jsonLd(html))) {

@@ -21,7 +21,7 @@ export default function PrivacyPage() {
               final business entity, hosting, contact, analytics, and applicable
               law before launch.
             </p>
-            <span>Draft reviewed 27 July 2026</span>
+            <span>Draft reviewed 29 July 2026</span>
           </div>
         </header>
         <div className="container legal-body">
@@ -52,29 +52,37 @@ export default function PrivacyPage() {
           <section>
             <h2>3. Analytics and advertising technology</h2>
             <p>
-              The website is prepared to support Google Tag Manager, Google
-              Analytics 4, Google Ads conversion tracking, and Meta Pixel. These
-              services remain disabled unless the owner configures the relevant
-              IDs and a visitor grants analytics consent through the website
-              preference interface.
+              The website is prepared to use direct Google Analytics 4, Google
+              Ads conversion tracking, and Meta Pixel integrations. Google Tag
+              Manager is intentionally not used in the first release to reduce
+              duplicate-event risk.
             </p>
             <p>
-              If consent is granted, configured services may receive page,
-              product, app-selection, contact-intent, and lead events together
+              Google Analytics 4 loads only after analytics consent. Google Ads
+              and Meta Pixel load only after separate advertising consent.
+              Configured services may then receive page, product, app-selection,
+              contact-intent, lead, and App Store install-intent events together
               with permitted campaign attribution such as UTM parameters,
-              gclid, or fbclid. The final configured vendors, retention periods,
-              and regional controls must be confirmed before launch.
+              gclid, or fbclid. No advertising or analytics script is requested
+              when essential-only operation is selected.
+            </p>
+            <p>
+              An install-intent event records a click to the official Shopify
+              App Store listing; it is not treated as proof that an app was
+              installed. Completed installations are measured separately
+              through Shopify’s own reporting.
             </p>
           </section>
           <section>
             <h2>4. Local and session storage</h2>
             <p>
               The site uses local storage to remember whether you selected
-              analytics or essential-only preferences. Campaign attribution is
-              stored in session storage only after analytics consent is
-              granted. Before consent, supported campaign parameters may be
-              carried in the URL when you follow a primary internal call to
-              action.
+              essential only, analytics only, or analytics plus advertising.
+              Campaign attribution is stored in session storage only after
+              analytics consent is granted. Before consent, supported campaign
+              parameters may be carried in the URL when you follow a primary
+              internal call to action. A previous analytics-only preference is
+              migrated without enabling advertising.
             </p>
           </section>
           <section>
@@ -115,10 +123,11 @@ export default function PrivacyPage() {
           <section>
             <h2>8. Your choices</h2>
             <p>
-              You can choose essential-only operation or grant analytics consent
-              from the cookie preference interface. You can reopen preferences
-              from the site footer. You may also ask about information provided
-              in a contact conversation by emailing {siteConfig.email}.
+              You can choose essential-only operation, analytics only, or
+              analytics plus advertising from the cookie preference interface.
+              You can reopen preferences from the site footer. You may also ask
+              about information provided in a contact conversation by emailing{" "}
+              {siteConfig.email}.
             </p>
             <p>
               Specific statutory rights vary by location. This draft does not

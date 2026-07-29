@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import {
+  CONSENT_LEVELS,
+  createConsent,
+  parseConsent,
+  serializeConsent,
+} from "../lib/consent.js";
 
 const CONSENT_KEY = "merchantcanvas-consent";
 const ATTRIBUTION_KEY = "merchantcanvas-attribution";
 const CONSENT_EVENT = "merchantcanvas:consent";
+const OUTBOUND_TIMEOUT_MS = 500;
 const ATTRIBUTION_KEYS = [
   "utm_source",
   "utm_medium",
@@ -15,14 +22,43 @@ const ATTRIBUTION_KEYS = [
   "fbclid",
 ] as const;
 
+type ConsentRecord = ReturnType<typeof createConsent>;
+type AnalyticsEvent =
+  | "view_product"
+  | "select_app"
+  | "contact_intent"
+  | "lead_submit"
+  | "install_intent";
+
+type MetaQueue = ((...args: unknown[]) => void) & {
+  callMethod?: (...args: unknown[]) => void;
+  loaded?: boolean;
+  push?: MetaQueue;
+  queue?: unknown[][];
+  version?: string;
+};
+
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[];
   gtag?: (...args: unknown[]) => void;
-  fbq?: (...args: unknown[]) => void;
+  fbq?: MetaQueue;
+  _fbq?: MetaQueue;
 };
 
-function hasConsent() {
-  return window.localStorage.getItem(CONSENT_KEY) === "analytics";
+function readConsent(): ConsentRecord | null {
+  const raw = window.localStorage.getItem(CONSENT_KEY);
+  const consent = parseConsent(raw);
+
+  if (consent && (raw === "analytics" || raw === "essential")) {
+    const migrated = {
+      ...consent,
+      updatedAt: new Date().toISOString(),
+    };
+    window.localStorage.setItem(CONSENT_KEY, serializeConsent(migrated));
+    return migrated;
+  }
+
+  return consent;
 }
 
 function currentAttribution() {
@@ -37,12 +73,22 @@ function currentAttribution() {
   return values;
 }
 
-function saveAttribution() {
-  const fromUrl = currentAttribution();
+function storedAttribution() {
   const previous = window.sessionStorage.getItem(ATTRIBUTION_KEY);
+  if (!previous) return {};
+
+  try {
+    return JSON.parse(previous) as Record<string, string>;
+  } catch {
+    window.sessionStorage.removeItem(ATTRIBUTION_KEY);
+    return {};
+  }
+}
+
+function saveAttribution() {
   const merged = {
-    ...(previous ? JSON.parse(previous) : {}),
-    ...fromUrl,
+    ...storedAttribution(),
+    ...currentAttribution(),
   };
 
   if (Object.keys(merged).length) {
@@ -61,92 +107,191 @@ function appendScript(src: string, id: string) {
   document.head.appendChild(script);
 }
 
-function loadAnalytics() {
+function ensureGtag() {
   const win = window as AnalyticsWindow;
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
-  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
-  const metaId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  win.dataLayer = win.dataLayer || [];
+  if (!win.gtag) {
+    win.gtag = (...args: unknown[]) => {
+      win.dataLayer?.push(args);
+    };
+    win.gtag("consent", "default", {
+      analytics_storage: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+      wait_for_update: OUTBOUND_TIMEOUT_MS,
+    });
+    win.gtag("js", new Date());
+  }
+  return win;
+}
+
+function applyConsent(consent: ConsentRecord | null) {
+  const win = ensureGtag();
+  const analyticsGranted = consent?.analytics === true;
+  const advertisingGranted = consent?.advertising === true;
+
+  win.gtag?.("consent", "update", {
+    analytics_storage: analyticsGranted ? "granted" : "denied",
+    ad_storage: advertisingGranted ? "granted" : "denied",
+    ad_user_data: advertisingGranted ? "granted" : "denied",
+    ad_personalization: advertisingGranted ? "granted" : "denied",
+  });
+
+  if (!analyticsGranted) return;
 
   saveAttribution();
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const loaderId = ga4Id || (advertisingGranted ? adsId : undefined);
 
-  if (gtmId) {
-    win.dataLayer = win.dataLayer || [];
-    win.dataLayer.push({
-      "gtm.start": Date.now(),
-      event: "gtm.js",
-    });
+  if (loaderId) {
     appendScript(
-      `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`,
-      "merchantcanvas-gtm",
-    );
-  }
-
-  if (ga4Id || adsId) {
-    const loaderId = ga4Id || adsId;
-    win.dataLayer = win.dataLayer || [];
-    win.gtag =
-      win.gtag ||
-      function gtag(...args: unknown[]) {
-        win.dataLayer?.push(args);
-      };
-    win.gtag("js", new Date());
-    win.gtag("consent", "update", {
-      analytics_storage: "granted",
-      ad_storage: "granted",
-      ad_user_data: "granted",
-      ad_personalization: "granted",
-    });
-    if (ga4Id) win.gtag("config", ga4Id, { anonymize_ip: true });
-    if (adsId) win.gtag("config", adsId);
-    appendScript(
-      `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(loaderId!)}`,
+      `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(loaderId)}`,
       "merchantcanvas-gtag",
     );
   }
 
-  if (metaId && !win.fbq) {
-    const queue = function (...args: unknown[]) {
-      (queue as unknown as { queue: unknown[] }).queue.push(args);
-    } as AnalyticsWindow["fbq"];
-    (queue as unknown as { queue: unknown[] }).queue = [];
-    win.fbq = queue;
+  if (ga4Id && !document.documentElement.dataset.ga4Configured) {
+    win.gtag?.("config", ga4Id, {
+      anonymize_ip: true,
+      allow_google_signals: advertisingGranted,
+    });
+    document.documentElement.dataset.ga4Configured = "true";
+  }
+
+  if (
+    advertisingGranted &&
+    adsId &&
+    !document.documentElement.dataset.adsConfigured
+  ) {
+    win.gtag?.("config", adsId);
+    document.documentElement.dataset.adsConfigured = "true";
+  }
+
+  const metaId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  if (
+    advertisingGranted &&
+    metaId &&
+    !document.documentElement.dataset.metaConfigured
+  ) {
+    if (!win.fbq) {
+      const queue: MetaQueue = (...args: unknown[]) => {
+        if (queue.callMethod) {
+          queue.callMethod(...args);
+          return;
+        }
+        queue.queue?.push(args);
+      };
+      queue.loaded = true;
+      queue.push = queue;
+      queue.queue = [];
+      queue.version = "2.0";
+      win.fbq = queue;
+      win._fbq = queue;
+    }
     appendScript(
       "https://connect.facebook.net/en_US/fbevents.js",
       "merchantcanvas-meta",
     );
-    win.fbq?.("init", metaId);
-    win.fbq?.("track", "PageView");
+    win.fbq("init", metaId);
+    win.fbq("track", "PageView");
+    document.documentElement.dataset.metaConfigured = "true";
   }
 }
 
 export function trackEvent(
-  name: "view_product" | "select_app" | "contact_intent" | "lead_submit",
+  name: AnalyticsEvent,
+  parameters: Record<string, string> = {},
+  onComplete?: () => void,
+) {
+  if (typeof window === "undefined") return false;
+
+  const consent = readConsent();
+  if (!consent?.analytics) return false;
+
+  applyConsent(consent);
+  const win = window as AnalyticsWindow;
+  const payload = {
+    ...saveAttribution(),
+    ...parameters,
+  };
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+  const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const leadConversionLabel =
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+  const installConversionLabel =
+    process.env.NEXT_PUBLIC_GOOGLE_ADS_INSTALL_CONVERSION_LABEL;
+  const hasGoogleTransport = Boolean(
+    ga4Id || (consent.advertising && adsId),
+  );
+  const waitsForInstallConversion =
+    name === "install_intent" &&
+    consent.advertising &&
+    Boolean(adsId && installConversionLabel && win.gtag);
+
+  if (win.gtag && hasGoogleTransport) {
+    win.gtag("event", name, {
+      ...payload,
+      ...(!waitsForInstallConversion && onComplete
+        ? {
+            event_callback: onComplete,
+            event_timeout: OUTBOUND_TIMEOUT_MS - 50,
+          }
+        : {}),
+    });
+  }
+
+  if (consent.advertising) {
+    if (name === "lead_submit") {
+      win.fbq?.("track", "Lead", payload);
+      if (adsId && leadConversionLabel) {
+        win.gtag?.("event", "conversion", {
+          send_to: `${adsId}/${leadConversionLabel}`,
+        });
+      }
+    } else if (name === "view_product") {
+      win.fbq?.("track", "ViewContent", payload);
+    } else if (name === "install_intent") {
+      win.fbq?.("trackCustom", "InstallIntent", payload);
+      if (adsId && installConversionLabel) {
+        win.gtag?.("event", "conversion", {
+          send_to: `${adsId}/${installConversionLabel}`,
+          ...payload,
+          ...(onComplete
+            ? {
+                event_callback: onComplete,
+                event_timeout: OUTBOUND_TIMEOUT_MS - 50,
+              }
+            : {}),
+        });
+      }
+    }
+  }
+
+  if (!hasGoogleTransport && onComplete) {
+    queueMicrotask(onComplete);
+  }
+
+  return true;
+}
+
+export function trackOutboundEvent(
+  name: AnalyticsEvent,
   parameters: Record<string, string> = {},
 ) {
-  if (typeof window === "undefined" || !hasConsent()) return;
-
-  const win = window as AnalyticsWindow;
-  const stored = window.sessionStorage.getItem(ATTRIBUTION_KEY);
-  const attribution = stored ? JSON.parse(stored) : saveAttribution();
-  const payload = { ...attribution, ...parameters };
-
-  win.dataLayer?.push({ event: name, ...payload });
-  win.gtag?.("event", name, payload);
-
-  if (name === "lead_submit") {
-    win.fbq?.("track", "Lead", payload);
-    const adsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
-    const conversionLabel =
-      process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
-    if (adsId && conversionLabel) {
-      win.gtag?.("event", "conversion", {
-        send_to: `${adsId}/${conversionLabel}`,
-      });
-    }
-  } else if (name === "view_product") {
-    win.fbq?.("track", "ViewContent", payload);
-  }
+  return new Promise<void>((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      window.clearTimeout(timeout);
+      resolve();
+    };
+    const timeout = window.setTimeout(finish, OUTBOUND_TIMEOUT_MS);
+    const dispatched = trackEvent(name, parameters, finish);
+    if (!dispatched) finish();
+  });
 }
 
 export function preserveAttributionHref(href: string) {
@@ -172,9 +317,7 @@ export function preserveAttributionHref(href: string) {
 
 export function Analytics() {
   useEffect(() => {
-    const handleConsent = () => {
-      if (hasConsent()) loadAnalytics();
-    };
+    const handleConsent = () => applyConsent(readConsent());
 
     handleConsent();
     window.addEventListener(CONSENT_EVENT, handleConsent);
@@ -184,4 +327,10 @@ export function Analytics() {
   return null;
 }
 
-export { ATTRIBUTION_KEY, CONSENT_EVENT, CONSENT_KEY };
+export {
+  ATTRIBUTION_KEY,
+  CONSENT_EVENT,
+  CONSENT_KEY,
+  CONSENT_LEVELS,
+  OUTBOUND_TIMEOUT_MS,
+};

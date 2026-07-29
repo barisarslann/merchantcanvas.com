@@ -1,5 +1,6 @@
 import { ArticleLayout } from "../../components/ArticleLayout";
 import { TrackedLink } from "../../components/TrackedLink";
+import { products } from "../../content/site";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "Shopify quantity breaks: a practical planning guide";
@@ -13,6 +14,8 @@ export const metadata = pageMetadata(
 );
 
 export default function QuantityBreaksGuidePage() {
+  const multiTier = products["multitier-discounts"];
+
   return (
     <ArticleLayout
       title={title}
@@ -211,14 +214,15 @@ export default function QuantityBreaksGuidePage() {
         </div>
         <TrackedLink
           className="button button-primary"
-          href="/apps/multitier-discounts"
-          eventName="select_app"
+          href={multiTier.installUrl!}
+          eventName="install_intent"
           eventData={{
             product: "multitier-discounts",
             placement: "resource_guide_cta",
+            destination: "shopify_app_store",
           }}
         >
-          Explore MultiTier Discounts
+          Install from Shopify
         </TrackedLink>
       </div>
     </ArticleLayout>

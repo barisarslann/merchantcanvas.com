@@ -1,12 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { CONSENT_EVENT, trackEvent } from "./Analytics";
 
 export function ProductView({ product }: { product: string }) {
+  const trackedRef = useRef(false);
+
   useEffect(() => {
     const trackProductView = () => {
-      trackEvent("view_product", { product });
+      if (trackedRef.current) return;
+      trackedRef.current = trackEvent("view_product", { product });
     };
 
     trackProductView();
