@@ -8,8 +8,8 @@ const description =
   "A useful Shopify quantity-break campaign starts with one legible buying decision, protects contribution margin at every tier, and is tested from product page through checkout before launch.";
 
 export const metadata = pageMetadata(
-  title,
-  description,
+  "Shopify quantity breaks guide",
+  "Plan Shopify quantity breaks around shopper clarity, margin, eligibility, storefront messaging, checkout logic, and pre-launch testing.",
   "/resources/shopify-quantity-breaks-guide",
 );
 

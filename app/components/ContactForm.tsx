@@ -14,7 +14,8 @@ export function ContactForm() {
       topicRef.current.value = "B2B Quote Approvals launch update";
     }
     if (product === "multitier-discounts" && topicRef.current) {
-      topicRef.current.value = "MultiTier Discounts availability";
+      topicRef.current.value =
+        "MultiTier Discounts fit, pricing, or implementation";
     }
   }, []);
 
@@ -87,7 +88,7 @@ export function ContactForm() {
           defaultValue="General question"
         >
           <option>General question</option>
-          <option>MultiTier Discounts availability</option>
+          <option>MultiTier Discounts fit, pricing, or implementation</option>
           <option>B2B Quote Approvals launch update</option>
           <option>Agency or multi-store evaluation</option>
         </select>

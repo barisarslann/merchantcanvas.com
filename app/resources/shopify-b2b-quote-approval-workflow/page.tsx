@@ -7,8 +7,8 @@ const description =
   "A structured Shopify B2B quote workflow gives each request one record, makes approval thresholds explicit, preserves the buyer decision trail, and converts accepted commercial terms into a Shopify draft order without re-keying.";
 
 export const metadata = pageMetadata(
-  title,
-  description,
+  "Shopify B2B quote approval workflow",
+  "Design a Shopify B2B quote workflow for intake, approval thresholds, revisions, buyer decisions, and accurate draft-order conversion.",
   "/resources/shopify-b2b-quote-approval-workflow",
 );
 

@@ -6,7 +6,7 @@ import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
   "Contact MerchantCanvas about a Shopify workflow",
-  "Ask about MultiTier Discounts, B2B Quote Approvals, agency evaluation, app availability, or a specific Shopify workflow.",
+  "Ask about MultiTier Discounts fit, pricing, or implementation, B2B Quote Approvals launch updates, agency evaluation, or a Shopify workflow.",
   "/contact",
 );
 
@@ -46,10 +46,6 @@ export default function ContactPage() {
                 {siteConfig.email}
               </TrackedLink>
             </div>
-            <p className="small-note">
-              Contact email forwarding must be confirmed by the owner before
-              public launch.
-            </p>
           </div>
           <ContactForm />
         </div>

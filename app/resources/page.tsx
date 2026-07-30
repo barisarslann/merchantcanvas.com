@@ -3,7 +3,7 @@ import { resources } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
-  "Shopify quantity-break and B2B quote workflow guides",
+  "Shopify promotion and B2B guides",
   "Practical MerchantCanvas guides for Shopify quantity breaks, tiered promotions, B2B quote approvals, and draft-order workflows.",
   "/resources",
 );

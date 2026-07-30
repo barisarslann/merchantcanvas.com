@@ -64,6 +64,20 @@ const ARTICLE_ROUTES = [
   "/resources/shopify-b2b-quote-approval-workflow",
 ];
 
+const LAST_MODIFIED_BY_ROUTE = {
+  "/": "2026-07-29",
+  "/apps": "2026-07-29",
+  "/apps/multitier-discounts": "2026-07-29",
+  "/apps/b2b-quote-approvals": "2026-07-29",
+  "/resources": "2026-07-29",
+  "/resources/shopify-quantity-breaks-guide": "2026-07-27",
+  "/resources/shopify-b2b-quote-approval-workflow": "2026-07-27",
+  "/about": "2026-07-29",
+  "/contact": "2026-07-29",
+  "/privacy": "2026-07-29",
+  "/terms": "2026-07-29",
+};
+
 async function loadWorker() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("seo-test", `${process.pid}-${Date.now()}`);
@@ -120,6 +134,10 @@ function descriptionValues(html) {
   );
 }
 
+function imageTags(html) {
+  return [...html.matchAll(/<img\b[^>]*>/gi)].map((match) => match[0]);
+}
+
 function headingOutline(html) {
   return [...html.matchAll(/<h([1-6])\b[^>]*>([\s\S]*?)<\/h\1>/gi)].map(
     (match) => ({
@@ -169,6 +187,52 @@ function expectedCanonical(route) {
   return route === "/" ? `${SITE_URL}/` : `${SITE_URL}${route}`;
 }
 
+async function jpegDimensions(publicPath) {
+  const image = await readFile(
+    new URL(`../public${publicPath}`, import.meta.url),
+  );
+
+  assert.equal(image[0], 0xff, `${publicPath} JPEG start`);
+  assert.equal(image[1], 0xd8, `${publicPath} JPEG marker`);
+
+  const startOfFrameMarkers = new Set([
+    0xc0,
+    0xc1,
+    0xc2,
+    0xc3,
+    0xc5,
+    0xc6,
+    0xc7,
+    0xc9,
+    0xca,
+    0xcb,
+    0xcd,
+    0xce,
+    0xcf,
+  ]);
+  let offset = 2;
+
+  while (offset + 8 < image.length) {
+    while (offset < image.length && image[offset] !== 0xff) offset += 1;
+    while (offset < image.length && image[offset] === 0xff) offset += 1;
+
+    const marker = image[offset];
+    offset += 1;
+    if (marker === 0xd8 || marker === 0xd9) continue;
+
+    const segmentLength = image.readUInt16BE(offset);
+    if (startOfFrameMarkers.has(marker)) {
+      return {
+        height: image.readUInt16BE(offset + 3),
+        width: image.readUInt16BE(offset + 5),
+      };
+    }
+    offset += segmentLength;
+  }
+
+  assert.fail(`${publicPath} has no JPEG start-of-frame marker`);
+}
+
 function collectKeys(value, output = []) {
   if (!value || typeof value !== "object") return output;
   if (Array.isArray(value)) {
@@ -203,8 +267,16 @@ test("public routes expose a unique, indexable metadata contract", async () => {
 
     assert.equal(titles.length, 1, `${route} title`);
     assert.ok(titles[0], `${route} title content`);
+    assert.ok(
+      titles[0].length <= 65,
+      `${route} title is ${titles[0].length} characters`,
+    );
     assert.equal(descriptions.length, 1, `${route} description`);
     assert.ok(descriptions[0], `${route} description content`);
+    assert.ok(
+      descriptions[0].length >= 100 && descriptions[0].length <= 160,
+      `${route} description is ${descriptions[0].length} characters`,
+    );
     assert.deepEqual(canonicals, [expectedCanonical(route)], route);
     assert.equal(
       outline.filter((heading) => heading.level === 1).length,
@@ -252,6 +324,27 @@ test("public routes expose a unique, indexable metadata contract", async () => {
     );
 
     assert.doesNotThrow(() => jsonLd(html), `${route} JSON-LD`);
+
+    for (const image of imageTags(html)) {
+      assert.ok(
+        (attribute(image, "alt") ?? "").trim(),
+        `${route} image has descriptive alt text: ${image}`,
+      );
+      assert.ok(
+        Number(attribute(image, "width")) > 0,
+        `${route} image has numeric width: ${image}`,
+      );
+      assert.ok(
+        Number(attribute(image, "height")) > 0,
+        `${route} image has numeric height: ${image}`,
+      );
+    }
+
+    assert.doesNotMatch(
+      visiblePageText(html),
+      /Contact email forwarding must be confirmed|MultiTier Discounts availability|before public launch/i,
+      `${route} stale pre-launch copy`,
+    );
     records.push({
       route,
       title: titles[0],
@@ -299,11 +392,29 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
   const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
     (match) => match[1],
   );
+  const sitemapRecords = [
+    ...sitemap.matchAll(
+      /<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>\s*<\/url>/g,
+    ),
+  ].map((match) => ({ loc: match[1], lastmod: match[2] }));
 
   assert.deepEqual(
     sitemapUrls,
     PUBLIC_ROUTES.map(expectedCanonical),
   );
+  assert.equal(sitemapRecords.length, PUBLIC_ROUTES.length);
+  for (const [index, route] of PUBLIC_ROUTES.entries()) {
+    const record = sitemapRecords[index];
+    assert.deepEqual(record, {
+      loc: expectedCanonical(route),
+      lastmod: LAST_MODIFIED_BY_ROUTE[route],
+    });
+    assert.match(record.lastmod, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(
+      new Date(`${record.lastmod}T00:00:00.000Z`) <= new Date(),
+      `${route} lastmod is not in the future`,
+    );
+  }
   assert.match(robots, /^Sitemap: https:\/\/merchantcanvas\.com\/sitemap\.xml$/m);
   assert.match(
     robots,
@@ -353,6 +464,49 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
   ]) {
     assert.match(llms, new RegExp(expectedCanonical(route)));
   }
+});
+
+test("content screenshots use their physical JPEG dimensions", async () => {
+  const worker = await loadWorker();
+  const response = await render(worker, "/apps/multitier-discounts");
+  const html = await response.text();
+
+  for (const publicPath of [
+    "/images/multitier-campaign-rules.jpg",
+    "/images/multitier-analytics.jpg",
+  ]) {
+    const images = imageTags(html).filter(
+      (image) => attribute(image, "src") === publicPath,
+    );
+    assert.equal(images.length, 1, `${publicPath} rendered once`);
+
+    const dimensions = await jpegDimensions(publicPath);
+    assert.equal(
+      Number(attribute(images[0], "width")),
+      dimensions.width,
+      `${publicPath} width`,
+    );
+    assert.equal(
+      Number(attribute(images[0], "height")),
+      dimensions.height,
+      `${publicPath} height`,
+    );
+  }
+});
+
+test("contact copy reflects the live MultiTier Discounts product", async () => {
+  const worker = await loadWorker();
+  const response = await render(worker, "/contact");
+  const html = await response.text();
+
+  assert.match(
+    visiblePageText(html),
+    /MultiTier Discounts fit, pricing, or implementation/,
+  );
+  assert.match(
+    visiblePageText(html),
+    /This static form opens your email app; it does not send data to a MerchantCanvas server\./,
+  );
 });
 
 test("product JSON-LD matches visible pricing, eligibility, and availability", async () => {

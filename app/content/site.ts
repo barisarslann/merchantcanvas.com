@@ -277,7 +277,7 @@ export const products: Record<Product["slug"], Product> = {
           "MultiTier Discounts analytics dashboard showing campaign usage metrics",
         caption:
           "Analytics are based on processed orders and do not include historical orders from before installation.",
-        width: 1080,
+        width: 1130,
         height: 900,
       },
     ],
