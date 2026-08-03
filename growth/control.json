@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-08-03",
+  "mode": "zero_cost_observation",
+  "paidMedia": {
+    "authorized": false,
+    "authorizedByOwner": false,
+    "authorizedAt": null,
+    "dailySpendCapUsd": 0,
+    "lifetimeSpendCapUsd": 0,
+    "allowedPlatforms": [],
+    "excludedPlatforms": [
+      "shopify_app_store_ads"
+    ]
+  },
+  "externalWrites": {
+    "adAccountChanges": false,
+    "campaignActivation": false,
+    "communityPosts": false,
+    "directOutreach": false,
+    "reviewRequests": false,
+    "websiteContentChangesWithoutApproval": false
+  },
+  "automaticActions": {
+    "readAuthorizedSources": true,
+    "writeRepositorySnapshots": true,
+    "writeRepositoryReports": true,
+    "prepareDrafts": true,
+    "proposeExperiments": true
+  },
+  "dataPolicy": {
+    "allowPiiInRepository": false,
+    "allowCredentialsInRepository": false,
+    "aggregateMerchantDataOnly": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-08-02",
+  "source": "cloudflare_api",
+  "readOnly": true,
+  "project": {
+    "name": "merchantcanvas-com",
+    "subdomain": "merchantcanvas-com.pages.dev",
+    "productionBranch": "main",
+    "sourceType": "github",
+    "repository": "barisarslann/merchantcanvas.com",
+    "buildCommand": "npm run build:pages",
+    "destinationDirectory": "out"
+  },
+  "customDomain": {
+    "name": "merchantcanvas.com",
+    "status": "active",
+    "validationStatus": "active"
+  },
+  "latestProductionDeployment": {
+    "id": "8b772cab-81c0-4576-b3bb-98d5c41d8aa4",
+    "createdOn": "2026-07-30T14:34:53.094983Z",
+    "finishedOn": "2026-07-30T14:35:49.452975Z",
+    "status": "success"
+  },
+  "productionEnvironment": {
+    "configuredVariableNames": [
+      "NODE_VERSION"
+    ],
+    "nodeVersion": "22.13.0",
+    "cloudflareWebAnalyticsConfigured": false,
+    "ga4IdObserved": false,
+    "googleAdsIdObserved": false,
+    "metaPixelIdObserved": false
+  },
+  "previewEnvironment": {
+    "configuredVariableNames": [
+      "NODE_VERSION"
+    ]
+  },
+  "caveats": [
+    "The observation records configuration presence, not analytics account existence.",
+    "No Cloudflare setting or deployment was changed."
+  ]
+}

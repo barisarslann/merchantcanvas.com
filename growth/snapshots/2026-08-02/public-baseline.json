@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-08-02T14:04:40+03:00",
+  "mode": "zero_cost_observation",
+  "spendUsd": 0,
+  "production": {
+    "homepage": {
+      "url": "https://merchantcanvas.com/",
+      "httpStatus": 200,
+      "title": "MultiTier Discounts for Shopify promotions",
+      "canonical": "https://merchantcanvas.com",
+      "h1Count": 1
+    },
+    "mtdPage": {
+      "url": "https://merchantcanvas.com/apps/multitier-discounts",
+      "httpStatus": 200,
+      "title": "MultiTier Discounts — Shopify tiered discounts | MerchantCanvas",
+      "canonical": "https://merchantcanvas.com/apps/multitier-discounts",
+      "h1Count": 1
+    },
+    "robotsHttpStatus": 200,
+    "sitemapHttpStatus": 200,
+    "sitemapUrlCount": 11
+  },
+  "shopifyAppStore": {
+    "url": "https://apps.shopify.com/multitier-discounts",
+    "publicListingReachable": true,
+    "publicRating": 0.0,
+    "publicReviewCount": 0,
+    "completedInstalls": null,
+    "note": "Completed installs are not exposed by the public listing."
+  },
+  "publicSearchProxy": {
+    "queriesChecked": 3,
+    "merchantCanvasResultsObserved": 0,
+    "authoritativeForGoogleIndexing": false
+  },
+  "authenticatedSources": {
+    "shopifyPartner": "not_observed",
+    "googleSearchConsole": "not_observed",
+    "bingWebmasterTools": "not_observed",
+    "ga4": "not_observed",
+    "metaAdsManager": "not_observed"
+  },
+  "caveats": [
+    "Public search proxy results do not replace Search Console.",
+    "Zero public reviews do not indicate installation volume.",
+    "No paid media or external account mutation occurred."
+  ]
+}

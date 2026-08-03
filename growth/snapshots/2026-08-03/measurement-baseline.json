@@ -1,0 +1,71 @@
+{
+  "observedAt": "2026-08-03",
+  "mode": "owner_authorized_read_only_browser_and_cloudflare_configuration",
+  "shopifyPartner": {
+    "appStatus": "published",
+    "totalEarningsUsd": 28.62,
+    "merchantsWithAppRaw": 9,
+    "last30Days": {
+      "installs": 2,
+      "uninstalls": 0,
+      "cumulativeNetInstalls": 2,
+      "payoutsUsd": -97.51
+    },
+    "publicReviewCount": 0,
+    "caveats": [
+      "Raw merchant count includes internal/test stores and is not a customer KPI.",
+      "The negative payout observation is unexplained and must not be assigned a cause without source evidence."
+    ]
+  },
+  "googleSearchConsole": {
+    "webSearchClicks": 0,
+    "pageIndexingState": "processing",
+    "sitemap": {
+      "url": "https://merchantcanvas.com/sitemap.xml",
+      "status": "success",
+      "submittedAt": "2026-07-29",
+      "lastReadAt": "2026-08-01",
+      "discoveredPages": 11
+    },
+    "coreWebVitalsState": "unavailable"
+  },
+  "googleAnalytics": {
+    "measurementId": "G-6L80EEB9KD",
+    "streamCreated": true,
+    "enhancedMeasurement": true,
+    "dataReceivedAtObservation": false,
+    "cloudflareProductionConfigured": true,
+    "cloudflarePreviewConfigured": true,
+    "productionValidation": "pending_deploy"
+  },
+  "bingWebmasterTools": {
+    "clicks": 0,
+    "impressions": 0,
+    "sitemap": {
+      "url": "https://merchantcanvas.com/sitemap.xml",
+      "status": "success",
+      "submittedAt": "2026-07-29",
+      "lastCrawledAt": "2026-07-29",
+      "discoveredUrls": 11
+    },
+    "aiPerformance": {
+      "citations": 0,
+      "averageCitedPages": 0,
+      "window": "three_months_ending_2026-08-02"
+    }
+  },
+  "meta": {
+    "businessPortfolioExists": true,
+    "canCreateOrRunAds": false,
+    "canUseOrShareAudiences": false,
+    "restrictionObservedAt": "2026-08-03",
+    "platformReason": "suspected_non_compliant_automation",
+    "reviewRequested": false,
+    "pixelConfigured": false
+  },
+  "privacy": {
+    "containsMerchantIdentities": false,
+    "containsCredentials": false,
+    "containsPersonalData": false
+  }
+}
