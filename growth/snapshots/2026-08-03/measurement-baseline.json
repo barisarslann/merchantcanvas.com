@@ -34,6 +34,16 @@
     "streamCreated": true,
     "enhancedMeasurement": true,
     "dataReceivedAtObservation": false,
+    "existingPropertyBaseline": {
+      "propertyName": "MultiTier Discounts",
+      "window": "last_7_days",
+      "activeUsers": 4,
+      "eventCount": 23,
+      "views": 5,
+      "newUsers": 4,
+      "observedPageSurface": "Shopify App Store listing",
+      "interpretation": "Pre-existing property activity; do not attribute it to the MerchantCanvas website stream."
+    },
     "cloudflareProductionConfigured": true,
     "cloudflarePreviewConfigured": true,
     "productionValidation": {

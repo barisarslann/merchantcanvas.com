@@ -9,7 +9,7 @@
 | Shopify Partner Dashboard | Installs, uninstalls, subscriptions/revenue where available | Owner-authorized read-only browser access verified | Daily collection, weekly decision | Aggregate only; raw merchant count includes internal/test stores |
 | Google Search Console | Queries, pages, indexing, sitemap, CWV | Domain property and successful sitemap verified | Weekly | Authoritative for Google search visibility; indexing report still processing |
 | Bing Webmaster Tools | Bing indexing, crawl, and Microsoft AI citations | Site, sitemap, search, and AI Performance verified | Weekly/monthly | Secondary search and Microsoft Copilot citation source |
-| GA4 | Consented sessions and website events | Stream created; public ID configured in Cloudflare, collection validation pending deploy | Daily after activation | No PII; consented subset only |
+| GA4 | Consented sessions and website events | Stream configured and consent loader verified; Realtime confirmation pending | Daily after activation | Property also contains App Store activity; segment website data by stream or hostname; no PII |
 | Google Ads | Spend, clicks, search terms, attributed events | No paid authorization | Daily only during a test | Shopify App Store Ads are excluded; this row is Google Search only |
 | Meta Ads Manager / Events Manager | Spend, delivery, creative and attributed events | Business exists but is restricted from ads/audiences; no pixel configured | Daily only during a test | Manual review is an owner-approved action; pixel remains advertising-consent gated |
 | PostHog | Optional behavior analytics and replay | Skill installed; OAuth app/tools not connected | Deferred | Do not duplicate GA4 or add another tracker without a demonstrated need |

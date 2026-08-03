@@ -44,6 +44,9 @@
 - Production script-layer consent validation passed on 2026-08-03: Essential
   only loaded no Google or Meta script; Analytics only loaded the correct GA4
   script and no Meta script. GA4 Realtime event confirmation remains pending.
+- The GA4 property already contains Shopify App Store listing activity. The
+  observed seven-day property totals must not be reported as MerchantCanvas
+  website traffic; future reporting should segment by stream or hostname.
 - Cloudflare Pages project `merchantcanvas-com` is connected to GitHub `main`;
   the custom domain is active and the latest production deployment succeeded.
 - Shopify Partner Dashboard reported 2 installs, 0 uninstalls, and 2 cumulative
