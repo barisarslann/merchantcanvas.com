@@ -41,6 +41,9 @@
 - GA4 web stream `G-6L80EEB9KD` is configured in Cloudflare Pages production
   and preview. The site loads it only after analytics consent; Google Ads and
   Meta Pixel remain unset and advertising-consent gated.
+- Production script-layer consent validation passed on 2026-08-03: Essential
+  only loaded no Google or Meta script; Analytics only loaded the correct GA4
+  script and no Meta script. GA4 Realtime event confirmation remains pending.
 - Cloudflare Pages project `merchantcanvas-com` is connected to GitHub `main`;
   the custom domain is active and the latest production deployment succeeded.
 - Shopify Partner Dashboard reported 2 installs, 0 uninstalls, and 2 cumulative

@@ -36,7 +36,16 @@
     "dataReceivedAtObservation": false,
     "cloudflareProductionConfigured": true,
     "cloudflarePreviewConfigured": true,
-    "productionValidation": "pending_deploy"
+    "productionValidation": {
+      "deploymentStatus": "success",
+      "essentialOnlyGtagScriptCount": 0,
+      "essentialOnlyMetaScriptCount": 0,
+      "analyticsOnlyGtagScriptCount": 1,
+      "analyticsOnlyGtagSource": "https://www.googletagmanager.com/gtag/js?id=G-6L80EEB9KD",
+      "analyticsOnlyMetaScriptCount": 0,
+      "realtimeActiveUsersAfterTest": 0,
+      "realtimeEventConfirmation": "pending"
+    }
   },
   "bingWebmasterTools": {
     "clicks": 0,
