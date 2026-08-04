@@ -20,14 +20,13 @@ Before any external organic distribution, the owner must approve:
 
 ## Current platform actions requiring approval
 
-- Confirm the permanent Meta ad-account settings. The recommended choice is
-  USD with the UTC reporting timezone. Currency does not control delivery
-  geography; USD aligns reporting with the app's public prices, while UTC keeps
-  cross-market reporting and budget boundaries neutral and free of daylight
-  saving changes.
-- Confirm creation of a Meta ad account, public MerchantCanvas Facebook Page,
-  Dataset/Pixel, and `merchantcanvas.com` domain asset. These are external
-  account mutations even though they do not spend money.
+- USD with the UTC reporting timezone was approved on 2026-08-04. Currency does
+  not control delivery geography; USD aligns reporting with the app's public
+  prices, while UTC keeps cross-market reporting and budget boundaries neutral
+  and free of daylight saving changes.
+- Creation of a Meta ad account, public MerchantCanvas Facebook Page,
+  Dataset/Pixel, and `merchantcanvas.com` domain asset was authorized on
+  2026-08-04. This authorization does not include campaign activation.
 - Add the virtual card directly inside Meta after the ad account exists. Never
   send the card number, CVV, OTP, or full billing details through chat or Git.
 - Approve the exact final paused campaign preview before any status can change

@@ -13,7 +13,17 @@
     "adAccountSettings": {
       "currency": "USD",
       "timeZone": "Etc/UTC",
-      "status": "owner_confirmation_pending"
+      "status": "owner_confirmed",
+      "ownerConfirmedAt": "2026-08-04"
+    },
+    "zeroSpendInfrastructureAuthorized": true,
+    "metaAssets": {
+      "businessPortfolioId": "1026078213648400",
+      "adAccountId": "2012216142815375",
+      "facebookPageId": "1268369359688618",
+      "datasetPixelId": "1346021054411762",
+      "domainId": "1766534807996010",
+      "domainVerificationStatus": "pending_production_deploy"
     },
     "marketStrategy": {
       "phase": "english_tier_1_pilot",
@@ -46,7 +56,7 @@
     ]
   },
   "externalWrites": {
-    "adAccountChanges": false,
+    "adAccountChanges": true,
     "campaignActivation": false,
     "communityPosts": false,
     "directOutreach": false,

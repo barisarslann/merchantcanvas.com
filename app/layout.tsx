@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   authors: [{ name: "MerchantCanvas" }],
   creator: "MerchantCanvas",
   publisher: "MerchantCanvas",
+  verification: {
+    other: {
+      "facebook-domain-verification": "i2ivc5kyz4fjxw7wf420j9rjlk7etf",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },

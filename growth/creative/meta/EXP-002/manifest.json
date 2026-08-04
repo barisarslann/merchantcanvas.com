@@ -30,9 +30,15 @@
     "marketRationale": "This is an English-language Tier 1 pilot for a globally sold product. Do not dilute the micro-budget across worldwide inventory; expand to additional countries only after evidence from the first cohort."
   },
   "adAccount": {
+    "id": "2012216142815375",
     "currency": "USD",
     "timeZone": "Etc/UTC",
-    "settingsStatus": "owner_confirmation_pending"
+    "settingsStatus": "created_zero_spend"
+  },
+  "assets": {
+    "facebookPageId": "1268369359688618",
+    "datasetPixelId": "1346021054411762",
+    "domainVerificationStatus": "pending_production_deploy"
   },
   "destination": "https://merchantcanvas.com/apps/multitier-discounts",
   "creatives": [

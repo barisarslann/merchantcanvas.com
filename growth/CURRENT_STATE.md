@@ -71,20 +71,27 @@
 - Meta Business Portfolio is accessible. The prior restriction no longer
   appears in the inspected settings surface, but Meta still labels the
   business details as unverified.
-- No ad account, payment method, Dataset/Pixel, verified domain, Facebook Page,
-  or Instagram account is attached to the portfolio yet. This keeps spend
-  impossible until the pilot infrastructure is deliberately created.
+- Meta ad account `MerchantCanvas Global` was created in USD and UTC. Billing
+  shows a zero balance, no recent spend, and no payment method.
+- The public `MerchantCanvas` Facebook Page and `MerchantCanvas` Dataset/Pixel
+  were created. The Dataset/Pixel is connected to the ad account and the owner
+  has full access. Conversions API was deliberately left disabled for this
+  browser-only pilot.
+- `merchantcanvas.com` was added to Meta and is awaiting verification. Its
+  verification meta tag is in the repository and must reach production before
+  Meta's verify action can pass.
+- No Instagram account is connected. A payment method is still absent, so the
+  account cannot spend.
 - The installed PostHog skill is present, but its OAuth-connected app/tools are
   not available in this session. PostHog remains optional and uninstrumented.
 - Privacy and Terms remain drafts and continue to block paid activation.
 
 ## Immediate focus
 
-1. Confirm the permanent Meta ad-account currency and time zone.
-2. Create the Meta account, identity, domain, and Dataset/Pixel only after the
-   owner confirms the permanent account settings and external creation action.
-3. Recheck GA4 property reporting, then validate consent-gated Meta PageView
+1. Publish and verify the Meta domain tag, then configure the Dataset/Pixel ID
+   in Cloudflare Pages production and preview.
+2. Recheck GA4 property reporting, then validate consent-gated Meta PageView
    and one PII-free `InstallIntent` after the Pixel exists.
-4. Keep Privacy and Terms drafts, billing safety, and owner preview approval as
+3. Keep Privacy and Terms drafts, billing safety, and owner preview approval as
    activation gates.
-5. Do not spend or publish externally during preparation mode.
+4. Do not spend or publish externally during preparation mode.
