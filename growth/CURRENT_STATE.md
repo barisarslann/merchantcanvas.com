@@ -44,9 +44,10 @@
 
 - The website has a defined consent-aware `install_intent` contract.
 - Completed installs remain a separate Shopify Partner Dashboard KPI.
-- GA4 web stream `G-6L80EEB9KD` is configured in Cloudflare Pages production
-  and preview. The site loads it only after analytics consent; Google Ads and
-  Meta Pixel remain unset and advertising-consent gated.
+- GA4 web stream `G-6L80EEB9KD` and Meta Dataset/Pixel `1346021054411762` are
+  configured in Cloudflare Pages production and preview. The site loads GA4
+  only after analytics consent and loads the Meta Pixel only after advertising
+  consent. Google Ads remains unset.
 - Production script-layer consent validation passed on 2026-08-03: Essential
   only loaded no Google or Meta script; Analytics only loaded the correct GA4
   script and no Meta script.
@@ -55,8 +56,11 @@
   corrected in commit `09c82a6` so the site now uses Google's documented
   `dataLayer.push(arguments)` form. Google Tag Assistant then found the tag and
   recorded `Config`, `page_view`, and `view_product` hits with zero console
-  errors. GA4 Realtime and DebugView still showed zero, so site-side transport
-  is verified but property-side reporting remains an activation blocker.
+  errors.
+- The subsequent GA4 property recheck passed. MerchantCanvas Realtime showed
+  two active users and received `page_view`, `view_product`, and
+  `install_intent`. These are controlled validation events, not campaign
+  traffic or completed Shopify installs.
 - A separate `MultiTier Discounts` GA4 property contains activity from the app
   surface. Its totals must not be reported as MerchantCanvas website traffic.
 - Cloudflare Pages project `merchantcanvas-com` is connected to GitHub `main`;
@@ -82,10 +86,18 @@
 - The Dataset/Pixel ID is configured in Cloudflare Pages production and preview.
   A live essential-only check loaded no GA4 or Meta script; advertising consent
   loaded GA4 and the Meta Pixel. Meta processed PageView and ViewContent.
-- Two controlled outbound checks did not produce `InstallIntent` in Meta Test
-  Events. The cause was traced to GA4's callback ending the outbound wait before
-  the Meta transport had time to dispatch; the bounded handoff fix is awaiting
-  production verification.
+- The first two controlled outbound checks did not produce `InstallIntent` in
+  Meta Test Events. The cause was traced to GA4's callback ending the outbound
+  wait before the Meta transport had time to dispatch. Commit `4ddda52`
+  reserves the bounded handoff window for the Meta transport.
+- Production verification then passed: one controlled MTD App Store CTA click
+  produced exactly one browser-side `InstallIntent`. It contained
+  `product=multitier-discounts`, `placement=product_close`,
+  `destination=shopify_app_store`, and the expected source, medium, campaign,
+  and content UTM fields. No PII field was sent. The redirect still completed
+  to the official Shopify App Store listing.
+- Meta's automatic-events setup was observed off. Explicit `PageView`,
+  `ViewContent`, and `InstallIntent` remain the measurement contract.
 - No Instagram account is connected. A payment method is still absent, so the
   account cannot spend.
 - The installed PostHog skill is present, but its OAuth-connected app/tools are
@@ -94,9 +106,10 @@
 
 ## Immediate focus
 
-1. Publish and live-test the bounded `InstallIntent` handoff fix.
-2. Recheck GA4 property reporting and confirm one PII-free `InstallIntent` in
-   Meta Test Events without a duplicate.
-3. Keep Privacy and Terms drafts, billing safety, and owner preview approval as
-   activation gates.
+1. Create the Meta custom conversion after `InstallIntent` becomes available
+   in Meta's event selector.
+2. Wait for the owner to add a payment method directly in Meta and approve the
+   Privacy and Terms pages.
+3. Convert the 1,600 TRY ceiling to USD at activation time, build the campaign
+   in paused state, and present the final preview.
 4. Do not spend or publish externally during preparation mode.

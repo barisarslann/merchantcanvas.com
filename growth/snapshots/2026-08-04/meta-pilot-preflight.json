@@ -41,11 +41,30 @@
       "view_product"
     ],
     "tagAssistantConsoleErrors": 0,
-    "ga4StreamStatus": "site_transport_verified_property_reporting_pending",
-    "ga4RealtimeActiveUsers": 0,
-    "ga4DebugViewEvents": 0,
+    "ga4StreamStatus": "site_transport_and_property_reporting_verified",
+    "ga4RealtimeActiveUsers": 2,
+    "ga4RealtimeEvents": {
+      "page_view": 4,
+      "view_product": 4,
+      "install_intent": 3
+    },
+    "ga4RealtimeEventsAreControlledValidationTraffic": true,
     "installIntentContractTestedInRepository": true,
-    "metaInstallIntentVerified": false
+    "metaInstallIntentVerified": true,
+    "metaInstallIntentEventCount": 1,
+    "metaInstallIntentContainsPii": false,
+    "metaInstallIntentFields": [
+      "product",
+      "placement",
+      "destination",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_content"
+    ],
+    "metaAutomaticEventsSetup": "off",
+    "metaCustomConversionStatus": "pending_event_selector_propagation",
+    "installIntentHandoffFixCommit": "4ddda52"
   },
   "shopifyPartner": {
     "window": "last_30_days",
@@ -72,8 +91,7 @@
     "testFailures": 0
   },
   "activationBlockers": [
-    "ga4_property_reporting_not_verified",
-    "meta_pixel_install_intent_not_verified",
+    "meta_install_intent_custom_conversion_not_created",
     "payment_method_not_added",
     "privacy_and_terms_still_draft",
     "final_owner_preview_not_approved"
