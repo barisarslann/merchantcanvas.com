@@ -1,7 +1,23 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-08-03",
-  "mode": "zero_cost_observation",
+  "lastUpdated": "2026-08-04",
+  "mode": "meta_pilot_preparation",
+  "pilot": {
+    "experimentId": "EXP-002-meta-acquisition-pilot",
+    "preparationAuthorizedByOwner": true,
+    "preparationAuthorizedAt": "2026-08-04",
+    "platform": "meta",
+    "durationDays": 7,
+    "lifetimeSpendCapTry": 1600,
+    "fundingCeilingTry": 2000,
+    "ownerPreviewApprovalRequired": true,
+    "ownerPreviewApproved": false,
+    "activationAuthorized": false,
+    "excludedPlatforms": [
+      "google_ads",
+      "shopify_app_store_ads"
+    ]
+  },
   "paidMedia": {
     "authorized": false,
     "authorizedByOwner": false,

@@ -1,0 +1,472 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/public/fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+}
+
+:root {
+  --cobalt: #164bff;
+  --sun: #ffd51e;
+  --canvas: #f7f9ff;
+  --paper: #ffffff;
+  --ink: #07142e;
+  --muted: #526079;
+  --line: #cfd8ef;
+  --azure: #3e9bff;
+  --coral: #ff725b;
+  --night: #06131f;
+  --night-paper: #0c2131;
+  --night-line: #284154;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 1080px;
+  height: 1350px;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  color: var(--ink);
+  text-rendering: geometricPrecision;
+}
+
+.creative {
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  padding: 58px 62px 54px;
+  overflow: hidden;
+  background: var(--canvas);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 46px;
+  font-size: 25px;
+  font-weight: 780;
+  letter-spacing: -0.025em;
+}
+
+.brand img {
+  width: 44px;
+  height: 44px;
+}
+
+.brand small {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 18px;
+  font-weight: 680;
+  letter-spacing: 0;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  margin: 0 0 21px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 760;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  max-width: 880px;
+  font-size: 72px;
+  font-weight: 790;
+  letter-spacing: -0.038em;
+  line-height: 0.99;
+}
+
+.lead {
+  max-width: 780px;
+  margin-top: 22px;
+  color: #2c3953;
+  font-size: 26px;
+  font-weight: 520;
+  line-height: 1.36;
+}
+
+.product-window {
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 0 22px 50px rgba(19, 43, 101, 0.16);
+}
+
+.window-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 0 22px;
+  background: var(--cobalt);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 740;
+}
+
+.window-bar span:last-child {
+  opacity: 0.78;
+}
+
+.product-window img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 62px;
+  padding: 0 27px;
+  border-radius: 999px;
+  background: var(--cobalt);
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 780;
+  white-space: nowrap;
+}
+
+.cta::after {
+  content: "→";
+  margin-left: 13px;
+  font-size: 25px;
+}
+
+.fine-print {
+  color: var(--muted);
+  font-size: 19px;
+  font-weight: 620;
+  line-height: 1.35;
+}
+
+/* A — workflow ledger */
+.workflow-creative {
+  display: grid;
+  grid-template-rows: auto 296px 590px 120px;
+  gap: 28px;
+}
+
+.workflow-creative .product-window {
+  display: grid;
+  grid-template-rows: 54px 1fr;
+}
+
+.workflow-creative .product-window img {
+  object-position: top center;
+}
+
+.workflow-strip {
+  position: absolute;
+  right: 62px;
+  bottom: 166px;
+  left: 62px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 14px 34px rgba(19, 43, 101, 0.13);
+}
+
+.workflow-step {
+  min-height: 104px;
+  padding: 19px 18px 16px;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+
+.workflow-step:last-child {
+  border-right: 0;
+}
+
+.workflow-step b {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cobalt);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.workflow-step span {
+  font-size: 18px;
+  font-weight: 740;
+}
+
+/* B — offer mechanics */
+.offer-creative {
+  display: grid;
+  grid-template-rows: auto 290px 676px 105px;
+  gap: 24px;
+  background: var(--paper);
+}
+
+.offer-creative::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 26px;
+  background: var(--sun);
+  content: "";
+}
+
+.offer-creative h1 {
+  max-width: 910px;
+  font-size: 68px;
+}
+
+.offer-board {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 676px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--cobalt);
+  box-shadow: 0 22px 50px rgba(19, 43, 101, 0.17);
+}
+
+.offer-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  color: #ffffff;
+}
+
+.offer-types h2 {
+  max-width: 270px;
+  margin-bottom: 30px;
+  font-size: 31px;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+}
+
+.offer-types ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offer-types li {
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.offer-types li:last-child {
+  border-bottom: 0;
+}
+
+.offer-types li::before {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  margin-right: 13px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: var(--sun);
+  color: var(--ink);
+  content: "✓";
+  font-size: 15px;
+  font-weight: 900;
+  vertical-align: 2px;
+}
+
+.offer-shot {
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.offer-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 48% top;
+}
+
+/* C — dark proof */
+.proof-creative {
+  display: grid;
+  grid-template-rows: auto 300px 650px 110px;
+  gap: 28px;
+  background: var(--night);
+  color: #f5fbff;
+}
+
+.proof-creative .brand small,
+.proof-creative .lead,
+.proof-creative .fine-print {
+  color: #b8cbd8;
+}
+
+.proof-creative .kicker {
+  background: var(--coral);
+  color: var(--night);
+}
+
+.proof-creative h1 {
+  max-width: 900px;
+  font-size: 69px;
+}
+
+.proof-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--night-paper);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.3);
+}
+
+.proof-shot {
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.proof-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+}
+
+.proof-notes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 26px;
+}
+
+.proof-notes div {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--night-line);
+}
+
+.proof-notes div:last-child {
+  border-bottom: 0;
+}
+
+.proof-notes b {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--coral);
+  font-size: 15px;
+}
+
+.proof-notes span {
+  font-size: 19px;
+  font-weight: 710;
+  line-height: 1.25;
+}
+
+.proof-creative .cta {
+  background: var(--coral);
+  color: var(--night);
+}
+
+/* 9:16 placement variants preserve the same two creative concepts. */
+html.story-page,
+body.story-page,
+.story-page .creative {
+  height: 1920px;
+}
+
+.story-page .creative {
+  display: block;
+  padding: 80px 62px 70px;
+}
+
+.story-page .brand {
+  height: 46px;
+}
+
+.story-page .creative > section:first-of-type {
+  margin-top: 104px;
+}
+
+.story-page h1 {
+  max-width: 920px;
+  font-size: 84px;
+}
+
+.story-page .lead {
+  max-width: 860px;
+  margin-top: 28px;
+  font-size: 30px;
+}
+
+.story-page .product-window {
+  height: 1000px;
+  margin-top: 68px;
+}
+
+.story-page .workflow-strip {
+  bottom: 258px;
+}
+
+.story-page .cta-row {
+  position: absolute;
+  right: 62px;
+  bottom: 72px;
+  left: 62px;
+  min-height: 110px;
+}
+
+.story-page .offer-board {
+  height: 1120px;
+  margin-top: 68px;
+  grid-template-columns: 360px 1fr;
+}
+
+.story-page.offer-story .creative > section:first-of-type {
+  margin-top: 92px;
+}
+
+.story-page.offer-story h1 {
+  font-size: 80px;
+}
+
+.story-page .offer-types {
+  padding: 32px;
+}
+
+.story-page .offer-types h2 {
+  font-size: 35px;
+}
+
+.story-page .offer-types li {
+  padding: 21px 0;
+  font-size: 23px;
+}

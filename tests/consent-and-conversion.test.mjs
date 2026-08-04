@@ -74,10 +74,11 @@ test("install intent uses direct consent-gated integrations and a bounded handof
   ]);
 
   assert.doesNotMatch(analytics, /NEXT_PUBLIC_GTM_ID/);
+  assert.match(analytics, /win\.dataLayer\?\.push\(arguments\)/);
+  assert.doesNotMatch(analytics, /win\.dataLayer\?\.push\(args\)/);
   assert.match(analytics, /NEXT_PUBLIC_GOOGLE_ADS_INSTALL_CONVERSION_LABEL/);
   assert.match(analytics, /"trackCustom", "InstallIntent"/);
   assert.match(analytics, /const OUTBOUND_TIMEOUT_MS = 500/);
   assert.match(trackedLink, /eventName === "install_intent"/);
   assert.match(trackedLink, /trackOutboundEvent/);
 });
-

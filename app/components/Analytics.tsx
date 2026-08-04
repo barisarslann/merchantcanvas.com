@@ -111,8 +111,10 @@ function ensureGtag() {
   const win = window as AnalyticsWindow;
   win.dataLayer = win.dataLayer || [];
   if (!win.gtag) {
-    win.gtag = (...args: unknown[]) => {
-      win.dataLayer?.push(args);
+    win.gtag = function gtag() {
+      // Google's gtag.js queue expects the Arguments object from each command.
+      // eslint-disable-next-line prefer-rest-params
+      win.dataLayer?.push(arguments);
     };
     win.gtag("consent", "default", {
       analytics_storage: "denied",

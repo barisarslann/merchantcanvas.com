@@ -1,6 +1,7 @@
 # Approvals Needed
 
-No approval is required for the current read-only baseline experiment.
+The owner authorized preparation of the first Meta pilot with a seven-day,
+1,600 TRY lifetime ceiling. Activation is still locked.
 
 Before paid activation, the owner must explicitly provide:
 
@@ -17,9 +18,15 @@ Before any external organic distribution, the owner must approve:
 - the identity/account used and disclosure language;
 - the exact outreach or review-request text and recipient criteria.
 
-## Current platform action requiring approval
+## Current platform actions requiring approval
 
-- Meta has restricted the MerchantCanvas business portfolio from creating ads
-  and using audiences. Submitting Meta's `Request review` flow is an external
-  account action and has not been performed. Prepare evidence first, then obtain
-  owner approval for the exact submission.
+- Confirm the permanent Meta ad-account settings. The recommended choice is
+  TRY with the Europe/Istanbul reporting timezone.
+- Confirm creation of a Meta ad account, public MerchantCanvas Facebook Page,
+  Dataset/Pixel, and `merchantcanvas.com` domain asset. These are external
+  account mutations even though they do not spend money.
+- Add the virtual card directly inside Meta after the ad account exists. Never
+  send the card number, CVV, OTP, or full billing details through chat or Git.
+- Approve the exact final paused campaign preview before any status can change
+  to active.
+- Give final owner/legal approval to Privacy and Terms before paid delivery.

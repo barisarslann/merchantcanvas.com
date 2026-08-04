@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "experimentId": "EXP-002-meta-acquisition-pilot",
+  "status": "paused_draft",
+  "campaign": {
+    "name": "MTD | Prospecting | EN4 | 2026-08 | EXP-002",
+    "objective": "traffic",
+    "optimizationGoal": "landing_page_views",
+    "budget": {
+      "type": "lifetime",
+      "currency": "TRY",
+      "amount": 1600,
+      "durationDays": 7
+    }
+  },
+  "adSet": {
+    "name": "EN | US+UK+CA+AU | Shopify promotion context | Broad",
+    "countries": [
+      "US",
+      "GB",
+      "CA",
+      "AU"
+    ],
+    "language": "English",
+    "minimumAge": 18,
+    "placements": "advantage_plus",
+    "audienceNote": "Keep one combined ad set. Use broad delivery with Shopify or ecommerce context only if Meta exposes a non-sensitive, policy-safe suggestion."
+  },
+  "destination": "https://merchantcanvas.com/apps/multitier-discounts",
+  "creatives": [
+    {
+      "name": "MTD | Workflow control | 4x5",
+      "files": {
+        "feed4x5": "mtd-workflow-control-1080x1350.png",
+        "story9x16": "mtd-workflow-control-1080x1920.png"
+      },
+      "primaryText": "Build tiered, quantity-break, cart-value, Buy X Get Y, and supported gift campaigns without setup sprawl. Define the offer, eligibility, guardrails, and storefront guidance—then keep qualifying checkout logic in Shopify.",
+      "headline": "Build Shopify promotions with control",
+      "description": "See MultiTier Discounts, then install from Shopify.",
+      "callToAction": "LEARN_MORE",
+      "landingUrl": "https://merchantcanvas.com/apps/multitier-discounts?utm_source=meta&utm_medium=paid_social&utm_campaign=mtd_meta_prospecting_2026_08&utm_content=workflow_control",
+      "imageAlt": "MultiTier Discounts campaign builder with the Offer, Target, Guardrails, and Checkout workflow."
+    },
+    {
+      "name": "MTD | Promotion mechanics | 4x5",
+      "files": {
+        "feed4x5": "mtd-promotion-mechanics-1080x1350.png",
+        "story9x16": "mtd-promotion-mechanics-1080x1920.png"
+      },
+      "primaryText": "Your promotion should match the cart you actually want. MultiTier Discounts supports quantity breaks, Buy X Get Y, cart-value rewards, and supported gift flows with precise targeting and Shopify Functions-based checkout logic.",
+      "headline": "Choose the promotion shape",
+      "description": "Compare the workflow and install from Shopify.",
+      "callToAction": "LEARN_MORE",
+      "landingUrl": "https://merchantcanvas.com/apps/multitier-discounts?utm_source=meta&utm_medium=paid_social&utm_campaign=mtd_meta_prospecting_2026_08&utm_content=promotion_mechanics",
+      "imageAlt": "MultiTier Discounts campaign builder beside quantity-break, Buy X Get Y, cart-value, and gift campaign options."
+    }
+  ],
+  "reporting": {
+    "platformMetrics": [
+      "spend",
+      "impressions",
+      "reach",
+      "link_clicks",
+      "landing_page_views"
+    ],
+    "websiteMetrics": [
+      "mtd_sessions",
+      "install_intent"
+    ],
+    "shopifyMetrics": [
+      "completed_installs",
+      "uninstalls",
+      "paid_plan_activations"
+    ]
+  }
+}

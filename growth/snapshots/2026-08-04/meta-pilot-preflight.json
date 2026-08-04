@@ -1,0 +1,70 @@
+{
+  "observedAt": "2026-08-04",
+  "experimentId": "EXP-002-meta-acquisition-pilot",
+  "activationState": "locked",
+  "budget": {
+    "platform": "meta",
+    "durationDays": 7,
+    "lifetimeSpendCapTry": 1600,
+    "spendToDateTry": 0,
+    "excludedPlatforms": [
+      "google_ads",
+      "shopify_app_store_ads"
+    ]
+  },
+  "meta": {
+    "businessPortfolioAccessible": true,
+    "businessVerificationStatus": "unverified",
+    "adAccountExists": false,
+    "paymentMethodExists": false,
+    "datasetOrPixelExists": false,
+    "domainAssetExists": false,
+    "facebookPageExists": false,
+    "instagramAccountExists": false
+  },
+  "measurement": {
+    "consentContractPresent": true,
+    "ga4Property": "MerchantCanvas",
+    "ga4StreamUrl": "https://merchantcanvas.com",
+    "ga4MeasurementId": "G-6L80EEB9KD",
+    "productionTagIdMatchesStream": true,
+    "productionAnalyticsConsentTagObserved": true,
+    "productionAdvertisingConsentMetaTagObserved": false,
+    "ga4StreamStatus": "no_data_received",
+    "ga4RealtimeActiveUsers": 0,
+    "installIntentContractTestedInRepository": true,
+    "metaInstallIntentVerified": false
+  },
+  "shopifyPartner": {
+    "window": "last_30_days",
+    "completedInstalls": 2,
+    "uninstalls": 0,
+    "cumulativeNetInstalls": 2,
+    "paidPlanActivations": "not_cleanly_segmented_for_pilot_baseline"
+  },
+  "creative": {
+    "selectedCount": 2,
+    "placementDimensions": [
+      "1080x1350",
+      "1080x1920"
+    ],
+    "usesApprovedProductScreenshots": true,
+    "containsUnverifiedClaims": false,
+    "finalOwnerPreviewApproved": false
+  },
+  "quality": {
+    "typecheck": "pass",
+    "lint": "pass",
+    "productionBuild": "pass",
+    "testCount": 17,
+    "testFailures": 0
+  },
+  "activationBlockers": [
+    "ga4_data_receipt_not_verified",
+    "meta_account_assets_not_created",
+    "meta_pixel_install_intent_not_verified",
+    "payment_method_not_added",
+    "privacy_and_terms_still_draft",
+    "final_owner_preview_not_approved"
+  ]
+}
