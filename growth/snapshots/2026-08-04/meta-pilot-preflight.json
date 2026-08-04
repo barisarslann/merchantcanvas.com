@@ -30,8 +30,16 @@
     "productionTagIdMatchesStream": true,
     "productionAnalyticsConsentTagObserved": true,
     "productionAdvertisingConsentMetaTagObserved": false,
-    "ga4StreamStatus": "no_data_received",
+    "ga4QueueFixCommit": "09c82a6",
+    "tagAssistantGoogleTagFound": true,
+    "tagAssistantSentHits": [
+      "page_view",
+      "view_product"
+    ],
+    "tagAssistantConsoleErrors": 0,
+    "ga4StreamStatus": "site_transport_verified_property_reporting_pending",
     "ga4RealtimeActiveUsers": 0,
+    "ga4DebugViewEvents": 0,
     "installIntentContractTestedInRepository": true,
     "metaInstallIntentVerified": false
   },
@@ -60,7 +68,7 @@
     "testFailures": 0
   },
   "activationBlockers": [
-    "ga4_data_receipt_not_verified",
+    "ga4_property_reporting_not_verified",
     "meta_account_assets_not_created",
     "meta_pixel_install_intent_not_verified",
     "payment_method_not_added",

@@ -46,9 +46,12 @@
   only loaded no Google or Meta script; Analytics only loaded the correct GA4
   script and no Meta script.
 - The correct `MerchantCanvas` GA4 property and `https://merchantcanvas.com`
-  stream use `G-6L80EEB9KD`, matching production. The stream still reports no
-  received data and Realtime remained at zero after a consented live load, so
-  event receipt is a launch blocker.
+  stream use `G-6L80EEB9KD`, matching production. A command-queue mismatch was
+  corrected in commit `09c82a6` so the site now uses Google's documented
+  `dataLayer.push(arguments)` form. Google Tag Assistant then found the tag and
+  recorded `Config`, `page_view`, and `view_product` hits with zero console
+  errors. GA4 Realtime and DebugView still showed zero, so site-side transport
+  is verified but property-side reporting remains an activation blocker.
 - A separate `MultiTier Discounts` GA4 property contains activity from the app
   surface. Its totals must not be reported as MerchantCanvas website traffic.
 - Cloudflare Pages project `merchantcanvas-com` is connected to GitHub `main`;
@@ -72,10 +75,11 @@
 
 ## Immediate focus
 
-1. Produce two original, claim-safe MTD creatives and a paused final preview.
+1. Confirm the permanent Meta ad-account currency and time zone.
 2. Create the Meta account, identity, domain, and Dataset/Pixel only after the
    owner confirms the permanent account settings and external creation action.
-3. Validate consent-gated PageView and one PII-free `InstallIntent` event.
+3. Recheck GA4 property reporting, then validate consent-gated Meta PageView
+   and one PII-free `InstallIntent` after the Pixel exists.
 4. Keep Privacy and Terms drafts, billing safety, and owner preview approval as
    activation gates.
 5. Do not spend or publish externally during preparation mode.
