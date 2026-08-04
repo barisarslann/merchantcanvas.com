@@ -38,7 +38,7 @@
   "assets": {
     "facebookPageId": "1268369359688618",
     "datasetPixelId": "1346021054411762",
-    "domainVerificationStatus": "pending_production_deploy"
+    "domainVerificationStatus": "verified"
   },
   "destination": "https://merchantcanvas.com/apps/multitier-discounts",
   "creatives": [

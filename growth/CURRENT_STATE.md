@@ -77,9 +77,15 @@
   were created. The Dataset/Pixel is connected to the ad account and the owner
   has full access. Conversions API was deliberately left disabled for this
   browser-only pilot.
-- `merchantcanvas.com` was added to Meta and is awaiting verification. Its
-  verification meta tag is in the repository and must reach production before
-  Meta's verify action can pass.
+- `merchantcanvas.com` is verified in Meta. The required verification tag is
+  present in the live document head.
+- The Dataset/Pixel ID is configured in Cloudflare Pages production and preview.
+  A live essential-only check loaded no GA4 or Meta script; advertising consent
+  loaded GA4 and the Meta Pixel. Meta processed PageView and ViewContent.
+- Two controlled outbound checks did not produce `InstallIntent` in Meta Test
+  Events. The cause was traced to GA4's callback ending the outbound wait before
+  the Meta transport had time to dispatch; the bounded handoff fix is awaiting
+  production verification.
 - No Instagram account is connected. A payment method is still absent, so the
   account cannot spend.
 - The installed PostHog skill is present, but its OAuth-connected app/tools are
@@ -88,10 +94,9 @@
 
 ## Immediate focus
 
-1. Publish and verify the Meta domain tag, then configure the Dataset/Pixel ID
-   in Cloudflare Pages production and preview.
-2. Recheck GA4 property reporting, then validate consent-gated Meta PageView
-   and one PII-free `InstallIntent` after the Pixel exists.
+1. Publish and live-test the bounded `InstallIntent` handoff fix.
+2. Recheck GA4 property reporting and confirm one PII-free `InstallIntent` in
+   Meta Test Events without a duplicate.
 3. Keep Privacy and Terms drafts, billing safety, and owner preview approval as
    activation gates.
 4. Do not spend or publish externally during preparation mode.

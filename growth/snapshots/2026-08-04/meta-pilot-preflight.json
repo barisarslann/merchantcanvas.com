@@ -15,11 +15,12 @@
   "meta": {
     "businessPortfolioAccessible": true,
     "businessVerificationStatus": "unverified",
-    "adAccountExists": false,
+    "adAccountExists": true,
     "paymentMethodExists": false,
-    "datasetOrPixelExists": false,
-    "domainAssetExists": false,
-    "facebookPageExists": false,
+    "datasetOrPixelExists": true,
+    "domainAssetExists": true,
+    "domainVerified": true,
+    "facebookPageExists": true,
     "instagramAccountExists": false
   },
   "measurement": {
@@ -29,7 +30,10 @@
     "ga4MeasurementId": "G-6L80EEB9KD",
     "productionTagIdMatchesStream": true,
     "productionAnalyticsConsentTagObserved": true,
-    "productionAdvertisingConsentMetaTagObserved": false,
+    "productionAdvertisingConsentMetaTagObserved": true,
+    "productionEssentialConsentMetaTagObserved": false,
+    "metaPageViewVerified": true,
+    "metaViewContentVerified": true,
     "ga4QueueFixCommit": "09c82a6",
     "tagAssistantGoogleTagFound": true,
     "tagAssistantSentHits": [
@@ -69,7 +73,6 @@
   },
   "activationBlockers": [
     "ga4_property_reporting_not_verified",
-    "meta_account_assets_not_created",
     "meta_pixel_install_intent_not_verified",
     "payment_method_not_added",
     "privacy_and_terms_still_draft",

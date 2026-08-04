@@ -24,10 +24,10 @@
 - [x] Create the MerchantCanvas Meta ad account in USD and UTC.
 - [x] Confirm the account has no payment method and cannot spend yet.
 - [x] Create or attach the public MerchantCanvas Facebook Page.
-- [ ] Add and verify `merchantcanvas.com` as the business domain.
+- [x] Add and verify `merchantcanvas.com` as the business domain.
 - [x] Create the MerchantCanvas Dataset/Pixel and connect it to the ad account.
-- [ ] Configure the Pixel through the existing advertising-consent gate.
-- [ ] Verify no Meta request occurs before advertising consent.
+- [x] Configure the Pixel through the existing advertising-consent gate.
+- [x] Verify no Meta script or configuration occurs before advertising consent.
 - [ ] Verify one PageView and one PII-free `InstallIntent` after advertising
   consent, with no duplicate event.
 - [ ] Reconfirm GA4 property reporting before launch.

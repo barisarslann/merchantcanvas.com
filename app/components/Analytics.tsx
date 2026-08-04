@@ -224,6 +224,7 @@ export function trackEvent(
     process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
   const installConversionLabel =
     process.env.NEXT_PUBLIC_GOOGLE_ADS_INSTALL_CONVERSION_LABEL;
+  const metaId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const hasGoogleTransport = Boolean(
     ga4Id || (consent.advertising && adsId),
   );
@@ -231,11 +232,17 @@ export function trackEvent(
     name === "install_intent" &&
     consent.advertising &&
     Boolean(adsId && installConversionLabel && win.gtag);
+  const waitsForMetaInstallTransport =
+    name === "install_intent" &&
+    consent.advertising &&
+    Boolean(metaId && win.fbq);
 
   if (win.gtag && hasGoogleTransport) {
     win.gtag("event", name, {
       ...payload,
-      ...(!waitsForInstallConversion && onComplete
+      ...(!waitsForInstallConversion &&
+      !waitsForMetaInstallTransport &&
+      onComplete
         ? {
             event_callback: onComplete,
             event_timeout: OUTBOUND_TIMEOUT_MS - 50,
@@ -260,7 +267,7 @@ export function trackEvent(
         win.gtag?.("event", "conversion", {
           send_to: `${adsId}/${installConversionLabel}`,
           ...payload,
-          ...(onComplete
+          ...(onComplete && !waitsForMetaInstallTransport
             ? {
                 event_callback: onComplete,
                 event_timeout: OUTBOUND_TIMEOUT_MS - 50,
@@ -271,7 +278,7 @@ export function trackEvent(
     }
   }
 
-  if (!hasGoogleTransport && onComplete) {
+  if (!hasGoogleTransport && !waitsForMetaInstallTransport && onComplete) {
     queueMicrotask(onComplete);
   }
 
