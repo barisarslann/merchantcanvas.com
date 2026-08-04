@@ -10,6 +10,21 @@
     "durationDays": 7,
     "lifetimeSpendCapTry": 1600,
     "fundingCeilingTry": 2000,
+    "adAccountSettings": {
+      "currency": "USD",
+      "timeZone": "Etc/UTC",
+      "status": "owner_confirmation_pending"
+    },
+    "marketStrategy": {
+      "phase": "english_tier_1_pilot",
+      "countries": [
+        "US",
+        "GB",
+        "CA",
+        "AU"
+      ],
+      "worldwideExpansion": "after_pilot_evidence"
+    },
     "ownerPreviewApprovalRequired": true,
     "ownerPreviewApproved": false,
     "activationAuthorized": false,
@@ -26,6 +41,7 @@
     "lifetimeSpendCapUsd": 0,
     "allowedPlatforms": [],
     "excludedPlatforms": [
+      "google_ads",
       "shopify_app_store_ads"
     ]
   },

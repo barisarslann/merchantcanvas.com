@@ -19,6 +19,11 @@
   and observed economics that are not acceptable for this stage.
 - Meta is the only paid channel in scope for the first pilot.
 - Google Ads and Shopify App Store Ads are explicitly excluded from this pilot.
+- The proposed Meta ad-account settings are USD and `Etc/UTC`. Delivery
+  geography is controlled separately at ad-set level.
+- The initial global launch cohort is English-language traffic in the United
+  States, United Kingdom, Canada, and Australia. Wider country expansion waits
+  for evidence so the micro-budget is not fragmented across worldwide traffic.
 - The owner authorized preparation of one campaign, one ad set, and two ads,
   but the entire structure must remain paused until the owner approves the
   final preview.

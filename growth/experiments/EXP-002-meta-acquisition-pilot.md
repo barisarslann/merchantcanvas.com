@@ -18,6 +18,13 @@ truth, privacy controls, or budget safety?
 - One Traffic campaign optimized for Landing Page Views.
 - One deliberately combined English-language prospecting ad set for the United
   States, United Kingdom, Canada, and Australia.
+- The ad account is proposed in USD with an `Etc/UTC` reporting timezone. At
+  activation, convert the 1,600 TRY hard ceiling using the live exchange rate
+  and round the USD lifetime budget down.
+- This is a globally positioned English-language launch cohort, not a Turkey
+  campaign. Avoid worldwide targeting during the micro-budget pilot because it
+  would fragment evidence and may push delivery toward cheap rather than
+  commercially useful inventory.
 - Two original creatives using only approved MTD screenshots and verified
   product language.
 - Destination:

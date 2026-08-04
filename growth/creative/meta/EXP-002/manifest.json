@@ -8,8 +8,10 @@
     "optimizationGoal": "landing_page_views",
     "budget": {
       "type": "lifetime",
-      "currency": "TRY",
-      "amount": 1600,
+      "accountCurrency": "USD",
+      "amountUsd": null,
+      "hardCapTryEquivalent": 1600,
+      "conversionRule": "Use the live TRY/USD rate at activation and round the USD lifetime budget down so it cannot exceed 1,600 TRY.",
       "durationDays": 7
     }
   },
@@ -24,7 +26,13 @@
     "language": "English",
     "minimumAge": 18,
     "placements": "advantage_plus",
-    "audienceNote": "Keep one combined ad set. Use broad delivery with Shopify or ecommerce context only if Meta exposes a non-sensitive, policy-safe suggestion."
+    "audienceNote": "Keep one combined ad set. Use broad delivery with Shopify or ecommerce context only if Meta exposes a non-sensitive, policy-safe suggestion.",
+    "marketRationale": "This is an English-language Tier 1 pilot for a globally sold product. Do not dilute the micro-budget across worldwide inventory; expand to additional countries only after evidence from the first cohort."
+  },
+  "adAccount": {
+    "currency": "USD",
+    "timeZone": "Etc/UTC",
+    "settingsStatus": "owner_confirmation_pending"
   },
   "destination": "https://merchantcanvas.com/apps/multitier-discounts",
   "creatives": [
