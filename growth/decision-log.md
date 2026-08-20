@@ -33,3 +33,19 @@ remain visible and point to the decision that replaced them.
   not yet MerchantCanvas conversion evidence proving Meta economics.
 - **Revisit:** After no-cost creative research and measurement validation.
 
+## D-004 — Test Shoffi as the first affiliate channel
+
+- **Date:** 2026-08-09
+- **Decision:** Prepare a bounded Shoffi affiliate pilot for MultiTier
+  Discounts under the zero-cost phase. Do not activate it until token rotation,
+  permission review, attribution verification, affiliate terms, and owner
+  approval are complete.
+- **Reason:** Shoffi directly serves Shopify app agencies, creators, and
+  affiliates and has no platform charge until the Free-plan affiliate-revenue
+  threshold. This is a closer fit than general SaaS affiliate networks at the
+  current budget.
+- **Boundary:** Shoffi is an acquisition channel, not an investor or exit
+  marketplace. Any required MTD code change belongs to a separate task rooted
+  in the MTD repository.
+- **Revisit:** After 30 live days or earlier if security, attribution, review,
+  or affiliate-quality guardrails fail.

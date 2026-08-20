@@ -66,6 +66,18 @@ fixed AI citation sample.
 - 2026-08-02 — Cloudflare plugin verified read-only access to the production
   Pages project, active custom domain, successful deployment, and current
   environment-variable state. No account mutation occurred.
+- 2026-08-15 — Weekly technical and acquisition check passed the repository
+  quality gate: typecheck, lint, production build, and all 17 regression tests.
+  GA4 showed zero users/events, Search Console showed 1 impression and 0 clicks,
+  and the delayed index report remained at 1 indexed / 13 non-indexed URLs.
+- 2026-08-15 — The fixed 20-query wording was rerun through a public web-search
+  proxy. MerchantCanvas appeared in 0/20 samples; the official App Store listing
+  appeared for branded queries only. This does not complete the comparable
+  ChatGPT/Perplexity citation sample because Perplexity required sign-in before
+  answering.
+- 2026-08-15 — Shopify product health produced a new guardrail signal: 8,960
+  `InstructionCountLimitExceededError` failures on August 12. No MTD repository
+  change was made because it is outside this workspace's write boundary.
 
 ## Completion criteria
 
@@ -89,7 +101,9 @@ fixed AI citation sample.
    documented as unavailable.
 3. GA4 production state and `install_intent` availability are observed or
    explicitly documented as unavailable.
-4. T+14 fixed-query visibility check is completed on or after 2026-08-12.
+4. T+14 fixed-query visibility check is completed on or after 2026-08-12. The
+   public web-search proxy is complete; comparable ChatGPT/Perplexity citation
+   collection remains incomplete.
 5. A Meta Ad Library creative-pattern review is documented without copying
    competitor assets or claims.
 6. One no-cost content or distribution experiment is ready for owner approval.
@@ -100,4 +114,6 @@ Pending.
 
 ## Decision
 
-Pending until 2026-08-16 or earlier completion of every criterion.
+Pending until 2026-08-16 or later completion of every criterion. The current
+blocker is a comparable fixed-query ChatGPT/Perplexity citation sample, not
+website delivery or repository quality.

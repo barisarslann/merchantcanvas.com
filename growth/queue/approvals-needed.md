@@ -18,6 +18,19 @@ Before any external organic distribution, the owner must approve:
 - the identity/account used and disclosure language;
 - the exact outreach or review-request text and recipient criteria.
 
+Before Shoffi activation, the owner must:
+
+- rotate the Shopify Partner API token referenced in Shoffi's 2026-08-09
+  dashboard security notice, update Shoffi only after the new token exists,
+  and revoke the old token;
+- approve Shoffi's requested `View financials` and `Manage apps` permissions;
+- approve the final commission period, percentage, payout threshold, affiliate
+  terms, and manual-approval policy;
+- authorize a separate MTD-repository task if attribution requires app-side
+  implementation; this MerchantCanvas workspace cannot modify that app;
+- approve the final Shoffi listing preview before it becomes visible or starts
+  accepting affiliates.
+
 ## Current platform actions requiring approval
 
 - USD with the UTC reporting timezone was approved on 2026-08-04. Currency does
@@ -36,3 +49,5 @@ Before any external organic distribution, the owner must approve:
   cohort, not a Turkey campaign; wider country expansion follows pilot evidence
   so the 1,600 TRY test is not fragmented across worldwide inventory.
 - Give final owner/legal approval to Privacy and Terms before paid delivery.
+- Link MerchantCanvas GA4 and `sc-domain:merchantcanvas.com` only after the
+  owner approves that external analytics configuration change.
