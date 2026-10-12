@@ -79,6 +79,7 @@ export function SiteHeader() {
             alt="MerchantCanvas"
             width="330"
             height="48"
+            loading="eager"
           />
           <Image
             className="brand-lockup brand-lockup-dark"
@@ -86,6 +87,7 @@ export function SiteHeader() {
             alt="MerchantCanvas"
             width="330"
             height="48"
+            loading="eager"
           />
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">

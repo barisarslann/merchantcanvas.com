@@ -21,6 +21,13 @@ export function SiteFooter() {
             MultiTier Discounts is live for Shopify promotion workflows. B2B
             Quote Approvals is coming soon.
           </p>
+          <nav className="footer-social" aria-label="MerchantCanvas social profiles">
+            {siteConfig.socialProfiles.map((profile) => (
+              <a key={profile.href} href={profile.href} rel="me">
+                {profile.label}
+              </a>
+            ))}
+          </nav>
         </div>
         <div>
           <h2>Products</h2>

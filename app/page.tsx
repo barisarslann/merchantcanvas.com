@@ -12,6 +12,8 @@ export const metadata = pageMetadata(
 
 export default function Home() {
   const multiTier = products["multitier-discounts"];
+  const freePlan = multiTier.plans.find((plan) => plan.name === "Free")!;
+  const starterPlan = multiTier.plans.find((plan) => plan.name === "Starter")!;
 
   return (
     <main>
@@ -21,9 +23,11 @@ export default function Home() {
             <p className="eyebrow">Live Shopify discount app</p>
             <h1>Shopify tiered discounts, clearly controlled.</h1>
             <p>
-              MultiTier Discounts is live for quantity breaks, Buy X Get Y,
-              cart-value rewards, and supported gift campaigns. B2B Quote
-              Approvals is the next focused MerchantCanvas app.
+              MerchantCanvas builds Shopify apps for clear promotion rules.
+              MultiTier Discounts handles quantity breaks, Buy X Get Y,
+              cart-value rewards, and gift campaigns. Start with the Free plan
+              for {freePlan.limit.toLowerCase()}. B2B Quote Approvals is coming soon.
+              Features vary by plan.
             </p>
             <div className="hero-actions">
               <TrackedLink
@@ -97,12 +101,12 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Current portfolio</p>
-              <h2 id="portfolio-title">Start with the live promotion app.</h2>
+              <h2 id="portfolio-title">Which app can I install today?</h2>
             </div>
             <p>
-              MultiTier Discounts is ready to install. B2B Quote Approvals is
-              clearly separated as an upcoming product, so availability never
-              gets confused with capability.
+              MultiTier Discounts is live on Shopify. Free includes {freePlan.limit.toLowerCase()};
+              paid plans start at {starterPlan.price}/month. B2B Quote Approvals
+              is coming soon and cannot be installed yet.
             </p>
           </div>
           <div className="app-grid">
@@ -118,20 +122,20 @@ export default function Home() {
           <div className="section-heading light">
             <div>
               <p className="eyebrow">Choose your workflow</p>
-              <h2>Start with the operational bottleneck.</h2>
+              <h2>What do you need to manage?</h2>
             </div>
             <p>
-              A fast route for paid traffic, organic research, and agency
-              evaluation.
+              Choose an app for discount campaigns or wholesale quote approvals.
             </p>
           </div>
           <div className="decision-grid">
             <article>
               <p className="eyebrow">Promotion campaigns</p>
-              <h3>Help shoppers see and unlock tiered incentives.</h3>
+              <h3>Set clear discount rules.</h3>
               <p>
-                Plan quantity breaks, cart-value rewards, Buy X Get Y, or gift
-                flows with targeting and storefront guidance.
+                Choose quantity breaks, cart-value rewards, Buy X Get Y, or gift
+                offers. Define which products and shoppers qualify, then show
+                the offer in your storefront.
               </p>
               <TrackedLink
                 href="/apps/multitier-discounts"
@@ -147,10 +151,10 @@ export default function Home() {
             </article>
             <article className="decision-coming-soon">
               <p className="eyebrow">B2B quote operations · Coming soon</p>
-              <h3>Move wholesale quotes out of inbox-and-sheet chains.</h3>
+              <h3>Keep wholesale quotes in one place.</h3>
               <p>
-                Keep buyer context, pricing, approvals, revisions, and the
-                Shopify draft-order handoff in one operational trail.
+                The upcoming app brings buyer details, pricing, approvals,
+                and revisions together before creating a Shopify draft order.
               </p>
               <TrackedLink
                 href="/apps/b2b-quote-approvals"
@@ -166,10 +170,11 @@ export default function Home() {
             </article>
             <article className="decision-contact">
               <p className="eyebrow">Not sure yet?</p>
-              <h3>Get a direct fit check for your store or client.</h3>
+              <h3>Will MTD fit your store?</h3>
               <p>
-                Share the real workflow. We will include where a product is not
-                appropriate, not just where it might fit.
+                Tell us your offer, eligible products, and discount rules. We
+                can help you compare the {multiTier.plans.length} plans and check
+                what fits before you install.
               </p>
               <TrackedLink
                 href="/contact"
@@ -188,38 +193,40 @@ export default function Home() {
         <div className="container principle-layout">
           <div className="principle-intro">
             <p className="eyebrow">Why MerchantCanvas</p>
-            <h2>Trust comes from product detail, not marketing theatre.</h2>
+            <h2>What can I check before installing?</h2>
             <p>
-              No fake logos, invented adoption numbers, or guaranteed growth
-              claims. Product scope, current availability, and pricing are
-              stated as they are.
+              Check plan limits, real product screenshots, and checkout rules
+              before you choose. We explain what each app supports and when it
+              is not a good fit.
             </p>
           </div>
           <div className="principle-list">
             <article>
               <div>
-                <h3>Workflow before surface area</h3>
+                <h3>Clear campaign rules</h3>
                 <p>
-                  Each app is built around a job a merchant can recognise and a
-                  Shopify outcome the team can operate.
+                  Choose the qualifying products, quantities, and cart totals.
+                  Match the offer shoppers see to the rule used at checkout.
                 </p>
               </div>
             </article>
             <article>
               <div>
-                <h3>Native foundations where they matter</h3>
+                <h3>Checkout stays in Shopify</h3>
                 <p>
-                  Shopify Functions, Admin workflows, billing, product and
-                  company context, and draft orders serve defined jobs.
+                  MultiTier Discounts uses Shopify Functions for checkout
+                  discounts. The upcoming B2B app works with Shopify Admin and
+                  draft orders.
                 </p>
               </div>
             </article>
             <article>
               <div>
-                <h3>Evidence without theatre</h3>
+                <h3>Real product screens</h3>
                 <p>
-                  Real screens and implementation-backed claims replace
-                  fabricated dashboards, ratings, and generic SaaS promises.
+                  See the MultiTier Discounts campaign builder and order
+                  analytics before installing. We do not publish unverified
+                  ratings or sales results.
                 </p>
               </div>
             </article>
@@ -232,7 +239,7 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Practical resources</p>
-              <h2>Useful guidance before you choose an app.</h2>
+              <h2>How should I plan the workflow?</h2>
             </div>
             <Link className="text-link" href="/resources">
               Browse all resources <span aria-hidden="true">→</span>
@@ -265,7 +272,8 @@ export default function Home() {
             <p className="eyebrow">Next step</p>
             <h2>Run your next promotion with MultiTier Discounts.</h2>
             <p>
-              Review the verified packages on this site, then install from the
+              Start with Free for {freePlan.limit.toLowerCase()}, or compare
+              paid plans from {starterPlan.price}/month. Install through the
               official Shopify App Store listing.
             </p>
           </div>

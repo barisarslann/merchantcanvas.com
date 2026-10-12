@@ -78,6 +78,14 @@ const organizationSchema = {
       email: siteConfig.email,
       description: siteConfig.description,
       logo: absoluteUrl("/brand/merchantcanvas-app-icon-512.png"),
+      sameAs: siteConfig.socialProfiles.map((profile) => profile.href),
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: siteConfig.email,
+        url: absoluteUrl("/contact"),
+        availableLanguage: "English",
+      },
     },
     {
       "@id": websiteId,
@@ -99,6 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="describedby" href="/llms.txt" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var saved=localStorage.getItem("merchantcanvas-theme");var theme=saved==="light"||saved==="dark"?saved:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=theme;document.documentElement.style.colorScheme=theme;}catch(e){document.documentElement.dataset.theme="light";}})();`,

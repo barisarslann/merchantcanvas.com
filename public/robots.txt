@@ -1,5 +1,3 @@
-Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
-
 User-agent: Googlebot
 Allow: /
 
@@ -31,6 +29,7 @@ User-agent: Google-Extended
 Disallow: /
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference
 Allow: /
 
 Sitemap: https://merchantcanvas.com/sitemap.xml

@@ -14,6 +14,11 @@ export const siteConfig = {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],
+  socialProfiles: [
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/merchantcanvas/" },
+    { label: "YouTube", href: "https://www.youtube.com/@MerchantCanvas" },
+    { label: "Reddit", href: "https://www.reddit.com/user/MerchantCanvas/" },
+  ],
 } as const;
 
 export type Plan = {
@@ -61,6 +66,7 @@ export type Product = {
   };
   screenshots?: {
     src: string;
+    webpSrcSet?: string;
     alt: string;
     caption: string;
     width: number;
@@ -221,7 +227,7 @@ export const products: Record<Product["slug"], Product> = {
       },
     ],
     pricingNote:
-      "The public Shopify App Store listing shows Free, Starter, and Pro. The separate Plus plan is a conditional managed-billing option shown only to stores Shopify verifies as Shopify Plus.",
+      "The public Shopify App Store listing shows Free, Starter, Pro, and Plus. Plus is available only to eligible Shopify Plus stores and is presented separately here from the three standard plans.",
     faq: [
       {
         question: "Does MultiTier Discounts replace Shopify discounts?",
@@ -264,6 +270,7 @@ export const products: Record<Product["slug"], Product> = {
     screenshots: [
       {
         src: "/images/multitier-campaign-rules.jpg",
+        webpSrcSet: "/images/multitier-campaign-rules-480.webp 480w, /images/multitier-campaign-rules-800.webp 800w, /images/multitier-campaign-rules-1130.webp 1130w",
         alt:
           "MultiTier Discounts campaign builder showing the discount rules step",
         caption:
@@ -273,6 +280,7 @@ export const products: Record<Product["slug"], Product> = {
       },
       {
         src: "/images/multitier-analytics.jpg",
+        webpSrcSet: "/images/multitier-analytics-480.webp 480w, /images/multitier-analytics-800.webp 800w, /images/multitier-analytics-1130.webp 1130w",
         alt:
           "MultiTier Discounts analytics dashboard showing campaign usage metrics",
         caption:

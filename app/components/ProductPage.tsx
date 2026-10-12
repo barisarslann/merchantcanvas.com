@@ -255,14 +255,24 @@ export function ProductPage({ product }: { product: Product }) {
               <div className="screenshot-grid">
                 {product.screenshots.map((screenshot) => (
                   <figure key={screenshot.src}>
-                    <Image
-                      src={screenshot.src}
-                      alt={screenshot.alt}
-                      width={screenshot.width}
-                      height={screenshot.height}
-                      unoptimized
-                      sizes="(max-width: 760px) 100vw, 50vw"
-                    />
+                    <picture>
+                      {screenshot.webpSrcSet && (
+                        <source
+                          type="image/webp"
+                          srcSet={screenshot.webpSrcSet}
+                          sizes="(max-width: 760px) calc(100vw - 58px), (max-width: 1288px) calc((100vw - 116px) / 2), 586px"
+                        />
+                      )}
+                      <Image
+                        src={screenshot.src}
+                        alt={screenshot.alt}
+                        width={screenshot.width}
+                        height={screenshot.height}
+                        unoptimized
+                        loading="lazy"
+                        sizes="(max-width: 760px) calc(100vw - 58px), (max-width: 1288px) calc((100vw - 116px) / 2), 586px"
+                      />
+                    </picture>
                     <figcaption>{screenshot.caption}</figcaption>
                   </figure>
                 ))}

@@ -39,6 +39,22 @@ environment variables before the production build. Values prefixed with
 `NEXT_PUBLIC_` are intentionally shipped to the browser and must never contain
 secrets.
 
+## Responsive product evidence
+
+The two approved MTD JPEG screenshots keep their original dimensions and serve
+as fallbacks. `<picture>` adds prebuilt WebP variants at 480, 800 and 1130 pixels
+for static hosting; SVG brand assets remain vector files.
+
+Regenerate variants from the approved originals with Node 22:
+
+```bash
+node build/generate-responsive-screenshots.mjs
+```
+
+The generator uses the already-installed Sharp runtime, refuses symlink output,
+and writes only inside this repository's `public/images` directory. Commit the
+six WebP assets together with their source declarations after verification.
+
 ## Public configuration
 
 - `NEXT_PUBLIC_SITE_URL`

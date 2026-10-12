@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
+import sharp from "sharp";
 
 const SITE_URL = "https://merchantcanvas.com";
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
@@ -65,9 +66,9 @@ const ARTICLE_ROUTES = [
 ];
 
 const LAST_MODIFIED_BY_ROUTE = {
-  "/": "2026-07-29",
+  "/": "2026-10-12",
   "/apps": "2026-07-29",
-  "/apps/multitier-discounts": "2026-07-29",
+  "/apps/multitier-discounts": "2026-10-12",
   "/apps/b2b-quote-approvals": "2026-07-29",
   "/resources": "2026-07-29",
   "/resources/shopify-quantity-breaks-guide": "2026-07-27",
@@ -148,7 +149,11 @@ function headingOutline(html) {
 }
 
 function visibleText(value) {
-  return value.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  return value
+    .replace(/<!--[\s\S]*?-->/g, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function visiblePageText(html) {
@@ -420,6 +425,10 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
     robots,
     /^Content-Signal: search=yes, ai-input=yes, ai-train=no, use=reference$/m,
   );
+  assert.match(
+    robots,
+    /User-agent: \*\r?\nContent-Signal: search=yes, ai-input=yes, ai-train=no, use=reference\r?\nAllow: \//,
+  );
   assert.match(robots, /^User-agent: OAI-SearchBot$/m);
   assert.match(robots, /^User-agent: ChatGPT-User$/m);
   assert.match(robots, /^User-agent: PerplexityBot$/m);
@@ -656,3 +665,119 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+
+test("organization profiles are verified brand identities and visible links", async () => {
+  const worker = await loadWorker();
+  const expectedProfiles = [
+    "https://www.linkedin.com/company/merchantcanvas/",
+    "https://www.youtube.com/@MerchantCanvas",
+    "https://www.reddit.com/user/MerchantCanvas/",
+  ];
+  for (const route of ["/", "/about", "/apps/multitier-discounts"]) {
+    const html = await (await render(worker, route)).text();
+    const organization = nodeById(graphNodes(jsonLd(html)), ORGANIZATION_ID);
+    assert.deepEqual(organization.sameAs, expectedProfiles);
+    assert.equal(organization.contactPoint["@type"], "ContactPoint");
+    assert.equal(organization.contactPoint.contactType, "customer support");
+    assert.equal(organization.contactPoint.email, "support@merchantcanvas.com");
+    assert.equal(organization.contactPoint.url, `${SITE_URL}/contact`);
+    assert.match(html, /aria-label="MerchantCanvas social profiles"/);
+    for (const url of expectedProfiles) {
+      assert.ok(html.includes(`href="${url}"`), `${route}: ${url} visible link`);
+    }
+    assert.doesNotMatch(JSON.stringify(organization), /wikipedia|wikidata|crunchbase|numberOfEmployees/i);
+  }
+});
+
+test("llms.txt uses linked resource lists without changing product truth", async () => {
+  const llms = await readFile(new URL("../public/llms.txt", import.meta.url), "utf8");
+  assert.match(llms, /^# MerchantCanvas\r?\n\r?\n> /);
+  const links = [...llms.matchAll(/^- \[([^\]]+)\]\((https:\/\/[^)]+)\): (.+)$/gm)];
+  assert.ok(links.length >= 10);
+  const allowedUrls = new Set([
+    ...PUBLIC_ROUTES.map(expectedCanonical),
+    "https://apps.shopify.com/multitier-discounts",
+    "https://www.linkedin.com/company/merchantcanvas/",
+    "https://www.youtube.com/@MerchantCanvas",
+    "https://www.reddit.com/user/MerchantCanvas/",
+  ]);
+  for (const [, title, url, description] of links) {
+    assert.ok(title && description);
+    assert.ok(allowedUrls.has(url), `unknown resource ${url}`);
+  }
+  assert.match(llms, /Free: \$0 forever; 2 active campaigns/);
+  assert.match(llms, /Starter: \$5\.99\/month or \$59\.90\/year/);
+  assert.match(llms, /Pro: \$12\.99\/month or \$129\.90\/year/);
+  assert.match(llms, /Plus: \$24\.99\/month or \$249\.90\/year/);
+  assert.match(llms, /Eligible Shopify Plus stores only/);
+  assert.match(llms, /App Store listing shows Free, Starter, Pro, and Plus/);
+  assert.doesNotMatch(llms, /App Store listing shows the three standard plans/);
+  assert.match(llms, /Coming-soon Shopify quote-approval workflow\. No public installation URL/);
+  assert.match(llms, /Draft terms pending final business-owner approval/);
+});
+
+test("homepage answers use real plan facts without outcome claims", async () => {
+  const worker = await loadWorker();
+  const html = await (await render(worker, "/")).text();
+  const text = visiblePageText(html);
+  const hero = html.match(/class="home-hero-copy">([\s\S]*?)<div class="hero-actions"/)?.[1];
+  assert.ok(hero);
+  const answer = visibleText([...hero.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/g)][1][1]);
+  assert.ok(answer.split(/\s+/).length >= 40 && answer.split(/\s+/).length <= 90);
+  assert.match(answer, /^MerchantCanvas builds Shopify apps/);
+  assert.match(answer, /Free plan for 2 active campaigns/);
+  assert.match(answer, /B2B Quote Approvals is coming soon/);
+  assert.match(answer, /Features vary by plan/);
+  assert.ok(headingOutline(html).filter(h => h.level >= 2 && /\?$/.test(h.text)).length >= 3);
+  const productHtml = await (await render(worker, "/apps/multitier-discounts")).text();
+  assert.match(visiblePageText(productHtml), /App Store listing shows Free, Starter, Pro, and Plus/);
+  assert.doesNotMatch(visiblePageText(productHtml), /App Store listing shows Free, Starter, and Pro\./);
+  const application = nodeByType(graphNodes(jsonLd(productHtml)), "SoftwareApplication");
+  const starter = application.offers.find(offer => offer.name.endsWith(" Starter"));
+  assert.ok(text.includes(`$${starter.price}/month`), "homepage starter price agrees with offers");
+  assert.match(text, /compare the 4 plans/);
+  assert.doesNotMatch(text, /guaranteed growth|trusted by thousands|\d+% (?:revenue|sales|AOV)/i);
+});
+
+test("above-fold logos are eager and below-fold raster evidence has responsive sources", async () => {
+  const worker = await loadWorker();
+  const home = await (await render(worker, "/")).text();
+  const header = home.match(/<header\b[\s\S]*?<\/header>/)?.[0];
+  const footer = home.match(/<footer\b[\s\S]*?<\/footer>/)?.[0];
+  assert.equal(imageTags(header).length, 2);
+  for (const image of imageTags(header)) assert.equal(attribute(image, "loading"), "eager");
+  assert.equal(attribute(imageTags(footer)[0], "loading"), "lazy");
+  const html = await (await render(worker, "/apps/multitier-discounts")).text();
+  const pictures = [...html.matchAll(/<picture>([\s\S]*?)<\/picture>/g)];
+  assert.equal(pictures.length, 2);
+  for (const [, picture] of pictures) {
+    const source = picture.match(/<source\b[^>]*>/)?.[0];
+    assert.equal(attribute(source, "type"), "image/webp");
+    assert.match(attribute(source, "sizes"), /max-width: 760px/);
+    const fallback = imageTags(picture)[0];
+    assert.equal(attribute(fallback, "loading"), "lazy");
+    const original = await jpegDimensions(attribute(fallback, "src"));
+    const candidates = attribute(source, "srcSet").split(", ");
+    assert.equal(candidates.length, 3);
+    for (const candidate of candidates) {
+      const [path, descriptor] = candidate.split(" ");
+      const width = Number(descriptor.replace(/w$/, ""));
+      assert.ok([480, 800, 1130].includes(width));
+      const file = await readFile(new URL(`../public${path}`, import.meta.url));
+      const meta = await sharp(file).metadata();
+      assert.equal(meta.format, "webp");
+      assert.equal(meta.width, width);
+      assert.ok(Math.abs(meta.height - width * original.height / original.width) <= 1);
+      assert.ok(file.length < 50000, `${path} payload budget`);
+    }
+  }
+});
+
+test("Pages headers ship scoped HSTS and optional llms discovery", async () => {
+  const headers = await readFile(new URL("../public/_headers", import.meta.url), "utf8");
+  const commonHeaders = headers.split(/\r?\n\r?\n/)[0];
+  assert.match(commonHeaders, /^\/\*\r?\n/);
+  assert.match(commonHeaders, /Strict-Transport-Security: max-age=86400/);
+  assert.doesNotMatch(commonHeaders, /includeSubDomains|preload/);
+  assert.match(commonHeaders, /Link: <\/llms\.txt>; rel="describedby"/);
+});

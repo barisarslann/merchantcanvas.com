@@ -1399,6 +1399,21 @@ html[data-theme="dark"] .site-footer {
   color: #ffffff;
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .footer-grid > div:not(.footer-brand) a,
 .footer-button {
   color: #cbd5e6;
