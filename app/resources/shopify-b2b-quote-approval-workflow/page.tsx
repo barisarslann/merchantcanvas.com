@@ -1,6 +1,7 @@
 import { ArticleLayout } from "../../components/ArticleLayout";
 import { TrackedLink } from "../../components/TrackedLink";
 import { pageMetadata } from "../../lib/metadata";
+import { guideIllustrations } from "../../content/guide-illustrations";
 
 const title = "A practical Shopify B2B quote approval workflow";
 const description =
@@ -19,8 +20,11 @@ export default function B2BQuoteWorkflowGuidePage() {
       description={description}
       category="B2B operations"
       readingTime="10 min read"
-      reviewed="27 July 2026"
-      reviewedIso="2026-07-27"
+      reviewed="2 November 2026"
+      reviewedIso="2026-11-02"
+      published="27 July 2026"
+      publishedIso="2026-07-27"
+      illustration={guideIllustrations.b2bQuotes}
       path="/resources/shopify-b2b-quote-approval-workflow"
       takeaways={[
         "Give each quote one identifier, owner, status, and decision history.",

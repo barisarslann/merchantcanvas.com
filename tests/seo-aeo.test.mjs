@@ -72,7 +72,7 @@ const LAST_MODIFIED_BY_ROUTE = {
   "/apps/b2b-quote-approvals": "2026-07-29",
   "/resources": "2026-11-02",
   "/resources/shopify-quantity-breaks-guide": "2026-11-02",
-  "/resources/shopify-b2b-quote-approval-workflow": "2026-07-27",
+  "/resources/shopify-b2b-quote-approval-workflow": "2026-11-02",
   "/about": "2026-07-29",
   "/contact": "2026-07-29",
   "/privacy": "2026-07-29",
@@ -645,8 +645,22 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     assert.equal(webPage?.["@type"], "WebPage");
     assert.deepEqual(webPage?.mainEntity, { "@id": `${articleUrl}#article` });
     assert.equal(article?.["@type"], "Article");
-    assert.match(article?.datePublished ?? "", /^\d{4}-\d{2}-\d{2}$/);
-    assert.equal(article?.dateModified, article?.datePublished);
+    assert.equal(article?.datePublished, "2026-07-27T00:00:00+03:00");
+    assert.equal(article?.dateModified, "2026-11-02T00:00:00+03:00");
+    assert.ok(new Date(article.datePublished) < new Date(article.dateModified));
+    assert.match(html, /Published <time dateTime="2026-07-27"|Published <time datetime="2026-07-27"/i);
+    assert.ok(article.image.url.startsWith(`${SITE_URL}/images/`));
+    assert.equal(article.image["@type"], "ImageObject");
+    assert.equal(article.image.width, 1200);
+    assert.equal(article.image.height, 900);
+    const imagePath = article.image.url.slice(SITE_URL.length);
+    const sourceImage = imageTags(html).find(tag => attribute(tag, "src") === imagePath);
+    assert.ok(sourceImage, `${route}: structured image is visible`);
+    assert.match(visiblePageText(html), /Illustrative.*not.*(?:app|product) screenshot/);
+    const imageInfo = await sharp(await readFile(new URL(`../public${imagePath}`, import.meta.url))).metadata();
+    assert.equal(imageInfo.width, article.image.width);
+    assert.equal(imageInfo.height, article.image.height);
+    assert.ok(imageInfo.size < 150000);
     assert.deepEqual(article?.mainEntityOfPage, {
       "@id": `${articleUrl}#webpage`,
     });
@@ -659,6 +673,18 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
       "@id": ORGANIZATION_ID,
     });
     assert.match(html, /Prepared by the MerchantCanvas product team/);
+  }
+});
+
+test("editorial dates preserve day precision without resetting first publication", async () => {
+  const schemaSource = await readFile(new URL("../app/lib/schema-dates.ts", import.meta.url), "utf8");
+  assert.match(schemaSource, /day-boundary convention, not an observed publication time/);
+  const ts = await import("typescript");
+  const js = ts.transpile(schemaSource, { module: ts.ModuleKind.ESNext });
+  const { editorialSchemaDateTime } = await import(`data:text/javascript;base64,${Buffer.from(js).toString("base64")}`);
+  assert.equal(editorialSchemaDateTime("2026-07-27"), "2026-07-27T00:00:00+03:00");
+  for (const bad of ["2026-02-30", "2026-13-01", "27 July 2026", "2026-7-27"]) {
+    assert.throws(() => editorialSchemaDateTime(bad));
   }
 });
 

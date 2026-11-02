@@ -1220,8 +1220,31 @@ html[data-theme="dark"] .button-primary:hover {
   background: var(--paper);
 }
 
+.article-aside > .eyebrow {
+  align-self: start;
+  justify-self: start;
+}
+
 .article-body {
   max-width: 75ch;
+}
+
+.article-illustration {
+  margin: 0 0 32px;
+}
+
+.article-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.article-illustration figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.58;
 }
 
 .article-body > p,

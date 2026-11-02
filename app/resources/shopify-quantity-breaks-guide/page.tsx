@@ -1,6 +1,7 @@
 import { ArticleLayout } from "../../components/ArticleLayout";
 import { TrackedLink } from "../../components/TrackedLink";
 import { mtdEducation, products } from "../../content/site";
+import { guideIllustrations } from "../../content/guide-illustrations";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "Shopify quantity breaks: a practical planning guide";
@@ -24,6 +25,9 @@ export default function QuantityBreaksGuidePage() {
       readingTime="9 min read"
       reviewed="2 November 2026"
       reviewedIso="2026-11-02"
+      published="27 July 2026"
+      publishedIso="2026-07-27"
+      illustration={guideIllustrations.quantityBreaks}
       path="/resources/shopify-quantity-breaks-guide"
       takeaways={[
         "Start with the shopper decision, then choose the tier mechanic.",

@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import { editorialSchemaDateTime } from "../lib/schema-dates";
 import {
   absoluteUrl,
   organizationId,
@@ -14,6 +16,9 @@ type ArticleLayoutProps = {
   readingTime: string;
   reviewed: string;
   reviewedIso: string;
+  published: string;
+  publishedIso: string;
+  illustration: { src: string; width: number; height: number; alt: string; caption: string };
   path: string;
   takeaways: string[];
   children: ReactNode;
@@ -26,6 +31,9 @@ export function ArticleLayout({
   readingTime,
   reviewed,
   reviewedIso,
+  published,
+  publishedIso,
+  illustration,
   path,
   takeaways,
   children,
@@ -56,8 +64,16 @@ export function ArticleLayout({
         headline: title,
         description,
         inLanguage: "en",
-        datePublished: reviewedIso,
-        dateModified: reviewedIso,
+        datePublished: editorialSchemaDateTime(publishedIso),
+        dateModified: editorialSchemaDateTime(reviewedIso),
+        image: {
+          "@type": "ImageObject",
+          url: absoluteUrl(illustration.src),
+          contentUrl: absoluteUrl(illustration.src),
+          width: illustration.width,
+          height: illustration.height,
+          caption: illustration.caption,
+        },
         mainEntityOfPage: { "@id": pageId },
         author: { "@id": productTeamId },
         publisher: { "@id": organizationId },
@@ -108,7 +124,8 @@ export function ArticleLayout({
               <div className="article-byline">
                 <span>Prepared by the MerchantCanvas product team</span>
                 <span>{readingTime}</span>
-                <span>Reviewed {reviewed}</span>
+                <span>Published <time dateTime={publishedIso}>{published}</time></span>
+                <span>Reviewed <time dateTime={reviewedIso}>{reviewed}</time></span>
               </div>
             </div>
           </header>
@@ -125,7 +142,15 @@ export function ArticleLayout({
                 workflow research. It is not legal, tax, or financial advice.
               </p>
             </aside>
-            <div className="article-body">{children}</div>
+            <div className="article-body">
+              <figure className="article-illustration">
+                <Image unoptimized src={illustration.src} alt={illustration.alt}
+                  width={illustration.width} height={illustration.height}
+                  sizes="(max-width: 760px) calc(100vw - 32px), 760px" loading="lazy" />
+                <figcaption>{illustration.caption}</figcaption>
+              </figure>
+              {children}
+            </div>
           </div>
         </article>
       </main>
