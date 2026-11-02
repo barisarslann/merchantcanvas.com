@@ -2,8 +2,8 @@
 
 <!-- impeccable:product-schema 1 -->
 
-**Document version:** v1
-**Last updated:** 2026-07-29
+**Document version:** v2
+**Last updated:** 2026-11-02
 
 ## Platform
 
@@ -41,6 +41,8 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 - MultiTier Discounts has approved real screenshots.
 - B2B Quote Approvals currently has no approved public screenshots; the site must not fabricate them.
 - MultiTier Discounts is live at `https://apps.shopify.com/multitier-discounts`.
+- The public English setup guide is `https://multi-tier-discounts.barisarslan.com.tr/user-guide.html`, with 13 on-demand narrated tutorials. It is reachable without Shopify sign-in and retains its design-preview/demo-example labels; do not present screenshots as proof for every production store.
+- MTD Quantity Breaks evaluate each cart line separately. Price-position rules can assign different rewards to the second and third eligible units; sorting and per-line discounted quantity limits must be tested. Do not describe mixed single-unit lines as one quantity-break line.
 - B2B Quote Approvals is coming soon and has no public install URL.
 - MultiTier Discounts exposes Free, Starter, and Pro as standard plans. Its $24.99/month or $249.90/year Plus plan is available only to verified Shopify Plus stores and includes a 14-day free trial.
 - The website is a statically exported, multi-route web experience prepared for Cloudflare Pages.
@@ -89,4 +91,5 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 
 ## Changelog
 
+- v2 (2026-11-02) — Added the publicly verified video setup guide, distinguished per-line quantity breaks from price-position rewards, and refreshed product evidence from the illustrated guide. Pricing and B2B coming-soon status are unchanged.
 - v1 (2026-07-29) — Established MTD as the live primary product, verified its App Store URL and conditional Plus plan, and classified B2B Quote Approvals as coming soon.

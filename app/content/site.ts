@@ -21,6 +21,16 @@ export const siteConfig = {
   ],
 } as const;
 
+export const mtdEducation = {
+  guideUrl: "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
+  tutorialCount: 13,
+  tutorials: [
+    { title: "Create your first offer", anchor: "tutorial-01", duration: "3:36" },
+    { title: "Set quantity breaks", anchor: "tutorial-02", duration: "3:39" },
+    { title: "Require a complete product set", anchor: "tutorial-08", duration: "1:50" },
+  ],
+} as const;
+
 export type Plan = {
   name: string;
   price: string;
@@ -83,11 +93,11 @@ export const products: Record<Product["slug"], Product> = {
     accent: "coral",
     eyebrow: "Shopify tiered promotions",
     headline:
-      "Create Shopify tiered discounts and quantity-break campaigns without setup sprawl.",
+      "Shopify discounts for quantity breaks, product sets and gifts.",
     definition:
       "MultiTier Discounts is a Shopify embedded app for tiered, quantity-break, cart-value, Buy X Get Y, and gift promotions with Shopify Functions-based checkout logic.",
     summary:
-      "Build buy-more-save-more, quantity-break, cart-value, Buy X Get Y, and gift campaigns with precise targeting, storefront guidance, and checkout logic that stays in Shopify.",
+      "Give the second and third eligible items different discounts, reward a complete set, or unlock a gift at a spending threshold. Choose who qualifies and test the result in Shopify checkout. Features vary by plan.",
     availabilityStatus: "live",
     installUrl: "https://apps.shopify.com/multitier-discounts",
     primaryAction: "Install from Shopify",
@@ -137,9 +147,9 @@ export const products: Record<Product["slug"], Product> = {
     ],
     capabilities: [
       {
-        title: "Plan offers around the cart you actually want",
+        title: "Discount the second and third items differently",
         copy:
-          "Progressive percentage or fixed-amount tiers can respond to quantity, product mix, cart value, and other supported conditions.",
+          "Configure separate price-position rewards, such as 30% off the second eligible item and 40% off the third. Choose the sorting rule; this is different from applying one quantity-break rate to a qualifying cart line.",
       },
       {
         title: "Make eligibility legible to shoppers",
@@ -188,7 +198,7 @@ export const products: Record<Product["slug"], Product> = {
           "Buy X Get Y and cart-value rewards",
           "Exact variant and tag targeting",
           "Percentage and fixed-amount discounts",
-          "Shipping tiers, code campaigns, and analytics",
+          "Shipping rewards, code campaigns, and analytics",
         ],
       },
       {
@@ -229,6 +239,16 @@ export const products: Record<Product["slug"], Product> = {
     pricingNote:
       "The public Shopify App Store listing shows Free, Starter, Pro, and Plus. Plus is available only to eligible Shopify Plus stores and is presented separately here from the three standard plans.",
     faq: [
+      {
+        question: "Are quantity breaks the same as second-item discounts?",
+        answer:
+          "No. MTD Quantity Breaks evaluate the quantity on each cart line and use its highest matching tier. Price-position rules assign separate rewards to positions such as the second and third eligible unit. Sorting and per-line discounted quantity limits affect the result; test repeated units and split lines before launch.",
+      },
+      {
+        question: "Is there a setup guide with video tutorials?",
+        answer:
+          "Yes. The English merchant guide includes written steps, real demo screenshots, and 13 optional video tutorials: https://multi-tier-discounts.barisarslan.com.tr/user-guide.html. Follow the first-offer guide, then test your own theme, eligible cart, and checkout. Demo examples do not guarantee a result for every store.",
+      },
       {
         question: "Does MultiTier Discounts replace Shopify discounts?",
         answer:
@@ -272,11 +292,11 @@ export const products: Record<Product["slug"], Product> = {
         src: "/images/multitier-campaign-rules.jpg",
         webpSrcSet: "/images/multitier-campaign-rules-480.webp 480w, /images/multitier-campaign-rules-800.webp 800w, /images/multitier-campaign-rules-1130.webp 1130w",
         alt:
-          "MultiTier Discounts campaign builder showing the discount rules step",
+          "MultiTier Discounts Offer step in the illustrated merchant guide",
         caption:
-          "The current campaign builder keeps trigger and rule decisions in a four-step workflow.",
-        width: 1130,
-        height: 930,
+          "The merchant guide's Offer screen: start the campaign, then configure Conditions, Rewards, and Review & launch. Synthetic demo data.",
+        width: 1919,
+        height: 1248,
       },
       {
         src: "/images/multitier-analytics.jpg",
@@ -284,9 +304,9 @@ export const products: Record<Product["slug"], Product> = {
         alt:
           "MultiTier Discounts analytics dashboard showing campaign usage metrics",
         caption:
-          "Analytics are based on processed orders and do not include historical orders from before installation.",
-        width: 1130,
-        height: 900,
+          "The merchant guide's Analytics screen uses synthetic demo campaigns. No processed orders are shown; this is not a merchant revenue claim.",
+        width: 1919,
+        height: 1248,
       },
     ],
   },

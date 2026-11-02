@@ -1,6 +1,6 @@
 import { ArticleLayout } from "../../components/ArticleLayout";
 import { TrackedLink } from "../../components/TrackedLink";
-import { products } from "../../content/site";
+import { mtdEducation, products } from "../../content/site";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "Shopify quantity breaks: a practical planning guide";
@@ -22,8 +22,8 @@ export default function QuantityBreaksGuidePage() {
       description={description}
       category="Promotion operations"
       readingTime="9 min read"
-      reviewed="27 July 2026"
-      reviewedIso="2026-07-27"
+      reviewed="2 November 2026"
+      reviewedIso="2026-11-02"
       path="/resources/shopify-quantity-breaks-guide"
       takeaways={[
         "Start with the shopper decision, then choose the tier mechanic.",
@@ -40,6 +40,29 @@ export default function QuantityBreaksGuidePage() {
         checkout applies the same rule the storefront promised. The campaign
         design therefore has three linked parts: economics, eligibility, and
         communication.
+      </p>
+
+      <h2>In MTD, choose quantity breaks or price positions</h2>
+      <p>
+        MTD Quantity Breaks evaluate each cart line separately. Two units on
+        one line can qualify for a two-unit tier; one unit of each of two
+        different products does not create a two-unit line. Split lines can
+        matter even when the variant is the same.
+      </p>
+      <p>
+        For different rewards on the second and third eligible units, configure
+        price-position rules instead. For example, with eligible unit prices
+        of $30, $20, and $10, High to Low sorting and separate 30% and 40%
+        rewards give $6 and $4 off: $50 before tax and shipping. This is an
+        illustrative calculation, not a customer result. Check sorting,
+        repeated units, and per-line discounted quantity limits in checkout.
+      </p>
+      <p>
+        <a href={`${mtdEducation.guideUrl}#quantity-breaks`}>
+          Follow the illustrated quantity-break and price-position setup
+        </a>. The merchant guide includes {mtdEducation.tutorialCount} optional English tutorials;
+        the quantity-break video covers per-line minimum quantities, not
+        second/third-position rewards.
       </p>
 
       <h2>Begin with the buying behaviour, not the discount percentage</h2>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { resources } from "../content/site";
+import { mtdEducation, resources } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
@@ -20,6 +20,24 @@ export default function ResourcesPage() {
             and B2B quote operations. Clear enough to use, specific enough to
             challenge your current process.
           </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="related-resource">
+            <div>
+              <h2>Set up MultiTier Discounts</h2>
+              <p>
+                Follow the illustrated English merchant guide, with {mtdEducation.tutorialCount} optional
+                video tutorials covering first setup, quantity breaks, gifts,
+                product sets, and checkout checks.
+              </p>
+            </div>
+            <a className="button button-secondary" href={mtdEducation.guideUrl}>
+              Open the setup guide
+            </a>
+          </div>
         </div>
       </section>
 

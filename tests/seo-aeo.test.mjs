@@ -38,7 +38,7 @@ const PRODUCT_EXPECTATIONS = {
     ],
     offerUrl: "https://apps.shopify.com/multitier-discounts",
     downloadUrl: "https://apps.shopify.com/multitier-discounts",
-    faqCount: 6,
+    faqCount: 8,
   },
   "/apps/b2b-quote-approvals": {
     prices: ["19", "39", "79"],
@@ -66,12 +66,12 @@ const ARTICLE_ROUTES = [
 ];
 
 const LAST_MODIFIED_BY_ROUTE = {
-  "/": "2026-10-12",
-  "/apps": "2026-07-29",
-  "/apps/multitier-discounts": "2026-10-12",
+  "/": "2026-11-02",
+  "/apps": "2026-11-02",
+  "/apps/multitier-discounts": "2026-11-02",
   "/apps/b2b-quote-approvals": "2026-07-29",
-  "/resources": "2026-07-29",
-  "/resources/shopify-quantity-breaks-guide": "2026-07-27",
+  "/resources": "2026-11-02",
+  "/resources/shopify-quantity-breaks-guide": "2026-11-02",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-07-27",
   "/about": "2026-07-29",
   "/contact": "2026-07-29",
@@ -697,6 +697,7 @@ test("llms.txt uses linked resource lists without changing product truth", async
   const allowedUrls = new Set([
     ...PUBLIC_ROUTES.map(expectedCanonical),
     "https://apps.shopify.com/multitier-discounts",
+    "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
     "https://www.linkedin.com/company/merchantcanvas/",
     "https://www.youtube.com/@MerchantCanvas",
     "https://www.reddit.com/user/MerchantCanvas/",
@@ -714,6 +715,31 @@ test("llms.txt uses linked resource lists without changing product truth", async
   assert.doesNotMatch(llms, /App Store listing shows the three standard plans/);
   assert.match(llms, /Coming-soon Shopify quote-approval workflow\. No public installation URL/);
   assert.match(llms, /Draft terms pending final business-owner approval/);
+});
+
+test("MTD education links stay public, explicit, and free of automatic video embeds", async () => {
+  const worker = await loadWorker();
+  const guide = "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html";
+  const productHtml = await (await render(worker, "/apps/multitier-discounts")).text();
+  assert.ok(productHtml.includes(`href="${guide}#quick-start"`));
+  for (const anchor of ["tutorial-01", "tutorial-02", "tutorial-08"]) {
+    assert.ok(productHtml.includes(`href="${guide}#${anchor}"`));
+  }
+  assert.match(visiblePageText(productHtml), /13 English video tutorials/);
+  assert.match(productHtml, /id="setup-guide"/);
+  assert.doesNotMatch(productHtml, /<iframe|<video|youtube\.com\/embed|youtube-nocookie\.com/i);
+  for (const name of ["multitier-campaign-rules", "multitier-analytics"]) {
+    const metadata = await sharp(await readFile(new URL(`../public/images/${name}.jpg`, import.meta.url))).metadata();
+    assert.equal(metadata.width, 1919);
+    assert.equal(metadata.height, 1248);
+  }
+  const resourceHtml = await (await render(worker, "/resources")).text();
+  assert.ok(resourceHtml.includes(`href="${guide}"`));
+  const quantityHtml = await (await render(worker, "/resources/shopify-quantity-breaks-guide")).text();
+  assert.ok(quantityHtml.includes(`href="${guide}#quantity-breaks"`));
+  assert.match(visiblePageText(quantityHtml), /\$50/);
+  const b2b = await (await render(worker, "/apps/b2b-quote-approvals")).text();
+  assert.ok(!b2b.includes(guide));
 });
 
 test("homepage answers use real plan facts without outcome claims", async () => {

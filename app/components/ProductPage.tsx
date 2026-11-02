@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Product } from "../content/site";
+import { mtdEducation, type Product } from "../content/site";
 import {
   absoluteUrl,
   organizationId,
@@ -153,6 +153,11 @@ export function ProductPage({ product }: { product: Product }) {
                   )}
                 </div>
                 <p className="availability-note">{product.availability}</p>
+                {product.slug === "multitier-discounts" && (
+                  <a className="text-link" href={`${mtdEducation.guideUrl}#quick-start`}>
+                    Read the setup guide and {mtdEducation.tutorialCount} English tutorials
+                  </a>
+                )}
               </div>
               <ProductWorkflowVisual product={product} />
             </div>
@@ -238,6 +243,33 @@ export function ProductPage({ product }: { product: Product }) {
             </div>
           </div>
         </section>
+
+        {product.slug === "multitier-discounts" && (
+          <section className="section section-soft" id="setup-guide" aria-labelledby="mtd-setup-heading">
+            <div className="container related-resource">
+              <div>
+                <h2 id="mtd-setup-heading">Set up your first offer</h2>
+                <p>
+                  Use the written merchant guide or open one of its {mtdEducation.tutorialCount} English
+                  video tutorials when you need it. Examples use a demo store;
+                  test your own products, theme, and checkout before launch.
+                </p>
+                <ul className="plain-list">
+                  {mtdEducation.tutorials.map((tutorial) => (
+                    <li key={tutorial.anchor}>
+                      <a href={`${mtdEducation.guideUrl}#${tutorial.anchor}`}>
+                        {tutorial.title} ({tutorial.duration})
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <a className="button button-secondary" href={mtdEducation.guideUrl}>
+                Open the merchant guide
+              </a>
+            </div>
+          </section>
+        )}
 
         {product.screenshots && (
           <section className="section section-soft">

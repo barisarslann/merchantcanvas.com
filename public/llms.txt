@@ -19,10 +19,12 @@ MerchantCanvas does not publish review ratings, merchant counts, or guaranteed o
 - [MerchantCanvas](https://merchantcanvas.com/): Portfolio overview and live-product next steps.
 - [MultiTier Discounts](https://merchantcanvas.com/apps/multitier-discounts): Live Shopify app for quantity breaks, cart-value rewards, Buy X Get Y, gifts, eligibility rules, storefront widgets, and Shopify Functions checkout discounts. Pricing, limitations, real screenshots, and FAQs are on this page.
 - [Install MultiTier Discounts](https://apps.shopify.com/multitier-discounts): Official Shopify App Store listing and installation path.
+- MTD Quantity Breaks use the quantity on each cart line. Price-position rules can give the second and third eligible units different configured rewards; sorting and per-line discounted quantity limits matter. Neither mechanism guarantees revenue lift.
 - [B2B Quote Approvals](https://merchantcanvas.com/apps/b2b-quote-approvals): Coming-soon Shopify quote-approval workflow. No public installation URL.
 
 ## Guides
 
+- [MTD merchant setup guide](https://multi-tier-discounts.barisarslan.com.tr/user-guide.html): Illustrated English instructions with 13 optional video tutorials. Covers first setup, quantity breaks versus price positions, full sets, gifts, theme integration, and checkout checks. Examples use synthetic demo products; the guide labels its design-preview edition.
 - [Shopify quantity breaks guide](https://merchantcanvas.com/resources/shopify-quantity-breaks-guide): Tier design, margin, eligibility, storefront messages, checkout logic, and pre-launch tests.
 - [Shopify B2B quote approval workflow](https://merchantcanvas.com/resources/shopify-b2b-quote-approval-workflow): Intake, review, revisions, buyer decisions, and draft-order conversion.
 - [Resources](https://merchantcanvas.com/resources): Guide index.
