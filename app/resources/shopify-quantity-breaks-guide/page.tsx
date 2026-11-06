@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { ArticleLayout } from "../../components/ArticleLayout";
 import { TrackedLink } from "../../components/TrackedLink";
 import { mtdEducation, products } from "../../content/site";
 import { guideIllustrations } from "../../content/guide-illustrations";
+import { quantityBreaksVideo } from "../../content/quantity-breaks-video";
 import { pageMetadata } from "../../lib/metadata";
 
 const title = "Shopify quantity breaks: a practical planning guide";
@@ -23,8 +25,8 @@ export default function QuantityBreaksGuidePage() {
       description={description}
       category="Promotion operations"
       readingTime="9 min read"
-      reviewed="2 November 2026"
-      reviewedIso="2026-11-02"
+      reviewed="6 November 2026"
+      reviewedIso="2026-11-06"
       published="27 July 2026"
       publishedIso="2026-07-27"
       illustration={guideIllustrations.quantityBreaks}
@@ -62,11 +64,15 @@ export default function QuantityBreaksGuidePage() {
         repeated units, and per-line discounted quantity limits in checkout.
       </p>
       <p>
+        <Link href={quantityBreaksVideo.path}>
+          Watch the Shopify quantity breaks tutorial
+        </Link>{" "}({quantityBreaksVideo.runtime}, English captions) to see a
+        per-line offer tested in the product widget, cart, and checkout.
+      </p>
+      <p>
         <a href={`${mtdEducation.guideUrl}#quantity-breaks`}>
           Follow the illustrated quantity-break and price-position setup
-        </a>. The merchant guide includes {mtdEducation.tutorialCount} optional English tutorials;
-        the quantity-break video covers per-line minimum quantities, not
-        second/third-position rewards.
+        </a>. The merchant guide includes {mtdEducation.tutorialCount} optional English tutorials.
       </p>
 
       <h2>Begin with the buying behaviour, not the discount percentage</h2>

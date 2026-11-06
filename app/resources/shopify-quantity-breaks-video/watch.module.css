@@ -1,0 +1,144 @@
+.watch {
+  padding-block: clamp(16px, 3vw, 32px) clamp(48px, 7vw, 96px);
+  background: var(--canvas);
+}
+
+.content {
+  max-width: 960px;
+}
+
+.intro {
+  margin-bottom: 12px;
+}
+
+.intro nav {
+  min-height: 32px;
+  margin-bottom: 8px;
+}
+
+.intro h1 {
+  max-width: 29ch;
+  margin-block: 12px;
+  /* The global heading ramp is important; keep the watch-specific scale local. */
+  font-size: clamp(2rem, 3.6vw, 3.1rem) !important;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.intro > p:last-child {
+  max-width: 65ch;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.player {
+  margin: 0;
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--inverse);
+}
+
+.stage img,
+.stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.stage img {
+  object-fit: contain;
+}
+
+.stage iframe:focus-visible {
+  outline-offset: -4px;
+}
+
+.stage .loadButton {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
+}
+
+.stage .loadButton:hover {
+  transform: translate(-50%, -50%);
+}
+
+.caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.caption a,
+.summary a {
+  min-height: 44px;
+}
+
+.notes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.notes h2 {
+  margin: 0 0 16px;
+  font-size: clamp(1.55rem, 2.8vw, 2.2rem) !important;
+}
+
+.chapters {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapters li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 8px;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.chapters li:last-child {
+  border-bottom: 0;
+}
+
+.chapters li span:first-child {
+  color: var(--interactive-accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.summary p {
+  max-width: 65ch;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 760px) {
+  .notes {
+    grid-template-columns: 1fr;
+    margin-top: 24px;
+    padding-top: 24px;
+  }
+}

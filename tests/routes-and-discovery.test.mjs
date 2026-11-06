@@ -30,6 +30,7 @@ test("renders every required public route with metadata", async () => {
     "/apps/b2b-quote-approvals",
     "/resources",
     "/resources/shopify-quantity-breaks-guide",
+    "/resources/shopify-quantity-breaks-video",
     "/resources/shopify-b2b-quote-approval-workflow",
     "/about",
     "/contact",

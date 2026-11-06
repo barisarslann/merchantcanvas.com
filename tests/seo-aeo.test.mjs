@@ -6,6 +6,7 @@ import sharp from "sharp";
 const SITE_URL = "https://merchantcanvas.com";
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
+const QUANTITY_VIDEO_ROUTE = "/resources/shopify-quantity-breaks-video";
 const PUBLIC_ROUTES = [
   "/",
   "/apps",
@@ -13,6 +14,7 @@ const PUBLIC_ROUTES = [
   "/apps/b2b-quote-approvals",
   "/resources",
   "/resources/shopify-quantity-breaks-guide",
+  QUANTITY_VIDEO_ROUTE,
   "/resources/shopify-b2b-quote-approval-workflow",
   "/about",
   "/contact",
@@ -71,7 +73,8 @@ const LAST_MODIFIED_BY_ROUTE = {
   "/apps/multitier-discounts": "2026-11-02",
   "/apps/b2b-quote-approvals": "2026-07-29",
   "/resources": "2026-11-02",
-  "/resources/shopify-quantity-breaks-guide": "2026-11-02",
+  "/resources/shopify-quantity-breaks-guide": "2026-11-06",
+  [QUANTITY_VIDEO_ROUTE]: "2026-11-06",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-11-02",
   "/about": "2026-07-29",
   "/contact": "2026-07-29",
@@ -646,7 +649,7 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     assert.deepEqual(webPage?.mainEntity, { "@id": `${articleUrl}#article` });
     assert.equal(article?.["@type"], "Article");
     assert.equal(article?.datePublished, "2026-07-27T00:00:00+03:00");
-    assert.equal(article?.dateModified, "2026-11-02T00:00:00+03:00");
+    assert.equal(article?.dateModified, `${LAST_MODIFIED_BY_ROUTE[route]}T00:00:00+03:00`);
     assert.ok(new Date(article.datePublished) < new Date(article.dateModified));
     assert.match(html, /Published <time dateTime="2026-07-27"|Published <time datetime="2026-07-27"/i);
     assert.ok(article.image.url.startsWith(`${SITE_URL}/images/`));
@@ -763,9 +766,43 @@ test("MTD education links stay public, explicit, and free of automatic video emb
   assert.ok(resourceHtml.includes(`href="${guide}"`));
   const quantityHtml = await (await render(worker, "/resources/shopify-quantity-breaks-guide")).text();
   assert.ok(quantityHtml.includes(`href="${guide}#quantity-breaks"`));
+  assert.ok(quantityHtml.includes(`href="${QUANTITY_VIDEO_ROUTE}"`));
+  assert.doesNotMatch(quantityHtml, /<iframe|<video|youtube-nocookie\.com/i);
   assert.match(visiblePageText(quantityHtml), /\$50/);
   const b2b = await (await render(worker, "/apps/b2b-quote-approvals")).text();
   assert.ok(!b2b.includes(guide));
+});
+
+test("quantity-break watch page exposes matching VideoObject and a first-party playback facade", async () => {
+  const worker = await loadWorker();
+  const html = await (await render(worker, QUANTITY_VIDEO_ROUTE)).text();
+  const canonical = expectedCanonical(QUANTITY_VIDEO_ROUTE);
+  const nodes = graphNodes(jsonLd(html));
+  const video = nodeByType(nodes, "VideoObject");
+  const webPage = nodeById(nodes, `${canonical}#webpage`);
+  const posterPath = "/images/shopify-quantity-breaks-video-poster.jpg";
+  const poster = imageTags(html).find(tag => attribute(tag, "src") === posterPath);
+
+  assert.ok(video && poster);
+  assert.equal(nodes.filter(node => node["@type"] === "VideoObject").length, 1);
+  assert.deepEqual(webPage.mainEntity, { "@id": video["@id"] });
+  assert.deepEqual(video.mainEntityOfPage, { "@id": webPage["@id"] });
+  assert.equal(headingOutline(html).find(h => h.level === 1).text, video.name);
+  assert.ok(visiblePageText(html).includes(video.description));
+  assert.deepEqual(video.thumbnailUrl, [`${SITE_URL}${posterPath}`]);
+  assert.equal(video.uploadDate, "2026-11-05T08:28:43-08:00");
+  assert.equal(video.duration, "PT3M40S");
+  assert.equal(video.embedUrl, "https://www.youtube-nocookie.com/embed/UZHbPTnrfGQ?playsinline=1");
+  assert.equal(video.contentUrl, undefined);
+  assert.match(html, /href="https:\/\/www\.youtube\.com\/watch\?v=UZHbPTnrfGQ"/);
+  assert.match(html, /href="\/resources\/shopify-quantity-breaks-guide"/);
+  assert.match(visiblePageText(html), /Load YouTube video/);
+  assert.match(visiblePageText(html), /only when you choose to load it/);
+  assert.doesNotMatch(html, /<(?:iframe|video)\b/);
+  assert.doesNotMatch(html, /(?:src|href)="https?:\/\/[^"]*(?:youtube-nocookie\.com|i\.ytimg\.com)/i);
+  const meta = await sharp(await readFile(new URL(`../public${posterPath}`, import.meta.url))).metadata();
+  assert.equal(Number(attribute(poster, "width")), meta.width);
+  assert.equal(Number(attribute(poster, "height")), meta.height);
 });
 
 test("homepage answers use real plan facts without outcome claims", async () => {
