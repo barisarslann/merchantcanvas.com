@@ -24,7 +24,8 @@ MerchantCanvas does not publish review ratings, merchant counts, or guaranteed o
 
 ## Guides
 
-- [MTD merchant setup guide](https://multi-tier-discounts.barisarslan.com.tr/user-guide.html): Illustrated English instructions with 13 optional video tutorials. Covers first setup, quantity breaks versus price positions, full sets, gifts, theme integration, and checkout checks. Examples use synthetic demo products; the guide labels its design-preview edition.
+- [MTD merchant setup guide](https://merchantcanvas.com/docs/multitier-discounts): Illustrated English instructions with 13 optional video tutorials. Covers first setup, quantity breaks versus price positions, full sets, gifts, theme integration, and checkout checks. Original design-preview and synthetic-demo labels are preserved; examples do not certify every production store.
+- [Documentation](https://merchantcanvas.com/docs): Product setup documentation index.
 - [Shopify quantity breaks guide](https://merchantcanvas.com/resources/shopify-quantity-breaks-guide): Tier design, margin, eligibility, storefront messages, checkout logic, and pre-launch tests.
 - [Shopify B2B quote approval workflow](https://merchantcanvas.com/resources/shopify-b2b-quote-approval-workflow): Intake, review, revisions, buyer decisions, and draft-order conversion.
 - [Resources](https://merchantcanvas.com/resources): Guide index.

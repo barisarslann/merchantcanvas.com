@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:07.286
+Let's configure a Buy X Get Y offer in the Fieldnote
+demo. Buy the Coral notebook and receive the Sun
+
+2
+00:00:07.286 --> 00:00:14.207
+notebook free. From Create New Campaign, choose Buy X
+Get Y, give the offer a recognizable name and keep
+
+3
+00:00:14.207 --> 00:00:20.035
+automatic execution. This format fixes the gift
+discount at one hundred percent. It is different from
+
+4
+00:00:20.035 --> 00:00:23.678
+a percentage quantity break or a configurable Mystery
+Gift pool.
+
+5
+00:00:24.728 --> 00:00:30.669
+In Conditions, select Coral as the qualifying
+purchase. Confirm the Shopify picker, then wait for
+
+6
+00:00:30.669 --> 00:00:36.215
+the returned product card before moving on. A
+whole-product selection includes its variants. In
+
+7
+00:00:36.215 --> 00:00:43.740
+Rewards, select Sun as the gift target. Selecting the
+buy item never selects the gift for you. Check the
+
+8
+00:00:43.740 --> 00:00:50.078
+displayed free-gift quantity and the exact target; an
+unrelated product outside this selection is not a
+
+9
+00:00:50.078 --> 00:00:50.474
+substitute.
+
+10
+00:00:51.524 --> 00:00:57.727
+Review the buy scope, free reward, schedule and
+combination settings. Save as inactive draft, then
+
+11
+00:00:57.727 --> 00:01:03.931
+reopen Conditions and Rewards to check the stored
+selections. This recording verifies the saved setup;
+
+12
+00:01:03.931 --> 00:01:10.548
+it does not activate this offer or claim a new
+checkout result. Eligible automatic insertion also
+
+13
+00:01:10.548 --> 00:01:17.992
+needs Gift Auto-Add enabled in the exact theme being
+tested. A visible Quantity Tiers block alone does not
+
+14
+00:01:17.992 --> 00:01:18.819
+enable gifts.
+
+15
+00:01:19.869 --> 00:01:26.860
+Before your own launch, activate only for a controlled
+test. Check a cart without Coral, then add Coral and
+
+16
+00:01:26.860 --> 00:01:33.116
+confirm the intended Sun quantity and a zero gift
+price before checkout. Remove the gift manually and
+
+17
+00:01:33.116 --> 00:01:39.004
+confirm it stays removed for the unchanged purchase.
+Change the paid quantity, remove the purchase and
+
+18
+00:01:39.004 --> 00:01:44.523
+repeat the cycle. Compare variants, quantities and
+totals in real checkout. Use the separate Gift
+
+19
+00:01:44.523 --> 00:01:47.099
+Auto-Add tutorial for that hands-on cart workflow.

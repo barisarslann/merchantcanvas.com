@@ -1,0 +1,102 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.866
+When an offer looks wrong, separate the campaign rule,
+storefront presentation and Shopify checkout. Write
+
+2
+00:00:05.866 --> 00:00:12.124
+down the expected product, quantity, price, country,
+currency and code. Begin with a fresh controlled cart
+
+3
+00:00:12.124 --> 00:00:18.381
+and the exact theme being tested. Check active status,
+schedule, selected items and thresholds first. A
+
+4
+00:00:18.381 --> 00:00:24.639
+missing widget does not prove that the discount
+calculation failed, and a visible widget does not
+
+5
+00:00:24.639 --> 00:00:26.594
+prove that the offer qualifies.
+
+6
+00:00:27.644 --> 00:00:34.580
+Open Settings, then Advanced cart integration. We are
+only inspecting these fields and will not save a
+
+7
+00:00:34.580 --> 00:00:40.291
+change. Grey selector examples are placeholders, not
+proof they match your theme. Container selectors
+
+8
+00:00:40.291 --> 00:00:47.227
+identify the drawer or cart wrapper; line selectors
+identify each repeated item. Section IDs use the part
+
+9
+00:00:47.227 --> 00:00:53.347
+after shopify-section. Use stable theme selectors, not
+generated classes or product names, and change one
+
+10
+00:00:53.347 --> 00:00:55.387
+verified value at a time.
+
+11
+00:00:56.437 --> 00:01:04.997
+Auto is the normal starting point. Replace sections is
+for themes where the returned Shopify HTML is safe to
+
+12
+00:01:04.997 --> 00:01:11.755
+swap. Theme events only is for drawers whose own
+JavaScript handles refresh. Per-theme embed overrides
+
+13
+00:01:11.755 --> 00:01:20.766
+can differ from global settings, so inspect the exact
+preview. A refresh change is not a cure for a missing
+
+14
+00:01:20.766 --> 00:01:26.172
+product selection, stock restriction, incompatible
+code or incorrect currency threshold. Keep existing
+
+15
+00:01:26.172 --> 00:01:29.326
+working settings until the failure is reproducible.
+
+16
+00:01:30.376 --> 00:01:37.942
+After any justified change, test add, remove, add
+again and remove again, including manual gift removal
+
+17
+00:01:37.942 --> 00:01:45.508
+and an unchanged-cart reload. Check for duplicates,
+stale totals, loops and quantities changing on the way
+
+18
+00:01:45.508 --> 00:01:52.601
+to checkout. For a report, include time and timezone,
+campaign, variants, quantities, market, code, expected
+
+19
+00:01:52.601 --> 00:01:59.694
+result and redacted screenshots. Gift diagnostics can
+help support, but never share cart tokens, addresses
+
+20
+00:01:59.694 --> 00:02:05.841
+or payment information. Our guide provides the
+checklist; this walkthrough changes no integration
+
+21
+00:02:05.841 --> 00:02:06.314
+setting.

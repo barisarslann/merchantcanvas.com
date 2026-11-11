@@ -1,0 +1,205 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.343
+Let's install Quantity Tiers with MultiTier Discounts,
+using the Fieldnote demo store.
+
+2
+00:00:05.693 --> 00:00:12.121
+Quantity Tiers explains a product's quantity discount.
+Cart Progress is a different widget for spending
+
+3
+00:00:12.121 --> 00:00:17.691
+offers. This walkthrough focuses on Quantity Tiers,
+from installation to the real checkout.
+
+4
+00:00:18.741 --> 00:00:25.454
+In Online Store, open Themes and choose the theme you
+want to test. We are using an unpublished recording
+
+5
+00:00:25.454 --> 00:00:27.220
+copy, not the live theme.
+
+6
+00:00:27.570 --> 00:00:33.840
+In the theme editor, open the Cobalt notebook's
+product template. Find a section that supports app
+
+7
+00:00:33.840 --> 00:00:37.367
+blocks, then choose Add block, Apps, and Quantity
+Tiers.
+
+8
+00:00:37.717 --> 00:00:43.353
+Place the block beside the purchase controls. Make
+sure you are editing the template used by this
+
+9
+00:00:43.353 --> 00:00:45.674
+product, rather than a different product template.
+
+10
+00:00:46.024 --> 00:00:52.347
+The campaign already exists: two Cobalt notebooks
+receive ten percent off, and three or more receive
+
+11
+00:00:52.347 --> 00:00:57.879
+fifteen percent off. The widget displays the offer; it
+does not create the discount.
+
+12
+00:00:58.929 --> 00:01:05.756
+Open the Quantity Tiers settings. Give it a short
+title and a subtitle that matches the campaign. Keep
+
+13
+00:01:05.756 --> 00:01:08.411
+Show quantity selector enabled for this example.
+
+14
+00:01:08.761 --> 00:01:15.321
+Save the draft theme, then preview that same theme and
+product. Start with the default integration settings;
+
+15
+00:01:15.321 --> 00:01:19.179
+you do not need technical selectors for this standard
+setup.
+
+16
+00:01:19.529 --> 00:01:26.466
+Choose two in the widget and add them to the cart.
+Confirm two notebooks and thirty-two dollars and forty
+
+17
+00:01:26.466 --> 00:01:31.942
+cents. Test the widget's own button instead of
+assuming it follows the theme's separate quantity
+
+18
+00:01:31.942 --> 00:01:32.307
+field.
+
+19
+00:01:32.657 --> 00:01:35.508
+Empty the test cart before the next example.
+
+20
+00:01:36.558 --> 00:01:44.010
+Now check the next tier on the same Cobalt product.
+Select three in the widget. The campaign gives fifteen
+
+21
+00:01:44.010 --> 00:01:47.933
+percent off each qualifying notebook, not ten plus
+fifteen percent.
+
+22
+00:01:48.283 --> 00:01:54.078
+The widget estimates forty-five dollars and ninety
+cents for three notebooks. Add them with its own
+
+23
+00:01:54.078 --> 00:01:57.339
+button and compare that estimate with the real cart.
+
+24
+00:01:57.689 --> 00:02:03.687
+Confirm three notebooks, fifteen percent off, and
+forty-five dollars and ninety cents. The original
+
+25
+00:02:03.687 --> 00:02:08.829
+price is fifty-four dollars; the saving is eight
+dollars and ten cents.
+
+26
+00:02:09.879 --> 00:02:16.818
+Open checkout and compare the same product, quantity
+and discount. For three Cobalt notebooks, the
+
+27
+00:02:16.818 --> 00:02:20.981
+discounted merchandise amount remains forty-five
+dollars and ninety cents.
+
+28
+00:02:21.331 --> 00:02:27.625
+Shipping and taxes may be separate. Check the
+merchandise calculation rather than expecting every
+
+29
+00:02:27.625 --> 00:02:30.322
+checkout total to ignore delivery costs.
+
+30
+00:02:30.672 --> 00:02:37.147
+We will not enter contact or payment details, and we
+will not place an order. Return to the cart when the
+
+31
+00:02:37.147 --> 00:02:37.764
+amounts match.
+
+32
+00:02:38.814 --> 00:02:45.981
+Return to the cart and remove the notebooks. The cart
+should become empty, with no duplicate rows or stale
+
+33
+00:02:45.981 --> 00:02:47.113
+discount left behind.
+
+34
+00:02:47.463 --> 00:02:54.242
+Use the theme editor's mobile preview to inspect text
+and spacing. Previewing the layout is useful, but also
+
+35
+00:02:54.242 --> 00:02:58.385
+test the actual product and cart on a phone before
+launch.
+
+36
+00:02:58.735 --> 00:03:04.833
+Gift Auto-Add is a separate app embed for gift
+campaigns. Quantity Tiers does not require you to
+
+37
+00:03:04.833 --> 00:03:08.420
+enable it, and this tutorial does not change its
+settings.
+
+38
+00:03:09.470 --> 00:03:16.691
+Our test cart is empty. The disposable recording theme
+can now be removed; the original demo campaign and
+
+39
+00:03:16.691 --> 00:03:17.894
+theme stay unchanged.
+
+40
+00:03:18.244 --> 00:03:25.163
+If a widget is missing, check the theme, template,
+block placement and campaign eligibility first. If the
+
+41
+00:03:25.163 --> 00:03:31.267
+actual discount is wrong, check the campaign rather
+than changing the widget's colors or selectors.
+
+42
+00:03:31.617 --> 00:03:38.069
+Keep your own theme as a draft until the product page,
+cart and checkout all match the offer. The written
+
+43
+00:03:38.069 --> 00:03:40.972
+widget guide includes these checks for your own store.

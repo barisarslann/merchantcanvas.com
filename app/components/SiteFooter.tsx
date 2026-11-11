@@ -38,6 +38,7 @@ export function SiteFooter() {
         <div>
           <h2>Company</h2>
           <Link href="/resources">Resources</Link>
+          <Link href="/docs">Documentation</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
         </div>

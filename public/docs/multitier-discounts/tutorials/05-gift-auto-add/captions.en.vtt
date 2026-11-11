@@ -1,0 +1,185 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.632
+Let's create a gift with purchase in the Fieldnote
+demo store. Spend fifty dollars and receive one Sun
+
+2
+00:00:06.632 --> 00:00:07.369
+notebook free.
+
+3
+00:00:07.719 --> 00:00:14.287
+We will build the campaign, enable Gift Auto-Add in an
+unpublished theme, and check the real cart and
+
+4
+00:00:14.287 --> 00:00:14.652
+checkout.
+
+5
+00:00:15.702 --> 00:00:21.799
+Choose New campaign, then Gift offer. Give the
+campaign a descriptive name and keep it automatic, so
+
+6
+00:00:21.799 --> 00:00:24.310
+shoppers do not need a discount code.
+
+7
+00:00:24.660 --> 00:00:31.800
+In Conditions, choose Cart value. This example uses
+the store's U.S. dollar currency. Leave extra
+
+8
+00:00:31.800 --> 00:00:35.608
+targeting and restrictions unchanged for this first
+test.
+
+9
+00:00:35.958 --> 00:00:42.525
+If you later sell in other currencies or combine
+offers, configure and test those rules separately. A
+
+10
+00:00:42.525 --> 00:00:46.775
+working U.S. dollar example is not a check of every
+market.
+
+11
+00:00:47.825 --> 00:00:54.061
+In Rewards, set the minimum cart amount to fifty
+dollars and the gift discount to one hundred percent.
+
+12
+00:00:54.061 --> 00:00:56.487
+Select the Sun notebook as the gift.
+
+13
+00:00:56.837 --> 00:01:03.465
+Use a fixed quantity of one and enable automatic gift
+addition. We are giving one configured product, not
+
+14
+00:01:03.465 --> 00:01:05.307
+every product in a pool.
+
+15
+00:01:05.657 --> 00:01:11.734
+Leave Mystery Gift off for this walkthrough. Review
+the conditions and reward, then save as an inactive
+
+16
+00:01:11.734 --> 00:01:13.879
+draft while you prepare the theme.
+
+17
+00:01:14.929 --> 00:01:22.606
+In Online Store, open Themes and edit the theme you
+want to test. We are using a disposable unpublished
+
+18
+00:01:22.606 --> 00:01:25.435
+copy, leaving the original demo theme unchanged.
+
+19
+00:01:25.785 --> 00:01:33.406
+Open App embeds and enable Gift Auto-Add, then save.
+This is an app embed, not the Quantity Tiers or Cart
+
+20
+00:01:33.406 --> 00:01:34.168
+Progress block.
+
+21
+00:01:34.518 --> 00:01:41.287
+Preview this same theme. The embed adds an eligible
+gift; the campaign defines when it qualifies and how
+
+22
+00:01:41.287 --> 00:01:46.175
+it is discounted. Both the theme setup and the active
+campaign are needed.
+
+23
+00:01:47.225 --> 00:01:53.409
+Return to the saved draft and activate this test
+campaign. Start with an empty cart in the theme
+
+24
+00:01:53.409 --> 00:01:53.753
+preview.
+
+25
+00:01:54.103 --> 00:02:00.681
+Two Coral notebooks cost forty-eight dollars, below
+our fifty-dollar minimum. No free gift should appear.
+
+26
+00:02:01.031 --> 00:02:07.934
+Increase the paid quantity to three. The purchase is
+now seventy-two dollars. One Sun notebook should be
+
+27
+00:02:07.934 --> 00:02:12.806
+added automatically, without pressing checkout, and
+its final price must be free.
+
+28
+00:02:13.856 --> 00:02:20.826
+Open checkout and confirm three Coral notebooks and
+one free Sun notebook. The merchandise amount remains
+
+29
+00:02:20.826 --> 00:02:24.746
+seventy-two dollars, with twelve dollars saved on the
+gift.
+
+30
+00:02:25.096 --> 00:02:31.528
+Check the real product quantities as well as the
+totals. Delivery and taxes may be separate. We do not
+
+31
+00:02:31.528 --> 00:02:35.591
+enter customer or payment details, and we do not place
+an order.
+
+32
+00:02:36.641 --> 00:02:43.581
+Return to the cart and remove the free gift. For this
+unchanged purchase, it should stay removed, including
+
+33
+00:02:43.581 --> 00:02:46.666
+after a refresh. The app respects that choice.
+
+34
+00:02:47.016 --> 00:02:53.855
+Now change the qualifying purchase by adding another
+Coral notebook. This new eligible cart can receive one
+
+35
+00:02:53.855 --> 00:02:58.683
+gift again. It must not create duplicate gifts or a
+refresh loop.
+
+36
+00:02:59.033 --> 00:03:05.744
+Remove the qualifying purchase and confirm its gift is
+cleaned up. Repeat the add and removal check, then
+
+37
+00:03:05.744 --> 00:03:07.236
+leave the cart empty.
+
+38
+00:03:07.586 --> 00:03:14.419
+Keep your own theme unpublished until these checks
+pass. Our temporary campaign and recording theme are
+
+39
+00:03:14.419 --> 00:03:17.835
+removed after filming; the original demo remains
+unchanged.

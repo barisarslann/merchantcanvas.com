@@ -1,0 +1,99 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.318
+Targeting answers two questions: which merchandise
+qualifies, and which shopper may receive the offer?
+
+2
+00:00:06.318 --> 00:00:13.539
+Our example uses Coral as the trigger and a
+twenty-percent Sun reward. In Conditions, select the
+
+3
+00:00:13.539 --> 00:00:20.760
+product; in Rewards, choose the separate target. This
+demo selects whole products. When a product has
+
+4
+00:00:20.760 --> 00:00:27.078
+multiple variants, expand the picker for exact SKU
+choices. Whole-product scope can include future
+
+5
+00:00:27.078 --> 00:00:32.042
+variants, while an exact-variant selection remains
+restricted to its configured IDs.
+
+6
+00:00:33.092 --> 00:00:39.606
+Open Audience Targeting in Review and launch. Add the
+synthetic customer tag education-vip. This only
+
+7
+00:00:39.606 --> 00:00:47.423
+configures a filter; it does not create a customer or
+assign that tag to anyone. Tagged customer eligibility
+
+8
+00:00:47.423 --> 00:00:52.635
+requires the relevant signed-in customer context.
+Product tags classify merchandise; customer tags
+
+9
+00:00:52.635 --> 00:00:59.583
+restrict shoppers. An empty audience filter means
+everyone, not nobody, so review it before saving a
+
+10
+00:00:59.583 --> 00:01:00.452
+public offer.
+
+11
+00:01:01.502 --> 00:01:07.459
+Keep Include selected countries and select United
+States. That is different from excluding the United
+
+12
+00:01:07.459 --> 00:01:13.416
+States and allowing other countries. The example now
+requires both the intended merchandise and this
+
+13
+00:01:13.416 --> 00:01:20.565
+audience context. A shopper using U.S. dollars is not
+proof that they are browsing from the United States.
+
+14
+00:01:20.565 --> 00:01:26.125
+Currency thresholds, country filters and a final
+delivery address are distinct checks; do not
+
+15
+00:01:26.125 --> 00:01:27.713
+substitute one for another.
+
+16
+00:01:28.763 --> 00:01:35.927
+Save inactive and reopen the audience section. Confirm
+education-vip, United States and Include mode, as well
+
+17
+00:01:35.927 --> 00:01:43.539
+as the trigger and reward selections. This video
+verifies the stored filter, not a real customer login
+
+18
+00:01:43.539 --> 00:01:50.256
+or delivery change. Before launch, test a matching
+customer, a nonmatching customer and a signed-out
+
+19
+00:01:50.256 --> 00:01:57.420
+session, plus allowed and excluded countries. Recheck
+after a market switch and compare the final checkout.
+
+20
+00:01:57.420 --> 00:02:01.002
+Keep public messages consistent with all these
+restrictions.

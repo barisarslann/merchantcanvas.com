@@ -1,0 +1,172 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.011
+In this tutorial, we'll prepare your first MultiTier
+Discounts offer without turning it on before you're
+
+2
+00:00:06.011 --> 00:00:13.149
+ready. Our example is simple: buy two Cobalt notebooks
+and save ten percent, or buy three and save fifteen
+
+3
+00:00:13.149 --> 00:00:19.159
+percent. We'll choose the right plan, identify the
+storefront setup, and save an inactive campaign. A
+
+4
+00:00:19.159 --> 00:00:22.165
+separate tutorial walks through the actual cart tests.
+
+5
+00:00:23.215 --> 00:00:30.971
+Open MultiTier Discounts from your Shopify Admin, then
+go to Plans and Billing. Start with the features your
+
+6
+00:00:30.971 --> 00:00:37.004
+offer needs. Free supports a small core percentage
+quantity-break setup within its active-campaign limit.
+
+7
+00:00:37.004 --> 00:00:42.606
+More advanced execution, targeting and gift options
+depend on the plan shown here.
+
+8
+00:00:42.956 --> 00:00:48.881
+The MTD Plus plan and Shopify Plus are different
+subscriptions. Supported checkout mystery presentation
+
+9
+00:00:48.881 --> 00:00:57.345
+requires an eligible Shopify Plus store as well as the
+app feature. You do not need to choose Plus simply
+
+10
+00:00:57.345 --> 00:01:03.694
+because your store uses Shopify Plus. Always review
+Shopify's actual price and billing terms before
+
+11
+00:01:03.694 --> 00:01:05.387
+approving a paid subscription.
+
+12
+00:01:06.437 --> 00:01:12.911
+Now identify the theme you're testing. A visible
+widget explains the offer; the campaign controls its
+
+13
+00:01:12.911 --> 00:01:18.980
+discount rules. For our product example, we'll later
+add Quantity Tiers to the product template.
+
+14
+00:01:19.330 --> 00:01:25.691
+Gift Auto-Add appears separately under app embeds. It
+supports eligible gift behavior and is not the same
+
+15
+00:01:25.691 --> 00:01:32.800
+thing as a visible quantity widget. You don't need to
+enable every block or embed for this first example.
+
+16
+00:01:32.800 --> 00:01:38.039
+Keep advanced cart selectors at their defaults until
+you have a specific theme problem.
+
+17
+00:01:39.089 --> 00:01:46.050
+Return to All Campaigns and create a new campaign.
+Choose Tiered discount. In Offer, give it a
+
+18
+00:01:46.050 --> 00:01:51.783
+recognizable name and choose automatic execution with
+a percentage reward. In Conditions, choose Quantity
+
+19
+00:01:51.783 --> 00:01:57.925
+Breaks and select only the Cobalt notebook. Leaving
+this product list empty broadens the scope.
+
+20
+00:01:58.275 --> 00:02:05.014
+In Rewards, set the two-unit minimum to ten percent
+and the three-unit minimum to fifteen percent. If you
+
+21
+00:02:05.014 --> 00:02:12.503
+began with a recipe, check all prefilled values and
+remove any tiers you do not intend to use. These are
+
+22
+00:02:12.503 --> 00:02:16.621
+quantities on a qualifying cart line, not second- and
+third-product positions.
+
+23
+00:02:17.671 --> 00:02:24.942
+Open Review and launch. Read the product scope, both
+tiers, schedule and combination rules. In Quantity and
+
+24
+00:02:24.942 --> 00:02:31.357
+Sorting, set Maximum discounted quantity per product
+to zero, meaning unlimited, so every qualifying unit
+
+25
+00:02:31.357 --> 00:02:38.628
+receives the rate. Check the store timezone before
+adding dates. For this first save, choose Save as
+
+26
+00:02:38.628 --> 00:02:39.483
+inactive draft.
+
+27
+00:02:39.833 --> 00:02:46.490
+After saving, reopen the campaign and check that the
+selected product and both tiers are still correct.
+
+28
+00:02:46.490 --> 00:02:53.146
+Closing an advanced panel does not clear its values.
+Preview can help explain the configuration, but it
+
+29
+00:02:53.146 --> 00:02:56.670
+cannot replace a real cart and Shopify checkout test.
+
+30
+00:02:57.720 --> 00:03:03.536
+At eighteen dollars per notebook, our expected
+merchandise totals are eighteen dollars for one,
+
+31
+00:03:03.536 --> 00:03:10.182
+thirty-two dollars and forty cents for two, and
+forty-five dollars and ninety cents for three. Those
+
+32
+00:03:10.182 --> 00:03:16.412
+figures exclude tax, shipping and other discounts.
+Check your actual product price before using them.
+
+33
+00:03:16.762 --> 00:03:23.673
+Test below each threshold, at the threshold, and after
+removing items. Check an unrelated product too. Keep
+
+34
+00:03:23.673 --> 00:03:29.770
+the campaign inactive until you're ready for that
+controlled test. The next tutorial shows the
+
+35
+00:03:29.770 --> 00:03:35.054
+quantity-break setup and how to compare the expected
+calculation with the real result.

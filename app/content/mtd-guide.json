@@ -1,0 +1,482 @@
+{
+  "sourceUrl": "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
+  "sourceSha256": "4a144528140b2a61bbca97267c42d7c2409d5e9ff23728cb93c64f0255bfb418",
+  "title": "Discounts & Gifts: Merchant Guide",
+  "intro": "Start with one offer. Choose what qualifies, decide what the customer receives, and check the real cart and checkout before launching.",
+  "editionNote": "Design preview edition · Illustrated review: 20 October 2026 · 13 narrated tutorials added: 24 October 2026 · Fieldnote Supply examples · Select an image to open it at full size.",
+  "footerNote": "Examples use synthetic Fieldnote Supply products. Screenshot totals are USD merchandise amounts; tax, delivery rates, payment completion and every campaign combination are not certified by a screenshot. This preview guide does not announce a production release.",
+  "toc": [
+    {
+      "id": "plans",
+      "label": "Choose a plan"
+    },
+    {
+      "id": "quick-start",
+      "label": "Set up your first offer"
+    },
+    {
+      "id": "concepts",
+      "label": "The four builder steps"
+    },
+    {
+      "id": "quantity-breaks",
+      "label": "Quantity breaks & price positions"
+    },
+    {
+      "id": "product-selection",
+      "label": "Products, variants & collections"
+    },
+    {
+      "id": "buy-x-get-y",
+      "label": "Buy X Get Y & full sets"
+    },
+    {
+      "id": "gifts",
+      "label": "Gifts & auto-add"
+    },
+    {
+      "id": "cart-value",
+      "label": "Cart value, currencies & shipping"
+    },
+    {
+      "id": "widgets",
+      "label": "Storefront widgets"
+    },
+    {
+      "id": "launch",
+      "label": "Save, schedule & activate"
+    },
+    {
+      "id": "combinations",
+      "label": "Combinations & codes"
+    },
+    {
+      "id": "audience",
+      "label": "Audience & countries"
+    },
+    {
+      "id": "theme",
+      "label": "Theme integration"
+    },
+    {
+      "id": "mystery",
+      "label": "Mystery gifts & Shopify Plus"
+    },
+    {
+      "id": "settings-analytics",
+      "label": "Settings & analytics"
+    },
+    {
+      "id": "troubleshooting",
+      "label": "Test & troubleshoot"
+    },
+    {
+      "id": "faq",
+      "label": "Frequently asked questions"
+    }
+  ],
+  "sections": [
+    {
+      "id": "plans",
+      "title": "1. Choose a Plan for Your Offer",
+      "parts": [
+        {
+          "html": "\r\n<p>A plan lock identifies the required MTD plan. The MTD <strong>Plus</strong> app plan and Shopify's <strong>Shopify Plus</strong> platform plan are different subscriptions.</p>\r\n<div class=\"table-wrap\"><table><caption>Where to start</caption><thead><tr><th>MTD plan</th><th>Main capabilities</th><th>Allowance</th></tr></thead><tbody>\r\n<tr><td>Free</td><td>Percentage-based product, collection, quantity and price-position offers; schedules, limits and messages.</td><td>2 active campaigns</td></tr>\r\n<tr><td>Starter</td><td>Buy X Get Y, exact variants, tags, fixed amounts, codes, cart-value and shipping rewards, revenue analytics.</td><td>10 active campaigns</td></tr>\r\n<tr><td>Pro</td><td>Gift offers, gift priorities, advanced targeting and explicit currency thresholds.</td><td>Unlimited</td></tr>\r\n<tr><td>Plus</td><td>Pro features plus supported mystery-gift checkout presentation on eligible Shopify Plus stores.</td><td>Unlimited</td></tr>\r\n</tbody></table></div>\r\n<p>Open <strong>Plans &amp; Billing</strong> for current prices, trial terms and the complete feature list. Review Shopify's confirmation before approving a charge. Development-store test access does not mean a paid subscription has started.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/billing-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/billing-2026-10-19.jpg\" alt=\"Demo plan comparison showing MTD plans and development test access\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Checkout mystery requires both eligible Shopify Plus and MTD Plus access.</figcaption></figure>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "quick-start",
+      "title": "2. Set Up Your First Offer",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "01"
+        },
+        {
+          "html": "\r\n<p>Use one clearly named test product and a small discount first. Do not begin with a catalog-wide 100% offer.</p>\r\n<ol><li>Open MTD. The page is headed <strong>Discount &amp; Gift Campaigns</strong>; the sidebar entry is <strong>All Campaigns</strong>.</li><li>Select <strong>Create New Campaign</strong>, then a recipe or custom format.</li><li>In <strong>Offer</strong>, name the campaign and choose automatic or code execution.</li><li>In <strong>Conditions</strong>, choose what qualifies.</li><li>In <strong>Rewards</strong>, configure tiers, gifts or shipping.</li><li>In <strong>Review &amp; launch</strong>, inspect the summary and choose <strong>Save as inactive draft</strong>.</li><li>Reopen to confirm the saved values, then activate for a controlled cart and checkout test.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/campaigns-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/campaigns-2026-10-19.jpg\" alt=\"Current campaign list with statuses, schedules and row actions\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Filter active, inactive, scheduled or expired campaigns. The theme-status banner refers to the published theme, not every draft preview.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/picker-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/picker-2026-10-19.jpg\" alt=\"Campaign chooser offering popular recipes and custom formats\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>A recipe prefills the form. It does not save or activate anything. Replace its example quantities, percentages and products.</figcaption></figure>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "concepts",
+      "title": "3. Understand the Four Steps",
+      "parts": [
+        {
+          "html": "<span id=\"campaigns\"></span>\r\n<div class=\"table-wrap\"><table><thead><tr><th>Step</th><th>Question</th><th>Settings</th></tr></thead><tbody><tr><td>Offer</td><td>What promotion?</td><td>Name, method, percentage/fixed amount.</td></tr><tr><td>Conditions</td><td>What qualifies?</td><td>Trigger type, products, variants, collections or tags.</td></tr><tr><td>Rewards</td><td>What does the customer get?</td><td>Tiers, spend thresholds, gift pool, quantities, auto-add and shipping.</td></tr><tr><td>Review &amp; launch</td><td>When and for whom?</td><td>Summary, status, schedule, combinations, sorting, limits, presentation and audience.</td></tr></tbody></table></div>\r\n<p>A <strong>trigger</strong> qualifies the offer; a <strong>target</strong> receives its benefit; a <strong>tier</strong> is one reward rule. Product tags and customer tags are different. Mystery presentation does not change the fulfillment product.</p>\r\n<p>Advanced controls stay beside the relevant decision. Existing non-default values remain summarized when closed. Closing a disclosure does not reset its values. Use <strong>Change</strong> in the review summary to revisit a step without discarding the others.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/offer-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/offer-2026-10-19.jpg\" alt=\"Offer step with campaign identity and discount method\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Offer: campaign identity and discount method.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/conditions-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/conditions-2026-10-19.jpg\" alt=\"Conditions step showing the cart-value gift trigger\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Conditions: this example uses cart value. The spend amount belongs to its reward tier.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/rewards-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/rewards-2026-10-19.jpg\" alt=\"Rewards step with the fifty dollar threshold and selected Sun gift\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Rewards: select the real gift and threshold. Setup required keeps an incomplete tier open.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/review-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/review-2026-10-19.jpg\" alt=\"Review and launch with summary, draft status and schedule\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Review &amp; launch: check the whole configuration before saving. Each step is shown separately so you can read at your own pace.</figcaption></figure>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "quantity-breaks",
+      "title": "4. Quantity Breaks Are Not Price Positions",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "02"
+        },
+        {
+          "html": "\r\n<h3>Buy More of One Cart Line</h3><p>Choose <strong>Quantity Breaks</strong> for “2 units: 10% off; 3 or more: 15% off.” <strong>Each cart line</strong> is evaluated separately. One unit of each of two products does not create a two-unit line. Different properties can also keep the same variant on separate lines.</p>\r\n<ol><li>Select the intended product in Conditions.</li><li>Replace the recipe tiers with minimum quantity 2 at 10%, and 3 at 15%.</li><li>Use unlimited discounted quantity per line if every qualifying unit should receive that rate.</li><li>Save inactive, then test quantities 1, 2, 3 and a return to 1.</li></ol>\r\n<div class=\"table-wrap\"><table><caption>Cobalt notebook: $18 each, excluding tax and shipping</caption><thead><tr><th>Quantity on one line</th><th>Rate</th><th>Merchandise total</th></tr></thead><tbody><tr><td>1</td><td>None</td><td>$18.00</td></tr><tr><td>2</td><td>10%</td><td>$32.40</td></tr><tr><td>3</td><td>15%</td><td>$45.90</td></tr><tr><td>4</td><td>15%</td><td>$61.20</td></tr></tbody></table></div>\r\n<p>The highest matching quantity tier wins. The percentages are not added together. The three-unit result was checked in the real demo cart and checkout.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/quantity-setup-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/quantity-setup-2026-10-20.jpg\" alt=\"Current Rewards editor showing minimum quantity two at ten percent and minimum quantity three at fifteen percent\" loading=\"lazy\" width=\"1695\" height=\"1186\"></a><figcaption>Quantity Breaks: set a minimum quantity on each tier. These are the retained demo campaign's saved values, viewed without changing them.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/quantity-widget-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/quantity-widget-2026-10-19.jpg\" alt=\"Cobalt product page with Quantity Tiers and its own add-to-cart control\" loading=\"lazy\" width=\"1420\" height=\"880\"></a><figcaption>The product widget explains the tiers before purchase. Its selected quantity controls its Add to cart action.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/quantity-cart-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/quantity-cart-2026-10-19.jpg\" alt=\"Three Cobalt notebooks in the real cart at forty five dollars ninety cents\" loading=\"lazy\" width=\"1420\" height=\"780\"></a><figcaption>Cart: 3 &times; $18, less $8.10, equals $45.90.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/quantity-checkout-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/quantity-checkout-2026-10-19.jpg\" alt=\"Real checkout summary with three Cobalt notebooks, fifteen percent saving and forty five dollars ninety cents total\" loading=\"lazy\" width=\"880\" height=\"700\"></a><figcaption>Checkout shows the same $45.90 and $8.10 saving. No order or payment was submitted.</figcaption></figure>\r\n<h3>Discount the Second or Third Position</h3><p>For “second item 30%, third item 50%,” create both position rules instead. In <strong>Quantity and Sorting</strong>, High to Low sorts by unit price, not the extended line total. Cart Order follows cart order. The per-line quantity cap limits discounted units on a line.</p>\r\n<p>For three different eligible units at $30, $20 and $10, those two rules with High to Low give $6 off the $20 unit and $5 off the $10 unit: $49 total. This is illustrative arithmetic, not the Cobalt quantity campaign. Test repeated units and split lines separately.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/price-positions-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/price-positions-2026-10-20.jpg\" alt=\"Unsaved price-based Rewards example with Tier 2 at thirty percent and Tier 3 at fifty percent\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>Price positions use Tier 2 and Tier 3, not minimum-quantity tiers. This is an unsaved setup example; it does not change the demo's active quantity offer.</figcaption></figure>\r\n<p><strong>Repeated products:</strong> do not infer the result from the number of visible rows. Shopify may group identical units or split them by properties. Check the trigger family, each tier's target and the per-line cap together. Use Quantity Breaks when every unit on a qualifying line should receive the same highest-matching rate; use position rules when the second and third rewards must remain separate.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "product-selection",
+      "title": "5. Products, Variants, Collections and Tags",
+      "parts": [
+        {
+          "html": "\r\n<p>Select qualifying items in Conditions and reward targets in Rewards. Selecting a notebook as a trigger does not also select it as a gift.</p>\r\n<ol><li>Choose the trigger and open its picker.</li><li>Select a whole product to include its current and future variants. On eligible paid plans, expand products and choose exact variants for particular SKUs, sizes or colors.</li><li>Confirm the picker and check the selection summary in the form.</li><li>Save inactive, reopen and confirm it persisted. Test an unselected product.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/product-picker-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/product-picker-2026-10-19.jpg\" alt=\"Shopify product picker with the Sun notebook selected\" loading=\"lazy\" width=\"1919\" height=\"975\"></a><figcaption>This example selects a whole product. Its returned summary says All variants included. Products with several variants can be expanded for an exact SKU choice.</figcaption></figure>\r\n<p>A qualifying-item list uses one target kind at a time; gift pools can mix whole products and exact variants. An empty optional product filter means no product restriction, not an empty eligible catalog. For collection offers, check both the trigger collection and any required collection inside each tier. Product-tag rules use product tags; customer tags belong to audience targeting.</p>\r\n<div class=\"table-wrap\"><table><caption>Choose the scope that matches your promise</caption><thead><tr><th>Selection</th><th>Includes</th><th>Check before launch</th></tr></thead><tbody><tr><td>Whole product</td><td>Its current and future variants.</td><td>A newly added size or color may qualify too.</td></tr><tr><td>Exact variants</td><td>Only the selected variant IDs.</td><td>Reopen and confirm the SKU/variant summary, not only the product name.</td></tr><tr><td>Collection</td><td>Products belonging to the configured collection.</td><td>Check the trigger and every required tier collection; saving one does not select the other.</td></tr><tr><td>Product tags</td><td>Products with matching configured tags.</td><td>Test an untagged product and do not substitute customer tags.</td></tr><tr><td>Exclude filter</td><td>Eligible items except the chosen products or variants.</td><td>A theme bar must exclude the same merchandise from its promise.</td></tr></tbody></table></div>\r\n<p>After changing a selection, wait for the returned summary before moving on. Reopen after saving to confirm persistence. Removing a selected resource from an optional filter can broaden the offer; removing a required gift target can make the tier incomplete.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "buy-x-get-y",
+      "title": "6. Buy X Get Y and Full Sets",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "07"
+        },
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "08"
+        },
+        {
+          "html": "\r\n<p><strong>Buy X Get Y</strong> unlocks configured free targets when selected buy items qualify. A product/collection tiered campaign with <strong>Require complete set</strong> instead waits for all required set positions. Neither is the same as a quantity break.</p>\r\n<ol><li>Choose the Buy X Get Y recipe.</li><li>Select the buy items in Conditions and gift targets in Rewards, using compatible target levels.</li><li>Review gift quantity and automatic/code behavior.</li><li>If automatic addition is enabled for the offer, enable Gift Auto-Add on the tested theme.</li><li>Save inactive, then test the qualifying purchase and a cart missing the buy item.</li></ol>\r\n<p>For full sets, define every required product or collection, check whether the trigger itself receives a discount, and verify every position. Do not advertise all set items discounted unless the trigger setting and rewards actually express that.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/buy-x-get-y-setup-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/buy-x-get-y-setup-2026-10-20.jpg\" alt=\"Buy X Get Y Rewards screen with Sun notebook selected as the free product\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>Buy X Get Y: Coral is the buy trigger; Sun is the free reward target. This unsaved example shows configuration, not a tested or retained live promotion.</figcaption></figure>\r\n<h3>Build a Full Set Instead</h3><ol><li>Choose Tiered discount and a product, collection or tag condition supported by your offer.</li><li>Select the trigger items, then enable <strong>Apply only when full set is in cart</strong>.</li><li>In Rewards, select every required tier target and its discount. An incomplete set should receive no tier discount.</li><li>If the starting items should also be discounted, enable <strong>Apply discount to trigger products</strong> and set that separate percentage or amount.</li><li>Test a complete set, an incomplete set, repeated units and removal of a required item.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/full-set-setup-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/full-set-setup-2026-10-20.jpg\" alt=\"Product Conditions showing the full-set requirement and a separate ten percent trigger-product discount\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>The full-set switch controls eligibility. The trigger-product switch controls an additional reward. Neither switch selects the remaining tier targets for you.</figcaption></figure>\r\n<div class=\"note\">Test two complete sets, repeated quantities, removal of one required item and a gift already present in the cart. Confirm whether one gift or a quantity multiplier is intended before combining other offers.</div>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "gifts",
+      "title": "7. Gift Offers and Automatic Addition",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "05"
+        },
+        {
+          "html": "\r\n<p>A Gift offer can qualify from products, collections or spend. A classic free gift uses a <strong>100% percentage reward</strong>. It remains a real Shopify variant with its existing SKU and inventory identity.</p>\r\n<ol><li>Choose Gift offer or the gift-threshold recipe.</li><li>Choose the trigger; for spend-based gifts, enter the minimum on the reward tier.</li><li>Select the real gift product or exact variants.</li><li>Open <strong>Gift delivery</strong>, choose application and quantity, and enable <strong>Auto-add gift to cart</strong>.</li><li>Enable Gift Auto-Add in the exact theme, save inactive, review and test.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/gift-delivery-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/gift-delivery-2026-10-19.jpg\" alt=\"Gift delivery controls for application mode, quantity, auto-add and advanced settings\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Automatic insertion, discounted quantity and the reward itself are separate settings.</figcaption></figure>\r\n<ul><li><strong>Limit discounted gifts:</strong> cap matching gift units.</li><li><strong>Discount all selected gifts:</strong> discount the configured targets present in the cart.</li><li><strong>Random one from selected gifts:</strong> choose one available configured variant. MTD does not substitute an unrelated product outside the pool.</li></ul>\r\n<h3>Example: One Sun Notebook Over $50</h3><p>The separate gift example uses a $50 minimum, one Sun notebook and auto-add. Three Coral notebooks cost $72 and unlock one Sun at $0. The real cart below also shows Cart Progress; it is not a staged pricing image.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/gift-cart-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/gift-cart-2026-10-19.jpg\" alt=\"Real cart with three Coral notebooks at seventy two dollars and one automatically added free Sun notebook\" loading=\"lazy\" width=\"1904\" height=\"1238\"></a><figcaption>Paid merchandise is $72; the Sun gift is $0. Check variants, quantities and prices again in checkout before launching your own promotion.</figcaption></figure>\r\n<h3>Priority, Removal and Availability</h3><p>Lower priority numbers win. <strong>Stop lower priority</strong> prevents eligible lower-priority gift campaigns from adding gifts. Test overlaps together. Manual removal suppresses re-add for the same qualifying cart fingerprint, including after a reload. A genuinely different qualifying paid cart can receive a new gift; emptying the cart alone is not a promise to undo the shopper's choice. Removing the qualifying purchase should remove its gift.</p>\r\n<p>On cart pages with positional quantity fields, MTD preserves the theme's original row order. A gift may appear before paid items; preserving that order prevents quantities being assigned to the wrong product when the native form submits.</p>\r\n<p>MTD chooses a variant, not a warehouse. Shopify inventory, market availability, fulfillment eligibility and order routing determine supply. A random pool can try another configured candidate after a stock rejection. An exact variant does not silently become a different SKU. Gift-counting settings determine whether gift lines count toward other rules; avoid self-qualifying gift loops.</p>\r\n<p><strong>Untracked stock:</strong> a zero inventory count is not automatically sold out when Shopify still permits the variant to be sold. MTD respects Shopify's sale verdict and final add result, including the merchant's continue-selling policy. This does not guarantee physical stock at a particular warehouse.</p>\r\n<div class=\"table-wrap\"><table><caption>Advanced gift choices</caption><thead><tr><th>Control</th><th>Effect</th><th>Safe first setting</th></tr></thead><tbody><tr><td>Gift quantity</td><td>Number of discounted gift units for single/random application.</td><td>1</td></tr><tr><td>Quantity mode</td><td>Fixed quantity or multiplication by qualifying purchase quantity where supported.</td><td>Fixed; check repeated quantities before using a multiplier.</td></tr><tr><td>Count gifts toward other rules</td><td>Changes whether marked gift lines contribute to other campaign conditions.</td><td>Off unless an intentional cross-offer setup requires it.</td></tr><tr><td>Priority</td><td>Lower numbers win when gift offers compete.</td><td>Test all overlapping offers together.</td></tr><tr><td>Stop lower priority</td><td>Blocks eligible lower-priority gift offers.</td><td>Off when gifts should coexist.</td></tr></tbody></table></div>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "cart-value",
+      "title": "8. Cart Value, Currencies and Shipping",
+      "parts": [
+        {
+          "html": "<span id=\"shipping\"></span>\r\n"
+        },
+        {
+          "tutorialId": "09"
+        },
+        {
+          "html": "\r\n<p>Enter a minimum for each cart-value reward. An optional maximum stops that tier above its upper bound. Test one cent below, exactly at and just above each boundary, including gaps between tiers.</p>\r\n<p>Use the campaign's eligible merchandise subtotal, not shipping, tax or a crossed-out compare-at price. Product exclusions and gift-counting settings affect which items count. Storefront gift checks use final line amounts when Shopify supplies them, falling back to the available line amount. A grand total after order codes is not a substitute for checking that subtotal. Checkout mystery also has stricter final-eligibility checks; test the actual code you intend to support.</p>\r\n<h3>Set Currency Thresholds Explicitly</h3><p>Amounts are <strong>not automatically converted</strong>. A EUR 90 base with a USD 100 override does not qualify a USD 95 cart. An unconfigured non-base currency does not qualify in the synchronized configuration. Keep the theme bar and campaign amounts aligned; changing a theme label does not change the actual discount.</p>\r\n<p>On Pro and Plus, open <strong>Currency-specific thresholds</strong> beside the tier. Enter supported minimums and any maximums. The campaign-wide Minimum cart amount has its own overrides. A currency and a customer's country are different settings.</p>\r\n<ol><li>Enter the shop-currency minimum on the tier.</li><li>Add each supported currency and enter its minimum; enter a maximum too if the tier has an upper bound.</li><li>Repeat for other tiers and any campaign-wide minimum. One override does not configure all other tiers.</li><li>Switch the storefront market and test below, at and above the threshold in its actual cart currency.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/currency-thresholds-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/currency-thresholds-2026-10-20.jpg\" alt=\"Unsaved cart-value tier with USD fifty minimum and a separate Canadian dollar seventy minimum override\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>USD 50 and CAD 70 are independently entered amounts, not automatic currency conversion. This example was not saved.</figcaption></figure>\r\n<h3>Add a Shipping Benefit</h3><ol><li>On Starter or higher, enable <strong>Add shipping discount to this tier</strong>.</li><li>Use 100 for free shipping, or a smaller percentage for partial savings.</li><li>Check the qualifying tier and combinations.</li><li>Test checkout after Shopify has an address and available delivery rates.</li></ol>\r\n<figure><a href=\"/docs/multitier-discounts/media/shipping-tier-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/shipping-tier-2026-10-19.jpg\" alt=\"Rewards tier with a one hundred percent shipping discount configured\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>This shows the configuration field, not proof that a shipping service or rate exists.</figcaption></figure>\r\n<p>Free shipping does not create shipping rates or replace shipping profiles. An empty checkout saying Enter shipping address is not itself a failed free-shipping calculation.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "widgets",
+      "title": "9. Put Widgets Where Customers Need Them",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "03"
+        },
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "04"
+        },
+        {
+          "html": "\r\n<div class=\"table-wrap\"><table><thead><tr><th>Widget</th><th>Placement</th><th>Purpose</th></tr></thead><tbody>\r\n<tr><td>Quantity Tiers</td><td>Product form</td><td>Choose and add a quantity-break tier.</td></tr>\r\n<tr><td>Bundle Tiers / Discount Badge</td><td>Relevant product page</td><td>Explain a product offer.</td></tr>\r\n<tr><td>Cart Progress</td><td>Cart page or supported drawer</td><td>Progress toward cart-value rewards.</td></tr>\r\n<tr><td>Cross-Sell Cards / Cross-Sell Trigger</td><td>Related product/cart area</td><td>Items or conditions needed to complete an offer.</td></tr>\r\n<tr><td>Collection Upsell</td><td>Related product/collection context</td><td>Guide shoppers to qualifying collection items.</td></tr>\r\n<tr><td>Gift Auto-Add</td><td>Theme App embeds</td><td>Hidden runtime for automatic gift insertion and cleanup.</td></tr>\r\n</tbody></table></div>\r\n<ol><li>Open the intended theme in Shopify's theme editor. Draft and published themes are separate.</li><li>Choose the product or cart template; add the MTD block in a supported section near the related purchase controls.</li><li>For gifts, enable Gift Auto-Add under App embeds too. Quantity Tiers alone does not enable gifts.</li><li>Save the theme and test matching and non-matching products, desktop/mobile, cart and checkout.</li></ol>\r\n<h3>Customize Without Changing Eligibility</h3><p>Start with the block's default text and colors. Then adjust its heading, layout, spacing, button labels, visibility and supported campaign filtering. For product-specific blocks, verify variant changes. For cart widgets, verify both drawer and cart page. Use the campaign's real threshold and audience in your copy; changing a heading, a color or a template label never changes Shopify pricing.</p>\r\n<p>Discount Badge and collection/product guidance can be hidden correctly when no matching campaign is active. Dynamic campaign values should remain dynamic rather than being hard-coded into theme text. Reset one override at a time when diagnosing a mismatch. Do not add a visible block merely to enable hidden Gift Auto-Add.</p>\r\n<p>Quantity Tiers needs a relevant quantity campaign. Cart Progress needs a compatible active cart-value campaign. A block can correctly be absent when no campaign matches. A progress message must not promise a gift to customers excluded by country, tags or discount combinations.</p>\r\n<p>See the real <a href=\"#quantity-breaks\">Quantity Tiers</a> and <a href=\"#gifts\">Cart Progress plus gift</a> examples. These use an unpublished demo theme, not a modified customer theme.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/theme-blocks-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/theme-blocks-2026-10-20.jpg\" alt=\"Draft Shopify theme editor with Quantity Tiers selected, its text and color controls and the Cobalt product preview\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Select the block in the intended template. This is the unpublished demo's existing Quantity Tiers block; settings were viewed, not saved. Open the image at full size to inspect the controls.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/cart-progress-below-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/cart-progress-below-2026-10-19.jpg\" alt=\"Cart Progress below the fifty dollar threshold with one Coral notebook costing twenty four dollars\" loading=\"lazy\" width=\"1904\" height=\"1238\"></a><figcaption>Below threshold: $24 of qualifying merchandise. Compare this with the $72 unlocked state above. The temporary gift campaign was removed after capture; the retained quantity-only demo does not show this progress bar.</figcaption></figure>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "launch",
+      "title": "10. Save, Schedule and Activate Deliberately",
+      "parts": [
+        {
+          "html": "\r\n<p><strong>Save as inactive draft</strong> stores the setup without making it eligible. <strong>Activate when saved</strong> enables it subject to its schedule and all other conditions. Saved does not necessarily mean active.</p>\r\n<ol><li>Review every summary group and use Change for corrections.</li><li>Check start/end dates in the displayed shop timezone, which may differ from your browser.</li><li>Review combinations, quantity caps, sorting, cart minimums, maximum discounts, usage limits, presentation and audience.</li><li>Use Preview to inspect presentation, not to certify Shopify pricing.</li><li>Save inactive, reopen to verify persistence, then activate for the intended test or launch window.</li></ol>\r\n<p>The campaign list uses the shop timezone too. A scheduled or expired campaign does not apply merely because enabled is on. When duplicating, recheck the selections, name, code, schedule and status; do not assume a duplicate is automatically a safe draft.</p>\r\n<h3>Advanced Settings Reference</h3><div class=\"table-wrap\"><table><thead><tr><th>Control</th><th>What it changes</th><th>Do not confuse it with</th></tr></thead><tbody><tr><td>Maximum discounted quantity per product</td><td>Discounted units per cart line; <strong>0 = unlimited</strong>.</td><td>A purchase limit or cart-wide number of discounted products.</td></tr><tr><td>Sort Order</td><td>High-to-Low or Low-to-High unit-price ranking, or Cart Order.</td><td>Extended line totals or storefront row placement.</td></tr><tr><td>Apply minimum cart condition</td><td>An extra spend condition on top of the main trigger; has its own currency overrides.</td><td>The reward tier's independent minimum.</td></tr><tr><td>Limit discount amount</td><td>An upper bound on the configured discount benefit.</td><td>A maximum cart value or a quantity cap.</td></tr><tr><td>Usage limit</td><td>Available for code execution; limits uses of that discount code.</td><td>An automatic-campaign stock limit or a guarantee of one use per customer.</td></tr><tr><td>Customer-facing presentation</td><td>Offer title where supported and discount-code messaging.</td><td>A change to the real product title, SKU or entitlement.</td></tr></tbody></table></div>\r\n<h3>Messages and Preview</h3><p>In Rewards, open <strong>Custom Discount Message</strong>. The common template can be replaced by per-tier messages. Use the visible variable buttons: <code>{tier}</code> for the tier label, <code>{per}</code> for percentage followed by %, and <code>{perd}</code> for % followed by percentage. Check a real applied discount label after editing, especially with a fixed amount. An empty custom message uses the app's fallback text.</p><p><strong>Preview</strong> helps review presentation and supported example calculations; it is not a substitute for Shopify cart/checkout or a live market test. Correct a summary with Change, then return to Review &amp; launch before saving.</p>\r\n<div class=\"warning\"><strong>Live edits affect shoppers.</strong> Test a fresh cart and one opened before a gift or threshold change. Prefer a separate inactive test campaign where appropriate.</div>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "combinations",
+      "title": "11. Combinations and Discount Codes",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "10"
+        },
+        {
+          "html": "\r\n<p>In Review &amp; launch, open <strong>Combination Settings</strong>. Product, order and shipping discounts are separate categories. Shopify also checks compatibility on the other discount; enabling a category in MTD does not make every unrelated code combinable.</p>\r\n<ol><li>Test the campaign alone first.</li><li>Apply eligible product and order codes separately; check paid items, gifts and totals.</li><li>Test a shipping code after delivery rates are available.</li><li>Remove codes and confirm the original result returns.</li><li>Test an incompatible code for unexpected paid gifts or duplicate additions.</li></ol>\r\n<p>Automatic offers need no code. Code campaigns need the correct valid code. <strong>Settings &gt; Gift offer automation</strong> controls whether eligible gift codes may be auto-applied. It does not replace campaign auto-add or the theme embed. A discount conflict can block or clean up an auto-added gift. Checkout mystery supports either no combinations or all three categories, not every partial mix.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/combinations-limits-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/combinations-limits-2026-10-20.jpg\" alt=\"Review and launch with separate product, order and shipping combination checkboxes, sorting and optional limits\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>These independent categories remain visible in Advanced settings. The photographed demo values were inspected, not changed or saved.</figcaption></figure>\r\n<h3>Create a Code-Based Offer</h3><ol><li>In Offer, select <strong>Discount Code</strong> and enter the intended code.</li><li>Keep the same qualifying conditions and rewards you would test for an automatic offer.</li><li>In Review &amp; launch, set a usage limit if needed and review both sides of each combination.</li><li>Save inactive first; when testing an active offer, enter the exact code in checkout and confirm it is accepted, not just typed into the field.</li><li>Test removal and reapplication. Never infer that a 100% test code behaves like a normal percentage code.</li></ol>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "audience",
+      "title": "12. Audience and Country Targeting",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "11"
+        },
+        {
+          "html": "\r\n<p>Open <strong>Audience Targeting</strong> in Review &amp; launch. Product tags describe products; customer tags restrict the audience. Cart currency does not prove the shopper's country or tag membership.</p>\r\n<ul><li><strong>Customer tags:</strong> test matching, non-matching and signed-out customers. Storefront tagged-customer gift auto-add needs the signed-in tag context.</li><li><strong>Countries:</strong> check Include versus Exclude. Excluding US and Canada is not the same as including only a short list of European countries.</li><li><strong>Currencies:</strong> enter each advertised threshold explicitly even where several countries qualify.</li><li><strong>Checkout delivery:</strong> test the final country; it may differ from the initial storefront market.</li></ul>\r\n<p>Test an allowed country, an excluded country and every advertised currency. Also test after a market switch. Total stock across all warehouses does not guarantee that a gift is sellable to that customer. Match public widget copy to the restrictions rather than disabling stock or checkout safeguards to hide a mismatch.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/audience-targeting-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/audience-targeting-2026-10-20.jpg\" alt=\"Expanded Audience Targeting with customer tags, country include and exclude modes and the country selector\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>Empty targeting applies to everyone. Tags and countries narrow that scope; a currency override does not select a country. This unsaved example changes no existing audience.</figcaption></figure>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "theme",
+      "title": "13. Theme Integration Without Guesswork",
+      "parts": [
+        {
+          "html": "\r\n<p>Start with defaults. Open <strong>Settings &gt; Theme integration &gt; Advanced cart integration</strong> only when a custom drawer or cart page needs help. Per-theme embed values override global app settings.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/theme-embed-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/theme-embed-2026-10-20.jpg\" alt=\"Enabled Gift Auto-Add app embed with cart integration fields in the unpublished demo theme editor\" loading=\"lazy\" width=\"1000\" height=\"825\"></a><figcaption>The hidden embed is enabled in this exact draft theme. Its empty selector overrides and Use app setting refresh mode inherit global defaults; no setting was changed for this capture.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/theme-integration-settings-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/theme-integration-settings-2026-10-19.jpg\" alt=\"Expanded Advanced cart integration with container, line and section fields\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Grey example selectors are guidance, not confirmation that they match every theme.</figcaption></figure>\r\n<ol><li>Open the exact theme preview and add a test product.</li><li>Inspect the cart wrapper using browser developer tools. Choose a stable ID, custom element or data attribute.</li><li>Identify the repeating cart-item row separately.</li><li>Enter one verified selector per line. Examples include <code>cart-drawer</code>, <code>#CartDrawer</code>, <code>.cart-item</code> and <code>[data-cart-item]</code>.</li><li>For <code>shopify-section-cart-drawer</code>, enter only <code>cart-drawer</code> as the section ID.</li><li>Change one setting at a time, save and repeat the whole cart cycle.</li></ol>\r\n<div class=\"table-wrap\"><table><thead><tr><th>Mode</th><th>When to use it</th></tr></thead><tbody><tr><td>Use app setting</td><td>The embed inherits the global mode.</td></tr><tr><td>Auto</td><td>The default integration; start here.</td></tr><tr><td>Replace sections</td><td>The theme safely supports replacing configured Shopify cart sections.</td></tr><tr><td>Theme events only</td><td>The theme owns refresh and responds to the cart events.</td></tr></tbody></table></div>\r\n<p>Avoid generated classes, product titles and animation-only selectors. Test add, remove, add again, remove again and checkout, including exact quantities and variant identities. Do not publish an integration whose checkout action changes quantities.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "mystery",
+      "title": "14. Mystery Gifts and Shopify Plus",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "06"
+        },
+        {
+          "html": "\r\n<p>Mystery presentation hides the gift's customer-facing identity on supported surfaces while preserving the <strong>original variant</strong>, SKU, inventory and fulfillment identity. Do not copy SKUs or substitute a dummy non-physical product.</p>\r\n<p>Pro and Plus support eligible storefront-cart mystery presentation for automatic, auto-added 100% gift offers. Checkout mystery additionally requires <strong>Shopify Plus</strong>, <strong>MTD Plus</strong>, granted permissions and a supported configuration. A green permissions badge alone does not make every offer compatible.</p>\r\n<ol><li>Open Gift delivery and Advanced gift settings in Rewards.</li><li>Enable Keep the selected gift a mystery and enter a neutral title.</li><li>Select the presentation surface. If checkout is locked, review the requirements rather than repeatedly saving.</li><li>For checkout, use one cart-value 100% rule, exact gift variants, fixed quantity 1, no extra customer-tag/minimum/maximum/usage limits, and either no combinations or all three. Country targeting and currency overrides must pass the form's compatibility checks.</li><li>Confirm exactly one genuinely free gift and the expected title/image on each selected surface.</li></ol>\r\n<p>MTD verifies current eligibility before masking the marked free line. Older carts, edited campaigns, changed markets and conflicting codes can need cleanup or recovery. Never remove verification simply to silence a checkout error. Staff and fulfillment still receive the real item.</p>\r\n<div class=\"note\">Private technical properties can appear in third-party packing templates. Filter private properties in the template rather than deleting the app's verification data from Shopify.</div>\r\n<figure><a href=\"/docs/multitier-discounts/media/mystery-setup-2026-10-20.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/mystery-setup-2026-10-20.jpg\" alt=\"Mystery Notebook title and surface controls with checkout permission granted but incompatible whole-product selection\" loading=\"lazy\" width=\"1000\" height=\"1111\"></a><figcaption>This unsaved example selects a whole product, so checkout remains unavailable even though permissions are granted. Select exact gift variants and meet the other requirements before using the checkout surface. No permission or activation was changed.</figcaption></figure>\r\n<figure><a href=\"/docs/multitier-discounts/media/mystery-checkout-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/mystery-checkout-2026-10-19.jpg\" alt=\"Verified demo checkout with one free Mystery QA Notebook, one free Sun notebook and five Coral notebooks totaling one hundred twenty US dollars\" loading=\"lazy\" width=\"1904\" height=\"1294\"></a><figcaption>Real Plus demo checkout after the regression fixes: 5 Coral at $120, 1 Sun FREE and 1 Mystery FREE. No order or payment was submitted. Temporary gift campaigns and checkout resources were removed after testing.</figcaption></figure>\r\n<p>This recorded example used the legacy supported claim path on the exact owned Plus demo. It is not evidence that every fast-path rollout, currency, shipping route or payment method was tested. Current instructions preserve the original variant and SKU; the demo's retained quantity offer is separate from these temporary gift tests.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "settings-analytics",
+      "title": "15. Settings and Analytics",
+      "parts": [
+        {
+          "html": "\r\n"
+        },
+        {
+          "tutorialId": "13"
+        },
+        {
+          "html": "\r\n<h3>Global Settings</h3><p><strong>Safety checks</strong> require creator confirmation for discounts at or above a configured percentage between 0 and 100. This is an editing safeguard, not the rate charged to customers. An invalid value shows an explanation and prevents saving.</p>\r\n<p><strong>Gift offer automation</strong> controls eligible code auto-application. <strong>Theme integration</strong> holds advanced cart overrides. <strong>Interface Language</strong> follows Shopify or a selected language. Closing an advanced section preserves its existing custom values when another setting is saved.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/settings-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/settings-2026-10-19.jpg\" alt=\"Current Settings page with safety checks, gift-code automation, theme integration and language\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>Technical selectors are not needed for every first campaign.</figcaption></figure>\r\n<h3>Read Analytics After Orders Are Processed</h3><p>Analytics summarizes recorded uses, discount amounts, affected orders and campaign performance. Adding items to cart or opening checkout does not create an order-use record. Orders before app installation are not included.</p>\r\n<figure><a href=\"/docs/multitier-discounts/media/analytics-2026-10-19.jpg\" target=\"_blank\" rel=\"noopener\"><img src=\"/docs/multitier-discounts/media/analytics-2026-10-19.jpg\" alt=\"Real demo analytics with no processed orders and two demonstration campaigns\" loading=\"lazy\" width=\"1919\" height=\"1248\"></a><figcaption>No data yet is intentional: no test order was submitted. A dash is missing reported data, not estimated revenue.</figcaption></figure>\r\n<p>Campaign-use counts are not conversion attribution or staff session replay. For a disputed order, compare the saved configuration, order timeline, applied discounts and actual lines.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "troubleshooting",
+      "title": "16. Test the Whole Purchase Path",
+      "parts": [
+        {
+          "html": "<span id=\"testing\"></span>\r\n"
+        },
+        {
+          "tutorialId": "12"
+        },
+        {
+          "html": "\r\n<p>Write expected quantities, prices, discounts and totals before testing. Start with a fresh cart and one campaign, then add combinations and targeting.</p>\r\n<div class=\"table-wrap\"><table><thead><tr><th>Case</th><th>Check</th></tr></thead><tbody><tr><td>Below / at / above threshold</td><td>The intended boundary and highest matching tier.</td></tr><tr><td>Unselected product</td><td>No unrelated discount or misleading widget.</td></tr><tr><td>Add, remove, add again, remove again</td><td>No duplicates, stale totals, refresh loops or stuck loaders.</td></tr><tr><td>Manual gift removal</td><td>No immediate forced re-add for the same qualifying cart.</td></tr><tr><td>Repeated units / split lines</td><td>The trigger and per-line cap match the offer.</td></tr><tr><td>Codes / countries / currencies</td><td>Every advertised combination and audience restriction.</td></tr><tr><td>Checkout</td><td>Same variants and quantities, expected $0 gift, correct totals and no blocking warning.</td></tr><tr><td>Mobile</td><td>The drawer and cart actions still work.</td></tr></tbody></table></div>\r\n<details><summary>The gift is missing</summary><div>Check status and dates, the exact theme's embed, campaign auto-add, paid items, currency amounts, country/tags, combinations and stock. Test a fresh cart too: a shopper may have removed the gift manually.</div></details>\r\n<details><summary>I removed Mystery Gift and started a new purchase</summary><div>The unchanged qualifying cart stays suppressed after manual removal. A different qualifying paid-cart fingerprint can receive a new gift. Write down which products, quantities, currency and market changed; an empty cart or a page reload alone does not prove a new eligibility state.</div></details>\r\n<details><summary>The gift is visible but not free</summary><div>Insertion and discounting are separate. Check the actual final price, target, 100% reward, quantity cap and combinations in cart and checkout. A gift label is not proof of a zero price. Stop the test if an unexpected paid gift remains.</div></details>\r\n<details><summary>Cart and checkout disagree</summary><div>Compare variant identities and quantities first, then codes, currency and totals. Some themes submit positional cart updates on checkout. If quantities change, record both states and contact support; do not publish the affected flow.</div></details>\r\n<details><summary>The widget or drawer is stale</summary><div>Check the block, template, active/draft theme and matching campaign before changing selectors. Missing presentation does not by itself prove Shopify pricing failed.</div></details>\r\n<h3>Send a Useful Bug Report</h3><p>Include campaign name, time/timezone, country/currency, product variants, quantities, codes, expected outcome and redacted cart/checkout images. Gift diagnostics can be enabled with <code>?mtdGiftDebug=1</code> and disabled with <code>?mtdGiftDebug=0</code>. Do not share tokens, customer addresses or payment information.</p>\r\n"
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "title": "17. Frequently Asked Questions",
+      "parts": [
+        {
+          "html": "<span id=\"media\"></span>\r\n<details><summary>Does a whole-product selection include future variants?</summary><div>Yes. Choose exact variant rows when only particular SKUs should qualify. Reopen the picker and read the returned summary to distinguish the levels.</div></details>\r\n<details><summary>Can gifts run without a visible widget?</summary><div>Yes. Gift Auto-Add is hidden. The campaign and embed handle insertion; visible widgets explain the offer. The exact storefront theme still needs its embed enabled.</div></details>\r\n<details><summary>Does a free product also mean free shipping?</summary><div>No. Configure the separate shipping reward, then verify delivery rates and combinations. Free shipping and free merchandise are independent benefits.</div></details>\r\n<details><summary>Why did a gift disappear after a cart change?</summary><div>The threshold, market, stock, priority or discount state may no longer qualify. Manual removal can suppress the same gift for an unchanged cart. Reproduce the exact state before changing the campaign.</div></details>\r\n<details><summary>Does MTD choose the fulfillment warehouse?</summary><div>No. The original variant stays on the line. Shopify's inventory, location eligibility, shipping profiles and order-routing settings decide fulfillment.</div></details>\r\n<details><summary>Is Preview enough to approve an offer?</summary><div>No. Preview checks presentation. Real cart and checkout boundary, removal, code and market tests are separate.</div></details>\r\n<details><summary>Can a non-Plus Shopify store use checkout mystery?</summary><div>Not this checkout feature. Shopify Plus and MTD Plus are both required. Storefront-only mystery presentation is a different option with its own requirements.</div></details>\r\n<details><summary>Why does a packing slip contain long technical text?</summary><div>Some templates print private line properties. Ask the template provider to filter them from the printed document without deleting the verification data or changing the SKU.</div></details>\r\n<p>Return to <a href=\"#quick-start\">your first offer</a>, <a href=\"#gifts\">gift setup</a> or the <a href=\"#troubleshooting\">test checklist</a>.</p>\r\n<h3>Quick Glossary</h3><dl><dt><strong>Trigger</strong></dt><dd>The purchase condition that qualifies an offer.</dd><dt><strong>Target</strong></dt><dd>The item or benefit receiving a reward.</dd><dt><strong>Tier</strong></dt><dd>One position, quantity or spend rule; its meaning depends on the selected trigger.</dd><dt><strong>Variant</strong></dt><dd>The actual Shopify SKU/size/color choice, distinct from its parent product.</dd><dt><strong>Automatic / code</strong></dt><dd>How Shopify applies the offer, not whether the app adds a product.</dd><dt><strong>App block / app embed</strong></dt><dd>A visible theme component / a theme-level runtime such as Gift Auto-Add.</dd><dt><strong>Market / currency</strong></dt><dd>Storefront country context / the cart's money unit; one does not configure the other.</dd><dt><strong>MTD Plus / Shopify Plus</strong></dt><dd>The app subscription / Shopify's platform subscription; checkout mystery needs both.</dd></dl>\r\n"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "id": "01",
+      "directory": "01-get-started",
+      "section": "quick-start",
+      "title": "Get Started with MultiTier Discounts on Shopify",
+      "duration": "3:36",
+      "youtubeId": "ozXya3WsQMU",
+      "poster": "/docs/multitier-discounts/tutorials/01-get-started/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/01-get-started/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/01-get-started/captions.en.vtt"
+    },
+    {
+      "id": "02",
+      "directory": "02-quantity-breaks",
+      "section": "quantity-breaks",
+      "title": "How to Create Shopify Quantity Breaks with MultiTier Discounts",
+      "duration": "3:39",
+      "youtubeId": "UZHbPTnrfGQ",
+      "poster": "/docs/multitier-discounts/tutorials/02-quantity-breaks/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/02-quantity-breaks/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/02-quantity-breaks/captions.en.vtt"
+    },
+    {
+      "id": "03",
+      "directory": "03-storefront-widgets",
+      "section": "widgets",
+      "title": "Install Quantity Tiers and Verify Your Shopify Discount Widget",
+      "duration": "3:42",
+      "youtubeId": "opW_bU40dNI",
+      "poster": "/docs/multitier-discounts/tutorials/03-storefront-widgets/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/03-storefront-widgets/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/03-storefront-widgets/captions.en.vtt"
+    },
+    {
+      "id": "04",
+      "directory": "04-cart-progress",
+      "section": "widgets",
+      "title": "Install Cart Progress and Verify a Shopify Spending Offer",
+      "duration": "2:27",
+      "youtubeId": "Tf0xqONliVY",
+      "poster": "/docs/multitier-discounts/tutorials/04-cart-progress/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/04-cart-progress/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/04-cart-progress/captions.en.vtt"
+    },
+    {
+      "id": "05",
+      "directory": "05-gift-auto-add",
+      "section": "gifts",
+      "title": "Create a Gift Offer and Enable Gift Auto-Add on Shopify",
+      "duration": "3:19",
+      "youtubeId": "uY4zaSFcmyc",
+      "poster": "/docs/multitier-discounts/tutorials/05-gift-auto-add/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/05-gift-auto-add/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/05-gift-auto-add/captions.en.vtt"
+    },
+    {
+      "id": "06",
+      "directory": "06-mystery-gift",
+      "section": "mystery",
+      "title": "Create and Verify a Mystery Gift on Shopify Plus",
+      "duration": "4:13",
+      "youtubeId": "-q1VEwQvO3E",
+      "poster": "/docs/multitier-discounts/tutorials/06-mystery-gift/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/06-mystery-gift/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/06-mystery-gift/captions.en.vtt"
+    },
+    {
+      "id": "07",
+      "directory": "07-buy-x-get-y",
+      "section": "buy-x-get-y",
+      "title": "Configure Buy X Get Y on Shopify",
+      "duration": "1:48",
+      "youtubeId": "vsU4_QBbfdQ",
+      "poster": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/captions.en.vtt"
+    },
+    {
+      "id": "08",
+      "directory": "08-full-set",
+      "section": "buy-x-get-y",
+      "title": "Configure a Full Set Discount on Shopify",
+      "duration": "1:50",
+      "youtubeId": "EWS0f7A3E1s",
+      "poster": "/docs/multitier-discounts/tutorials/08-full-set/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/08-full-set/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/08-full-set/captions.en.vtt"
+    },
+    {
+      "id": "09",
+      "directory": "09-cart-value-currencies",
+      "section": "cart-value",
+      "title": "Configure Cart Value and Currency Thresholds",
+      "duration": "1:54",
+      "youtubeId": "Ag8s8T8nJ_M",
+      "poster": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/captions.en.vtt"
+    },
+    {
+      "id": "10",
+      "directory": "10-combinations-schedules-limits",
+      "section": "combinations",
+      "title": "Control Discount Combinations, Schedules and Limits",
+      "duration": "1:58",
+      "youtubeId": "S-JrZp_0KU4",
+      "poster": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/captions.en.vtt"
+    },
+    {
+      "id": "11",
+      "directory": "11-audience-targeting",
+      "section": "audience",
+      "title": "Configure Product and Audience Targeting",
+      "duration": "2:02",
+      "youtubeId": "X-S9ODd0vTU",
+      "poster": "/docs/multitier-discounts/tutorials/11-audience-targeting/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/11-audience-targeting/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/11-audience-targeting/captions.en.vtt"
+    },
+    {
+      "id": "12",
+      "directory": "12-troubleshooting",
+      "section": "troubleshooting",
+      "title": "Troubleshoot Widgets and Custom Cart Drawers",
+      "duration": "2:07",
+      "youtubeId": "1JjAXnWqSjk",
+      "poster": "/docs/multitier-discounts/tutorials/12-troubleshooting/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/12-troubleshooting/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/12-troubleshooting/captions.en.vtt"
+    },
+    {
+      "id": "13",
+      "directory": "13-analytics-plans",
+      "section": "settings-analytics",
+      "title": "Understand Analytics and Choose the Right MTD Plan",
+      "duration": "2:05",
+      "youtubeId": "dXUZQbYtcxk",
+      "poster": "/docs/multitier-discounts/tutorials/13-analytics-plans/thumbnail.jpg",
+      "width": 1280,
+      "height": 720,
+      "transcript": "/docs/multitier-discounts/tutorials/13-analytics-plans/transcript.md",
+      "captions": "/docs/multitier-discounts/tutorials/13-analytics-plans/captions.en.vtt"
+    }
+  ]
+}

@@ -25,8 +25,8 @@ export default function QuantityBreaksGuidePage() {
       description={description}
       category="Promotion operations"
       readingTime="9 min read"
-      reviewed="6 November 2026"
-      reviewedIso="2026-11-06"
+      reviewed="11 November 2026"
+      reviewedIso="2026-11-11"
       published="27 July 2026"
       publishedIso="2026-07-27"
       illustration={guideIllustrations.quantityBreaks}

@@ -1,0 +1,9 @@
+Scope: specified migration of the existing public MTD manual into MerchantCanvas. Mode: Read.
+Keep the MerchantCanvas visual world and existing manual content, IDs, cautions and tutorial catalog.
+THESIS: A complete merchant manual, not a second sales landing page.
+OWN-WORLD: MerchantCanvas tokens, existing sans, light/dark, ruled reading sections.
+STORY: Find a campaign task, follow demo steps, watch only when needed, test the real cart.
+FIRST VIEWPORT: Compact title and source edition note, product/help links, contents beside the first chapter.
+FORM: Precisely specified anchored manual, 17 sections and 13 tutorials. No concept tournament or seed; no new/replacement visual world.
+The source host stays unchanged and reachable. No MTD/app/auth/email/account changes.
+Known original status remains design-preview/demo. A new host is not a production-feature certification.

@@ -28,6 +28,8 @@ test("renders every required public route with metadata", async () => {
     "/apps",
     "/apps/multitier-discounts",
     "/apps/b2b-quote-approvals",
+    "/docs",
+    "/docs/multitier-discounts",
     "/resources",
     "/resources/shopify-quantity-breaks-guide",
     "/resources/shopify-quantity-breaks-video",
@@ -80,6 +82,7 @@ test("ships crawler, AI summary, sitemap, evidence, and Pages assets", async () 
   assert.match(llms, /\$24\.99\/month/);
   assert.match(sitemap, /shopify-quantity-breaks-guide/);
   assert.match(sitemap, /shopify-b2b-quote-approval-workflow/);
+  assert.match(sitemap, /https:\/\/merchantcanvas\.com\/docs\/multitier-discounts/);
 });
 
 test("ships accessible form defaults and product answer markup", async () => {

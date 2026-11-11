@@ -1,0 +1,728 @@
+{
+  "date": "2026-11-11",
+  "operation": "read-only source import into MerchantCanvas; old source/host retained",
+  "sourceRoot": "F:\\Shopify\\multi-tier-discounts\\public",
+  "sourceUrl": "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
+  "sourceSha256": "4a144528140b2a61bbca97267c42d7c2409d5e9ff23728cb93c64f0255bfb418",
+  "sourceBytes": 59255,
+  "catalogSha256": "86b212c26947bdb1dc58334affaa60f9bc4afb813a3d66d2ec1f402ca38237df",
+  "publicComparison": [
+    {
+      "kind": "guide",
+      "url": "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
+      "status": 200,
+      "localSha256": "4a144528140b2a61bbca97267c42d7c2409d5e9ff23728cb93c64f0255bfb418",
+      "liveSha256": "2f1ee207bcd9c094e1dc7b6597b8c3fdc1d0e367d2e8f7d18dd8e7deb604cbcf",
+      "exactBytesEqual": false,
+      "normalizedEqual": true,
+      "liveBytes": 59017
+    },
+    {
+      "kind": "catalog",
+      "url": "https://multi-tier-discounts.barisarslan.com.tr/user-guide-videos.json",
+      "status": 200,
+      "localSha256": "86b212c26947bdb1dc58334affaa60f9bc4afb813a3d66d2ec1f402ca38237df",
+      "liveSha256": "86b212c26947bdb1dc58334affaa60f9bc4afb813a3d66d2ec1f402ca38237df",
+      "exactBytesEqual": true,
+      "normalizedEqual": true,
+      "liveBytes": 2350
+    }
+  ],
+  "output": "app/content/mtd-guide.json",
+  "counts": {
+    "sections": 17,
+    "tutorials": 13,
+    "guideImages": 29,
+    "tutorialPosters": 13,
+    "transcripts": 13,
+    "captions": 13,
+    "assets": 68
+  },
+  "sourceIds": [
+    "plans",
+    "quick-start",
+    "tutorial-01",
+    "concepts",
+    "campaigns",
+    "quantity-breaks",
+    "tutorial-02",
+    "product-selection",
+    "buy-x-get-y",
+    "tutorial-07",
+    "tutorial-08",
+    "gifts",
+    "tutorial-05",
+    "cart-value",
+    "shipping",
+    "tutorial-09",
+    "widgets",
+    "tutorial-03",
+    "tutorial-04",
+    "launch",
+    "combinations",
+    "tutorial-10",
+    "audience",
+    "tutorial-11",
+    "theme",
+    "mystery",
+    "tutorial-06",
+    "settings-analytics",
+    "tutorial-13",
+    "troubleshooting",
+    "testing",
+    "tutorial-12",
+    "faq",
+    "media"
+  ],
+  "importedIds": [
+    "plans",
+    "quick-start",
+    "tutorial-01",
+    "concepts",
+    "campaigns",
+    "quantity-breaks",
+    "tutorial-02",
+    "product-selection",
+    "buy-x-get-y",
+    "tutorial-07",
+    "tutorial-08",
+    "gifts",
+    "tutorial-05",
+    "cart-value",
+    "shipping",
+    "tutorial-09",
+    "widgets",
+    "tutorial-03",
+    "tutorial-04",
+    "launch",
+    "combinations",
+    "tutorial-10",
+    "audience",
+    "tutorial-11",
+    "theme",
+    "mystery",
+    "tutorial-06",
+    "settings-analytics",
+    "tutorial-13",
+    "troubleshooting",
+    "testing",
+    "tutorial-12",
+    "faq",
+    "media"
+  ],
+  "preservedSectionText": true,
+  "tutorialDetailsReplacedWithSlots": true,
+  "imageDimensions": "native JPEG/PNG headers; no image editing or packages",
+  "trustedHtmlTags": [
+    "a",
+    "b",
+    "br",
+    "caption",
+    "code",
+    "dd",
+    "details",
+    "div",
+    "dl",
+    "dt",
+    "em",
+    "figcaption",
+    "figure",
+    "h3",
+    "i",
+    "img",
+    "li",
+    "ol",
+    "p",
+    "span",
+    "strong",
+    "summary",
+    "table",
+    "tbody",
+    "td",
+    "th",
+    "thead",
+    "tr",
+    "ul"
+  ],
+  "trustedHtmlAttributes": [
+    "alt",
+    "class",
+    "colspan",
+    "height",
+    "href",
+    "id",
+    "loading",
+    "open",
+    "rel",
+    "rowspan",
+    "scope",
+    "src",
+    "target",
+    "width"
+  ],
+  "copiedMp4": false,
+  "sourceModified": false,
+  "published": false,
+  "assets": [
+    {
+      "source": "user-guide-assets/billing-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/billing-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 149064,
+      "sha256": "fba7f591c50c366e6872dcfc140edd1bd3cdcbafca7098b87ded2163b9eadf95",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/campaigns-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/campaigns-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 101483,
+      "sha256": "edd1d9900822d826e0c764a3007166a436436ead695cb104edc876674af41a78",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/picker-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/picker-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 139741,
+      "sha256": "186a26567e3406c368f8516048180c1a4da4b3c654eae7bccdccaf25df999227",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/offer-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/offer-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 79958,
+      "sha256": "7588a607750325f302a203c38463be152ad2554ee08b8ace84922cc8da28ba24",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/conditions-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/conditions-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 74231,
+      "sha256": "03159c5636aa30d26c9e245184a6f37b073cc617e301cb7af06847700d123304",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/rewards-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/rewards-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 129959,
+      "sha256": "d59c872af081fc57e718cd2d3ebf165f8d68db759897b36b23c5c700f81425c3",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/review-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/review-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 125044,
+      "sha256": "0b9da0e1ae9310e2467d722c0d1aa39cf9a6c890164656a31049501f5e9d7534",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/quantity-setup-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/quantity-setup-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 144899,
+      "sha256": "dcc7612f22992757ba79a68fe846f8b9065032a23f6fa432c2056873b9944a57",
+      "width": 1695,
+      "height": 1186
+    },
+    {
+      "source": "user-guide-assets/quantity-widget-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/quantity-widget-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 61151,
+      "sha256": "697f36511551164ea4d9d65d4eb9a49a07b20e59d4152327728dc0853bc730d7",
+      "width": 1420,
+      "height": 880
+    },
+    {
+      "source": "user-guide-assets/quantity-cart-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/quantity-cart-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 38269,
+      "sha256": "4d2d8142b36d2d402fdf4d703cd426c34a38f78adbc269ee4856d5e85474cedd",
+      "width": 1420,
+      "height": 780
+    },
+    {
+      "source": "user-guide-assets/quantity-checkout-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/quantity-checkout-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 16904,
+      "sha256": "ea513d9fc451009697c6520d86b327122476fb0d90f3896bec4086045804a5b5",
+      "width": 880,
+      "height": 700
+    },
+    {
+      "source": "user-guide-assets/price-positions-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/price-positions-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 83701,
+      "sha256": "1a7eb0c5cf31851c6a49ffc7185678fd521008ed50b2de13ea3fcb676e49f8f2",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/product-picker-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/product-picker-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 48540,
+      "sha256": "3fc4f5ed1631ec1ac01981d021da0e56f2737ce6a6a0a2ebcae57eeef3a86b62",
+      "width": 1919,
+      "height": 975
+    },
+    {
+      "source": "user-guide-assets/buy-x-get-y-setup-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/buy-x-get-y-setup-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 81555,
+      "sha256": "0a619831bf691353628649310335cf0ad0bf9e3db0b9f84581cf35ac625a4fa6",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/full-set-setup-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/full-set-setup-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 119393,
+      "sha256": "51343eae55ef5f899312869376114cc3f39517a83f4ae3af135531fed0e863eb",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/gift-delivery-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/gift-delivery-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 125077,
+      "sha256": "478b2d1c27d96e76cf9d7c5eb758f1535022645dbb4ce21340a397a8b0b7c73c",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/gift-cart-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/gift-cart-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 71823,
+      "sha256": "21970b95c5177484f52f950f93f88bd91709ab4252d13ac9b59c8b42c703015e",
+      "width": 1904,
+      "height": 1238
+    },
+    {
+      "source": "user-guide-assets/currency-thresholds-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/currency-thresholds-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 119394,
+      "sha256": "228757772ad39ac1c3c74890c1d4027d8df7f085e147028cbefdaaa08bb75e99",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/shipping-tier-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/shipping-tier-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 125507,
+      "sha256": "08dd681bb58a9e30c3ec8d572c62e99dc9038f638c98de3080a231e2e0cc85c7",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/theme-blocks-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/theme-blocks-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 215219,
+      "sha256": "6c05b45ec80f2e9efc84f4c5f1dc29cc5bdd7ca8176a06d006bed8b161b01300",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/cart-progress-below-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/cart-progress-below-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 72599,
+      "sha256": "8f80ef3c1cec40caeec184ce2859cb37572e94153ef488dee91113f7db07ef8e",
+      "width": 1904,
+      "height": 1238
+    },
+    {
+      "source": "user-guide-assets/combinations-limits-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/combinations-limits-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 92347,
+      "sha256": "a004c4890f4c474d83054f301b8ba7c4db71174e4727943143ed8db89f4718a7",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/audience-targeting-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/audience-targeting-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 112255,
+      "sha256": "513d67eebc56c14e73798055a8f5da3ef079652b86da667342f7ccb3e42ee979",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/theme-embed-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/theme-embed-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 55660,
+      "sha256": "9659f7e3729fb1aecbc0775afcba2cf2cacd34c65c3a809aa3c861ba0074cd52",
+      "width": 1000,
+      "height": 825
+    },
+    {
+      "source": "user-guide-assets/theme-integration-settings-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/theme-integration-settings-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 151958,
+      "sha256": "153114e87474d33f59dac3677dc9d5dd31dc3138ed34532c40535ab90ae9aa9d",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/mystery-setup-2026-10-20.jpg",
+      "path": "/docs/multitier-discounts/media/mystery-setup-2026-10-20.jpg",
+      "kind": "guide-image",
+      "bytes": 145815,
+      "sha256": "302be275ee17f32126840de3c0ef09f27224527a4e78195a3d9cee1e84266a20",
+      "width": 1000,
+      "height": 1111
+    },
+    {
+      "source": "user-guide-assets/mystery-checkout-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/mystery-checkout-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 90231,
+      "sha256": "c32d0d132c4162073ddd3fa715163c966a5126160c153c71ed8a6b77c7eb8d79",
+      "width": 1904,
+      "height": 1294
+    },
+    {
+      "source": "user-guide-assets/settings-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/settings-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 116634,
+      "sha256": "4a5dac20454ae4d8e234662bb8d7082b8fde58911fd89288cbfbd1fcbe512109",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-assets/analytics-2026-10-19.jpg",
+      "path": "/docs/multitier-discounts/media/analytics-2026-10-19.jpg",
+      "kind": "guide-image",
+      "bytes": 96432,
+      "sha256": "8d71ed26856b432b4aa40dc02f26780a2c7bbd1844e44936e0ec0c8677d28c26",
+      "width": 1919,
+      "height": 1248
+    },
+    {
+      "source": "user-guide-videos/01-get-started/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/01-get-started/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 72591,
+      "sha256": "85713928d3b6b40639cd1157a92125e9d4649ace03c2905ead02fd85c7994d99",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/01-get-started/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/01-get-started/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 3582,
+      "sha256": "a0239f38d16a351f529cc70ace8642e9195603cf1b7e14b2834b5445fc17f49e"
+    },
+    {
+      "source": "user-guide-videos/01-get-started/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/01-get-started/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 4464,
+      "sha256": "f09798a2b1a2d9878f85424a1fe553d2244a33d142942d9b5637a3f9aa14a2b9"
+    },
+    {
+      "source": "user-guide-videos/02-quantity-breaks/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/02-quantity-breaks/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 62026,
+      "sha256": "eba5505d693b470382ad4efcea315ca49aca0aaf4e7daf3d347a38f52e10b2cb",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/02-quantity-breaks/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/02-quantity-breaks/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 3553,
+      "sha256": "35b98e8fb33e40d6d8d5375f22aafa8179e947446b124ee034d2e5395b9c8ade"
+    },
+    {
+      "source": "user-guide-videos/02-quantity-breaks/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/02-quantity-breaks/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 4744,
+      "sha256": "3f6df0f06134e6d35b34e07d620c19017373ef2f9d87cc3febaed69cfcb8ab80"
+    },
+    {
+      "source": "user-guide-videos/03-storefront-widgets/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/03-storefront-widgets/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 58222,
+      "sha256": "20159234e6359a324a69496a051e91beef08e4690a560b1665fdf649a59ae4e5",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/03-storefront-widgets/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/03-storefront-widgets/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 3723,
+      "sha256": "d6401d004e1b1f3f0aa97a3def1e35b5361da87dfceed69f50dbbb6cb8e4e471"
+    },
+    {
+      "source": "user-guide-videos/03-storefront-widgets/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/03-storefront-widgets/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 4825,
+      "sha256": "b720f5034e71ad8c4f0d873a10d6e84675ec152a88540026a5e46e305ab744de"
+    },
+    {
+      "source": "user-guide-videos/04-cart-progress/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/04-cart-progress/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 55376,
+      "sha256": "24256f0b9c7f10c954714eccc70534d3c89c703691d9f608622a89b3a6ecd357",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/04-cart-progress/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/04-cart-progress/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 2511,
+      "sha256": "589a59da9738c5fda880daf27b3691493c973427a381320eca128e68e8404f5d"
+    },
+    {
+      "source": "user-guide-videos/04-cart-progress/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/04-cart-progress/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 3142,
+      "sha256": "687bd35965edec19dd6d75acfbf544a1171292a66859a0d4fe7f2da6a5d69a2e"
+    },
+    {
+      "source": "user-guide-videos/05-gift-auto-add/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/05-gift-auto-add/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 44176,
+      "sha256": "7419060cbf4ed3e46e7f25745c21ab6dbcfe6b42437292c7b780de577cac520f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/05-gift-auto-add/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/05-gift-auto-add/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 3297,
+      "sha256": "092e1c95fad1009e39dcee28a25968e1c9a64149dfb3334c42ba2f98c2e497b9"
+    },
+    {
+      "source": "user-guide-videos/05-gift-auto-add/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/05-gift-auto-add/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 4230,
+      "sha256": "29fc036103449edafece8d978edeb9bc7c0fdb31b7092d11aa17a80345dd0459"
+    },
+    {
+      "source": "user-guide-videos/06-mystery-gift/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/06-mystery-gift/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 51032,
+      "sha256": "1c25f74ce8cba81d1fd0e9bd8559a936be85e822340c75ede666b9871e2ece90",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/06-mystery-gift/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/06-mystery-gift/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 4136,
+      "sha256": "d77939be6b1c36f1719678418d2cab37e0a4e352d73d7fdbc79045d2b08a3397"
+    },
+    {
+      "source": "user-guide-videos/06-mystery-gift/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/06-mystery-gift/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 5273,
+      "sha256": "2aac2ec4d36850e9423c7c2ff7b29f4122b1bfe6bd1daf75cfba7eb3b290a282"
+    },
+    {
+      "source": "user-guide-videos/07-buy-x-get-y/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 58715,
+      "sha256": "3a415d630da5a8cd05fb0e60a3021c6e8ca0d87e2bbd3a31870450fe49ee94c0",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/07-buy-x-get-y/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 1886,
+      "sha256": "88b979074db4ed0387a37e67bcad14aa70016921158ee15404f5632cbdc9ab67"
+    },
+    {
+      "source": "user-guide-videos/07-buy-x-get-y/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/07-buy-x-get-y/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2316,
+      "sha256": "cfe2a7e915593c5e1850908629b8cc4ca0ceba1e56512b4a8fd241d8dcad9978"
+    },
+    {
+      "source": "user-guide-videos/08-full-set/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/08-full-set/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 69232,
+      "sha256": "0c5ec73c538982f8742910707bda22110f90413f6a398a7e52d63581cc513476",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/08-full-set/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/08-full-set/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 1937,
+      "sha256": "ba940c8e71cec91b6c549f05ce0cbd383607a50de0e2a20235d6d83303b94621"
+    },
+    {
+      "source": "user-guide-videos/08-full-set/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/08-full-set/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2274,
+      "sha256": "a03e00163d29a29a239b3fe9bf25e6964481e8b9cfc615981ccd29296439ac40"
+    },
+    {
+      "source": "user-guide-videos/09-cart-value-currencies/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 63194,
+      "sha256": "3e77126a5ea571a1fbe3ce95ef756210caab8ed0f49ae3b03e364671e8a00052",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/09-cart-value-currencies/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 1915,
+      "sha256": "3a53959f2195ccf8db2b5cc66e90dd21d91a7ba6e442a6203233585ff380da78"
+    },
+    {
+      "source": "user-guide-videos/09-cart-value-currencies/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/09-cart-value-currencies/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2302,
+      "sha256": "617ca82c27102289f6ac38770eea78d9c1aa3e50be9c56400f2374458eeb2347"
+    },
+    {
+      "source": "user-guide-videos/10-combinations-schedules-limits/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 68752,
+      "sha256": "0a831e3a6b7eca874f528568235df898a5be3666749cd6f45f438a2143b4128e",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/10-combinations-schedules-limits/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 2044,
+      "sha256": "3e4506baa2c7a7ab471d7de958d465e653a407276dc395af72e41abbef8f3022"
+    },
+    {
+      "source": "user-guide-videos/10-combinations-schedules-limits/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/10-combinations-schedules-limits/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2440,
+      "sha256": "5ed0dbc458cb924a1f134e25f277c4efd6b71a74711228bdf52fee6945bf5e8f"
+    },
+    {
+      "source": "user-guide-videos/11-audience-targeting/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/11-audience-targeting/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 67479,
+      "sha256": "8952e4ecbe1dea7d7399405252643c76e3f8eee10bfabf600ffd51840bff027e",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/11-audience-targeting/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/11-audience-targeting/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 2065,
+      "sha256": "347e4583b382fe55d6e4f8fb3dd4493a12835659b23c498e5a90788688152eeb"
+    },
+    {
+      "source": "user-guide-videos/11-audience-targeting/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/11-audience-targeting/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2504,
+      "sha256": "8e56e8f4afd6ee2cb127de9dec9ca78e45b2d72e3b628b4162ca23ba9aa15d27"
+    },
+    {
+      "source": "user-guide-videos/12-troubleshooting/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/12-troubleshooting/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 71648,
+      "sha256": "9bd59cab980bdc29154b690e7fc43f66feb0a1780b785345a9f06f6c40805922",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/12-troubleshooting/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/12-troubleshooting/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 2145,
+      "sha256": "c1c835cb103100c383a11a5ad53da1fd9e327bb9d971f66ef0d87c6ca77af089"
+    },
+    {
+      "source": "user-guide-videos/12-troubleshooting/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/12-troubleshooting/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2612,
+      "sha256": "0d04b80ab92b0cbd87b0fed6933ad6fe8dfe0054dd095d20cc8700c711956fff"
+    },
+    {
+      "source": "user-guide-videos/13-analytics-plans/thumbnail.jpg",
+      "path": "/docs/multitier-discounts/tutorials/13-analytics-plans/thumbnail.jpg",
+      "kind": "tutorial-poster",
+      "bytes": 86023,
+      "sha256": "d109d01d1e1e6503a6fe18a4d73a2bbdb4971bfe702d33aee96515e09f4b541e",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "source": "user-guide-videos/13-analytics-plans/transcript.md",
+      "path": "/docs/multitier-discounts/tutorials/13-analytics-plans/transcript.md",
+      "kind": "tutorial-transcript",
+      "bytes": 2134,
+      "sha256": "fd9d7fc83b6882e75a251a3bd3a7fc1669a680f11cc6cc39c4ad9f0be456ccf4"
+    },
+    {
+      "source": "user-guide-videos/13-analytics-plans/captions.en.vtt",
+      "path": "/docs/multitier-discounts/tutorials/13-analytics-plans/captions.en.vtt",
+      "kind": "tutorial-captions",
+      "bytes": 2594,
+      "sha256": "6e15fc8d626b59b2f13e8df52956e5d64735a7fa000855671e48d1e96bb07e05"
+    }
+  ]
+}

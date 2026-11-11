@@ -1,0 +1,219 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.745
+Let's build a Mystery Gift in the Fieldnote demo
+store. Spend fifty dollars and receive one free gift,
+
+2
+00:00:06.745 --> 00:00:08.244
+displayed as Mystery Notebook.
+
+3
+00:00:08.594 --> 00:00:15.676
+Cart and checkout presentation requires a Shopify Plus
+store, the MTD Plus plan, granted checkout permissions
+
+4
+00:00:15.676 --> 00:00:20.988
+and a supported gift campaign. Storefront cart only is
+a separate option.
+
+5
+00:00:21.338 --> 00:00:28.291
+We will use an unpublished theme copy and a temporary
+campaign, leaving the existing demo setup unchanged.
+
+6
+00:00:29.341 --> 00:00:35.737
+Create a new Gift offer, give it a descriptive name
+and keep it automatic. In Conditions, choose Cart
+
+7
+00:00:35.737 --> 00:00:36.093
+value.
+
+8
+00:00:36.443 --> 00:00:42.682
+In Rewards, set the minimum to fifty U.S. dollars and
+the gift discount to one hundred percent.
+
+9
+00:00:43.032 --> 00:00:50.202
+Select the exact Cobalt and Sun variants for the gift
+pool. Checkout mystery needs explicit variants, not
+
+10
+00:00:50.202 --> 00:00:54.841
+just a whole-product selection. Only one eligible gift
+will be delivered.
+
+11
+00:00:55.191 --> 00:01:01.913
+Our temporary Gift Notebook has three editions. Tick
+Cobalt and Sun individually, and leave Coral
+
+12
+00:01:01.913 --> 00:01:08.187
+unselected. The product's parent checkbox selects the
+whole product, not this exact variant pool.
+
+13
+00:01:09.237 --> 00:01:15.757
+Open Gift delivery and choose Random one from selected
+gifts. Keep a fixed quantity of one. Automatic
+
+14
+00:01:15.757 --> 00:01:18.059
+addition is enabled for this mode.
+
+15
+00:01:18.409 --> 00:01:24.838
+In Advanced gift settings, turn on Keep the selected
+gift a mystery. Enter Mystery Notebook and choose
+
+16
+00:01:24.838 --> 00:01:26.351
+Storefront cart and checkout.
+
+17
+00:01:26.701 --> 00:01:33.628
+For this walkthrough, keep the original product image.
+The product title is neutral, but the image and
+
+18
+00:01:33.628 --> 00:01:39.740
+variant label can still identify the selection. A
+neutral image is a separate presentation choice.
+
+19
+00:01:40.090 --> 00:01:46.423
+If checkout is locked, check the displayed plan,
+permissions and campaign requirements. Do not remove
+
+20
+00:01:46.423 --> 00:01:50.222
+safeguards or change unrelated settings to force it
+on.
+
+21
+00:01:51.272 --> 00:01:58.597
+Review the fifty-dollar threshold, one hundred percent
+reward, exact variant pool and fixed gift quantity.
+
+22
+00:01:58.597 --> 00:02:04.456
+Keep extra targeting, limits and discount combinations
+unchanged for this isolated example.
+
+23
+00:02:04.806 --> 00:02:11.839
+Save the campaign as an inactive draft. Reopen it and
+confirm the title, checkout surface and pool were
+
+24
+00:02:11.839 --> 00:02:13.402
+saved before activating it.
+
+25
+00:02:13.752 --> 00:02:20.838
+Different currencies, countries and discount codes
+need their own tests. This U.S. dollar demonstration
+
+26
+00:02:20.838 --> 00:02:23.874
+does not certify every checkout configuration.
+
+27
+00:02:24.924 --> 00:02:31.922
+Make sure Gift Auto-Add is enabled and saved in the
+theme you are previewing. This is an app embed,
+
+28
+00:02:31.922 --> 00:02:35.973
+separate from the discount widgets. Then activate only
+this test campaign.
+
+29
+00:02:36.323 --> 00:02:42.439
+Start with an empty cart. Two Coral notebooks cost
+forty-eight dollars, so no mystery gift should be
+
+30
+00:02:42.439 --> 00:02:42.799
+added.
+
+31
+00:02:43.149 --> 00:02:49.145
+Increase Coral to three. The paid purchase is now
+seventy-two dollars. One Mystery Notebook should
+
+32
+00:02:49.145 --> 00:02:55.542
+appear free before you press checkout. Wait for the
+actual gift result before checking its price.
+
+33
+00:02:56.592 --> 00:03:04.416
+Open the real checkout. Confirm three Coral notebooks
+and exactly one free Mystery Notebook. The merchandise
+
+34
+00:03:04.416 --> 00:03:06.372
+amount remains seventy-two dollars.
+
+35
+00:03:06.722 --> 00:03:13.789
+Mystery presentation changes the shopper-facing title,
+not the original product variant or SKU used for
+
+36
+00:03:13.789 --> 00:03:17.558
+fulfillment. It does not create a replacement product.
+
+37
+00:03:17.908 --> 00:03:24.942
+Check quantities and the free price, not only the
+title. Stop if the gift is charged or a warning blocks
+
+38
+00:03:24.942 --> 00:03:29.162
+checkout. We enter no customer or payment details and
+place no order.
+
+39
+00:03:30.212 --> 00:03:36.673
+Return to the cart and manually remove Mystery
+Notebook. It should stay removed for the unchanged
+
+40
+00:03:36.673 --> 00:03:39.096
+paid purchase, including after a refresh.
+
+41
+00:03:39.446 --> 00:03:46.533
+Change the paid quantity from three Coral notebooks to
+four. This new qualifying purchase can receive one
+
+42
+00:03:46.533 --> 00:03:48.617
+gift again, without duplicate gifts.
+
+43
+00:03:48.967 --> 00:03:55.034
+Remove the paid purchase and confirm the gift is
+cleaned up. Repeat the qualifying add and removal
+
+44
+00:03:55.034 --> 00:03:57.532
+check, then finish with an empty cart.
+
+45
+00:03:57.882 --> 00:04:04.638
+After filming, we remove only our temporary campaign,
+theme and checkout test resources. Existing campaigns
+
+46
+00:04:04.638 --> 00:04:11.844
+remain unchanged. Keep your own launch inactive until
+your intended markets and codes pass their checks.

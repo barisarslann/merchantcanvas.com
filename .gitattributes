@@ -1,0 +1,3 @@
+# Imported tutorial text is hash-verified like the media it accompanies.
+# Preserve its exact bytes on Windows and on the Cloudflare Linux checkout.
+public/docs/multitier-discounts/tutorials/** -text

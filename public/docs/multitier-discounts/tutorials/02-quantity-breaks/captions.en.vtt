@@ -1,0 +1,206 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.173
+Let's build a quantity break with MultiTier Discounts,
+using our Fieldnote demo store.
+
+2
+00:00:05.523 --> 00:00:12.337
+The Cobalt notebook costs eighteen dollars. Two units
+receive ten percent off. Three or more receive fifteen
+
+3
+00:00:12.337 --> 00:00:13.139
+percent off.
+
+4
+00:00:13.489 --> 00:00:19.676
+We'll review the setup, then check the product widget,
+cart and actual checkout. We won't place an order.
+
+5
+00:00:20.726 --> 00:00:25.357
+From All Campaigns, choose Create New Campaign, then
+the Quantity breaks starter.
+
+6
+00:00:25.707 --> 00:00:31.893
+Give the offer a clear name. Use Automatic execution
+and a percentage discount for this example.
+
+7
+00:00:32.243 --> 00:00:39.463
+A recipe only fills in starting values. It doesn't
+save or activate a campaign, so review every step
+
+8
+00:00:39.463 --> 00:00:40.265
+before publishing.
+
+9
+00:00:41.315 --> 00:00:46.583
+In Conditions, choose Quantity Breaks and select only
+the Cobalt notebook in Products.
+
+10
+00:00:46.933 --> 00:00:53.687
+Confirm the picker and wait for the selected product
+summary. Leaving this optional filter empty would make
+
+11
+00:00:53.687 --> 00:00:54.879
+the offer broader.
+
+12
+00:00:55.229 --> 00:01:01.294
+Quantity breaks evaluate each qualifying cart line
+separately. Two different products with one unit each
+
+13
+00:01:01.294 --> 00:01:03.719
+do not make a two-unit line.
+
+14
+00:01:04.069 --> 00:01:10.095
+Use a price-position offer instead when you want
+separate rewards on the second and third product.
+
+15
+00:01:11.145 --> 00:01:16.456
+In Rewards, set the first minimum quantity to two and
+its discount to ten percent.
+
+16
+00:01:16.806 --> 00:01:23.077
+Set the next minimum to three and its discount to
+fifteen percent. Remove unused recipe tiers.
+
+17
+00:01:23.427 --> 00:01:29.637
+These numbers are quantity thresholds, not product
+positions. The highest matching tier wins; ten and
+
+18
+00:01:29.637 --> 00:01:32.120
+fifteen percent are not added together.
+
+19
+00:01:32.470 --> 00:01:38.553
+At three units, all three notebooks receive the
+fifteen-percent rate when discounted quantity is
+
+20
+00:01:38.553 --> 00:01:38.988
+unlimited.
+
+21
+00:01:40.038 --> 00:01:46.020
+In Review and launch, check the selected product, both
+tiers, schedule and combination settings.
+
+22
+00:01:46.370 --> 00:01:53.352
+In Quantity and Sorting, zero means unlimited
+discounted units per line. Keep the test free of other
+
+23
+00:01:53.352 --> 00:01:53.762
+discounts.
+
+24
+00:01:54.112 --> 00:02:00.031
+Save as an inactive draft, then reopen it to confirm
+the selection and tier values persisted.
+
+25
+00:02:00.381 --> 00:02:06.737
+Our new draft stays inactive. The storefront
+demonstration uses the existing identical demo offer,
+
+26
+00:02:06.737 --> 00:02:09.915
+so we don't enable two overlapping campaigns.
+
+27
+00:02:10.965 --> 00:02:17.374
+Open the Cobalt product in the demo theme. Quantity
+Tiers shows the offer beside the purchase controls.
+
+28
+00:02:17.724 --> 00:02:23.579
+One unit is eighteen dollars. At two units, the total
+is thirty-two dollars and forty cents.
+
+29
+00:02:23.929 --> 00:02:30.601
+Choose three units. Fifteen percent off fifty-four
+dollars saves eight dollars and ten cents, leaving
+
+30
+00:02:30.601 --> 00:02:32.824
+forty-five dollars and ninety cents.
+
+31
+00:02:33.174 --> 00:02:39.581
+The widget explains the offer, but the cart and
+checkout must confirm the real result. Add three
+
+32
+00:02:39.581 --> 00:02:39.958
+notebooks.
+
+33
+00:02:41.008 --> 00:02:47.443
+In the cart, confirm three Cobalt notebooks, eight
+dollars and ten cents saved, and forty-five dollars
+
+34
+00:02:47.443 --> 00:02:49.454
+and ninety cents in merchandise.
+
+35
+00:02:49.804 --> 00:02:55.680
+Continue to checkout and compare the same product,
+quantity, discount and merchandise amount.
+
+36
+00:02:56.030 --> 00:03:02.880
+Tax and delivery may be separate. Opening checkout is
+a test, not a completed order. Don't enter payment
+
+37
+00:03:02.880 --> 00:03:04.402
+details for this walkthrough.
+
+38
+00:03:05.452 --> 00:03:11.362
+Return to the cart and reduce the qualifying line to
+one. Its quantity discount should disappear.
+
+39
+00:03:11.712 --> 00:03:18.189
+Remove the notebook and test the Coral product outside
+the selected scope. This offer must not discount
+
+40
+00:03:18.189 --> 00:03:18.570
+Coral.
+
+41
+00:03:18.920 --> 00:03:25.844
+Finish with an empty test cart. Your own launch checks
+should also cover four units, split lines, mobile, and
+
+42
+00:03:25.844 --> 00:03:28.759
+any codes or markets you intend to support.
+
+43
+00:03:29.109 --> 00:03:35.691
+Use the written quantity-break guide to repeat these
+checks. Only activate your own offer once its real
+
+44
+00:03:35.691 --> 00:03:38.014
+cart and checkout match the promise.

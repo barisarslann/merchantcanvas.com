@@ -1,0 +1,86 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.593
+A full-set offer waits for all configured tier
+targets, rather than discounting any two unrelated
+
+2
+00:00:05.593 --> 00:00:11.931
+products. In this example, Coral is the starting
+product and Sun is the required second product. We
+
+3
+00:00:11.931 --> 00:00:18.642
+will configure ten percent for the trigger and twenty
+percent for Sun. Choose Tiered discount, name the test
+
+4
+00:00:18.642 --> 00:00:24.981
+and use percentage rewards. Keep this as a separate
+draft instead of editing an existing live campaign.
+
+5
+00:00:26.031 --> 00:00:33.217
+In Conditions, choose Products or variants and select
+Coral. Turn on Apply only when full set is in cart.
+
+6
+00:00:33.217 --> 00:00:39.269
+This controls eligibility. Apply discount to trigger
+products is a separate decision: enable it and enter
+
+7
+00:00:39.269 --> 00:00:45.321
+ten percent only because this example includes a
+reward for Coral itself. Leaving that second switch
+
+8
+00:00:45.321 --> 00:00:50.616
+off would not give Coral its own discount. Neither
+switch selects Sun for you.
+
+9
+00:00:51.666 --> 00:00:58.033
+In Rewards, enter twenty percent for Tier Two and
+select Sun under Required Products for This Tier.
+
+10
+00:00:58.033 --> 00:01:05.149
+Check the returned product card. Leaving an optional
+target list empty can broaden the rule, so do not skip
+
+11
+00:01:05.149 --> 00:01:10.392
+this selection. Review the complete-set requirement,
+separate trigger rate and Sun reward together, then
+
+12
+00:01:10.392 --> 00:01:14.886
+save inactive. Reopen both steps to confirm these
+values survived the save.
+
+13
+00:01:15.936 --> 00:01:21.580
+This video proves the stored configuration, not a
+newly activated checkout calculation. Before
+
+14
+00:01:21.580 --> 00:01:28.526
+launching, test Coral alone, Sun alone, both together
+and removal of either required item. With one
+
+15
+00:01:28.526 --> 00:01:34.604
+twenty-four-dollar Coral at ten percent and one
+twelve-dollar Sun at twenty percent, the illustrative
+
+16
+00:01:34.604 --> 00:01:41.116
+merchandise total is thirty-one dollars and twenty
+cents, before tax, shipping and other discounts. Also
+
+17
+00:01:41.116 --> 00:01:48.931
+test repeated units and two complete sets; never infer
+the result from the number of visible cart rows.

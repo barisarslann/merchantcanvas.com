@@ -1,0 +1,94 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.238
+Advanced settings should express a clear offer, not
+replace it. This example is a code-based quantity
+
+2
+00:00:06.238 --> 00:00:12.866
+break: two or more Coral notebooks receive ten
+percent. In Offer, choose Discount Code and enter a
+
+3
+00:00:12.866 --> 00:00:19.884
+unique test code. Select only Coral in Conditions and
+set the two-unit reward in Rewards. We keep the
+
+4
+00:00:19.884 --> 00:00:25.342
+campaign inactive throughout this recording, so the
+example cannot change a live customer's purchase.
+
+5
+00:00:26.392 --> 00:00:32.314
+In Review and launch, open Combination Settings.
+Product, order and shipping discounts are independent
+
+6
+00:00:32.314 --> 00:00:39.082
+categories. This example enables all three, but
+Shopify must also accept the combination on the other
+
+7
+00:00:39.082 --> 00:00:45.849
+discount. These checkboxes are not a guarantee that
+every coupon stacks. Test the campaign alone first,
+
+8
+00:00:45.849 --> 00:00:52.617
+then the intended codes separately and together. Do
+not disable gift verification merely to hide a
+
+9
+00:00:52.617 --> 00:00:53.463
+conflicting-code warning.
+
+10
+00:00:54.513 --> 00:01:01.230
+Check the displayed shop timezone before selecting an
+end date and time. It can differ from your computer's
+
+11
+00:01:01.230 --> 00:01:06.828
+timezone. In Quantity and Sorting, zero means
+unlimited discounted units on each qualifying line; it
+
+12
+00:01:06.828 --> 00:01:14.291
+is not a cart purchase limit. In Limits, enable a
+usage count and enter ten for this code example. A
+
+13
+00:01:14.291 --> 00:01:19.515
+usage limit counts total redemptions, not one
+redemption per customer. Minimum spending and maximum
+
+14
+00:01:19.515 --> 00:01:21.381
+discount amount are different controls.
+
+15
+00:01:22.431 --> 00:01:29.723
+Save inactive and reopen Review and launch. Confirm
+the code, start and end times, three combination
+
+16
+00:01:29.723 --> 00:01:37.470
+categories, quantity cap and usage limit. An enabled
+campaign can still be outside its schedule, while a
+
+17
+00:01:37.470 --> 00:01:44.761
+saved inactive draft never becomes eligible just
+because its start date arrived. Before a real launch,
+
+18
+00:01:44.761 --> 00:01:51.141
+test accepted and incompatible codes, removal and
+reapplication, boundary times and the final checkout
+
+19
+00:01:51.141 --> 00:01:56.609
+quantities. This walkthrough verifies saved settings,
+not live redemptions or exhausted usage.

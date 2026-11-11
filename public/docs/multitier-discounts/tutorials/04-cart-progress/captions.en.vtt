@@ -1,0 +1,136 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.814
+Let's install Cart Progress in the Fieldnote demo
+store. This widget shows how close a cart is to a
+
+2
+00:00:06.814 --> 00:00:07.531
+spending reward.
+
+3
+00:00:07.881 --> 00:00:14.202
+Our example campaign already exists: spend thirty-six
+dollars and receive ten percent off. The widget
+
+4
+00:00:14.202 --> 00:00:17.994
+explains that offer; it does not create the discount.
+
+5
+00:00:19.044 --> 00:00:26.347
+In Online Store, open the theme editor and select the
+Cart template. We are using an unpublished recording
+
+6
+00:00:26.347 --> 00:00:28.781
+copy, leaving the original theme unchanged.
+
+7
+00:00:29.131 --> 00:00:35.359
+In a section that supports app blocks, choose Add
+block, Apps, and Cart Progress. Place it above the
+
+8
+00:00:35.359 --> 00:00:38.473
+cart items so shoppers can see the next reward.
+
+9
+00:00:38.823 --> 00:00:45.641
+Save the theme, then preview that same draft. You can
+adjust the appearance later. Start by checking the
+
+10
+00:00:45.641 --> 00:00:49.050
+offer and the amounts, rather than changing technical
+selectors.
+
+11
+00:00:50.100 --> 00:00:56.559
+Start with an empty test cart. Add one Coral notebook,
+priced at twenty-four dollars, and open the cart.
+
+12
+00:00:56.909 --> 00:01:03.974
+The widget asks for twelve dollars more to unlock ten
+percent off. Twenty-four plus twelve reaches our
+
+13
+00:01:03.974 --> 00:01:07.299
+thirty-six dollar threshold. No discount is applied
+yet.
+
+14
+00:01:08.349 --> 00:01:14.682
+Add one Sun notebook for twelve dollars. The
+qualifying merchandise subtotal is now thirty-six
+
+15
+00:01:14.682 --> 00:01:18.301
+dollars, and the widget shows ten percent unlocked.
+
+16
+00:01:18.651 --> 00:01:25.167
+The actual discounted merchandise amount is thirty-two
+dollars and forty cents. The qualifying subtotal and
+
+17
+00:01:25.167 --> 00:01:28.208
+the amount to pay are different values.
+
+18
+00:01:28.558 --> 00:01:35.254
+The campaign's own discount must not make the progress
+bar ask for another three dollars and sixty cents.
+
+19
+00:01:35.254 --> 00:01:37.859
+Check that the unlocked state stays visible.
+
+20
+00:01:38.909 --> 00:01:45.357
+Open checkout and compare both notebooks, their
+quantities and the ten percent discount. The
+
+21
+00:01:45.357 --> 00:01:49.041
+merchandise subtotal remains thirty-two dollars and
+forty cents.
+
+22
+00:01:49.391 --> 00:01:56.246
+Delivery and taxes can affect the final total. We do
+not enter customer or payment details, and we do not
+
+23
+00:01:56.246 --> 00:01:57.274
+place an order.
+
+24
+00:01:58.324 --> 00:02:04.464
+Back in the cart, remove the Sun notebook. The
+qualifying amount returns to twenty-four dollars, and
+
+25
+00:02:04.464 --> 00:02:07.150
+the widget asks for twelve dollars again.
+
+26
+00:02:07.500 --> 00:02:14.632
+Add the Sun notebook once more. The reward unlocks
+again, with just one row per notebook and the same
+
+27
+00:02:14.632 --> 00:02:15.382
+discounted amount.
+
+28
+00:02:15.732 --> 00:02:22.082
+Remove the test items when you finish. Check your
+theme on a phone as well, and keep it unpublished
+
+29
+00:02:22.082 --> 00:02:25.423
+until the widget, cart and checkout all match the
+campaign.

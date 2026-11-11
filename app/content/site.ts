@@ -22,7 +22,7 @@ export const siteConfig = {
 } as const;
 
 export const mtdEducation = {
-  guideUrl: "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html",
+  guideUrl: "https://merchantcanvas.com/docs/multitier-discounts",
   tutorialCount: 13,
   tutorials: [
     { title: "Create your first offer", anchor: "tutorial-01", duration: "3:36" },
@@ -247,7 +247,7 @@ export const products: Record<Product["slug"], Product> = {
       {
         question: "Is there a setup guide with video tutorials?",
         answer:
-          "Yes. The English merchant guide includes written steps, real demo screenshots, and 13 optional video tutorials: https://multi-tier-discounts.barisarslan.com.tr/user-guide.html. Follow the first-offer guide, then test your own theme, eligible cart, and checkout. Demo examples do not guarantee a result for every store.",
+          "Yes. The English merchant guide includes written steps, real demo screenshots, and 13 optional video tutorials: https://merchantcanvas.com/docs/multitier-discounts. Follow the first-offer guide, then test your own theme, eligible cart, and checkout. Demo examples do not guarantee a result for every store.",
       },
       {
         question: "Does MultiTier Discounts replace Shopify discounts?",

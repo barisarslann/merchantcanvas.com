@@ -1,0 +1,103 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.124
+Open the app's Analytics page. Total Uses, Total
+Discount Given and Orders Affected describe recorded
+
+2
+00:00:06.124 --> 00:00:10.616
+discount activity; Active Campaigns describes
+configuration. These are not interchangeable measures
+
+3
+00:00:10.616 --> 00:00:18.373
+of conversion. Our demo has one active campaign and no
+processed discount orders, so No data yet is expected.
+
+4
+00:00:18.373 --> 00:00:26.539
+We do not create a customer order just to fill a
+chart. A dash means missing reported data, not an
+
+5
+00:00:26.539 --> 00:00:27.764
+estimated revenue figure.
+
+6
+00:00:28.814 --> 00:00:35.255
+Use Campaign Performance to compare the reported uses,
+discount amount and last-used information for each
+
+7
+00:00:35.255 --> 00:00:41.696
+campaign. The page explains that data comes from
+processed orders and that historical orders before
+
+8
+00:00:41.696 --> 00:00:48.995
+installation are not included. Adding products to a
+cart or opening checkout is not an order-use record.
+
+9
+00:00:48.995 --> 00:00:56.295
+For a disputed result, compare the saved campaign,
+actual order lines and applied discounts. Do not treat
+
+10
+00:00:56.295 --> 00:01:01.447
+this table as session replay, acquisition attribution
+or proof of incremental sales.
+
+11
+00:01:02.497 --> 00:01:09.001
+In Plans and Billing, start with the offer you need.
+Free covers core percentage offers within its campaign
+
+12
+00:01:09.001 --> 00:01:15.505
+allowance. Starter adds capabilities such as codes and
+Buy X Get Y; Pro adds more advanced gifts and
+
+13
+00:01:15.505 --> 00:01:21.286
+targeting. Read the actual current comparison and
+limits here. This is a development store with test
+
+14
+00:01:21.286 --> 00:01:27.428
+access, not evidence that a real merchant has
+subscribed or been charged. No plan purchase is made
+
+15
+00:01:27.428 --> 00:01:28.512
+in this recording.
+
+16
+00:01:29.562 --> 00:01:36.899
+MTD Plus is the app subscription; Shopify Plus is the
+store's platform plan. Supported checkout mystery
+
+17
+00:01:36.899 --> 00:01:43.319
+needs the relevant app entitlement, an eligible
+Shopify Plus store and the displayed configuration
+
+18
+00:01:43.319 --> 00:01:50.198
+requirements. Buying the app plan cannot turn a
+non-Plus Shopify store into Plus. Review Shopify's
+
+19
+00:01:50.198 --> 00:01:57.077
+actual confirmation, price and trial terms before
+approving any charge. Finish by matching the chosen
+
+20
+00:01:57.077 --> 00:02:03.955
+features to one tested offer; upgrade decisions should
+not replace correct campaign setup and checkout
+
+21
+00:02:03.955 --> 00:02:04.414
+checks.

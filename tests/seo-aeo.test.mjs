@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import sharp from "sharp";
 
@@ -7,11 +7,14 @@ const SITE_URL = "https://merchantcanvas.com";
 const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const QUANTITY_VIDEO_ROUTE = "/resources/shopify-quantity-breaks-video";
+const DOCS_GUIDE_ROUTE = "/docs/multitier-discounts";
 const PUBLIC_ROUTES = [
   "/",
   "/apps",
   "/apps/multitier-discounts",
   "/apps/b2b-quote-approvals",
+  "/docs",
+  DOCS_GUIDE_ROUTE,
   "/resources",
   "/resources/shopify-quantity-breaks-guide",
   QUANTITY_VIDEO_ROUTE,
@@ -70,10 +73,12 @@ const ARTICLE_ROUTES = [
 const LAST_MODIFIED_BY_ROUTE = {
   "/": "2026-11-02",
   "/apps": "2026-11-02",
-  "/apps/multitier-discounts": "2026-11-02",
+  "/apps/multitier-discounts": "2026-11-11",
   "/apps/b2b-quote-approvals": "2026-07-29",
-  "/resources": "2026-11-02",
-  "/resources/shopify-quantity-breaks-guide": "2026-11-06",
+  "/docs": "2026-11-11",
+  [DOCS_GUIDE_ROUTE]: "2026-11-11",
+  "/resources": "2026-11-11",
+  "/resources/shopify-quantity-breaks-guide": "2026-11-11",
   [QUANTITY_VIDEO_ROUTE]: "2026-11-06",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-11-02",
   "/about": "2026-07-29",
@@ -453,6 +458,11 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
       const href = match[1];
       if (!href.startsWith("/") || href.startsWith("//")) continue;
       const target = href.split(/[?#]/)[0] || "/";
+      if (/^\/docs\/multitier-discounts\/(?:media|tutorials)\/[a-z0-9./-]+\.(?:jpg|png|md|vtt)$/i.test(target)) {
+        assert.ok(!target.split("/").includes(".."), `${route} safe asset path`);
+        await access(new URL(`../public${target}`, import.meta.url));
+        continue;
+      }
       assert.ok(
         inbound.has(target),
         `${route} links to non-public route ${href}`,
@@ -746,9 +756,9 @@ test("llms.txt uses linked resource lists without changing product truth", async
   assert.match(llms, /Draft terms pending final business-owner approval/);
 });
 
-test("MTD education links stay public, explicit, and free of automatic video embeds", async () => {
+test("MTD education links use the local docs route and avoid automatic video embeds", async () => {
   const worker = await loadWorker();
-  const guide = "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html";
+  const guide = `${SITE_URL}${DOCS_GUIDE_ROUTE}`;
   const productHtml = await (await render(worker, "/apps/multitier-discounts")).text();
   assert.ok(productHtml.includes(`href="${guide}#quick-start"`));
   for (const anchor of ["tutorial-01", "tutorial-02", "tutorial-08"]) {

@@ -1,0 +1,29 @@
+{
+  "date": "2026-11-11",
+  "scope": "MerchantCanvas documentation copy; original guide/application host retained",
+  "authorization": "Owner authorized local preparation and publication of /docs/multitier-discounts, explicitly no removal from barisarslan.com.tr, no MTD code and no email.",
+  "routes": ["/docs", "/docs/multitier-discounts"],
+  "content": {"sections":17,"tutorials":13,"guideImages":29,"localAssets":68,"copiedMp4Files":0,"legacyDescendantIds":34,"guideContentIdPreserved":true,"previewAndSyntheticLabelsPreserved":true},
+  "localVerification": {
+    "node":"22.22.2",
+    "typecheck":"passed",
+    "focusedLint":{"errors":0,"warnings":0},
+    "productionBuild":"passed",
+    "nextStaticBuild":"passed",
+    "tests":{"passed":31,"failed":0},
+    "responsiveWidths":[360,390,768,1440],
+    "themes":["light","dark"],
+    "horizontalOverflowObserved":false,
+    "tutorial02HashOpensCorrectDisclosure":true,
+    "youtubeLoadsOnlyAfterExplicitClick":true,
+    "iframeFocusedAfterLoad":true,
+    "consoleErrorsObserved":0,
+    "livePlaybackOfEveryVideoTested":false,
+    "detector":{"passes":1,"errors":0,"fontSizeAdvisories":4},
+    "independentFinishReview":"No material fixes required; narrow existing-world migration, no new design system.",
+    "designDocumentation":"Route surface brief updated; global DESIGN.md and sidecar unchanged."
+  },
+  "deployment":{"status":"ready for authorized main/Cloudflare Pages publication","commit":null,"liveVerification":"pending; see 2026-11-11-docs-live.json after publication"},
+  "preserved":{"originalGuide":true,"originalGuideRedirectChanged":false,"mtdCodeChanged":false,"applicationAuthOrInstallChanged":false,"emailSent":false,"appStorePublished":false,"paidSpend":0,"analyticsRemediationIncluded":false},
+  "evidence":["2026-11-11-docs-import.json","../assets/2026-11-11-docs-local-probes.json","../assets/2026-11-11-docs-desktop-dark.jpg","../assets/2026-11-11-docs-mobile-light.jpg","../assets/2026-11-11-docs-tutorial-expanded.jpg"]
+}
