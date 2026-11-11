@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {
+  OUTBOUND_TIMEOUT_MS,
   preserveAttributionHref,
   trackEvent,
   trackOutboundEvent,
@@ -30,7 +31,14 @@ export function TrackedLink({
       className={className}
       aria-label={ariaLabel}
       onClick={(event) => {
-        const resolvedHref = preserveAttributionHref(href);
+        if (event.defaultPrevented || event.button !== 0) return;
+
+        let resolvedHref = href;
+        try {
+          resolvedHref = preserveAttributionHref(href);
+        } catch {
+          // A measurement failure must not change the intended destination.
+        }
         const isUnmodified =
           !event.metaKey &&
           !event.ctrlKey &&
@@ -39,13 +47,31 @@ export function TrackedLink({
 
         if (eventName === "install_intent" && isUnmodified) {
           event.preventDefault();
-          void trackOutboundEvent(eventName, eventData ?? {}).finally(() => {
+          let navigated = false;
+          const navigate = () => {
+            if (navigated) return;
+            navigated = true;
+            window.clearTimeout(timeout);
             window.location.assign(resolvedHref);
-          });
+          };
+          const timeout = window.setTimeout(navigate, OUTBOUND_TIMEOUT_MS);
+          try {
+            void Promise.resolve(
+              trackOutboundEvent(eventName, eventData ?? {}),
+            ).then(navigate, navigate).catch(() => {
+              // A failed optional handoff must not become an unhandled rejection.
+            });
+          } catch {
+            navigate();
+          }
           return;
         }
 
-        if (eventName) trackEvent(eventName, eventData ?? {});
+        try {
+          if (eventName) trackEvent(eventName, eventData ?? {});
+        } catch {
+          // Preserve normal navigation if a provider or storage is unavailable.
+        }
         if (resolvedHref !== href && isUnmodified) {
           event.preventDefault();
           window.location.assign(resolvedHref);

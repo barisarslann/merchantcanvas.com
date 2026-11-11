@@ -61,9 +61,12 @@ export default function PrivacyPage() {
               Google Analytics 4 loads only after analytics consent. Google Ads
               and Meta Pixel load only after separate advertising consent.
               Configured services may then receive page, product, app-selection,
-              contact-intent, lead, and App Store install-intent events together
-              with permitted campaign attribution such as UTM parameters,
-              gclid, or fbclid. No advertising or analytics script is requested
+              contact-intent, and App Store install-intent events together
+              with permitted campaign attribution using five UTM fields.
+              Advertising click IDs are not stored in our session attribution
+              or included in our custom event parameters. Advertising providers
+              may use their own identifiers only after advertising consent.
+              No advertising or analytics script is requested
               when essential-only operation is selected.
             </p>
             <p>
@@ -72,6 +75,11 @@ export default function PrivacyPage() {
               installed. Completed installations are measured separately
               through Shopify’s own reporting.
             </p>
+            <p>
+              Preparing an email records contact intent only. It does not prove
+              that the message was sent, delivered, or received, and is not
+              reported as a lead conversion.
+            </p>
           </section>
           <section>
             <h2>4. Local and session storage</h2>
@@ -79,10 +87,21 @@ export default function PrivacyPage() {
               The site uses local storage to remember whether you selected
               essential only, analytics only, or analytics plus advertising.
               Campaign attribution is stored in session storage only after
-              analytics consent is granted. Before consent, supported campaign
-              parameters may be carried in the URL when you follow a primary
-              internal call to action. A previous analytics-only preference is
-              migrated without enabling advertising.
+              analytics consent is granted. Only the five UTM fields are
+              retained, not advertising click IDs. Internal calls to action
+              carry UTM attribution only with analytics consent; advertising
+              click IDs are removed from the current URL without advertising
+              consent. A previous analytics-only preference never enables
+              advertising. The theme preference also uses local storage.
+            </p>
+            <p>
+              If your browser blocks preference storage, optional measurement
+              is disabled for the current page and the preference panel explains
+              that the choice could not be saved. A future visit may require
+              another choice. Withdrawal stops our optional events immediately;
+              a successfully saved withdrawal reloads the page to unload
+              previously requested providers. Previously transmitted data
+              cannot be recalled by this setting.
             </p>
           </section>
           <section>

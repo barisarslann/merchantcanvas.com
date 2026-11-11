@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { products, siteConfig } from "../content/site";
+import { safeWriteStorage } from "../lib/storage.js";
 import { TrackedLink } from "./TrackedLink";
 
 function setThemeFavicon(theme: "light" | "dark") {
@@ -65,7 +66,7 @@ export function SiteHeader() {
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = nextTheme;
     document.documentElement.style.colorScheme = nextTheme;
-    window.localStorage.setItem("merchantcanvas-theme", nextTheme);
+    safeWriteStorage("localStorage", "merchantcanvas-theme", nextTheme);
     setThemeFavicon(nextTheme);
   }
 

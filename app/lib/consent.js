@@ -16,7 +16,7 @@ export function createConsent(
 ) {
   return {
     version: CONSENT_VERSION,
-    analytics: level !== CONSENT_LEVELS.essential,
+    analytics: level === CONSENT_LEVELS.analytics || level === CONSENT_LEVELS.advertising,
     advertising: level === CONSENT_LEVELS.advertising,
     updatedAt,
   };

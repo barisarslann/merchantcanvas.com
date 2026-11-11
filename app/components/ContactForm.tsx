@@ -21,6 +21,10 @@ export function ContactForm() {
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!event.currentTarget.checkValidity()) {
+      event.currentTarget.reportValidity();
+      return;
+    }
     const form = new FormData(event.currentTarget);
     const topic = String(form.get("topic") || "General question");
     const name = String(form.get("name") || "");
@@ -39,7 +43,16 @@ export function ContactForm() {
       `Source page: ${source}`,
     ].join("\n");
 
-    trackEvent("lead_submit", { topic });
+    try {
+      trackEvent("contact_intent", {
+        action: "email_prepare",
+        method: "mailto",
+        placement: "contact_form",
+        topic,
+      });
+    } catch {
+      // Measurement is optional; preparing the message must still work.
+    }
     setStatus("Your email app should open with this message prepared.");
     window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
       `[MerchantCanvas] ${topic}`,

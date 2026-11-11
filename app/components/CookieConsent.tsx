@@ -1,29 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  CONSENT_EVENT,
-  CONSENT_KEY,
-  CONSENT_LEVELS,
-} from "./Analytics";
-import {
-  createConsent,
-  parseConsent,
-  serializeConsent,
-} from "../lib/consent.js";
+import { CONSENT_LEVELS, createConsent } from "../lib/consent.js";
+import { readConsent, saveConsentChoice } from "../lib/privacy";
 
 type ConsentLevel = "essential" | "analytics" | "analytics-advertising";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
+  const [saveError, setSaveError] = useState(false);
   const firstActionRef = useRef<HTMLButtonElement>(null);
   const returnFocusIdRef = useRef<string | null>(null);
+  const pendingReloadRef = useRef(false);
 
   useEffect(() => {
     const initialCheck = window.setTimeout(() => {
-      setVisible(
-        !parseConsent(window.localStorage.getItem(CONSENT_KEY)),
-      );
+      setVisible(!readConsent());
     }, 0);
     const open = (event: Event) => {
       const detail =
@@ -42,14 +34,21 @@ export function CookieConsent() {
   }, []);
 
   function choose(level: ConsentLevel) {
-    const previous = parseConsent(window.localStorage.getItem(CONSENT_KEY));
+    const previous = readConsent();
     const next = createConsent(level);
     const needsReload =
+      pendingReloadRef.current ||
       Boolean(previous?.analytics && !next.analytics) ||
       Boolean(previous?.advertising && !next.advertising);
 
-    window.localStorage.setItem(CONSENT_KEY, serializeConsent(next));
-    window.dispatchEvent(new Event(CONSENT_EVENT));
+    if (!saveConsentChoice(level)) {
+      // Failed persistence switches this document to essential-only. Remember
+      // already-loaded providers even though readConsent() now reports denied.
+      pendingReloadRef.current = needsReload || Boolean(previous?.analytics);
+      setSaveError(true);
+      return;
+    }
+    setSaveError(false);
     setVisible(false);
     if (needsReload) {
       window.location.reload();
@@ -73,6 +72,7 @@ export function CookieConsent() {
       className="cookie-banner"
       role="region"
       aria-label="Cookie and analytics preferences"
+      aria-describedby={saveError ? "cookie-preferences-error" : undefined}
     >
       <div>
         <strong>Your privacy choice</strong>
@@ -81,6 +81,14 @@ export function CookieConsent() {
           and only runs when you accept it. Essential storage remembers your
           choice.
         </p>
+        {saveError && (
+          <p id="cookie-preferences-error" role="alert">
+            Optional analytics and advertising are off on this page, but we
+            couldn’t save your preference. Check your browser’s storage settings,
+            then choose again to retry. Your choice may not be remembered on your
+            next visit.
+          </p>
+        )}
       </div>
       <div className="cookie-actions">
         <button
