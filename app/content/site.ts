@@ -48,6 +48,7 @@ export type Plan = {
 export type Product = {
   slug: "multitier-discounts" | "b2b-quote-approvals";
   name: string;
+  listingName?: string;
   shortName: string;
   category: string;
   accent: "coral" | "blue";
@@ -88,6 +89,7 @@ export const products: Record<Product["slug"], Product> = {
   "multitier-discounts": {
     slug: "multitier-discounts",
     name: "MultiTier Discounts",
+    listingName: "MultiTier: Tiered Discounts",
     shortName: "MultiTier",
     category: "Promotions",
     accent: "coral",
@@ -103,7 +105,7 @@ export const products: Record<Product["slug"], Product> = {
     primaryAction: "Install from Shopify",
     primaryHref: "https://apps.shopify.com/multitier-discounts",
     availability:
-      "Live on the Shopify App Store. Free, Starter, and Pro are generally available; Plus is available only to eligible Shopify Plus stores.",
+      "Live on the Shopify App Store as MultiTier: Tiered Discounts. Free, Starter, and Pro are generally available; Plus is available only to eligible Shopify Plus stores.",
     for: [
       "Shopify merchants planning repeatable quantity or cart-value promotions",
       "Teams that need more targeting control than a basic quantity-break table",
@@ -272,7 +274,7 @@ export const products: Record<Product["slug"], Product> = {
       {
         question: "Is there a public install link?",
         answer:
-          "Yes. MultiTier Discounts is live at https://apps.shopify.com/multitier-discounts. Shopify handles installation and plan confirmation.",
+          "Yes. It is listed on the Shopify App Store as MultiTier: Tiered Discounts at https://apps.shopify.com/multitier-discounts. Shopify handles installation and plan confirmation.",
       },
       {
         question: "Who can choose the Plus plan?",

@@ -22,6 +22,8 @@ export function ProductPage({ product }: { product: Product }) {
   const isInstallAction =
     product.availabilityStatus === "live" && Boolean(installUrl);
 
+  const applicationName = product.listingName ?? product.name;
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -39,7 +41,8 @@ export function ProductPage({ product }: { product: Product }) {
       {
         "@id": applicationId,
         "@type": "SoftwareApplication",
-        name: product.name,
+        name: applicationName,
+        ...(product.listingName ? { alternateName: product.name } : {}),
         applicationCategory: "BusinessApplication",
         operatingSystem: "Shopify",
         url: productUrl,
@@ -56,7 +59,7 @@ export function ProductPage({ product }: { product: Product }) {
           return {
             "@id": `${productUrl}#offer-${plan.name.toLowerCase()}`,
             "@type": "Offer",
-            name: `${product.name} ${plan.name}`,
+            name: `${applicationName} ${plan.name}`,
             url: installUrl ?? `${productUrl}#packages`,
             price: plan.price.replace(/[^0-9.]/g, "") || "0",
             priceCurrency: "USD",
