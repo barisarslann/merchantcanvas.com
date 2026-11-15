@@ -27,6 +27,8 @@ test("renders every required public route with metadata", async () => {
   const routes = [
     "/apps",
     "/apps/multitier-discounts",
+    "/apps/multitier-discounts/privacy-policy",
+    "/apps/multitier-discounts/terms-of-service",
     "/apps/b2b-quote-approvals",
     "/docs",
     "/docs/multitier-discounts",

@@ -190,8 +190,8 @@ test("server guide retains every legacy anchor and tutorial with a non-autoloadi
   assert.ok(html.includes('href="https://apps.shopify.com/multitier-discounts"'));
   assert.ok(html.includes('href="/apps/multitier-discounts#packages"'));
   assert.match(html, /contact\?product=multitier-discounts/);
-  assert.ok(html.includes('href="https://multi-tier-discounts.barisarslan.com.tr/privacy-policy.html"'));
-  assert.ok(html.includes('href="https://multi-tier-discounts.barisarslan.com.tr/terms-of-service.html"'));
+  assert.ok(html.includes('href="/apps/multitier-discounts/privacy-policy"'));
+  assert.ok(html.includes('href="/apps/multitier-discounts/terms-of-service"'));
   assert.match(visibleText(html), /Design preview edition/);
   assert.match(visibleText(html), /synthetic Fieldnote Supply/);
 });

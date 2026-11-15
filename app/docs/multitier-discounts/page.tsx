@@ -99,8 +99,8 @@ export default function MultiTierDiscountsGuide() {
               <Link href="/contact?product=multitier-discounts&intent=fit-check">Contact support</Link>
             </div>
             <p className={styles.legalLinks}>
-              Application policies: <a href="https://multi-tier-discounts.barisarslan.com.tr/privacy-policy.html">App privacy policy</a>
-              {" · "}<a href="https://multi-tier-discounts.barisarslan.com.tr/terms-of-service.html">App terms</a>
+              Application policies: <Link href="/apps/multitier-discounts/privacy-policy">App privacy policy</Link>
+              {" · "}<Link href="/apps/multitier-discounts/terms-of-service">App terms</Link>
             </p>
           </footer>
         </article>
