@@ -6,10 +6,10 @@ Contact: support@merchantcanvas.com. Prices are in USD. Features vary by plan; u
 
 MultiTier Discounts pricing:
 
-- Free: $0 forever; 2 active campaigns.
-- Starter: $5.99/month or $59.90/year; 14-day free trial; 10 active campaigns.
-- Pro: $12.99/month or $129.90/year; 14-day free trial; unlimited active campaigns.
-- Plus: $24.99/month or $249.90/year; 14-day free trial; unlimited active campaigns. Eligible Shopify Plus stores only.
+- Free: $0 forever; 1 active campaign; every standard campaign type; no order or revenue limits.
+- Starter: $5.99/month or $59.90/year; 14-day free trial; 10 active campaigns; same campaign features as Free.
+- Pro: $12.99/month or $129.90/year; 14-day free trial; unlimited active campaigns; Shopify's own discount limits still apply.
+- Plus: $24.99/month or $249.90/year; 14-day free trial; unlimited active campaigns plus the checkout mystery-gift presentation. Eligible Shopify Plus stores only.
 - The public Shopify App Store listing shows Free, Starter, Pro, and Plus. Plus is available only to eligible Shopify Plus stores and is presented separately on this site from the three standard plans.
 
 MerchantCanvas does not publish review ratings, merchant counts, or guaranteed outcomes without verified public evidence. This convenience summary does not replace the canonical public pages, robots.txt, structured data, or sitemap.

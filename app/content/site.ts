@@ -99,7 +99,7 @@ export const products: Record<Product["slug"], Product> = {
     definition:
       "MultiTier Discounts is a Shopify embedded app for tiered, quantity-break, cart-value, Buy X Get Y, and gift promotions with Shopify Functions-based checkout logic.",
     summary:
-      "Give the second and third eligible items different discounts, reward a complete set, or unlock a gift at a spending threshold. Choose who qualifies and test the result in Shopify checkout. Features vary by plan.",
+      "Give the second and third eligible items different discounts, reward a complete set, or unlock a gift at a spending threshold. Choose who qualifies and test the result in Shopify checkout. The Free plan includes every standard campaign type for one active campaign.",
     availabilityStatus: "live",
     installUrl: "https://apps.shopify.com/multitier-discounts",
     primaryAction: "Install from Shopify",
@@ -138,7 +138,7 @@ export const products: Record<Product["slug"], Product> = {
         step: "03",
         title: "Set the guardrails",
         copy:
-          "Configure tiers, dates, limits, customer or country targeting where available, and discount combination rules.",
+          "Configure tiers, dates, limits, customer or country targeting, and discount combination rules.",
       },
       {
         step: "04",
@@ -176,13 +176,14 @@ export const products: Record<Product["slug"], Product> = {
         cadence: "forever",
         eligibility: "Available to Shopify stores",
         presentation: "card",
-        bestFor: "Testing the core tiered-discount workflow",
-        limit: "2 active campaigns",
+        bestFor: "Running one promotion with the complete campaign toolset",
+        limit: "1 active campaign",
         features: [
-          "Percentage and quantity-break campaigns",
-          "Price, product, and collection triggers",
-          "Automatic discounts, schedules, and limits",
-          "Discount badge widget and starter templates",
+          "Tiers, quantity breaks, and Buy X Get Y",
+          "Gift offers, cart-value and shipping rewards",
+          "Variant, tag, customer and country targeting",
+          "Code discounts, schedules, and analytics",
+          "No order or revenue limits",
         ],
       },
       {
@@ -193,14 +194,12 @@ export const products: Record<Product["slug"], Product> = {
         trial: "14-day free trial",
         eligibility: "Available to Shopify stores",
         presentation: "card",
-        bestFor: "Stores running a focused promotion calendar",
+        bestFor: "Stores running several promotions at once",
         limit: "10 active campaigns",
         recommended: true,
         features: [
-          "Buy X Get Y and cart-value rewards",
-          "Exact variant and tag targeting",
-          "Percentage and fixed-amount discounts",
-          "Shipping rewards, code campaigns, and analytics",
+          "Everything in Free",
+          "Run several campaigns side by side",
         ],
       },
       {
@@ -214,10 +213,8 @@ export const products: Record<Product["slug"], Product> = {
         bestFor: "Teams managing a larger promotion program",
         limit: "Unlimited active campaigns",
         features: [
-          "Gift offers and gift-priority controls",
-          "Currency-specific thresholds",
-          "Customer-tag and country targeting",
-          "All Starter campaign and analytics features",
+          "Everything in Starter",
+          "No app-side cap on active campaigns",
         ],
       },
       {
@@ -239,8 +236,13 @@ export const products: Record<Product["slug"], Product> = {
       },
     ],
     pricingNote:
-      "The public Shopify App Store listing shows Free, Starter, Pro, and Plus. Plus is available only to eligible Shopify Plus stores and is presented separately here from the three standard plans.",
+      "Every plan includes the standard campaign types; plans differ by the number of active campaigns, and the checkout mystery-gift presentation is Plus-only. Unlimited means no app-side cap; Shopify's own discount limits still apply. The public Shopify App Store listing shows Free, Starter, Pro, and Plus. Plus is available only to eligible Shopify Plus stores and is presented separately here from the three standard plans.",
     faq: [
+      {
+        question: "What does the Free plan include?",
+        answer:
+          "One active campaign with every standard campaign type: tiered and quantity-break discounts, Buy X Get Y, cart-value and shipping rewards, and gift offers, with targeting, schedules, automatic or code discounts, and analytics. The app sets no order or revenue limit. Starter and Pro add more active campaigns. The checkout mystery-gift presentation needs the Plus plan and Shopify Plus.",
+      },
       {
         question: "Are quantity breaks the same as second-item discounts?",
         answer:
@@ -259,7 +261,7 @@ export const products: Record<Product["slug"], Product> = {
       {
         question: "Can a campaign target exact variants?",
         answer:
-          "Yes on paid plans. Selecting a product includes its variants, while exact variant selection is useful when specific sizes, colours, or SKUs should qualify differently.",
+          "Yes, on every plan. Selecting a product includes its variants, while exact variant selection is useful when specific sizes, colours, or SKUs should qualify differently.",
       },
       {
         question: "Can shoppers see progress before checkout?",

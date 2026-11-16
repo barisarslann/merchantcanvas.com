@@ -2,8 +2,8 @@
 
 <!-- impeccable:product-schema 1 -->
 
-**Document version:** v4
-**Last updated:** 2026-11-15
+**Document version:** v5
+**Last updated:** 2026-11-16
 
 ## Platform
 
@@ -45,7 +45,7 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 - The MerchantCanvas English setup-guide route is `https://merchantcanvas.com/docs/multitier-discounts`, with 13 on-demand narrated tutorials. Its content retains the original design-preview/demo-example labels; do not present screenshots as proof for every production store. The original public guide at `https://multi-tier-discounts.barisarslan.com.tr/user-guide.html` remains available and unmodified; neither the application host nor its authentication/install flow is moved. This route update is prepared for release; live publication is verified separately in the release record.
 - MTD Quantity Breaks evaluate each cart line separately. Price-position rules can assign different rewards to the second and third eligible units; sorting and per-line discounted quantity limits must be tested. Do not describe mixed single-unit lines as one quantity-break line.
 - B2B Quote Approvals is coming soon and has no public install URL.
-- MultiTier Discounts exposes Free, Starter, and Pro as standard plans. Its $24.99/month or $249.90/year Plus plan is available only to verified Shopify Plus stores and includes a 14-day free trial.
+- MultiTier Discounts exposes Free, Starter, and Pro as standard plans. Since the 2026-11-16 release (MTD `d141e18`) every plan includes the standard campaign capabilities and the plans differ by active-campaign count: Free 1 for new installs (ten approved earlier installs keep 2), Starter 10, Pro unlimited. The app code defines no order, revenue, or usage-based limit; Shopify's own discount limits still apply. The checkout mystery-gift presentation requires the Plus plan and Shopify Plus. Its $24.99/month or $249.90/year Plus plan is available only to verified Shopify Plus stores and includes a 14-day free trial.
 - The website is a statically exported, multi-route web experience prepared for Cloudflare Pages.
 - Analytics and advertising integrations remain consent-gated.
 - The approved hybrid color system uses Cobalt + Sun for light mode and Azure + Coral for dark mode.
@@ -92,6 +92,7 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 
 ## Changelog
 
+- v5 (2026-11-16) — Recorded the released MTD Free plan: one active campaign for new installs, the standard campaign capabilities on every plan, and the checkout mystery-gift presentation on Plus only. Aligned the pricing table, FAQ, home hero sentence, and `llms.txt`. Prices, trials, and plan names are unchanged. The imported MTD guide still carries the previous plan table until its source is updated. Site changes are prepared locally; publication is a separate owner decision.
 - v4 (2026-11-15) — Recorded the App Store listing name `MultiTier: Tiered Discounts` (URL unchanged) and the rule for where the site states it. Pricing, plans and B2B coming-soon status are unchanged. Site changes are prepared locally; publication is a separate owner decision.
 - v3 (2026-11-11) — Prepared the MerchantCanvas documentation route and product-site links, preserving existing sections/tutorial IDs and preview/demo labels. The original guide and application host remain unchanged; this entry is not a deployment-verification record.
 - v2 (2026-11-02) — Added the publicly verified video setup guide, distinguished per-line quantity breaks from price-position rewards, and refreshed product evidence from the illustrated guide. Pricing and B2B coming-soon status are unchanged.

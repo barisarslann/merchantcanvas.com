@@ -26,8 +26,8 @@ export default function Home() {
               MerchantCanvas builds Shopify apps for clear promotion rules.
               MultiTier Discounts handles quantity breaks, Buy X Get Y,
               cart-value rewards, and gift campaigns. Start with the Free plan
-              for {freePlan.limit.toLowerCase()}. B2B Quote Approvals is coming soon.
-              Features vary by plan.
+              for {freePlan.limit.toLowerCase()} with every standard campaign type.
+              B2B Quote Approvals is coming soon.
             </p>
             <div className="hero-actions">
               <TrackedLink

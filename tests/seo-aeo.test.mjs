@@ -45,7 +45,7 @@ const PRODUCT_EXPECTATIONS = {
     ],
     offerUrl: "https://apps.shopify.com/multitier-discounts",
     downloadUrl: "https://apps.shopify.com/multitier-discounts",
-    faqCount: 8,
+    faqCount: 9,
   },
   "/apps/b2b-quote-approvals": {
     prices: ["19", "39", "79"],
@@ -749,7 +749,7 @@ test("llms.txt uses linked resource lists without changing product truth", async
     assert.ok(title && description);
     assert.ok(allowedUrls.has(url), `unknown resource ${url}`);
   }
-  assert.match(llms, /Free: \$0 forever; 2 active campaigns/);
+  assert.match(llms, /Free: \$0 forever; 1 active campaign; every standard campaign type/);
   assert.match(llms, /Starter: \$5\.99\/month or \$59\.90\/year/);
   assert.match(llms, /Pro: \$12\.99\/month or \$129\.90\/year/);
   assert.match(llms, /Plus: \$24\.99\/month or \$249\.90\/year/);
@@ -828,9 +828,8 @@ test("homepage answers use real plan facts without outcome claims", async () => 
   const answer = visibleText([...hero.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/g)][1][1]);
   assert.ok(answer.split(/\s+/).length >= 40 && answer.split(/\s+/).length <= 90);
   assert.match(answer, /^MerchantCanvas builds Shopify apps/);
-  assert.match(answer, /Free plan for 2 active campaigns/);
+  assert.match(answer, /Free plan for 1 active campaign with every standard campaign type/);
   assert.match(answer, /B2B Quote Approvals is coming soon/);
-  assert.match(answer, /Features vary by plan/);
   assert.ok(headingOutline(html).filter(h => h.level >= 2 && /\?$/.test(h.text)).length >= 3);
   const productHtml = await (await render(worker, "/apps/multitier-discounts")).text();
   assert.match(visiblePageText(productHtml), /App Store listing shows Free, Starter, Pro, and Plus/);
