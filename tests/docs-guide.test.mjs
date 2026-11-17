@@ -103,21 +103,21 @@ test("committed guide preserves all 17 sections and all 13 source tutorial ident
 
 test("the committed import manifest verifies source parity and every copied asset without sibling access", async () => {
   const data = await guide();
-  const manifest = JSON.parse(await readFile(new URL("../growth/reports/daily/2026-11-11-docs-import.json", import.meta.url), "utf8"));
+  const manifest = JSON.parse(await readFile(new URL("../growth/reports/daily/2026-11-17-docs-import.json", import.meta.url), "utf8"));
   assert.equal(manifest.sourceUrl, SOURCE_URL);
   assert.equal(manifest.sourceSha256, data.sourceSha256);
   assert.deepEqual(manifest.sourceIds, manifest.importedIds);
   assert.deepEqual(manifest.counts, {
-    sections: 17, tutorials: 13, guideImages: 29, tutorialPosters: 13,
-    transcripts: 13, captions: 13, assets: 68,
+    sections: 17, tutorials: 13, guideImages: 28, tutorialPosters: 13,
+    transcripts: 13, captions: 13, assets: 67,
   });
   const importedIds = data.sections.flatMap(section => [section.id, ...section.parts.flatMap(part => {
     if ("tutorialId" in part) return [`tutorial-${part.tutorialId}`];
     return ids(part.html);
   })]);
   assert.deepEqual(importedIds, manifest.sourceIds, "section/tutorial/alias order matches recorded source");
-  assert.equal(manifest.assets.length, 68);
-  assert.equal(new Set(manifest.assets.map(asset => asset.path)).size, 68);
+  assert.equal(manifest.assets.length, 67);
+  assert.equal(new Set(manifest.assets.map(asset => asset.path)).size, 67);
   for (const asset of manifest.assets) {
     const bytes = await localAsset(asset.path);
     assert.equal(bytes.length, asset.bytes, asset.path);
@@ -131,7 +131,7 @@ test("trusted imported prose has local dimensioned images and no executable embe
   assert.doesNotMatch(html, /<(?:script|style|iframe|video|object|embed|form|input)\b|\son[a-z]+\s*=|javascript\s*:|data\s*:/i);
   assert.doesNotMatch(html, /multi-tier-discounts\.barisarslan\.com\.tr|user-guide-assets\/|user-guide-videos\//i);
   const images = tags(html, "img");
-  assert.equal(images.length, 29);
+  assert.equal(images.length, 28);
   const seen = new Set();
   for (const image of images) {
     const src = attribute(image, "src");
@@ -142,7 +142,7 @@ test("trusted imported prose has local dimensioned images and no executable embe
     assert.deepEqual({ width: Number(attribute(image, "width")), height: Number(attribute(image, "height")) }, dimensions, src);
     seen.add(src);
   }
-  assert.equal(seen.size, 29, "all referenced screenshots retained without duplicates");
+  assert.equal(seen.size, 28, "all referenced screenshots retained without duplicates");
   for (const href of tags(html, "a").map(tag => attribute(tag, "href"))) {
     assert.ok(href.startsWith("#") || href.startsWith(`${ROUTE}/media/`), `known imported destination: ${href}`);
   }
@@ -163,7 +163,7 @@ test("every tutorial has a local poster, English transcript and captions but no 
     assert.match(captions, /\d{2}:\d{2}:\d{2}\.\d{3} --> /);
   }
   const files = await readdir(new URL(`../public${ROUTE}/`, import.meta.url), { recursive: true });
-  assert.ok(files.length >= 68, "29 screenshots and 39 tutorial support files");
+  assert.ok(files.length >= 67, "28 screenshots and 39 tutorial support files");
   assert.ok(files.every(file => !/\.(?:mp4|webm|mov|m4v)$/i.test(file)), "videos remain on YouTube");
 });
 

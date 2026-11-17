@@ -3,6 +3,15 @@
  * Reads the MTD public directory; never runs or writes in the MTD repository.
  * Build/CI consume the checked-in JSON and assets, not this external source.
  * Reimporting is a reviewed content update, not an automatic build step.
+ *
+ * Options:
+ *   --source=<dir>        Read an exact export of the MTD public directory from
+ *                         this repository's .runtime folder instead of the MTD
+ *                         working copy (whose checkout may alter line endings).
+ *   --source-commit=<sha> MTD commit the export was taken from (recorded only).
+ *   --report-date=<date>  YYYY-MM-DD used for the manifest file name and date.
+ *   --expected-images=<n> Number of screenshots the reviewed source references
+ *                         (default 29). A different count stops the import.
  */
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -10,16 +19,26 @@ import { mkdir, readFile, realpath, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const projectRoot = await realpath("F:/Shopify/merchantcanvas.com");
-const sourceRoot = await realpath("F:/Shopify/multi-tier-discounts/public");
+const option = (name) => process.argv.find((arg) => arg.startsWith(`--${name}=`))?.slice(name.length + 3);
+const sourceOption = option("source");
+const sourceCommit = option("source-commit") ?? null;
+const reportDate = option("report-date") ?? "2026-11-11";
+assert(/^\d{4}-\d{2}-\d{2}$/.test(reportDate), "Report date must be YYYY-MM-DD");
+const expectedImages = Number(option("expected-images") ?? 29);
+assert(Number.isInteger(expectedImages) && expectedImages > 0, "Expected image count must be a positive integer");
+assert(sourceCommit === null || /^[0-9a-f]{7,40}$/.test(sourceCommit), "Source commit must be a Git hash");
+const sourceRoot = await realpath(sourceOption ? path.resolve(projectRoot, sourceOption) : "F:/Shopify/multi-tier-discounts/public");
 const sourceUrl = "https://multi-tier-discounts.barisarslan.com.tr/user-guide.html";
 const mediaBase = "/docs/multitier-discounts/media";
 const tutorialBase = "/docs/multitier-discounts/tutorials";
-const reportPath = "growth/reports/daily/2026-11-11-docs-import.json";
+const reportPath = `growth/reports/daily/${reportDate}-docs-import.json`;
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const inside = (root, candidate) => {
   const rel = path.relative(root.toLowerCase(), candidate.toLowerCase());
   return rel === "" || (!rel.startsWith("..") && !path.isAbsolute(rel));
 };
+// A source override is only an exported snapshot kept in this repository's temp folder.
+assert(!sourceOption || inside(path.join(projectRoot, ".runtime"), sourceRoot), "Source override must be inside .runtime");
 
 async function sourcePath(relative) {
   const resolved = await realpath(path.resolve(sourceRoot, relative));
@@ -48,10 +67,18 @@ async function outputPath(relative) {
   return resolved;
 }
 
+// Returns false and leaves the file untouched when its bytes already match.
 async function emit(relative, bytes) {
   const destination = await outputPath(relative);
+  const next = Buffer.isBuffer(bytes) ? bytes : Buffer.from(bytes);
+  try {
+    if ((await readFile(destination)).equals(next)) return false;
+  } catch (error) {
+    if (error?.code !== "ENOENT") throw error;
+  }
   await mkdir(path.dirname(destination), { recursive: true });
-  await writeFile(destination, bytes);
+  await writeFile(destination, next);
+  return true;
 }
 
 function imageSize(bytes) {
@@ -117,7 +144,7 @@ assert(main, "Guide main not found");
 const sourceIds = [...main.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
 assert.equal(new Set(sourceIds).size, sourceIds.length, "Duplicate source guide id");
 const imagePaths = [...new Set([...main.matchAll(/<img\b[^>]*src="([^"]+)"/g)].map((match) => match[1]))];
-assert.equal(imagePaths.length, 29, "Expected exactly 29 referenced guide images");
+assert.equal(imagePaths.length, expectedImages, `Expected exactly ${expectedImages} referenced guide images`);
 const assets = [];
 const imageRecords = new Map();
 const pendingCopies = [];
@@ -214,7 +241,7 @@ assert(data.editionNote.includes("Design preview edition"));
 const importedIds = sections.flatMap((section) => [section.id, ...section.parts.flatMap((part) => part.tutorialId ? [`tutorial-${part.tutorialId}`] : [...part.html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]))]);
 assert.deepEqual(importedIds, sourceIds, "Guide section/tutorial/alias IDs must retain exact order");
 const importedHtml = sections.flatMap((section) => section.parts.filter((part) => part.html).map((part) => part.html)).join("");
-assert.equal([...importedHtml.matchAll(/<img\b/g)].length, 29);
+assert.equal([...importedHtml.matchAll(/<img\b/g)].length, expectedImages);
 for (const link of importedHtml.matchAll(/href="#([^"]+)"/g)) assert(importedIds.includes(link[1]), `Unknown internal fragment ${link[1]}`);
 
 const checks = [];
@@ -234,9 +261,10 @@ for (const [kind, url, localBytes] of [["guide", sourceUrl, htmlBytes], ["catalo
 
 // The live CDN can add markup. Record this explicitly without concealing drift.
 const report = {
-  date: "2026-11-11",
+  date: reportDate,
   operation: "read-only source import into MerchantCanvas; old source/host retained",
   sourceRoot,
+  sourceCommit,
   sourceUrl,
   sourceSha256: data.sourceSha256,
   sourceBytes: htmlBytes.length,
@@ -257,7 +285,9 @@ const report = {
   assets,
 };
 
-for (const copy of pendingCopies) await emit(copy.output, copy.bytes);
-await emit("app/content/mtd-guide.json", `${JSON.stringify(data, null, 2)}\n`);
+const changedAssetFiles = [];
+for (const copy of pendingCopies) if (await emit(copy.output, copy.bytes)) changedAssetFiles.push(copy.output);
+report.changedAssetFiles = changedAssetFiles;
+const guideChanged = await emit("app/content/mtd-guide.json", `${JSON.stringify(data, null, 2)}\n`);
 await emit(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-console.log(JSON.stringify({ output: report.output, report: reportPath, counts: report.counts, sourceSha256: report.sourceSha256, publicComparison: checks }, null, 2));
+console.log(JSON.stringify({ output: report.output, guideChanged, changedAssetFiles, report: reportPath, counts: report.counts, sourceSha256: report.sourceSha256, publicComparison: checks }, null, 2));

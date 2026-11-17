@@ -2,8 +2,8 @@
 
 <!-- impeccable:product-schema 1 -->
 
-**Document version:** v5
-**Last updated:** 2026-11-16
+**Document version:** v6
+**Last updated:** 2026-11-17
 
 ## Platform
 
@@ -92,6 +92,7 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 
 ## Changelog
 
+- v6 (2026-11-17) — Re-imported the MTD guide from MTD `main` (`91f1b12`), byte-identical to the live original guide. The plan table, variant, currency-threshold, shipping, and mystery notes now describe the released plans; the guide references 28 screenshots and the unused earlier billing screenshot was removed. The 13 tutorial files are unchanged, and Tutorial 13 still narrates the previous plan split; the guide states that recorded tutorials can show earlier plan locks. Prepared locally; publication is a separate owner decision.
 - v5 (2026-11-16) — Recorded the released MTD Free plan: one active campaign for new installs, the standard campaign capabilities on every plan, and the checkout mystery-gift presentation on Plus only. Aligned the pricing table, FAQ, home hero sentence, and `llms.txt`. Prices, trials, and plan names are unchanged. The imported MTD guide still carries the previous plan table until its source is updated. Site changes are prepared locally; publication is a separate owner decision.
 - v4 (2026-11-15) — Recorded the App Store listing name `MultiTier: Tiered Discounts` (URL unchanged) and the rule for where the site states it. Pricing, plans and B2B coming-soon status are unchanged. Site changes are prepared locally; publication is a separate owner decision.
 - v3 (2026-11-11) — Prepared the MerchantCanvas documentation route and product-site links, preserving existing sections/tutorial IDs and preview/demo labels. The original guide and application host remain unchanged; this entry is not a deployment-verification record.

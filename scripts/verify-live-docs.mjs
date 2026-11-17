@@ -4,9 +4,12 @@ import { readFile, realpath, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = await realpath(new URL("..", import.meta.url));
-const reportPath = path.resolve(root, "growth/reports/daily/2026-11-11-docs-live.json");
+// --date=YYYY-MM-DD selects the import manifest to verify and names the live report.
+const date = process.argv.find((arg) => arg.startsWith("--date="))?.slice(7) ?? "2026-11-11";
+assert.match(date, /^\d{4}-\d{2}-\d{2}$/, "Date must be YYYY-MM-DD");
+const reportPath = path.resolve(root, `growth/reports/daily/${date}-docs-live.json`);
 assert.ok(reportPath.startsWith(`${root}${path.sep}`));
-const manifest = JSON.parse(await readFile(path.join(root, "growth/reports/daily/2026-11-11-docs-import.json"), "utf8"));
+const manifest = JSON.parse(await readFile(path.join(root, `growth/reports/daily/${date}-docs-import.json`), "utf8"));
 const guide = JSON.parse(await readFile(path.join(root, "app/content/mtd-guide.json"), "utf8"));
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const checks = [];
@@ -39,10 +42,10 @@ for (const route of ["/docs", "/docs/multitier-discounts"]) {
   }
 }
 
-// Bounded concurrency. Fetch only the 68 explicit manifest assets.
+// Bounded concurrency. Fetch only the explicit manifest assets.
 let cursor = 0;
 const assets = manifest.assets;
-assert.equal(assets.length, 68);
+assert.equal(assets.length, manifest.counts.assets);
 await Promise.all(Array.from({ length: 3 }, async () => {
   while (cursor < assets.length) {
     const asset = assets[cursor++];
