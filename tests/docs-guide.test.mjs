@@ -13,9 +13,9 @@ const SECTION_IDS = [
 ];
 const ALIAS_IDS = ["guide-content", "campaigns", "shipping", "testing", "media"];
 const VIDEO_IDS = [
-  "ozXya3WsQMU", "UZHbPTnrfGQ", "opW_bU40dNI", "Tf0xqONliVY", "uY4zaSFcmyc",
+  "3q-XOG5qaf4", "UZHbPTnrfGQ", "opW_bU40dNI", "Tf0xqONliVY", "uY4zaSFcmyc",
   "-q1VEwQvO3E", "vsU4_QBbfdQ", "EWS0f7A3E1s", "Ag8s8T8nJ_M", "S-JrZp_0KU4",
-  "X-S9ODd0vTU", "1JjAXnWqSjk", "dXUZQbYtcxk",
+  "X-S9ODd0vTU", "1JjAXnWqSjk", "lL6nMJr7uwg",
 ];
 const TUTORIAL_IDS = VIDEO_IDS.map((_, index) => `tutorial-${String(index + 1).padStart(2, "0")}`);
 
@@ -82,7 +82,7 @@ async function render(path) {
   return response.text();
 }
 
-test("committed guide preserves all 17 sections and all 13 source tutorial identities", async () => {
+test("committed guide preserves all 17 sections and 13 tutorial slots with the current YouTube links", async () => {
   const data = await guide();
   assert.equal(data.sourceUrl, SOURCE_URL);
   assert.match(data.sourceSha256, /^[a-f0-9]{64}$/);
@@ -99,6 +99,26 @@ test("committed guide preserves all 17 sections and all 13 source tutorial ident
   assert.match(data.editionNote, /Design preview edition/);
   assert.match(data.footerNote, /synthetic Fieldnote Supply/);
   assert.match(data.footerNote, /does not announce a production release/);
+});
+
+test("the revised plan tutorials link to matching versioned transcripts and captions", async () => {
+  const data = await guide();
+  const revised = [
+    ["01", "fbf21b7dd719d0f445129bf5f90763635077cee8494a2085ab39d2a1a4114f03", "b14b78006854cdb1f1d102705d38712a70cc4ac26d4a671ad26d58359a5897e6"],
+    ["13", "5c171af0093075284c30b2c94f520f04b284a107992056ba226d24042dd050c6", "7293bf5528f7a454929d4e8f2a60e85c77ced2eb8a8e1404f4a2daa4b4b1353f"],
+  ];
+  for (const [id, transcriptHash, captionHash] of revised) {
+    const video = data.videos.find(item => item.id === id);
+    const base = `${ROUTE}/tutorials/${video.directory}`;
+    assert.equal(video.transcript, `${base}/transcript-2026-11-18.md`);
+    assert.equal(video.captions, `${base}/captions-2026-11-18.en.vtt`);
+    for (const [asset, hash] of [[video.transcript, transcriptHash], [video.captions, captionHash]]) {
+      const normalized = (await localAsset(asset)).toString("utf8").replaceAll("\r\n", "\n");
+      assert.equal(createHash("sha256").update(normalized).digest("hex"), hash, asset);
+      assert.match(normalized, /one active campaign for new stores/i);
+      assert.doesNotMatch(normalized, /Free covers core percentage|Free supports a small core percentage/i);
+    }
+  }
 });
 
 test("the committed import manifest verifies source parity and every copied asset without sibling access", async () => {
@@ -186,6 +206,7 @@ test("server guide retains every legacy anchor and tutorial with a non-autoloadi
   for (const video of data.videos) {
     assert.ok(html.includes(`href="https://www.youtube.com/watch?v=${video.youtubeId}"`));
     assert.ok(html.includes(`href="${video.transcript}"`));
+    assert.ok(html.includes(`href="${video.captions}"`));
   }
   assert.ok(html.includes('href="https://apps.shopify.com/multitier-discounts"'));
   assert.ok(html.includes('href="/apps/multitier-discounts#packages"'));

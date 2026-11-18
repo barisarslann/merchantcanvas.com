@@ -1,0 +1,124 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.124
+Open the app's Analytics page. Total Uses, Total
+Discount Given and Orders Affected describe recorded
+
+2
+00:00:06.124 --> 00:00:10.616
+discount activity; Active Campaigns describes
+configuration. These are not interchangeable measures
+
+3
+00:00:10.616 --> 00:00:18.373
+of conversion. Our demo has one active campaign and no
+processed discount orders, so No data yet is expected.
+
+4
+00:00:18.373 --> 00:00:26.539
+We do not create a customer order just to fill a
+chart. A dash means missing reported data, not an
+
+5
+00:00:26.539 --> 00:00:27.764
+estimated revenue figure.
+
+6
+00:00:28.814 --> 00:00:35.255
+Use Campaign Performance to compare the reported uses,
+discount amount and last-used information for each
+
+7
+00:00:35.255 --> 00:00:41.696
+campaign. The page explains that data comes from
+processed orders and that historical orders before
+
+8
+00:00:41.696 --> 00:00:48.995
+installation are not included. Adding products to a
+cart or opening checkout is not an order-use record.
+
+9
+00:00:48.995 --> 00:00:56.295
+For a disputed result, compare the saved campaign,
+actual order lines and applied discounts. Do not treat
+
+10
+00:00:56.295 --> 00:01:01.447
+this table as session replay, acquisition attribution
+or proof of incremental sales.
+
+11
+00:01:02.688 --> 00:01:07.087
+In Plans and Billing, choose by the number
+of campaigns you need active at once.
+
+12
+00:01:07.331 --> 00:01:12.803
+Every MTD plan includes the standard campaign tools,
+including gifts and discount codes.
+
+13
+00:01:13.047 --> 00:01:16.140
+Free includes one active campaign for new stores.
+
+14
+00:01:16.140 --> 00:01:20.393
+Starter includes ten. Pro and Plus
+have no app-level campaign cap.
+
+15
+00:01:20.637 --> 00:01:25.208
+An enabled campaign uses a slot
+even before its scheduled start.
+
+16
+00:01:25.208 --> 00:01:28.947
+Drafts, stopped campaigns,
+and expired campaigns do not count.
+
+17
+00:01:29.767 --> 00:01:35.117
+MTD Plus is the app plan. Shopify Plus
+is the store's platform plan.
+
+18
+00:01:35.117 --> 00:01:36.763
+They are separate subscriptions.
+
+19
+00:01:37.023 --> 00:01:41.374
+Storefront cart mystery is available
+on every MTD plan.
+
+20
+00:01:41.374 --> 00:01:46.207
+Checkout mystery requires MTD Plus,
+an eligible Shopify Plus store,
+
+21
+00:01:46.207 --> 00:01:49.107
+proper permissions, and a supported setup.
+
+22
+00:01:49.367 --> 00:01:51.074
+This is a development store.
+
+23
+00:01:51.074 --> 00:01:55.511
+No paid subscription is active here,
+and we are not approving a charge.
+
+24
+00:01:55.771 --> 00:01:58.436
+Check the current terms in Shopify before upgrading.
+
+25
+00:01:58.436 --> 00:02:02.101
+Choose enough room for the offers
+you need to run together,
+
+26
+00:02:02.101 --> 00:02:04.433
+and test them in cart and checkout.
