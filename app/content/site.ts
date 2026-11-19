@@ -504,6 +504,20 @@ export const resources = [
     accent: "coral",
   },
   {
+    slug: "shopify-second-item-discount",
+    category: "Promotion operations",
+    title: "How to discount only the second item on Shopify",
+    description:
+      "Choose which item counts as second, check when Shopify's own Buy X Get Y discount is enough, and test repeated items before launch.",
+    question:
+      "How can a Shopify merchant give a discount to the second item only, without discounting the whole cart?",
+    readingTime: "6 min read",
+    reviewed: "19 November 2026",
+    href: "/resources/shopify-second-item-discount",
+    linkLabel: "Read the second-item discount guide",
+    accent: "coral",
+  },
+  {
     slug: "shopify-b2b-quote-approval-workflow",
     category: "B2B operations",
     title: "A practical Shopify B2B quote approval workflow",

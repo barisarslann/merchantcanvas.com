@@ -64,6 +64,11 @@ export default function QuantityBreaksGuidePage() {
         repeated units, and per-line discounted quantity limits in checkout.
       </p>
       <p>
+        <Link href="/resources/shopify-second-item-discount">
+          Plan a discount on the second item only
+        </Link>, including when Shopify’s own Buy X Get Y discount is enough.
+      </p>
+      <p>
         <Link href={quantityBreaksVideo.path}>
           Watch the Shopify quantity breaks tutorial
         </Link>{" "}({quantityBreaksVideo.runtime}, English captions) to see a

@@ -35,6 +35,7 @@ test("renders every required public route with metadata", async () => {
     "/resources",
     "/resources/shopify-quantity-breaks-guide",
     "/resources/shopify-quantity-breaks-video",
+    "/resources/shopify-second-item-discount",
     "/resources/shopify-b2b-quote-approval-workflow",
     "/about",
     "/contact",
@@ -83,6 +84,7 @@ test("ships crawler, AI summary, sitemap, evidence, and Pages assets", async () 
   assert.match(llms, /apps\.shopify\.com\/multitier-discounts/);
   assert.match(llms, /\$24\.99\/month/);
   assert.match(sitemap, /shopify-quantity-breaks-guide/);
+  assert.match(sitemap, /shopify-second-item-discount/);
   assert.match(sitemap, /shopify-b2b-quote-approval-workflow/);
   assert.match(sitemap, /https:\/\/merchantcanvas\.com\/docs\/multitier-discounts/);
 });
@@ -127,6 +129,7 @@ test("MTD install calls to action and B2B coming-soon status stay truthful", asy
     "/apps",
     "/apps/multitier-discounts",
     "/resources/shopify-quantity-breaks-guide",
+    "/resources/shopify-second-item-discount",
   ];
 
   for (const route of installRoutes) {

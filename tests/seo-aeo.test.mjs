@@ -8,6 +8,7 @@ const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const QUANTITY_VIDEO_ROUTE = "/resources/shopify-quantity-breaks-video";
 const DOCS_GUIDE_ROUTE = "/docs/multitier-discounts";
+const SECOND_ITEM_ROUTE = "/resources/shopify-second-item-discount";
 const PUBLIC_ROUTES = [
   "/",
   "/apps",
@@ -20,6 +21,7 @@ const PUBLIC_ROUTES = [
   "/resources",
   "/resources/shopify-quantity-breaks-guide",
   QUANTITY_VIDEO_ROUTE,
+  SECOND_ITEM_ROUTE,
   "/resources/shopify-b2b-quote-approval-workflow",
   "/about",
   "/contact",
@@ -69,8 +71,15 @@ const PRODUCT_EXPECTATIONS = {
 
 const ARTICLE_ROUTES = [
   "/resources/shopify-quantity-breaks-guide",
+  SECOND_ITEM_ROUTE,
   "/resources/shopify-b2b-quote-approval-workflow",
 ];
+
+const PUBLISHED_BY_ROUTE = {
+  "/resources/shopify-quantity-breaks-guide": "2026-07-27",
+  [SECOND_ITEM_ROUTE]: "2026-11-19",
+  "/resources/shopify-b2b-quote-approval-workflow": "2026-07-27",
+};
 
 const LAST_MODIFIED_BY_ROUTE = {
   "/": "2026-11-02",
@@ -81,9 +90,10 @@ const LAST_MODIFIED_BY_ROUTE = {
   "/apps/b2b-quote-approvals": "2026-07-29",
   "/docs": "2026-11-11",
   [DOCS_GUIDE_ROUTE]: "2026-11-15",
-  "/resources": "2026-11-11",
+  "/resources": "2026-11-19",
   "/resources/shopify-quantity-breaks-guide": "2026-11-11",
   [QUANTITY_VIDEO_ROUTE]: "2026-11-06",
+  [SECOND_ITEM_ROUTE]: "2026-11-19",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-11-02",
   "/about": "2026-07-29",
   "/contact": "2026-07-29",
@@ -486,6 +496,7 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
     "/apps/multitier-discounts",
     "/apps/b2b-quote-approvals",
     "/resources/shopify-quantity-breaks-guide",
+    SECOND_ITEM_ROUTE,
     "/resources/shopify-b2b-quote-approval-workflow",
   ]) {
     assert.match(llms, new RegExp(expectedCanonical(route)));
@@ -662,10 +673,11 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     assert.equal(webPage?.["@type"], "WebPage");
     assert.deepEqual(webPage?.mainEntity, { "@id": `${articleUrl}#article` });
     assert.equal(article?.["@type"], "Article");
-    assert.equal(article?.datePublished, "2026-07-27T00:00:00+03:00");
+    const published = PUBLISHED_BY_ROUTE[route];
+    assert.equal(article?.datePublished, `${published}T00:00:00+03:00`);
     assert.equal(article?.dateModified, `${LAST_MODIFIED_BY_ROUTE[route]}T00:00:00+03:00`);
-    assert.ok(new Date(article.datePublished) < new Date(article.dateModified));
-    assert.match(html, /Published <time dateTime="2026-07-27"|Published <time datetime="2026-07-27"/i);
+    assert.ok(new Date(article.datePublished) <= new Date(article.dateModified));
+    assert.match(html, new RegExp(`Published <time datetime="${published}"`, "i"));
     assert.ok(article.image.url.startsWith(`${SITE_URL}/images/`));
     assert.equal(article.image["@type"], "ImageObject");
     assert.equal(article.image.width, 1200);
