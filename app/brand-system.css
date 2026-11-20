@@ -1154,6 +1154,42 @@ html[data-theme="dark"] .button-primary:hover {
   background: var(--paper);
 }
 
+.section.review-section {
+  padding-bottom: 0;
+}
+
+.review-quote {
+  margin: 0;
+}
+
+.review-quote blockquote {
+  margin: 0 0 16px;
+}
+
+.review-quote blockquote p {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.review-quote figcaption {
+  color: var(--muted);
+}
+
+.review-quote figcaption span,
+.review-quote figcaption time {
+  white-space: nowrap;
+}
+
+.review-quote figcaption a {
+  color: var(--interactive-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .closing-cta-actions {
   display: flex;
   gap: var(--space-3);

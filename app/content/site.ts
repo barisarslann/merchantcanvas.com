@@ -83,6 +83,17 @@ export type Product = {
     width: number;
     height: number;
   }[];
+  review?: {
+    quote: string;
+    rating: number;
+    date: string;
+    dateIso: string;
+    merchant: string;
+    merchantUrl: string;
+    location: string;
+    usage: string;
+    sourceUrl: string;
+  };
 };
 
 export const products: Record<Product["slug"], Product> = {
@@ -313,6 +324,18 @@ export const products: Record<Product["slug"], Product> = {
         height: 1248,
       },
     ],
+    review: {
+      quote:
+        "Very easy navigation and campaign creation. Very useful for both smaller and bigger gifting campaigns.",
+      rating: 5,
+      date: "20 November 2026",
+      dateIso: "2026-11-20",
+      merchant: "Fugazzi Fragrances",
+      merchantUrl: "https://fugazzifragrances.com/",
+      location: "Netherlands",
+      usage: "8 months using the app",
+      sourceUrl: "https://apps.shopify.com/multitier-discounts/reviews",
+    },
   },
   "b2b-quote-approvals": {
     slug: "b2b-quote-approvals",

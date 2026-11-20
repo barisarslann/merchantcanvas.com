@@ -65,7 +65,8 @@ MerchantCanvas builds focused Shopify apps around clearly bounded merchant workf
 - Verified B2B Quote Approvals product implementation: `F:\Shopify\b2b-quote-approvals`.
 - Approved MultiTier screenshots: `public/images/multitier-campaign-rules.jpg` and `public/images/multitier-analytics.jpg`.
 - MerchantCanvas production identity assets: `public/brand/`.
-- No approved testimonials, customer logos, ratings, install counts, or B2B product screenshots are available. Future work must not invent them.
+- One public Shopify App Store review exists for MultiTier Discounts (5 out of 5, 20 November 2026, Fugazzi Fragrances). The owner approved showing it on the MTD product page with a link to the merchant's website and to the App Store reviews. Do not mark App Store ratings up as structured data.
+- No other testimonials, customer logos, install counts, or B2B product screenshots are available. Future work must not invent them.
 
 ## Product Principles
 

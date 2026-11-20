@@ -165,3 +165,17 @@ test("MTD install calls to action and B2B coming-soon status stay truthful", asy
   assert.equal(b2bInstallAnchors.length, 0, "B2B product has no install CTA");
   assert.doesNotMatch(b2bHtml, /"downloadUrl":/i);
 });
+
+test("MTD page shows the one public App Store review without rating markup", async () => {
+  const mtdHtml = await (await render("/apps/multitier-discounts")).text();
+  assert.match(mtdHtml, /Shopify App Store review/);
+  assert.match(mtdHtml, /Very easy navigation and campaign creation\. Very useful for both smaller and bigger gifting campaigns\./);
+  assert.match(mtdHtml, /<a href="https:\/\/fugazzifragrances\.com\/">Fugazzi Fragrances<\/a>/);
+  assert.match(mtdHtml, /Rated 5 out of 5/);
+  assert.match(mtdHtml, /<time dateTime="2026-11-20">20 November 2026<\/time>|<time datetime="2026-11-20">20 November 2026<\/time>/i);
+  assert.match(mtdHtml, /href="https:\/\/apps\.shopify\.com\/multitier-discounts\/reviews"/);
+  assert.doesNotMatch(mtdHtml, /"aggregateRating"|"reviewRating"/);
+
+  const b2bHtml = await (await render("/apps/b2b-quote-approvals")).text();
+  assert.doesNotMatch(b2bHtml, /Shopify App Store review/);
+});

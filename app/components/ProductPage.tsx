@@ -316,6 +316,36 @@ export function ProductPage({ product }: { product: Product }) {
           </section>
         )}
 
+        {product.review && (
+          <section className="section review-section" aria-labelledby="product-review-heading">
+            <div className="container related-resource">
+              <figure className="review-quote">
+                <p className="eyebrow" id="product-review-heading">
+                  Shopify App Store review
+                </p>
+                <blockquote cite={product.review.sourceUrl}>
+                  <p>“{product.review.quote}”</p>
+                </blockquote>
+                <figcaption>
+                  <span>
+                    <a href={product.review.merchantUrl}>{product.review.merchant}</a>
+                    {`, ${product.review.location}`}
+                  </span>
+                  {" · "}
+                  <span>{`Rated ${product.review.rating} out of 5`}</span>
+                  {" · "}
+                  <time dateTime={product.review.dateIso}>{product.review.date}</time>
+                  {" · "}
+                  <span>{product.review.usage}</span>
+                </figcaption>
+              </figure>
+              <a className="button button-secondary" href={product.review.sourceUrl}>
+                Read it on the App Store
+              </a>
+            </div>
+          </section>
+        )}
+
         <section className="section" id="packages">
           <div className="container">
             <div className="section-heading">
