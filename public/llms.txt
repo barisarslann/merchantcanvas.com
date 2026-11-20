@@ -29,6 +29,7 @@ MerchantCanvas does not publish review ratings, merchant counts, or guaranteed o
 - [Shopify quantity breaks guide](https://merchantcanvas.com/resources/shopify-quantity-breaks-guide): Tier design, margin, eligibility, storefront messages, checkout logic, and pre-launch tests.
 - [Shopify second-item discount guide](https://merchantcanvas.com/resources/shopify-second-item-discount): Which item counts as second, when Shopify's own Buy X Get Y discount is enough, position rules, repeated units on one cart line, and a pre-launch test path.
 - [Shopify B2B quote approval workflow](https://merchantcanvas.com/resources/shopify-b2b-quote-approval-workflow): Intake, review, revisions, buyer decisions, and draft-order conversion.
+- [Shopify’da indirim nasıl yapılır? (Turkish)](https://merchantcanvas.com/tr/shopify-indirim-nasil-yapilir): Turkish guide to Shopify discount codes, automatic ("cart") discounts and Buy X Get Y, and when tiered, position or auto-added gift offers need an app.
 - [Resources](https://merchantcanvas.com/resources): Guide index.
 
 ## Company

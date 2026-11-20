@@ -21,8 +21,32 @@ type ArticleLayoutProps = {
   illustration: { src: string; width: number; height: number; alt: string; caption: string };
   path: string;
   takeaways: string[];
+  locale?: ArticleLocale;
   children: ReactNode;
 };
+
+type ArticleLocale = "en" | "tr";
+
+const articleLabels = {
+  en: {
+    resources: "Resources",
+    preparedBy: "Prepared by the MerchantCanvas product team",
+    published: "Published",
+    reviewed: "Reviewed",
+    takeaways: "Key takeaways",
+    reviewNote:
+      "This guide reflects current product implementation and practical workflow research. It is not legal, tax, or financial advice.",
+  },
+  tr: {
+    resources: "Kaynaklar",
+    preparedBy: "MerchantCanvas ürün ekibi hazırladı",
+    published: "Yayın",
+    reviewed: "Kontrol",
+    takeaways: "Öne çıkanlar",
+    reviewNote:
+      "Bu rehber, uygulamanın bugünkü hâline ve Shopify'ın yardım sayfalarına dayanır. Hukuki, vergi ya da finans tavsiyesi değildir.",
+  },
+} as const;
 
 export function ArticleLayout({
   title,
@@ -36,8 +60,10 @@ export function ArticleLayout({
   illustration,
   path,
   takeaways,
+  locale = "en",
   children,
 }: ArticleLayoutProps) {
+  const labels = articleLabels[locale];
   const articleUrl = absoluteUrl(path);
   const pageId = `${articleUrl}#webpage`;
   const articleId = `${articleUrl}#article`;
@@ -52,7 +78,7 @@ export function ArticleLayout({
         url: articleUrl,
         name: title,
         description,
-        inLanguage: "en",
+        inLanguage: locale,
         isPartOf: { "@id": websiteId },
         mainEntity: { "@id": articleId },
         breadcrumb: { "@id": breadcrumbId },
@@ -63,7 +89,7 @@ export function ArticleLayout({
         url: articleUrl,
         headline: title,
         description,
-        inLanguage: "en",
+        inLanguage: locale,
         datePublished: editorialSchemaDateTime(publishedIso),
         dateModified: editorialSchemaDateTime(reviewedIso),
         image: {
@@ -92,7 +118,7 @@ export function ArticleLayout({
           {
             "@type": "ListItem",
             position: 1,
-            name: "Resources",
+            name: labels.resources,
             item: absoluteUrl("/resources"),
           },
           {
@@ -109,12 +135,12 @@ export function ArticleLayout({
   return (
     <>
       <StructuredData data={articleSchema} />
-      <main>
+      <main lang={locale === "en" ? undefined : locale}>
         <article>
           <header className="article-hero">
             <div className="container article-hero-inner">
               <div className="breadcrumbs">
-                <Link href="/resources">Resources</Link>
+                <Link href="/resources">{labels.resources}</Link>
                 <span aria-hidden="true">/</span>
                 <span>{category}</span>
               </div>
@@ -122,25 +148,22 @@ export function ArticleLayout({
               <h1>{title}</h1>
               <p className="article-deck">{description}</p>
               <div className="article-byline">
-                <span>Prepared by the MerchantCanvas product team</span>
+                <span>{labels.preparedBy}</span>
                 <span>{readingTime}</span>
-                <span>Published <time dateTime={publishedIso}>{published}</time></span>
-                <span>Reviewed <time dateTime={reviewedIso}>{reviewed}</time></span>
+                <span>{`${labels.published} `}<time dateTime={publishedIso}>{published}</time></span>
+                <span>{`${labels.reviewed} `}<time dateTime={reviewedIso}>{reviewed}</time></span>
               </div>
             </div>
           </header>
           <div className="container article-layout">
             <aside className="article-aside">
-              <p className="eyebrow">Key takeaways</p>
+              <p className="eyebrow">{labels.takeaways}</p>
               <ul>
                 {takeaways.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <p className="review-note">
-                This guide reflects current product implementation and practical
-                workflow research. It is not legal, tax, or financial advice.
-              </p>
+              <p className="review-note">{labels.reviewNote}</p>
             </aside>
             <div className="article-body">
               <figure className="article-illustration">

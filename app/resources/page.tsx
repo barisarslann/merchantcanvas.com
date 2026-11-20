@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { mtdEducation, resources } from "../content/site";
+import { mtdEducation, resources, turkishResources } from "../content/site";
 import { pageMetadata } from "../lib/metadata";
 
 export const metadata = pageMetadata(
@@ -44,10 +44,14 @@ export default function ResourcesPage() {
       <section className="section">
         <div className="container">
           <div className="resource-grid resource-grid-hub">
-            {resources.map((resource) => (
+            {[
+              ...resources.map((resource) => ({ ...resource, lang: "en" as const })),
+              ...turkishResources.map((resource) => ({ ...resource, lang: "tr" as const })),
+            ].map((resource) => (
               <article
                 key={resource.slug}
                 className={`resource-card accent-${resource.accent}`}
+                lang={resource.lang === "en" ? undefined : resource.lang}
               >
                 <div className="resource-meta">
                   <span>{resource.category}</span>
@@ -56,7 +60,7 @@ export default function ResourcesPage() {
                 <h2>{resource.title}</h2>
                 <p>{resource.description}</p>
                 <div className="resource-question">
-                  <span>Question answered</span>
+                  <span>{resource.lang === "tr" ? "Cevaplanan soru" : "Question answered"}</span>
                   <strong>{resource.question}</strong>
                 </div>
                 <Link className="text-link" href={resource.href}>

@@ -37,6 +37,7 @@ test("renders every required public route with metadata", async () => {
     "/resources/shopify-quantity-breaks-video",
     "/resources/shopify-second-item-discount",
     "/resources/shopify-b2b-quote-approval-workflow",
+    "/tr/shopify-indirim-nasil-yapilir",
     "/about",
     "/contact",
     "/privacy",
@@ -86,6 +87,7 @@ test("ships crawler, AI summary, sitemap, evidence, and Pages assets", async () 
   assert.match(sitemap, /shopify-quantity-breaks-guide/);
   assert.match(sitemap, /shopify-second-item-discount/);
   assert.match(sitemap, /shopify-b2b-quote-approval-workflow/);
+  assert.match(sitemap, /\/tr\/shopify-indirim-nasil-yapilir/);
   assert.match(sitemap, /https:\/\/merchantcanvas\.com\/docs\/multitier-discounts/);
 });
 
@@ -144,6 +146,13 @@ test("MTD install calls to action and B2B coming-soon status stay truthful", asy
       assert.equal(anchor[1], installUrl, `${route} install destination`);
     }
   }
+
+  const turkishHtml = await (await render("/tr/shopify-indirim-nasil-yapilir")).text();
+  const turkishInstall = [
+    ...turkishHtml.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi),
+  ].filter((match) => /Shopify’dan yükle/i.test(match[2]));
+  assert.equal(turkishInstall.length, 1, "Turkish guide install CTA");
+  assert.equal(turkishInstall[0][1], installUrl, "Turkish guide install destination");
 
   const b2bResponse = await render("/apps/b2b-quote-approvals");
   const b2bHtml = await b2bResponse.text();

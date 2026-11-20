@@ -12,7 +12,9 @@ const fontfile=join(root,'public/fonts/PlusJakartaSans-Variable.ttf');
 const ink='#07142e',blue='#164bff';
 const background=geometry=>Buffer.from(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900"><rect width="1200" height="900" fill="#edf2ff"/>${geometry}</svg>`);
 const text=async(value,left,top,size=44,color=ink,weight='600')=>({left,top,input:await sharp({text:{text:`<span foreground="${color}" weight="${weight}">${value}</span>`,font:`Plus Jakarta Sans ${size}`,fontfile,rgba:true,dpi:72}}).png().toBuffer()});
+const only=process.argv.slice(2);
 const save=async(name,geometry,labels)=>{
+  if(only.length&&!only.includes(name))return;
   const target=join(output,name+'.png');
   const existing=await lstat(target).catch(e=>{if(e.code==='ENOENT')return null;throw e;});
   if(existing?.isSymbolicLink())throw Error('Refusing symlink output');
@@ -30,6 +32,17 @@ await save('shopify-quantity-breaks-guide',
     ['$30 first  ·  $20 second  ·  $10 third',48,610,44],
     ['Second: 30% off   ·   Third: 40% off',48,672,38],
     ['Example total: $50',76,762,48,'#ffffff'],
+  ]);
+await save('shopify-indirim-rehberi-tr',
+  '<rect x="0" y="180" width="1200" height="270" fill="#fff"/><path d="M48 480H1152" stroke="#cfd8ef"/><rect x="48" y="738" width="1104" height="110" rx="12" fill="#164bff"/>',[
+    ["Shopify'da mı, uygulamada mı?",48,48,58],
+    ["Shopify'ın kendi indirimi",48,210,54,blue],
+    ['Kod, sepette indirim, 2 al 1 öde',48,300,50],
+    ['İndirimler › İndirim oluştur',48,382,36],
+    ['Uygulama gerekir',48,520,54,blue],
+    ['3 adete %10  ·  5 adete %15',48,610,44],
+    ['İkinciye %30  ·  üçüncüye %40',48,672,38],
+    ['Sepete kendiliğinden eklenen hediye',76,762,48,'#ffffff'],
   ]);
 await save('shopify-b2b-quote-workflow-guide',
   '<path d="M128 235V760" stroke="#164bff" stroke-width="4"/><rect x="160" y="164" width="992" height="144" fill="#fff"/><rect x="160" y="514" width="992" height="144" fill="#fff"/>',[

@@ -9,6 +9,7 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 const QUANTITY_VIDEO_ROUTE = "/resources/shopify-quantity-breaks-video";
 const DOCS_GUIDE_ROUTE = "/docs/multitier-discounts";
 const SECOND_ITEM_ROUTE = "/resources/shopify-second-item-discount";
+const TR_GUIDE_ROUTE = "/tr/shopify-indirim-nasil-yapilir";
 const PUBLIC_ROUTES = [
   "/",
   "/apps",
@@ -23,6 +24,7 @@ const PUBLIC_ROUTES = [
   QUANTITY_VIDEO_ROUTE,
   SECOND_ITEM_ROUTE,
   "/resources/shopify-b2b-quote-approval-workflow",
+  TR_GUIDE_ROUTE,
   "/about",
   "/contact",
   "/privacy",
@@ -73,12 +75,14 @@ const ARTICLE_ROUTES = [
   "/resources/shopify-quantity-breaks-guide",
   SECOND_ITEM_ROUTE,
   "/resources/shopify-b2b-quote-approval-workflow",
+  TR_GUIDE_ROUTE,
 ];
 
 const PUBLISHED_BY_ROUTE = {
   "/resources/shopify-quantity-breaks-guide": "2026-07-27",
   [SECOND_ITEM_ROUTE]: "2026-11-19",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-07-27",
+  [TR_GUIDE_ROUTE]: "2026-11-20",
 };
 
 const LAST_MODIFIED_BY_ROUTE = {
@@ -90,11 +94,12 @@ const LAST_MODIFIED_BY_ROUTE = {
   "/apps/b2b-quote-approvals": "2026-07-29",
   "/docs": "2026-11-11",
   [DOCS_GUIDE_ROUTE]: "2026-11-15",
-  "/resources": "2026-11-19",
+  "/resources": "2026-11-20",
   "/resources/shopify-quantity-breaks-guide": "2026-11-11",
   [QUANTITY_VIDEO_ROUTE]: "2026-11-06",
   [SECOND_ITEM_ROUTE]: "2026-11-19",
   "/resources/shopify-b2b-quote-approval-workflow": "2026-11-02",
+  [TR_GUIDE_ROUTE]: "2026-11-20",
   "/about": "2026-07-29",
   "/contact": "2026-07-29",
   "/privacy": "2026-07-29",
@@ -498,6 +503,7 @@ test("sitemap, robots, canonicals, and internal links agree", async () => {
     "/resources/shopify-quantity-breaks-guide",
     SECOND_ITEM_ROUTE,
     "/resources/shopify-b2b-quote-approval-workflow",
+    TR_GUIDE_ROUTE,
   ]) {
     assert.match(llms, new RegExp(expectedCanonical(route)));
   }
@@ -677,7 +683,8 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     assert.equal(article?.datePublished, `${published}T00:00:00+03:00`);
     assert.equal(article?.dateModified, `${LAST_MODIFIED_BY_ROUTE[route]}T00:00:00+03:00`);
     assert.ok(new Date(article.datePublished) <= new Date(article.dateModified));
-    assert.match(html, new RegExp(`Published <time datetime="${published}"`, "i"));
+    const turkish = route === TR_GUIDE_ROUTE;
+    assert.match(html, new RegExp(`${turkish ? "Yayın" : "Published"} <time datetime="${published}"`, "i"));
     assert.ok(article.image.url.startsWith(`${SITE_URL}/images/`));
     assert.equal(article.image["@type"], "ImageObject");
     assert.equal(article.image.width, 1200);
@@ -685,7 +692,10 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     const imagePath = article.image.url.slice(SITE_URL.length);
     const sourceImage = imageTags(html).find(tag => attribute(tag, "src") === imagePath);
     assert.ok(sourceImage, `${route}: structured image is visible`);
-    assert.match(visiblePageText(html), /Illustrative.*not.*(?:app|product) screenshot/);
+    assert.match(
+      visiblePageText(html),
+      turkish ? /Örnek çizim.*ekran görüntüsü.*değil/ : /Illustrative.*not.*(?:app|product) screenshot/,
+    );
     const imageInfo = await sharp(await readFile(new URL(`../public${imagePath}`, import.meta.url))).metadata();
     assert.equal(imageInfo.width, article.image.width);
     assert.equal(imageInfo.height, article.image.height);
@@ -701,7 +711,11 @@ test("article JSON-LD uses real dates and stable publisher relationships", async
     assert.deepEqual(author?.parentOrganization, {
       "@id": ORGANIZATION_ID,
     });
-    assert.match(html, /Prepared by the MerchantCanvas product team/);
+    assert.match(html, turkish ? /MerchantCanvas ürün ekibi hazırladı/ : /Prepared by the MerchantCanvas product team/);
+    assert.equal(article?.inLanguage, turkish ? "tr" : "en");
+    assert.equal(webPage?.inLanguage, turkish ? "tr" : "en");
+    if (turkish) assert.match(html, /<main[^>]*\blang="tr"/i, `${route} Turkish content language`);
+    else assert.doesNotMatch(html, /<main[^>]*\blang=/i, `${route} keeps the document language`);
   }
 });
 

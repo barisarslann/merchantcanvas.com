@@ -532,3 +532,21 @@ export const resources = [
     accent: "blue",
   },
 ] as const;
+
+// Turkish guide (D-045). Listed on /resources only, not on the English homepage.
+export const turkishResources = [
+  {
+    slug: "shopify-indirim-nasil-yapilir",
+    category: "Kampanya rehberi · Türkçe",
+    title: "Shopify’da indirim nasıl yapılır?",
+    description:
+      "İndirim kodu, sepette indirim, 2 al 1 öde ve kademeli indirim: hangisi Shopify’ın kendi indirimiyle kurulur, hangisi için uygulama gerekir.",
+    question:
+      "Shopify’da indirim kodu ve sepette indirim nasıl kurulur, ne zaman uygulama gerekir?",
+    readingTime: "6 dk okuma",
+    reviewed: "20 Kasım 2026",
+    href: "/tr/shopify-indirim-nasil-yapilir",
+    linkLabel: "Türkçe rehberi oku",
+    accent: "coral",
+  },
+] as const;
